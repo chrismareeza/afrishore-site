@@ -79,36 +79,60 @@ const ports: Pin[] = [
         <text x="370" y="500" fill="#2A2A2A" font-family="Inter, sans-serif" font-size="13" letter-spacing="0.25em" font-weight="600">SOUTH AFRICA</text>
         <text x="715" y="180" text-anchor="middle" fill="#2A2A2A" font-family="Inter, sans-serif" font-size="13" letter-spacing="0.25em" font-weight="600">MOZAMBIQUE</text>
 
-        <!-- Country borders — thin faint gold dashed lines.
-             Three segments that meet at the two tri-points:
-             - NA/Botswana/SA corner ≈ (342, 365)
-             - SA/Zimbabwe/Mozambique corner ≈ (632, 340)
+        <!-- Country borders — thin faint gold dashed lines, geographically accurate.
+             5 countries (NA, SA, MZ, Bot, Zim) meeting at 6 tri-points:
+             - NA-Bot-Zam (Caprivi) ≈ (360, 100)
+             - Bot-Zim-Zam          ≈ (455, 105)
+             - Zim-Zam-MZ           ≈ (580, 85)
+             - NA-Bot-SA            ≈ (342, 365)
+             - Bot-Zim-SA           ≈ (512, 331)
+             - SA-Zim-MZ            ≈ (632, 340)
         -->
         <g class="opacity-0" data-borders>
-          <!-- NA/SA — Orange River, Atlantic coast (28.6°S, 16.5°E) ESE to NA/Bot/SA corner -->
+          <!-- NAMIBIA outline (excl Atlantic coast): N (Angola) → E (Bot) → S (Orange River) -->
           <path
-            d="M 240 412 Q 290 388, 342 365"
+            d="M 200 105 L 360 100 L 342 365 Q 290 388, 240 412"
             stroke="#F5AB2F"
             stroke-width="1"
             stroke-opacity="0.4"
             stroke-dasharray="4 4"
             fill="none"
           />
-          <!-- SA's northern border — NA/Bot/SA corner east across Botswana then Zimbabwe
-               to SA/Zim/MZ tri-point -->
+
+          <!-- SA's inland borders: NA tri → Bot tri → Zim tri → MZ coast (Lebombo) -->
           <path
-            d="M 342 365 Q 455 348, 565 348 Q 605 343, 632 340"
+            d="M 342 365 L 512 331 L 632 340 L 660 441"
             stroke="#F5AB2F"
             stroke-width="1"
             stroke-opacity="0.4"
             stroke-dasharray="4 4"
             fill="none"
           />
-          <!-- Mozambique's western boundary — south leg (Lebombo, SA/MZ) from tri-point
-               down to Kosi Bay coast (26.85°S), and north leg (Zim/MZ) up to MZ/Tanzania
-               border (~16°S) -->
+
+          <!-- Botswana-Zimbabwe border -->
           <path
-            d="M 660 441 Q 645 392, 632 340 Q 650 270, 670 195"
+            d="M 455 105 L 512 331"
+            stroke="#F5AB2F"
+            stroke-width="1"
+            stroke-opacity="0.4"
+            stroke-dasharray="4 4"
+            fill="none"
+          />
+
+          <!-- Northern boundary across inland (Angola/Zambia/Tanzania edges):
+               NA-Bot tri → Bot-Zim tri → Zim-MZ tri → MZ-Tanzania coast -->
+          <path
+            d="M 360 100 L 455 105 L 580 85 Q 700 115, 820 115"
+            stroke="#F5AB2F"
+            stroke-width="1"
+            stroke-opacity="0.4"
+            stroke-dasharray="4 4"
+            fill="none"
+          />
+
+          <!-- Zimbabwe-Mozambique border (north tri-point south to SA-Zim-MZ tri-point) -->
+          <path
+            d="M 580 85 L 632 340"
             stroke="#F5AB2F"
             stroke-width="1"
             stroke-opacity="0.4"
