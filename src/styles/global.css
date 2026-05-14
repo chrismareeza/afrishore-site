@@ -22,7 +22,7 @@
   --color-yellow: #FDE64B;
 
   /* Typography */
-  --font-display: "Boldonse", system-ui, sans-serif;
+  --font-display: "Barlow", system-ui, sans-serif;
   --font-sans: "Inter", system-ui, sans-serif;
 
   /* Animation easing */
@@ -56,11 +56,11 @@ body {
   overflow-x: hidden;
 }
 
-/* Heading defaults — Boldonse */
+/* Heading defaults — Barlow (matches hero text treatment) */
 h1, h2, h3, h4, h5, h6 {
-  font-family: "Boldonse", system-ui, sans-serif;
-  font-weight: 400; /* Boldonse only ships in Regular — visually heavy by design */
-  letter-spacing: -0.02em;
+  font-family: "Barlow", system-ui, sans-serif;
+  font-weight: 400;
+  letter-spacing: -0.025em;
 }
 
 /* ──────────────────────────────────────────────
