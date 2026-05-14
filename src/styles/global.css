@@ -74,6 +74,21 @@ h1, h2, h3, h4, h5, h6 {
   color: transparent;
 }
 
+/* Gentle cream → warm-gold fade across hero text. Used on hero H1 only. */
+.hero-fade-text {
+  background: linear-gradient(
+    100deg,
+    rgba(245, 242, 235, 1) 0%,
+    rgba(245, 242, 235, 1) 25%,
+    rgba(245, 171, 47, 0.95) 80%,
+    rgba(237, 112, 20, 0.85) 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
 .gradient-underline {
   position: relative;
   display: inline-block;
