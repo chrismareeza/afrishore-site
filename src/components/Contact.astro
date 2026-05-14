@@ -1,0 +1,224 @@
+---
+// Section 11 · Contact
+// Form on left, 4 office cards on right
+// Form posts to a placeholder endpoint — wire up to Formspark/Tally/Resend at launch
+
+interface Office {
+  city: string;
+  isHQ?: boolean;
+  street: string;
+  region: string;
+  country: string;
+  phone?: string;
+}
+
+const offices: Office[] = [
+  {
+    city: "Mossel Bay",
+    isHQ: true,
+    street: "58 Bland Street",
+    region: "Western Cape",
+    country: "South Africa",
+    phone: "+27 44 691-3218",
+  },
+  {
+    city: "Cape Town",
+    street: "Unit 213, Buchanan Square",
+    region: "Woodstock, Western Cape",
+    country: "South Africa",
+  },
+  {
+    city: "Walvis Bay",
+    street: "Oil & Gas Section, Port of Walvis Bay",
+    region: "Walvis Bay",
+    country: "Namibia",
+  },
+  {
+    city: "Durban",
+    street: "33 Wagtail Walk, Yellowwood Park",
+    region: "KwaZulu-Natal",
+    country: "South Africa",
+  },
+];
+---
+
+<section id="contact" class="relative bg-base py-24 lg:py-32 border-t border-line">
+  <div class="max-w-7xl mx-auto px-6 lg:px-12">
+    <div class="max-w-3xl mb-16 space-y-6">
+      <div data-anim="cont-eyebrow" class="opacity-0 -translate-y-2">
+        <span class="text-xs lg:text-sm font-semibold uppercase tracking-[0.25em] text-gold">
+          Contact
+        </span>
+      </div>
+      <h2
+        data-anim="cont-headline"
+        class="opacity-0 translate-y-4 text-4xl md:text-5xl lg:text-6xl leading-[1.1] text-cream"
+      >
+        Let's talk about<br />
+        <span class="gradient-text">your operation.</span>
+      </h2>
+      <p
+        data-anim="cont-sub"
+        class="opacity-0 translate-y-4 text-lg text-mute max-w-2xl"
+      >
+        Tell us about the vessel, the port, and the timeline. We'll get back within one business day.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
+      <!-- Form -->
+      <form
+        data-anim="cont-form"
+        class="opacity-0 translate-y-4 lg:col-span-7 space-y-5"
+        action="https://formspark.io/forms/PLACEHOLDER"
+        method="POST"
+        novalidate
+      >
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+          <label class="block">
+            <span class="block text-xs uppercase tracking-[0.15em] text-gold font-semibold mb-2">Name *</span>
+            <input
+              type="text"
+              name="name"
+              required
+              class="w-full bg-surface border border-line focus:border-orange focus:outline-none px-4 py-3 text-cream placeholder-faint rounded-sm transition-colors"
+              placeholder="Your name"
+            />
+          </label>
+          <label class="block">
+            <span class="block text-xs uppercase tracking-[0.15em] text-gold font-semibold mb-2">Company *</span>
+            <input
+              type="text"
+              name="company"
+              required
+              class="w-full bg-surface border border-line focus:border-orange focus:outline-none px-4 py-3 text-cream placeholder-faint rounded-sm transition-colors"
+              placeholder="Company name"
+            />
+          </label>
+          <label class="block">
+            <span class="block text-xs uppercase tracking-[0.15em] text-gold font-semibold mb-2">Email *</span>
+            <input
+              type="email"
+              name="email"
+              required
+              class="w-full bg-surface border border-line focus:border-orange focus:outline-none px-4 py-3 text-cream placeholder-faint rounded-sm transition-colors"
+              placeholder="work@email.com"
+            />
+          </label>
+          <label class="block">
+            <span class="block text-xs uppercase tracking-[0.15em] text-gold font-semibold mb-2">Phone</span>
+            <input
+              type="tel"
+              name="phone"
+              class="w-full bg-surface border border-line focus:border-orange focus:outline-none px-4 py-3 text-cream placeholder-faint rounded-sm transition-colors"
+              placeholder="+27 ..."
+            />
+          </label>
+        </div>
+
+        <label class="block">
+          <span class="block text-xs uppercase tracking-[0.15em] text-gold font-semibold mb-2">Operation type</span>
+          <select
+            name="operation_type"
+            class="w-full bg-surface border border-line focus:border-orange focus:outline-none px-4 py-3 text-cream rounded-sm transition-colors"
+          >
+            <option value="">Select an option…</option>
+            <option value="vessel-agency">Vessel Agency</option>
+            <option value="supply-base">Supply Base Operations</option>
+            <option value="crew-logistics">Crew Logistics</option>
+            <option value="project-cargo">Project Cargo / Heavy Lift</option>
+            <option value="customs">Customs / Clearance</option>
+            <option value="other">Other</option>
+          </select>
+        </label>
+
+        <label class="block">
+          <span class="block text-xs uppercase tracking-[0.15em] text-gold font-semibold mb-2">Message *</span>
+          <textarea
+            name="message"
+            required
+            rows="5"
+            class="w-full bg-surface border border-line focus:border-orange focus:outline-none px-4 py-3 text-cream placeholder-faint rounded-sm transition-colors resize-none"
+            placeholder="Tell us about the vessel, port, timeline…"
+          ></textarea>
+        </label>
+
+        <button
+          type="submit"
+          class="inline-flex items-center gap-2 bg-orange hover:bg-gold text-base px-7 py-4 text-base font-semibold tracking-wide transition-colors duration-200 rounded-sm"
+        >
+          Send Enquiry
+          <span aria-hidden="true">→</span>
+        </button>
+
+        <p class="text-xs text-faint pt-2">
+          Or email us directly at <a href="mailto:info@afrishore.co" class="text-gold hover:text-yellow transition-colors">info@afrishore.co</a>
+        </p>
+      </form>
+
+      <!-- Offices -->
+      <div class="lg:col-span-5 space-y-4">
+        <h3 class="text-xs uppercase tracking-[0.2em] text-gold font-semibold mb-6">
+          Our Offices
+        </h3>
+
+        {offices.map((office) => (
+          <div
+            data-anim="cont-office"
+            class="opacity-0 translate-y-3 p-5 lg:p-6 bg-surface/40 border border-line hover:border-gold/40 rounded-sm transition-colors duration-300"
+          >
+            <div class="flex items-center gap-2 mb-2">
+              <h4 class="text-lg text-cream">{office.city}</h4>
+              {office.isHQ && (
+                <span class="text-[10px] uppercase tracking-[0.15em] text-orange font-semibold border border-orange/40 px-2 py-0.5">
+                  HQ
+                </span>
+              )}
+            </div>
+            <p class="text-sm text-mute leading-relaxed">
+              {office.street}<br />
+              {office.region}, {office.country}
+            </p>
+            {office.phone && (
+              <a
+                href={`tel:${office.phone.replace(/\s/g, '')}`}
+                class="inline-block mt-3 text-sm text-gold hover:text-yellow transition-colors"
+              >
+                {office.phone} →
+              </a>
+            )}
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  import { gsap } from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  gsap.timeline({
+    scrollTrigger: { trigger: "#contact", start: "top 75%", toggleActions: "play none none none" },
+    defaults: { ease: "power3.out", duration: 0.9 },
+  })
+    .to("[data-anim='cont-eyebrow']", { opacity: 1, y: 0 }, 0)
+    .to("[data-anim='cont-headline']", { opacity: 1, y: 0, duration: 1.1 }, 0.15)
+    .to("[data-anim='cont-sub']", { opacity: 1, y: 0 }, 0.35)
+    .to("[data-anim='cont-form']", { opacity: 1, y: 0 }, 0.5);
+
+  gsap.to("[data-anim='cont-office']", {
+    opacity: 1,
+    y: 0,
+    duration: 0.7,
+    stagger: 0.1,
+    ease: "power3.out",
+    scrollTrigger: {
+      trigger: "[data-anim='cont-office']",
+      start: "top 85%",
+      toggleActions: "play none none none",
+    },
+  });
+</script>

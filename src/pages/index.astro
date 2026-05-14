@@ -6,6 +6,12 @@ import About from "../components/About.astro";
 import Stats from "../components/Stats.astro";
 import Projects from "../components/Projects.astro";
 import Process from "../components/Process.astro";
+import Services from "../components/Services.astro";
+import Map from "../components/Map.astro";
+import ClientsWall from "../components/ClientsWall.astro";
+import Timeline from "../components/Timeline.astro";
+import FAQ from "../components/FAQ.astro";
+import Contact from "../components/Contact.astro";
 import Footer from "../components/Footer.astro";
 ---
 
@@ -21,19 +27,12 @@ import Footer from "../components/Footer.astro";
     <Stats />
     <Projects />
     <Process />
-
-    <!-- Placeholder for remaining sections -->
-    <section class="py-32 px-6 lg:px-12 max-w-7xl mx-auto">
-      <div class="text-center space-y-6">
-        <span class="text-sm font-semibold uppercase tracking-[0.25em] text-gold">More Coming</span>
-        <h2 class="text-3xl md:text-4xl text-cream max-w-3xl mx-auto leading-tight">
-          Services · Map · Clients · Timeline · FAQ · Contact
-        </h2>
-        <p class="text-lg text-mute max-w-2xl mx-auto">
-          Six more sections to land. Built and deployed on every commit.
-        </p>
-      </div>
-    </section>
+    <Services />
+    <Map />
+    <ClientsWall />
+    <Timeline />
+    <FAQ />
+    <Contact />
   </main>
 
   <Footer />

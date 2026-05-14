@@ -1,0 +1,135 @@
+---
+// Section 6 · Services
+// 4 cards: 3 service pillars + Crew & Visa as the 4th capability
+
+interface Service {
+  title: string;
+  oneLiner: string;
+  bullets: string[];
+}
+
+const services: Service[] = [
+  {
+    title: "Ship & Rig Agency",
+    oneLiner: "Full vessel management for rigs, drillships, OSVs, PSVs, tankers, and passenger liners across six ports.",
+    bullets: [
+      "Port clearance & immigration",
+      "Crew rotation & medivacs",
+      "Bunkering arrangements",
+      "Agency formalities",
+    ],
+  },
+  {
+    title: "Offshore Supply Base",
+    oneLiner: "Turnkey base operator services for offshore drilling campaigns — embedded inside the Port of Walvis Bay.",
+    bullets: [
+      "Rigging, cranage & abnormal trucking",
+      "Warehousing & project cargo",
+      "Waste management",
+      "Special Periodic Survey support",
+    ],
+  },
+  {
+    title: "Integrated Logistics",
+    oneLiner: "Freight forwarding, customs clearance, project cargo, materials management — sea, air, road.",
+    bullets: [
+      "Customs brokerage & port clearance",
+      "International freight (sea + air)",
+      "Materials management",
+      "Bunkering & chandling",
+    ],
+  },
+  {
+    title: "Crew & Visa Services",
+    oneLiner: "Crew rotations, medivacs, visa & immigration for oil & gas personnel across SA and Namibia.",
+    bullets: [
+      "Visa & work permit processing",
+      "Flight coordination",
+      "Accommodation & transport",
+      "Medical evacuation coordination",
+    ],
+  },
+];
+---
+
+<section id="services" class="relative bg-base py-24 lg:py-32">
+  <div class="max-w-7xl mx-auto px-6 lg:px-12">
+    <!-- Section header -->
+    <div class="max-w-3xl mb-16 lg:mb-20 space-y-6">
+      <div data-anim="serv-eyebrow" class="opacity-0 -translate-y-2">
+        <span class="text-xs lg:text-sm font-semibold uppercase tracking-[0.25em] text-gold">
+          What We Do
+        </span>
+      </div>
+      <h2
+        data-anim="serv-headline"
+        class="opacity-0 translate-y-4 text-4xl md:text-5xl lg:text-6xl leading-[1.1] text-cream"
+      >
+        Three core services.<br />
+        <span class="gradient-text">One integrated team.</span>
+      </h2>
+    </div>
+
+    <!-- Service cards: 4-col desktop, 2-col tablet, 1-col mobile -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      {services.map((service) => (
+        <article
+          data-anim="serv-card"
+          class="opacity-0 translate-y-6 group relative bg-surface border border-line hover:border-orange/60 transition-all duration-400 p-7 lg:p-8 rounded-sm flex flex-col"
+        >
+          <!-- Hover gradient bar at the top -->
+          <span
+            class="absolute top-0 left-0 right-0 h-[2px] origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500"
+            style="background: linear-gradient(90deg, #ED7014, #FDE64B);"
+          ></span>
+
+          <h3 class="text-xl lg:text-2xl text-cream leading-tight mb-3 group-hover:text-yellow transition-colors duration-300">
+            {service.title}
+          </h3>
+
+          <p class="text-sm text-mute leading-relaxed mb-6">
+            {service.oneLiner}
+          </p>
+
+          <ul class="space-y-2 mt-auto text-sm text-faint">
+            {service.bullets.map((b) => (
+              <li class="flex items-start gap-2">
+                <span class="text-orange mt-1 leading-none" aria-hidden="true">·</span>
+                <span>{b}</span>
+              </li>
+            ))}
+          </ul>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<script>
+  import { gsap } from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  // Header reveal
+  const tl = gsap.timeline({
+    scrollTrigger: { trigger: "#services", start: "top 75%", toggleActions: "play none none none" },
+    defaults: { ease: "power3.out", duration: 0.9 },
+  });
+  tl.to("[data-anim='serv-eyebrow']", { opacity: 1, y: 0 }, 0)
+    .to("[data-anim='serv-headline']", { opacity: 1, y: 0, duration: 1.1 }, 0.15);
+
+  // Cards stagger reveal
+  gsap.to("[data-anim='serv-card']", {
+    opacity: 1,
+    y: 0,
+    duration: 0.8,
+    stagger: 0.08,
+    ease: "power3.out",
+    scrollTrigger: {
+      trigger: "[data-anim='serv-card']",
+      start: "top 85%",
+      toggleActions: "play none none none",
+    },
+  });
+</script>

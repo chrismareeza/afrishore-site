@@ -1,0 +1,119 @@
+---
+// Section 10 · FAQ
+// Accordion + FAQPage schema.org markup injected for AI search engines
+
+interface FAQItem {
+  q: string;
+  a: string;
+}
+
+const faqs: FAQItem[] = [
+  {
+    q: "Which ports does Afrishore operate in?",
+    a: "Afrishore has offices in Mossel Bay (HQ), Cape Town, Walvis Bay (Namibia), and Durban, and provides services at Saldanha, Lüderitz, Coega, Port Elizabeth, East London, and Pemba (Mozambique).",
+  },
+  {
+    q: "What quality certifications does Afrishore hold?",
+    a: "Afrishore is ISO 9001 certified for its Quality Management System, providing assured operational standards across vessel agency, offshore supply base, and integrated logistics services.",
+  },
+  {
+    q: "Does Afrishore handle bunkering, customs clearance, and project cargo?",
+    a: "Yes. Bunkering, customs brokerage, port clearance, freight forwarding, and project cargo handling are core integrated logistics services offered across all Afrishore-serviced ports in South Africa and Namibia.",
+  },
+  {
+    q: "Which clients has Afrishore worked with?",
+    a: "Afrishore has supported direct contracts for TotalEnergies, PetroSA, Odfjell Drilling and Northern Ocean Ltd, Baker Hughes, Halliburton, Expro, Tidewater, Bourbon, Solstad, Eco Atlantic Oil & Gas, SBM Offshore, Oceaneering, LD TravOcean, Piriou Naval Services, and the Port of Réunion. Operations have supported end-customers including Galp Energia, Meta, and Shell.",
+  },
+  {
+    q: "Can Afrishore support crew rotations, visa processing, and medical evacuations?",
+    a: "Yes. Afrishore handles full crew logistics for offshore personnel including flight coordination, accommodation, visa and immigration processing, and medical evacuation coordination.",
+  },
+  {
+    q: "Does Afrishore operate in Namibia as well as South Africa?",
+    a: "Yes. Afrishore operates a dedicated Walvis Bay office embedded within the Port of Walvis Bay's Oil & Gas Section, serving Lüderitz and the broader Namibian offshore sector including campaigns for major drilling contractors and operators.",
+  },
+  {
+    q: "How long has Afrishore been operating?",
+    a: "Afrishore has operated as an integrated marine logistics agency in Southern Africa since 2010, supporting over 79 completed projects and servicing more than 769 vessels across the region.",
+  },
+];
+---
+
+<section id="faq" class="relative bg-base py-24 lg:py-32">
+  <div class="max-w-4xl mx-auto px-6 lg:px-12">
+    <div class="max-w-3xl mb-16 lg:mb-20 space-y-6">
+      <div data-anim="faq-eyebrow" class="opacity-0 -translate-y-2">
+        <span class="text-xs lg:text-sm font-semibold uppercase tracking-[0.25em] text-gold">
+          Operations FAQ
+        </span>
+      </div>
+      <h2
+        data-anim="faq-headline"
+        class="opacity-0 translate-y-4 text-4xl md:text-5xl lg:text-6xl leading-[1.1] text-cream"
+      >
+        Quick answers for procurement<br />
+        and <span class="gradient-text">operations teams.</span>
+      </h2>
+    </div>
+
+    <div class="space-y-3">
+      {faqs.map((faq, i) => (
+        <details
+          data-anim="faq-item"
+          class="opacity-0 translate-y-3 group border border-line hover:border-gold/40 rounded-sm bg-surface/40 transition-colors duration-300"
+        >
+          <summary class="flex items-start justify-between gap-6 cursor-pointer list-none px-6 py-5 lg:px-8 lg:py-6 group">
+            <h3 class="text-base md:text-lg text-cream group-hover:text-yellow transition-colors duration-200 leading-snug font-sans font-medium">
+              {faq.q}
+            </h3>
+            <span
+              class="flex-shrink-0 text-orange text-2xl leading-none transition-transform duration-300 group-open:rotate-45 mt-1"
+              aria-hidden="true"
+            >+</span>
+          </summary>
+          <div class="px-6 pb-6 lg:px-8 lg:pb-7 text-mute text-base leading-relaxed">
+            {faq.a}
+          </div>
+        </details>
+      ))}
+    </div>
+  </div>
+
+  <!-- FAQPage schema for AI search engines (Perplexity, ChatGPT, Google AI Overviews) -->
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": faqs.map(f => ({
+      "@type": "Question",
+      "name": f.q,
+      "acceptedAnswer": { "@type": "Answer", "text": f.a },
+    })),
+  })} />
+</section>
+
+<script>
+  import { gsap } from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  gsap.timeline({
+    scrollTrigger: { trigger: "#faq", start: "top 75%", toggleActions: "play none none none" },
+    defaults: { ease: "power3.out", duration: 0.9 },
+  })
+    .to("[data-anim='faq-eyebrow']", { opacity: 1, y: 0 }, 0)
+    .to("[data-anim='faq-headline']", { opacity: 1, y: 0, duration: 1.1 }, 0.15);
+
+  gsap.to("[data-anim='faq-item']", {
+    opacity: 1,
+    y: 0,
+    duration: 0.6,
+    stagger: 0.05,
+    ease: "power3.out",
+    scrollTrigger: {
+      trigger: "[data-anim='faq-item']",
+      start: "top 85%",
+      toggleActions: "play none none none",
+    },
+  });
+</script>

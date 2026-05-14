@@ -1,0 +1,90 @@
+---
+// Section 8 · Client Wall
+// Marquee scroll of client logos (CSS animation, no JS needed)
+// Pauses on hover; clients with no logo render as styled text plates
+import { clients } from "../data/clients";
+
+// Duplicate list for seamless infinite scroll
+const doubled = [...clients, ...clients];
+---
+
+<section id="clients" class="relative bg-base py-24 lg:py-32 overflow-hidden border-y border-line">
+  <div class="max-w-7xl mx-auto px-6 lg:px-12 mb-12 lg:mb-16">
+    <div class="max-w-3xl space-y-6">
+      <div data-anim="cli-eyebrow" class="opacity-0 -translate-y-2">
+        <span class="text-xs lg:text-sm font-semibold uppercase tracking-[0.25em] text-gold">
+          Trusted By
+        </span>
+      </div>
+      <h2
+        data-anim="cli-headline"
+        class="opacity-0 translate-y-4 text-3xl md:text-4xl lg:text-5xl leading-tight text-cream"
+      >
+        Operators, drillers, and service contractors<br />
+        across the <span class="gradient-text">African energy sector.</span>
+      </h2>
+    </div>
+  </div>
+
+  <!-- Marquee track -->
+  <div class="relative w-full overflow-hidden">
+    <!-- Fade masks on left/right -->
+    <div class="absolute left-0 top-0 bottom-0 w-24 z-10 pointer-events-none bg-gradient-to-r from-base to-transparent"></div>
+    <div class="absolute right-0 top-0 bottom-0 w-24 z-10 pointer-events-none bg-gradient-to-l from-base to-transparent"></div>
+
+    <div class="marquee-track flex items-center gap-12 lg:gap-16 py-6">
+      {doubled.map((client) => (
+        <div class="flex-shrink-0 flex items-center justify-center h-20 lg:h-24 min-w-[180px] lg:min-w-[200px] px-6 group">
+          {client.logo ? (
+            <img
+              src={client.logo}
+              alt={client.name}
+              class="max-h-12 lg:max-h-14 max-w-[160px] w-auto object-contain opacity-60 group-hover:opacity-100 transition-opacity duration-300 grayscale group-hover:grayscale-0"
+              loading="lazy"
+            />
+          ) : (
+            <span class="text-sm md:text-base font-semibold text-mute group-hover:text-cream uppercase tracking-[0.1em] transition-colors duration-300 text-center leading-tight">
+              {client.name}
+            </span>
+          )}
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .marquee-track {
+    animation: marquee 60s linear infinite;
+    width: fit-content;
+  }
+
+  .marquee-track:hover {
+    animation-play-state: paused;
+  }
+
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .marquee-track {
+      animation: none;
+    }
+  }
+</style>
+
+<script>
+  import { gsap } from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  gsap.timeline({
+    scrollTrigger: { trigger: "#clients", start: "top 75%", toggleActions: "play none none none" },
+    defaults: { ease: "power3.out", duration: 0.9 },
+  })
+    .to("[data-anim='cli-eyebrow']", { opacity: 1, y: 0 }, 0)
+    .to("[data-anim='cli-headline']", { opacity: 1, y: 0, duration: 1.1 }, 0.15);
+</script>
