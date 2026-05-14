@@ -32,6 +32,7 @@ export const projects: Project[] = [
     port: "Mossel Bay",
     serviceTypes: ["supply-base", "ship-rig-agency", "integrated-logistics", "crew-visa"],
     vessel: "Deepsea Stavanger",
+    heroImage: "/images/projects/totalenergies-brulpadda-discovery.jpg",
     summary: "Integrated onshore logistics for the Brulpadda discovery campaign — the largest gas-condensate find in South African waters in a decade.",
     outcome: `In February 2019, TotalEnergies announced the Brulpadda gas-condensate discovery — the largest hydrocarbon find in South African waters in over a decade, with estimates around one billion barrels of oil equivalent. Afrishore supported the Brulpadda Discovery Campaign (2018–2019) as the integrated onshore logistics partner, supplying the Deepsea Stavanger drilling unit throughout the campaign.
 
@@ -49,6 +50,7 @@ The Brulpadda discovery reopened South Africa's upstream story. Afrishore was th
     port: "Mossel Bay · Cape Town",
     serviceTypes: ["supply-base", "ship-rig-agency", "integrated-logistics", "crew-visa"],
     vessel: "Deepsea Stavanger",
+    heroImage: "/images/projects/totalenergies-luiperd-supply-base.jpg",
     summary: "Twin-port offshore supply base operations across Mossel Bay and Cape Town for TotalEnergies' Luiperd gas-condensate discovery campaign.",
     outcome: `In 2020, TotalEnergies returned to Block 11B/12B on the south coast of South Africa to drill the Luiperd-1X exploration well — a follow-on to the Brulpadda discovery. The campaign confirmed a second significant gas-condensate find. Afrishore operated the integrated offshore supply base across both Mossel Bay and Cape Town for the full duration of the campaign.
 
@@ -66,6 +68,7 @@ Luiperd confirmed Block 11B/12B as one of Africa's most significant new gas play
     port: "Walvis Bay, Namibia",
     serviceTypes: ["supply-base", "ship-rig-agency", "integrated-logistics", "crew-visa"],
     vessel: "Deepsea Bollsta",
+    heroImage: "/images/projects/deepsea-bollsta-sps-walvis-bay.jpg",
     summary: "Integrated supply base operations for the 5-yearly recertification of the Deepsea Bollsta semi-submersible drilling unit.",
     outcome: `Mobile offshore drilling units must undergo a comprehensive Special Periodic Survey (SPS) every five years — a full hull, machinery, and safety systems recertification required by classification societies. In 2024, the Deepsea Bollsta completed its SPS at the Port of Walvis Bay, with Afrishore acting as the integrated onshore logistics partner throughout the survey period.
 
@@ -83,6 +86,7 @@ The Bollsta returned to operations on schedule, recertified for another five-yea
     port: "Walvis Bay, Namibia",
     serviceTypes: ["supply-base", "ship-rig-agency", "integrated-logistics", "crew-visa"],
     vessel: "Deepsea Mira",
+    heroImage: "/images/projects/deepsea-mira-sps-walvis-bay.jpg",
     summary: "Special Periodic Survey of the Deepsea Mira at Walvis Bay, scoped with a Blowout Preventer (BOP) exchange and multiple heavy lift logistics movements.",
     outcome: `The Deepsea Mira has been continuously deployed in Namibian waters since 2023 under Afrishore's onshore supply base support — sequential drilling campaigns at Venus-1x, Tamboti-1x, and Volans-1x & Kharas-1. In 2024–2025, between campaigns, the rig underwent its Special Periodic Survey at the Port of Walvis Bay — with one significant additional scope item: a Blowout Preventer (BOP) exchange. BOPs are subsea safety assemblies weighing in excess of 400 tonnes; exchanging one requires specialised heavy lift coordination far beyond standard SPS scope.
 
@@ -118,6 +122,7 @@ Trusted by Meta's subsea contractor for one of the most significant infrastructu
     port: "Cape Town · Port of Réunion",
     serviceTypes: ["integrated-logistics", "ship-rig-agency"],
     vessel: "MV Transshelf (Boskalis)",
+    heroImage: "/images/projects/dock-titan-cape-town-reunion.jpg",
     summary: "Onshore coordination of one of the largest semi-submersible heavy lift operations ever staged through the Port of Cape Town.",
     outcome: `In 2025, Afrishore coordinated the upliftment and ocean transfer of the Titan Floating Dock from the Port of Cape Town to the Port of Réunion on behalf of Piriou Naval Services and the Port of Réunion. The dock was carried aboard the heavy lift vessel MV Transshelf, operated by Boskalis — one of the largest semi-submersible heavy lift operations ever staged through the Port of Cape Town.
 
