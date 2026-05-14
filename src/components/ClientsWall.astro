@@ -1,11 +1,9 @@
 ---
 // Section 8 · Client Wall
-// Marquee scroll of client logos (CSS animation, no JS needed)
-// Pauses on hover; clients with no logo render as styled text plates
+// Grid of client logos in rows. Default: white silhouette via CSS filter.
+// On hover: filter removed → full-colour logo revealed.
+// Clients without a logo render as monochrome text plates with the same hover treatment.
 import { clients } from "../data/clients";
-
-// Duplicate list for seamless infinite scroll
-const doubled = [...clients, ...clients];
 ---
 
 <section id="clients" class="relative bg-base py-24 lg:py-32 overflow-hidden border-y border-line">
@@ -26,24 +24,23 @@ const doubled = [...clients, ...clients];
     </div>
   </div>
 
-  <!-- Marquee track -->
-  <div class="relative w-full overflow-hidden">
-    <!-- Fade masks on left/right -->
-    <div class="absolute left-0 top-0 bottom-0 w-24 z-10 pointer-events-none bg-gradient-to-r from-base to-transparent"></div>
-    <div class="absolute right-0 top-0 bottom-0 w-24 z-10 pointer-events-none bg-gradient-to-l from-base to-transparent"></div>
-
-    <div class="marquee-track flex items-center gap-12 lg:gap-16 py-6">
-      {doubled.map((client) => (
-        <div class="flex-shrink-0 flex items-center justify-center h-20 lg:h-24 min-w-[180px] lg:min-w-[200px] px-6 group">
+  <!-- Logo grid: 2 cols mobile, 3 cols tablet, 5 cols desktop -->
+  <div class="max-w-7xl mx-auto px-6 lg:px-12">
+    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-px bg-line/40 border border-line/40 rounded-sm overflow-hidden">
+      {clients.map((client) => (
+        <div
+          data-anim="cli-cell"
+          class="opacity-0 group aspect-[3/2] bg-base hover:bg-surface flex items-center justify-center p-6 lg:p-8 transition-colors duration-300"
+        >
           {client.logo ? (
             <img
               src={client.logo}
               alt={client.name}
-              class="max-h-12 lg:max-h-14 max-w-[160px] w-auto object-contain opacity-60 group-hover:opacity-100 transition-opacity duration-300 grayscale group-hover:grayscale-0"
+              class="client-logo max-h-12 lg:max-h-14 max-w-full w-auto object-contain"
               loading="lazy"
             />
           ) : (
-            <span class="text-sm md:text-base font-semibold text-mute group-hover:text-cream uppercase tracking-[0.1em] transition-colors duration-300 text-center leading-tight">
+            <span class="client-text text-xs md:text-sm font-semibold text-cream uppercase tracking-[0.12em] text-center leading-tight transition-colors duration-300">
               {client.name}
             </span>
           )}
@@ -54,23 +51,31 @@ const doubled = [...clients, ...clients];
 </section>
 
 <style>
-  .marquee-track {
-    animation: marquee 60s linear infinite;
-    width: fit-content;
+  /* Logos: pure white silhouette by default, full colour on hover */
+  .client-logo {
+    filter: grayscale(100%) brightness(0) invert(1);
+    opacity: 0.7;
+    transition: filter 0.35s ease, opacity 0.35s ease;
   }
 
-  .marquee-track:hover {
-    animation-play-state: paused;
+  .group:hover .client-logo {
+    filter: none;
+    opacity: 1;
   }
 
-  @keyframes marquee {
-    from { transform: translateX(0); }
-    to { transform: translateX(-50%); }
+  /* Text plates (no logo yet): muted by default, gold on hover */
+  .client-text {
+    color: rgba(245, 242, 235, 0.55);
+  }
+
+  .group:hover .client-text {
+    color: #F5AB2F;
   }
 
   @media (prefers-reduced-motion: reduce) {
-    .marquee-track {
-      animation: none;
+    .client-logo,
+    .client-text {
+      transition: none;
     }
   }
 </style>
@@ -81,10 +86,24 @@ const doubled = [...clients, ...clients];
 
   gsap.registerPlugin(ScrollTrigger);
 
+  // Header reveal
   gsap.timeline({
     scrollTrigger: { trigger: "#clients", start: "top 75%", toggleActions: "play none none none" },
     defaults: { ease: "power3.out", duration: 0.9 },
   })
     .to("[data-anim='cli-eyebrow']", { opacity: 1, y: 0 }, 0)
     .to("[data-anim='cli-headline']", { opacity: 1, y: 0, duration: 1.1 }, 0.15);
+
+  // Cell stagger reveal
+  gsap.to("[data-anim='cli-cell']", {
+    opacity: 1,
+    duration: 0.6,
+    stagger: 0.05,
+    ease: "power2.out",
+    scrollTrigger: {
+      trigger: "[data-anim='cli-cell']",
+      start: "top 85%",
+      toggleActions: "play none none none",
+    },
+  });
 </script>
