@@ -19,13 +19,13 @@
     "
   ></div>
 
-  <!-- Dark vignette overlay (radial + bottom gradient) -->
+  <!-- Dark vignette overlay (radial + stronger bottom gradient for text legibility) -->
   <div
     class="absolute inset-0 pointer-events-none"
     style="
       background:
-        radial-gradient(ellipse at center, transparent 30%, rgba(10,10,10,0.75) 100%),
-        linear-gradient(to top, rgba(10,10,10,0.95) 0%, rgba(10,10,10,0.3) 45%, rgba(10,10,10,0) 70%);
+        radial-gradient(ellipse at center, transparent 20%, rgba(10,10,10,0.7) 100%),
+        linear-gradient(to top, rgba(10,10,10,0.97) 0%, rgba(10,10,10,0.88) 30%, rgba(10,10,10,0.6) 55%, rgba(10,10,10,0.25) 75%, rgba(10,10,10,0) 90%);
     "
   ></div>
 
@@ -47,19 +47,21 @@
         </span>
       </div>
 
-      <!-- H1 -->
+      <!-- H1 — editorial, no gradient (lets the imagery do the colour work) -->
       <h1
         data-anim="hero-headline"
-        class="opacity-0 translate-y-4 text-5xl md:text-7xl lg:text-8xl leading-[1.02] text-cream"
+        class="opacity-0 translate-y-4 text-5xl md:text-6xl lg:text-7xl leading-[1.05] tracking-tight text-cream"
+        style="text-shadow: 0 2px 12px rgba(0,0,0,0.45);"
       >
-        Local Solutions<br />
-        for <span class="gradient-text">Global Clients.</span>
+        Local Solutions for<br />
+        Global Clients.
       </h1>
 
-      <!-- Subhead -->
+      <!-- Subhead — high contrast against bright imagery -->
       <p
         data-anim="hero-subhead"
-        class="opacity-0 translate-y-4 text-lg lg:text-xl text-mute max-w-2xl leading-relaxed"
+        class="opacity-0 translate-y-4 text-lg lg:text-xl max-w-2xl leading-relaxed"
+        style="color: rgba(245,242,235,0.92); text-shadow: 0 1px 6px rgba(0,0,0,0.4);"
       >
         Integrated offshore supply base operations across South Africa, Namibia, and Mozambique — serving the world's leading oil &amp; gas operators, drilling contractors, and subsea infrastructure partners since 2010.
       </p>

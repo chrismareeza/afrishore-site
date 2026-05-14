@@ -1,29 +1,48 @@
 ---
-// Navbar — fixed transparent on hero, becomes solid on scroll
+// Navbar — always has a subtle gradient backdrop for legibility against bright hero imagery
+// Becomes solid + bordered once scrolled past hero
 ---
 
 <header
   id="site-nav"
   class="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
+  style="background: linear-gradient(to bottom, rgba(10,10,10,0.7) 0%, rgba(10,10,10,0.3) 55%, rgba(10,10,10,0) 100%);"
 >
   <div class="mx-auto max-w-7xl px-6 lg:px-12 py-5 flex items-center justify-between">
     <!-- Logo -->
     <a href="/" class="block" aria-label="Afrishore home">
-      <img src="/logos/SVG-12.svg" alt="Afrishore" class="h-9 lg:h-10 w-auto" />
+      <img src="/logos/SVG-12.svg" alt="Afrishore" class="h-9 lg:h-10 w-auto" style="filter: drop-shadow(0 2px 6px rgba(0,0,0,0.4));" />
     </a>
 
     <!-- Nav links (desktop) -->
     <nav class="hidden lg:flex items-center gap-10">
-      <a href="#services" class="text-sm uppercase tracking-widest text-mute hover:text-cream transition-colors">Services</a>
-      <a href="#projects" class="text-sm uppercase tracking-widest text-mute hover:text-cream transition-colors">Projects</a>
-      <a href="#about" class="text-sm uppercase tracking-widest text-mute hover:text-cream transition-colors">About</a>
-      <a href="#contact" class="text-sm uppercase tracking-widest text-mute hover:text-cream transition-colors">Contact</a>
+      <a
+        href="#services"
+        class="text-sm uppercase tracking-[0.15em] font-semibold text-cream hover:text-yellow transition-colors"
+        style="text-shadow: 0 1px 4px rgba(0,0,0,0.5);"
+      >Services</a>
+      <a
+        href="#projects"
+        class="text-sm uppercase tracking-[0.15em] font-semibold text-cream hover:text-yellow transition-colors"
+        style="text-shadow: 0 1px 4px rgba(0,0,0,0.5);"
+      >Projects</a>
+      <a
+        href="#about"
+        class="text-sm uppercase tracking-[0.15em] font-semibold text-cream hover:text-yellow transition-colors"
+        style="text-shadow: 0 1px 4px rgba(0,0,0,0.5);"
+      >About</a>
+      <a
+        href="#contact"
+        class="text-sm uppercase tracking-[0.15em] font-semibold text-cream hover:text-yellow transition-colors"
+        style="text-shadow: 0 1px 4px rgba(0,0,0,0.5);"
+      >Contact</a>
     </nav>
 
     <!-- CTA (always visible) -->
     <a
       href="#contact"
       class="inline-flex items-center gap-2 bg-orange hover:bg-gold text-base px-5 py-2.5 text-sm font-semibold tracking-wide transition-colors duration-200 rounded-sm"
+      style="box-shadow: 0 4px 14px rgba(237,112,20,0.35);"
     >
       Talk to Ops
       <span aria-hidden="true">→</span>
@@ -32,14 +51,20 @@
 </header>
 
 <script>
-  // Add backdrop blur + bg when scrolled past hero
-  const nav = document.getElementById("site-nav");
+  const nav = document.getElementById("site-nav") as HTMLElement;
   if (nav) {
+    const gradientBg = "linear-gradient(to bottom, rgba(10,10,10,0.7) 0%, rgba(10,10,10,0.3) 55%, rgba(10,10,10,0) 100%)";
+    const solidBg = "rgba(10,10,10,0.88)";
+
     const onScroll = () => {
       if (window.scrollY > 60) {
-        nav.classList.add("bg-base/85", "backdrop-blur-md", "border-b", "border-line");
+        nav.style.background = solidBg;
+        nav.style.backdropFilter = "blur(12px)";
+        nav.style.borderBottom = "1px solid #1F1F1F";
       } else {
-        nav.classList.remove("bg-base/85", "backdrop-blur-md", "border-b", "border-line");
+        nav.style.background = gradientBg;
+        nav.style.backdropFilter = "blur(2px)";
+        nav.style.borderBottom = "none";
       }
     };
     window.addEventListener("scroll", onScroll, { passive: true });
