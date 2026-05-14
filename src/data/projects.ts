@@ -100,6 +100,7 @@ A Special Periodic Survey is rarely simple. With a BOP exchange layered in, it r
     year: "2022–2023",
     port: "Multiple SA coastal landings",
     serviceTypes: ["integrated-logistics", "crew-visa", "ship-rig-agency"],
+    heroImage: "/images/projects/facebook-2africa.jpg",
     summary: "Onshore logistics for the South African landing of Meta's 2Africa subsea cable — one of the largest telecoms infrastructure projects ever built.",
     outcome: `The 2Africa subsea cable system is one of the largest telecommunications infrastructure projects ever built: 45,000 km of cable connecting 33 countries across three continents, with a design capacity of 180 Tbps. Between 2022 and 2023, Afrishore supported the South African landing operations on behalf of LD TravOcean, the specialist subsea contractor responsible for the African shore-end works.
 
