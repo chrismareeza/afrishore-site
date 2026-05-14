@@ -1,7 +1,7 @@
 ---
 // Section 11 · Contact
-// Form on left, 4 office cards on right
-// Form posts to a placeholder endpoint — wire up to Formspark/Tally/Resend at launch
+// Form-free design — primary email + phone CTAs, then 4 office cards
+// All offices share the central switchboard (digital, routes to available team)
 
 interface Office {
   city: string;
@@ -9,7 +9,6 @@ interface Office {
   street: string;
   region: string;
   country: string;
-  phone?: string;
 }
 
 const offices: Office[] = [
@@ -19,7 +18,6 @@ const offices: Office[] = [
     street: "58 Bland Street",
     region: "Western Cape",
     country: "South Africa",
-    phone: "+27 44 691-3218",
   },
   {
     city: "Cape Town",
@@ -40,11 +38,16 @@ const offices: Office[] = [
     country: "South Africa",
   },
 ];
+
+const centralPhone = "+27 44 691-3218";
+const centralPhoneRaw = "+27446913218";
+const centralEmail = "info@afrishore.co";
 ---
 
 <section id="contact" class="relative bg-base py-24 lg:py-32 border-t border-line">
   <div class="max-w-7xl mx-auto px-6 lg:px-12">
-    <div class="max-w-3xl mb-16 space-y-6">
+    <!-- Header -->
+    <div class="max-w-3xl mb-12 space-y-6">
       <div data-anim="cont-eyebrow" class="opacity-0 -translate-y-2">
         <span class="text-xs lg:text-sm font-semibold uppercase tracking-[0.25em] text-gold">
           Contact
@@ -61,132 +64,146 @@ const offices: Office[] = [
         data-anim="cont-sub"
         class="opacity-0 translate-y-4 text-lg text-mute max-w-2xl"
       >
-        Tell us about the vessel, the port, and the timeline. We'll get back within one business day.
+        Tell us about the vessel, the port, and the timeline. We respond within one business day.
       </p>
     </div>
 
-    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
-      <!-- Form -->
-      <form
-        data-anim="cont-form"
-        class="opacity-0 translate-y-4 lg:col-span-7 space-y-5"
-        action="https://formspark.io/forms/PLACEHOLDER"
-        method="POST"
-        novalidate
+    <!-- Primary contact CTAs -->
+    <div
+      data-anim="cont-cta"
+      class="opacity-0 translate-y-4 grid grid-cols-1 md:grid-cols-2 gap-4 lg:gap-6 max-w-3xl mb-8"
+    >
+      <!-- Email -->
+      <a
+        href={`mailto:${centralEmail}?subject=Afrishore%20Enquiry`}
+        class="group flex items-center gap-5 p-6 lg:p-7 bg-surface border border-line hover:border-orange/60 transition-all duration-300 rounded-sm"
       >
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
-          <label class="block">
-            <span class="block text-xs uppercase tracking-[0.15em] text-gold font-semibold mb-2">Name *</span>
-            <input
-              type="text"
-              name="name"
-              required
-              class="w-full bg-surface border border-line focus:border-orange focus:outline-none px-4 py-3 text-cream placeholder-faint rounded-sm transition-colors"
-              placeholder="Your name"
-            />
-          </label>
-          <label class="block">
-            <span class="block text-xs uppercase tracking-[0.15em] text-gold font-semibold mb-2">Company *</span>
-            <input
-              type="text"
-              name="company"
-              required
-              class="w-full bg-surface border border-line focus:border-orange focus:outline-none px-4 py-3 text-cream placeholder-faint rounded-sm transition-colors"
-              placeholder="Company name"
-            />
-          </label>
-          <label class="block">
-            <span class="block text-xs uppercase tracking-[0.15em] text-gold font-semibold mb-2">Email *</span>
-            <input
-              type="email"
-              name="email"
-              required
-              class="w-full bg-surface border border-line focus:border-orange focus:outline-none px-4 py-3 text-cream placeholder-faint rounded-sm transition-colors"
-              placeholder="work@email.com"
-            />
-          </label>
-          <label class="block">
-            <span class="block text-xs uppercase tracking-[0.15em] text-gold font-semibold mb-2">Phone</span>
-            <input
-              type="tel"
-              name="phone"
-              class="w-full bg-surface border border-line focus:border-orange focus:outline-none px-4 py-3 text-cream placeholder-faint rounded-sm transition-colors"
-              placeholder="+27 ..."
-            />
-          </label>
-        </div>
-
-        <label class="block">
-          <span class="block text-xs uppercase tracking-[0.15em] text-gold font-semibold mb-2">Operation type</span>
-          <select
-            name="operation_type"
-            class="w-full bg-surface border border-line focus:border-orange focus:outline-none px-4 py-3 text-cream rounded-sm transition-colors"
-          >
-            <option value="">Select an option…</option>
-            <option value="vessel-agency">Vessel Agency</option>
-            <option value="supply-base">Supply Base Operations</option>
-            <option value="crew-logistics">Crew Logistics</option>
-            <option value="project-cargo">Project Cargo / Heavy Lift</option>
-            <option value="customs">Customs / Clearance</option>
-            <option value="other">Other</option>
-          </select>
-        </label>
-
-        <label class="block">
-          <span class="block text-xs uppercase tracking-[0.15em] text-gold font-semibold mb-2">Message *</span>
-          <textarea
-            name="message"
-            required
-            rows="5"
-            class="w-full bg-surface border border-line focus:border-orange focus:outline-none px-4 py-3 text-cream placeholder-faint rounded-sm transition-colors resize-none"
-            placeholder="Tell us about the vessel, port, timeline…"
-          ></textarea>
-        </label>
-
-        <button
-          type="submit"
-          class="inline-flex items-center gap-2 bg-orange hover:bg-gold text-base px-7 py-4 text-base font-semibold tracking-wide transition-colors duration-200 rounded-sm"
+        <span
+          class="flex-shrink-0 w-12 h-12 flex items-center justify-center rounded-full"
+          style="background: linear-gradient(135deg, #ED7014, #FDE64B);"
         >
-          Send Enquiry
-          <span aria-hidden="true">→</span>
-        </button>
+          <svg
+            class="w-5 h-5"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="#0A0A0A"
+            stroke-width="2.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <rect x="3" y="5" width="18" height="14" rx="2" />
+            <path d="M3 8l9 6 9-6" />
+          </svg>
+        </span>
+        <div class="flex-1 min-w-0">
+          <span class="block text-xs uppercase tracking-[0.15em] text-gold font-semibold mb-1">Email</span>
+          <span class="block text-lg lg:text-xl text-cream font-display leading-tight group-hover:text-yellow transition-colors duration-200">
+            info@afrishore.co
+          </span>
+        </div>
+        <span
+          class="text-orange opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-300 flex-shrink-0"
+          aria-hidden="true"
+        >→</span>
+      </a>
 
-        <p class="text-xs text-faint pt-2">
-          Or email us directly at <a href="mailto:info@afrishore.co" class="text-gold hover:text-yellow transition-colors">info@afrishore.co</a>
-        </p>
-      </form>
+      <!-- Phone -->
+      <a
+        href={`tel:${centralPhoneRaw}`}
+        class="group flex items-center gap-5 p-6 lg:p-7 bg-surface border border-line hover:border-orange/60 transition-all duration-300 rounded-sm"
+      >
+        <span
+          class="flex-shrink-0 w-12 h-12 flex items-center justify-center rounded-full"
+          style="background: linear-gradient(135deg, #ED7014, #FDE64B);"
+        >
+          <svg
+            class="w-5 h-5"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="#0A0A0A"
+            stroke-width="2.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z" />
+          </svg>
+        </span>
+        <div class="flex-1 min-w-0">
+          <span class="block text-xs uppercase tracking-[0.15em] text-gold font-semibold mb-1">Switchboard</span>
+          <span class="block text-lg lg:text-xl text-cream font-display leading-tight group-hover:text-yellow transition-colors duration-200">
+            +27 44 691-3218
+          </span>
+        </div>
+        <span
+          class="text-orange opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-300 flex-shrink-0"
+          aria-hidden="true"
+        >→</span>
+      </a>
+    </div>
 
-      <!-- Offices -->
-      <div class="lg:col-span-5 space-y-4">
-        <h3 class="text-xs uppercase tracking-[0.2em] text-gold font-semibold mb-6">
+    <!-- Switchboard note -->
+    <p
+      data-anim="cont-routing"
+      class="opacity-0 translate-y-3 text-sm text-faint max-w-3xl mb-16 lg:mb-20 flex items-center gap-2"
+    >
+      <span
+        class="inline-block w-2 h-2 rounded-full bg-gold animate-pulse"
+        aria-hidden="true"
+      ></span>
+      One number, four offices — our digital switchboard routes your call to the available team across South Africa and Namibia.
+    </p>
+
+    <!-- Offices -->
+    <div>
+      <div class="flex items-end justify-between mb-8">
+        <h3 class="text-xs uppercase tracking-[0.2em] text-gold font-semibold">
           Our Offices
         </h3>
+        <span class="text-xs text-faint hidden md:inline">
+          ISO 9001 certified · POPIA compliant
+        </span>
+      </div>
 
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6">
         {offices.map((office) => (
           <div
             data-anim="cont-office"
-            class="opacity-0 translate-y-3 p-5 lg:p-6 bg-surface/40 border border-line hover:border-gold/40 rounded-sm transition-colors duration-300"
+            class="opacity-0 translate-y-3 p-6 lg:p-7 bg-surface/40 border border-line hover:border-gold/40 rounded-sm transition-colors duration-300 flex flex-col"
           >
-            <div class="flex items-center gap-2 mb-2">
-              <h4 class="text-lg text-cream">{office.city}</h4>
+            <div class="flex items-center gap-2 mb-3">
+              <h4 class="text-xl text-cream leading-none">{office.city}</h4>
               {office.isHQ && (
                 <span class="text-[10px] uppercase tracking-[0.15em] text-orange font-semibold border border-orange/40 px-2 py-0.5">
                   HQ
                 </span>
               )}
             </div>
-            <p class="text-sm text-mute leading-relaxed">
+            <p class="text-sm text-mute leading-relaxed flex-1">
               {office.street}<br />
-              {office.region}, {office.country}
+              {office.region}<br />
+              {office.country}
             </p>
-            {office.phone && (
-              <a
-                href={`tel:${office.phone.replace(/\s/g, '')}`}
-                class="inline-block mt-3 text-sm text-gold hover:text-yellow transition-colors"
+            <a
+              href={`tel:${centralPhoneRaw}`}
+              class="inline-flex items-center gap-1 mt-5 text-sm text-gold hover:text-yellow transition-colors group"
+            >
+              <svg
+                class="w-3.5 h-3.5"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
               >
-                {office.phone} →
-              </a>
-            )}
+                <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z" />
+              </svg>
+              <span>{centralPhone}</span>
+              <span
+                class="opacity-0 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all"
+                aria-hidden="true"
+              >→</span>
+            </a>
           </div>
         ))}
       </div>
@@ -207,7 +224,8 @@ const offices: Office[] = [
     .to("[data-anim='cont-eyebrow']", { opacity: 1, y: 0 }, 0)
     .to("[data-anim='cont-headline']", { opacity: 1, y: 0, duration: 1.1 }, 0.15)
     .to("[data-anim='cont-sub']", { opacity: 1, y: 0 }, 0.35)
-    .to("[data-anim='cont-form']", { opacity: 1, y: 0 }, 0.5);
+    .to("[data-anim='cont-cta']", { opacity: 1, y: 0 }, 0.5)
+    .to("[data-anim='cont-routing']", { opacity: 1, y: 0 }, 0.7);
 
   gsap.to("[data-anim='cont-office']", {
     opacity: 1,
