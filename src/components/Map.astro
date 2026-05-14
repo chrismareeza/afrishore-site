@@ -9,19 +9,20 @@ interface Pin {
   name: string;
   sub?: string;
   isHQ?: boolean;
+  labelPos?: "right" | "below"; // default "right"
 }
 
 const offices: Pin[] = [
-  { x: 220, y: 200, name: "Walvis Bay", sub: "Port of Walvis Bay, Oil & Gas Section" },
+  { x: 200, y: 215, name: "Walvis Bay", sub: "Port of Walvis Bay, Oil & Gas Section" },
   { x: 290, y: 568, name: "Cape Town", sub: "Unit 213, Buchanan Square" },
-  { x: 390, y: 615, name: "Mossel Bay", sub: "58 Bland Street · HQ", isHQ: true },
+  { x: 390, y: 615, name: "Mossel Bay", sub: "58 Bland Street · HQ", isHQ: true, labelPos: "below" },
   { x: 625, y: 510, name: "Durban", sub: "33 Wagtail Walk, Yellowwood Park" },
 ];
 
 const ports: Pin[] = [
-  { x: 245, y: 360, name: "Lüderitz" },
+  { x: 232, y: 360, name: "Lüderitz" },
   { x: 275, y: 525, name: "Saldanha" },
-  { x: 485, y: 605, name: "Coega / Port Elizabeth" },
+  { x: 490, y: 632, name: "Coega / Port Elizabeth" },
   { x: 555, y: 590, name: "East London" },
   { x: 820, y: 125, name: "Pemba" },
 ];
@@ -78,6 +79,28 @@ const ports: Pin[] = [
         <text x="370" y="500" fill="#2A2A2A" font-family="Inter, sans-serif" font-size="13" letter-spacing="0.25em" font-weight="600">SOUTH AFRICA</text>
         <text x="720" y="200" fill="#2A2A2A" font-family="Inter, sans-serif" font-size="13" letter-spacing="0.25em" font-weight="600">MOZAMBIQUE</text>
 
+        <!-- Country borders — thin faint gold, dashed (suggests political boundary) -->
+        <g class="opacity-0" data-borders>
+          <!-- Namibia / South Africa (roughly the Orange River line) -->
+          <path
+            d="M 240 440 Q 320 410, 400 380 T 520 340"
+            stroke="#F5AB2F"
+            stroke-width="1"
+            stroke-opacity="0.28"
+            stroke-dasharray="4 4"
+            fill="none"
+          />
+          <!-- South Africa / Mozambique (roughly the Limpopo / Lebombo line) -->
+          <path
+            d="M 670 460 Q 720 410, 760 370 T 820 300"
+            stroke="#F5AB2F"
+            stroke-width="1"
+            stroke-opacity="0.28"
+            stroke-dasharray="4 4"
+            fill="none"
+          />
+        </g>
+
         <!-- Coastline (will animate via stroke-dashoffset) -->
         <path
           id="coastline-path"
@@ -104,9 +127,15 @@ const ports: Pin[] = [
           <g class="opacity-0" data-pin="office">
             <circle cx={o.x} cy={o.y} r="22" fill="url(#pinPulse)" />
             <circle cx={o.x} cy={o.y} r={o.isHQ ? 10 : 8} fill="#ED7014" />
-            <text x={o.x + 18} y={o.y + 5} fill="#F5F2EB" font-family="Inter, sans-serif" font-size="15" font-weight="600">
-              {o.name}{o.isHQ ? " · HQ" : ""}
-            </text>
+            {o.labelPos === "below" ? (
+              <text x={o.x} y={o.y + 38} text-anchor="middle" fill="#F5F2EB" font-family="Inter, sans-serif" font-size="15" font-weight="600">
+                {o.name}{o.isHQ ? " · HQ" : ""}
+              </text>
+            ) : (
+              <text x={o.x + 18} y={o.y + 5} fill="#F5F2EB" font-family="Inter, sans-serif" font-size="15" font-weight="600">
+                {o.name}{o.isHQ ? " · HQ" : ""}
+              </text>
+            )}
           </g>
         ))}
 
@@ -161,18 +190,25 @@ const ports: Pin[] = [
         duration: 2.4,
         ease: "power2.inOut",
         onComplete: () => {
+          // Country borders fade in subtly after coast
+          gsap.to("[data-borders]", {
+            opacity: 1,
+            duration: 1.2,
+            ease: "power2.out",
+          });
           // Pins drop in with stagger after coastline completes
           gsap.to("[data-pin='office']", {
             opacity: 1,
             duration: 0.6,
             stagger: 0.12,
+            delay: 0.3,
             ease: "power3.out",
           });
           gsap.to("[data-pin='port']", {
             opacity: 1,
             duration: 0.4,
             stagger: 0.08,
-            delay: 0.3,
+            delay: 0.6,
             ease: "power2.out",
           });
         },
