@@ -1,0 +1,152 @@
+---
+// Section 4 · Featured Projects
+// 6 featured case studies in a responsive grid
+// Each card uses gradient placeholder until heroImage is set
+import { featuredProjects } from "../data/projects";
+
+// Gradient placeholders cycle through these for visual variety
+const placeholders = [
+  "linear-gradient(135deg, #1a1410 0%, #ED7014 100%)",
+  "linear-gradient(135deg, #0F1419 0%, #F5AB2F 100%)",
+  "linear-gradient(135deg, #1F1F1F 0%, #FDE64B 100%)",
+  "linear-gradient(135deg, #141414 0%, #ED7014 100%)",
+  "linear-gradient(135deg, #0a0a0a 0%, #F5AB2F 100%)",
+  "linear-gradient(135deg, #1a1a1a 0%, #FDE64B 100%)",
+];
+---
+
+<section id="projects" class="relative bg-base py-24 lg:py-32 overflow-hidden">
+  <div class="max-w-7xl mx-auto px-6 lg:px-12">
+    <!-- Section header -->
+    <div class="max-w-3xl mb-16 lg:mb-20 space-y-6">
+      <div data-anim="proj-eyebrow" class="opacity-0 -translate-y-2">
+        <span class="text-xs lg:text-sm font-semibold uppercase tracking-[0.25em] text-gold">
+          Selected Projects
+        </span>
+      </div>
+      <h2
+        data-anim="proj-headline"
+        class="opacity-0 translate-y-4 text-4xl md:text-5xl lg:text-6xl leading-[1.1] text-cream"
+      >
+        From the Brulpadda discovery<br />
+        to the <span class="gradient-text">2Africa cable landing.</span>
+      </h2>
+      <p
+        data-anim="proj-sub"
+        class="opacity-0 translate-y-4 text-lg text-mute max-w-2xl"
+      >
+        Every project below represents a vessel mobilisation, a port clearance sequence, and a supply chain coordinated to the hour — supporting TotalEnergies, Odfjell Drilling, Baker Hughes, Oceaneering and more.
+      </p>
+    </div>
+
+    <!-- Projects grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+      {featuredProjects.map((project, idx) => (
+        <article
+          data-anim="proj-card"
+          class="opacity-0 translate-y-8 group relative bg-surface border border-line hover:border-gold/40 transition-all duration-500 overflow-hidden rounded-sm"
+        >
+          <!-- Image / gradient placeholder -->
+          <div class="relative aspect-[4/3] overflow-hidden bg-base">
+            {project.heroImage ? (
+              <img
+                src={project.heroImage}
+                alt={project.title}
+                class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                loading="lazy"
+              />
+            ) : (
+              <div
+                class="absolute inset-0 transition-transform duration-700 group-hover:scale-105"
+                style={`background: ${placeholders[idx % placeholders.length]};`}
+              ></div>
+            )}
+            <!-- Year badge -->
+            <div class="absolute top-4 right-4 bg-base/80 backdrop-blur-sm px-3 py-1 text-xs font-semibold tracking-wider text-cream">
+              {project.year}
+            </div>
+            <!-- Gradient overlay for text legibility on hover -->
+            <div class="absolute inset-0 bg-gradient-to-t from-base via-transparent to-transparent opacity-60"></div>
+          </div>
+
+          <!-- Card body -->
+          <div class="p-6 lg:p-7 space-y-4">
+            <!-- Client tag -->
+            <div class="flex items-center gap-2 text-xs uppercase tracking-[0.15em] text-gold font-semibold">
+              {project.client}
+              {project.endCustomer && (
+                <span class="text-faint normal-case tracking-normal">· for {project.endCustomer}</span>
+              )}
+            </div>
+
+            <!-- Title -->
+            <h3 class="text-xl lg:text-2xl text-cream leading-tight group-hover:text-yellow transition-colors duration-300">
+              {project.title}
+            </h3>
+
+            <!-- Summary -->
+            <p class="text-sm text-mute leading-relaxed line-clamp-3">
+              {project.summary}
+            </p>
+
+            <!-- Meta -->
+            <div class="flex items-center justify-between pt-4 border-t border-line text-xs text-faint">
+              <span>{project.port}</span>
+              <span class="text-gold flex items-center gap-1 group-hover:gap-2 transition-all">
+                Read case study
+                <span aria-hidden="true">→</span>
+              </span>
+            </div>
+          </div>
+        </article>
+      ))}
+    </div>
+
+    <!-- View all CTA -->
+    <div class="mt-16 lg:mt-20 text-center">
+      <a
+        href="/projects"
+        class="inline-flex items-center gap-2 border border-cream/30 hover:border-cream/60 hover:bg-cream/5 text-cream px-7 py-4 text-sm font-semibold tracking-wide transition-all duration-200 rounded-sm uppercase"
+      >
+        View all 18 projects
+        <span aria-hidden="true">→</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<script>
+  import { gsap } from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  // Section header reveal
+  const headerTl = gsap.timeline({
+    scrollTrigger: {
+      trigger: "#projects",
+      start: "top 75%",
+      toggleActions: "play none none none",
+    },
+    defaults: { ease: "power3.out", duration: 0.9 },
+  });
+
+  headerTl
+    .to("[data-anim='proj-eyebrow']", { opacity: 1, y: 0 }, 0)
+    .to("[data-anim='proj-headline']", { opacity: 1, y: 0, duration: 1.1 }, 0.15)
+    .to("[data-anim='proj-sub']", { opacity: 1, y: 0 }, 0.4);
+
+  // Staggered card reveal
+  gsap.to("[data-anim='proj-card']", {
+    opacity: 1,
+    y: 0,
+    duration: 0.9,
+    stagger: 0.1,
+    ease: "power3.out",
+    scrollTrigger: {
+      trigger: "[data-anim='proj-card']",
+      start: "top 80%",
+      toggleActions: "play none none none",
+    },
+  });
+</script>

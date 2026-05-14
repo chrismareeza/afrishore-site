@@ -1,0 +1,115 @@
+---
+// Section 3 · Stats Strip
+// 4 big numbers with GSAP counter animation when entering viewport
+
+interface Stat {
+  value: number;
+  display?: string; // override formatting; e.g. "999,800 t"
+  suffix?: string;
+  label: string;
+}
+
+const stats: Stat[] = [
+  { value: 2010, label: "Established", display: "2010" },
+  { value: 79, label: "Projects Completed", suffix: "+" },
+  { value: 769, label: "Vessels Serviced", suffix: "+" },
+  { value: 999800, label: "Tonnes of Project Cargo", display: "999,800", suffix: "+" },
+];
+---
+
+<section id="stats" class="relative w-full bg-base border-y border-line py-20 lg:py-28">
+  <div class="max-w-7xl mx-auto px-6 lg:px-12">
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8">
+      {stats.map((stat) => (
+        <div class="text-center lg:text-left space-y-3">
+          <div class="relative inline-block">
+            <span
+              class="block text-5xl md:text-6xl lg:text-7xl font-display text-yellow leading-none"
+              data-counter
+              data-target={stat.value}
+              data-display={stat.display ?? ""}
+              data-suffix={stat.suffix ?? ""}
+            >
+              0
+            </span>
+            <span
+              class="absolute left-0 right-0 -bottom-2 h-[3px] rounded-full origin-left scale-x-0 transition-transform duration-1000 ease-out"
+              style="background: linear-gradient(90deg, #ED7014 0%, #FDE64B 100%);"
+              data-underline
+            ></span>
+          </div>
+          <span class="block text-xs md:text-sm uppercase tracking-[0.18em] text-mute font-semibold pt-4">
+            {stat.label}
+          </span>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<script>
+  import { gsap } from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  // Run counter + underline reveal when stats section enters viewport
+  const formatNumber = (n: number, display: string, suffix: string): string => {
+    if (display) {
+      // For pre-formatted displays (like "999,800") we proportionally show
+      return display + suffix;
+    }
+    return Math.round(n).toString() + suffix;
+  };
+
+  document.querySelectorAll<HTMLElement>("[data-counter]").forEach((el) => {
+    const target = parseInt(el.dataset.target || "0", 10);
+    const display = el.dataset.display || "";
+    const suffix = el.dataset.suffix || "";
+
+    ScrollTrigger.create({
+      trigger: el,
+      start: "top 80%",
+      once: true,
+      onEnter: () => {
+        const obj = { val: 0 };
+        gsap.to(obj, {
+          val: target,
+          duration: 1.6,
+          ease: "power3.out",
+          onUpdate: () => {
+            if (display) {
+              // Animate visually by interpolating progress
+              const progress = obj.val / target;
+              // Show the formatted display once we cross 95%, else show interpolation
+              if (progress >= 0.95) {
+                el.textContent = display + suffix;
+              } else {
+                el.textContent = Math.round(obj.val).toLocaleString() + suffix;
+              }
+            } else {
+              el.textContent = Math.round(obj.val).toLocaleString() + suffix;
+            }
+          },
+        });
+      },
+    });
+  });
+
+  // Animate underline reveal under each stat
+  document.querySelectorAll<HTMLElement>("[data-underline]").forEach((el) => {
+    ScrollTrigger.create({
+      trigger: el,
+      start: "top 85%",
+      once: true,
+      onEnter: () => {
+        gsap.to(el, {
+          scaleX: 1,
+          duration: 1.1,
+          delay: 0.4,
+          ease: "power3.out",
+        });
+      },
+    });
+  });
+</script>

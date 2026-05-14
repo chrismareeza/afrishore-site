@@ -2,6 +2,10 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Navbar from "../components/Navbar.astro";
 import Hero from "../components/Hero.astro";
+import About from "../components/About.astro";
+import Stats from "../components/Stats.astro";
+import Projects from "../components/Projects.astro";
+import Process from "../components/Process.astro";
 import Footer from "../components/Footer.astro";
 ---
 
@@ -12,19 +16,21 @@ import Footer from "../components/Footer.astro";
   <Navbar />
 
   <main>
-    <!-- Section 1 · Hero -->
     <Hero />
+    <About />
+    <Stats />
+    <Projects />
+    <Process />
 
-    <!-- Placeholder for next sections (to be built next) -->
-    <section id="about" class="py-32 px-6 lg:px-12 max-w-7xl mx-auto">
+    <!-- Placeholder for remaining sections -->
+    <section class="py-32 px-6 lg:px-12 max-w-7xl mx-auto">
       <div class="text-center space-y-6">
-        <span class="text-sm font-semibold uppercase tracking-[0.25em] text-gold">Coming Next</span>
-        <h2 class="text-4xl md:text-5xl text-cream max-w-3xl mx-auto leading-tight">
-          About · Stats Strip · Projects · Process · Services · Map · Clients · Timeline · FAQ · Contact
+        <span class="text-sm font-semibold uppercase tracking-[0.25em] text-gold">More Coming</span>
+        <h2 class="text-3xl md:text-4xl text-cream max-w-3xl mx-auto leading-tight">
+          Services · Map · Clients · Timeline · FAQ · Contact
         </h2>
         <p class="text-lg text-mute max-w-2xl mx-auto">
-          The remaining 11 sections will land in the next iterations of this build.
-          Hero is live and animating.
+          Six more sections to land. Built and deployed on every commit.
         </p>
       </div>
     </section>

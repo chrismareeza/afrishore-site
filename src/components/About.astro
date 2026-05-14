@@ -1,0 +1,93 @@
+---
+// Section 2 · About
+// Full-bleed dark scene with text on left, image breathes on right
+// Pinned scroll: text reveals as user enters viewport
+---
+
+<section id="about" class="relative w-full min-h-[90vh] overflow-hidden bg-base">
+  <!-- Background image / gradient -->
+  <div
+    class="absolute inset-0"
+    style="
+      background-image:
+        linear-gradient(115deg, rgba(10,10,10,0.95) 0%, rgba(10,10,10,0.6) 50%, rgba(10,10,10,0.85) 100%),
+        url('/images/about-night-rig.jpg');
+      background-size: cover;
+      background-position: center;
+      background-color: #0a0a0a;
+    "
+  ></div>
+
+  <!-- Subtle warm glow on right (mimics rig lights bleeding into frame) -->
+  <div
+    class="absolute right-0 top-0 bottom-0 w-1/2 pointer-events-none opacity-25"
+    style="background: radial-gradient(ellipse at 70% 50%, rgba(237, 112, 20, 0.4) 0%, transparent 60%);"
+  ></div>
+
+  <!-- Content -->
+  <div class="relative z-10 max-w-7xl mx-auto px-6 lg:px-12 py-32 lg:py-40 grid grid-cols-1 lg:grid-cols-12 gap-12">
+    <div class="lg:col-span-7 space-y-8">
+      <div data-anim="about-eyebrow" class="opacity-0 -translate-y-2">
+        <span class="text-xs lg:text-sm font-semibold uppercase tracking-[0.25em] text-gold">
+          Who We Are
+        </span>
+      </div>
+
+      <h2
+        data-anim="about-headline"
+        class="opacity-0 translate-y-4 text-4xl md:text-5xl lg:text-6xl leading-[1.1] text-cream max-w-2xl"
+      >
+        Operations don't stop<br />
+        when the sun goes down.
+      </h2>
+
+      <div class="space-y-6 max-w-2xl">
+        <p
+          data-anim="about-p1"
+          class="opacity-0 translate-y-4 text-lg lg:text-xl text-mute leading-relaxed"
+        >
+          Afrishore is an integrated marine logistics agency operating from offices in Mossel Bay, Cape Town, Durban, and Walvis Bay. Since 2010, we've supported every stage of offshore exploration and production — from vessel agency and port clearance to crew rotation, customs, chandling, and supply base operations.
+        </p>
+        <p
+          data-anim="about-p2"
+          class="opacity-0 translate-y-4 text-lg lg:text-xl text-mute leading-relaxed"
+        >
+          We work where global energy operators need local expertise. Our ISO 9001-certified approach, full regulatory compliance, and on-the-ground teams across six ports mean operations move on schedule, regardless of conditions.
+        </p>
+      </div>
+
+      <div data-anim="about-cta" class="opacity-0 translate-y-4 pt-2">
+        <a
+          href="#services"
+          class="inline-flex items-center gap-2 text-gold hover:text-yellow transition-colors text-sm font-semibold uppercase tracking-[0.15em]"
+        >
+          See our capabilities
+          <span aria-hidden="true">→</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  import { gsap } from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  // Reveal cascade triggered when section enters viewport
+  const tl = gsap.timeline({
+    scrollTrigger: {
+      trigger: "#about",
+      start: "top 70%",
+      toggleActions: "play none none none",
+    },
+    defaults: { ease: "power3.out", duration: 0.9 },
+  });
+
+  tl.to("[data-anim='about-eyebrow']", { opacity: 1, y: 0 }, 0)
+    .to("[data-anim='about-headline']", { opacity: 1, y: 0, duration: 1.1 }, 0.15)
+    .to("[data-anim='about-p1']", { opacity: 1, y: 0 }, 0.4)
+    .to("[data-anim='about-p2']", { opacity: 1, y: 0 }, 0.55)
+    .to("[data-anim='about-cta']", { opacity: 1, y: 0 }, 0.75);
+</script>
