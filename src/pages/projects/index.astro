@@ -1,0 +1,120 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Navbar from "../../components/Navbar.astro";
+import Footer from "../../components/Footer.astro";
+import { allProjects } from "../../data/projects";
+
+const placeholders = [
+  "linear-gradient(135deg, #1a1410 0%, #ED7014 100%)",
+  "linear-gradient(135deg, #0F1419 0%, #F5AB2F 100%)",
+  "linear-gradient(135deg, #1F1F1F 0%, #FDE64B 100%)",
+  "linear-gradient(135deg, #141414 0%, #ED7014 100%)",
+  "linear-gradient(135deg, #0a0a0a 0%, #F5AB2F 100%)",
+  "linear-gradient(135deg, #1a1a1a 0%, #FDE64B 100%)",
+];
+---
+
+<BaseLayout
+  title="Projects · Afrishore"
+  description="Selected projects supporting TotalEnergies, Odfjell Drilling, Baker Hughes, Oceaneering, and more across South Africa, Namibia and Mozambique."
+>
+  <Navbar />
+
+  <main class="pt-32 lg:pt-40 pb-24 lg:pb-32 px-6 lg:px-12">
+    <div class="max-w-7xl mx-auto">
+      <!-- Header -->
+      <div class="max-w-3xl mb-16 lg:mb-20 space-y-6">
+        <a
+          href="/"
+          class="inline-flex items-center gap-2 text-sm text-mute hover:text-gold transition-colors"
+        >
+          <span aria-hidden="true">←</span>
+          Home
+        </a>
+
+        <span class="block text-xs uppercase tracking-[0.25em] text-gold font-semibold pt-4">
+          All Projects
+        </span>
+
+        <h1 class="text-4xl md:text-5xl lg:text-6xl text-cream leading-[1.1] tracking-tight">
+          From the Brulpadda discovery<br />
+          to the <span class="text-gold">2Africa cable landing.</span>
+        </h1>
+
+        <p class="text-lg text-mute max-w-2xl">
+          {allProjects.length} projects spanning offshore drilling, subsea engineering, telecommunications infrastructure, and heavy lift operations across South Africa, Namibia, and Mozambique.
+        </p>
+      </div>
+
+      <!-- Projects grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+        {allProjects.map((p, idx) => (
+          <a
+            href={`/projects/${p.slug}`}
+            class="group block bg-surface border border-line hover:border-gold/40 transition-all duration-400 rounded-sm overflow-hidden"
+          >
+            <div
+              class="aspect-[4/3] relative overflow-hidden"
+              style={`background: ${placeholders[idx % placeholders.length]};`}
+            >
+              {p.heroImage && (
+                <img
+                  src={p.heroImage}
+                  alt={p.title}
+                  class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  loading="lazy"
+                />
+              )}
+              <div class="absolute top-4 right-4 bg-base/80 backdrop-blur-sm px-3 py-1 text-xs font-semibold tracking-wider text-cream">
+                {p.year}
+              </div>
+              <div class="absolute inset-0 bg-gradient-to-t from-base via-transparent to-transparent opacity-60"></div>
+              {p.featured && (
+                <div class="absolute top-4 left-4 text-[10px] uppercase tracking-[0.15em] text-gold font-semibold border border-gold/40 px-2 py-0.5 bg-base/60 backdrop-blur-sm">
+                  Featured
+                </div>
+              )}
+            </div>
+
+            <div class="p-6 space-y-3">
+              <div class="text-xs uppercase tracking-[0.15em] text-gold font-semibold">
+                {p.client}
+                {p.endCustomer && (
+                  <span class="text-faint normal-case tracking-normal">
+                    {" · for "}
+                    {p.endCustomer}
+                  </span>
+                )}
+              </div>
+              <h2 class="text-lg lg:text-xl text-cream group-hover:text-yellow transition-colors leading-tight">
+                {p.title}
+              </h2>
+              <p class="text-sm text-mute leading-relaxed line-clamp-2">
+                {p.summary}
+              </p>
+              <div class="flex items-center justify-between pt-3 border-t border-line text-xs">
+                <span class="text-faint">{p.port}</span>
+                <span class="text-gold flex items-center gap-1 group-hover:gap-2 transition-all">
+                  Read more <span aria-hidden="true">→</span>
+                </span>
+              </div>
+            </div>
+          </a>
+        ))}
+      </div>
+
+      <!-- Back to home CTA -->
+      <div class="mt-20 text-center">
+        <a
+          href="/#contact"
+          class="inline-flex items-center gap-2 bg-orange hover:bg-gold text-base px-7 py-4 text-sm font-semibold tracking-wide transition-colors duration-200 rounded-sm uppercase"
+        >
+          Discuss your operation
+          <span aria-hidden="true">→</span>
+        </a>
+      </div>
+    </div>
+  </main>
+
+  <Footer />
+</BaseLayout>

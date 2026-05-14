@@ -1,0 +1,250 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Navbar from "../../components/Navbar.astro";
+import Footer from "../../components/Footer.astro";
+import { projects, allProjects, type Project } from "../../data/projects";
+
+export function getStaticPaths() {
+  return projects
+    .filter((p) => p.published)
+    .map((p) => ({
+      params: { slug: p.slug },
+      props: { project: p },
+    }));
+}
+
+interface Props {
+  project: Project;
+}
+
+const { project } = Astro.props;
+
+// SEO
+const metaTitle = `${project.title} · Afrishore`;
+const metaDescription = project.summary;
+
+// Service type labels for human-readable badges
+const serviceLabels: Record<string, string> = {
+  "ship-rig-agency": "Ship & Rig Agency",
+  "supply-base": "Supply Base",
+  "integrated-logistics": "Integrated Logistics",
+  "crew-visa": "Crew & Visa",
+  "subsea-services": "Subsea Services",
+};
+
+// Related projects (3 most recent others)
+const related = allProjects.filter((p) => p.slug !== project.slug).slice(0, 3);
+
+// Split outcome into paragraphs (separated by blank lines)
+const outcomeParagraphs = project.outcome
+  ? project.outcome.split("\n\n").filter((p) => p.trim())
+  : [];
+
+// Gradient placeholder for missing images
+const placeholderBg = "linear-gradient(135deg, #1a1410 0%, #ED7014 50%, #FDE64B 100%)";
+---
+
+<BaseLayout title={metaTitle} description={metaDescription}>
+  <Navbar />
+
+  <main>
+    <!-- Project hero -->
+    <section class="relative pt-32 lg:pt-40 pb-12 px-6 lg:px-12">
+      <div class="max-w-5xl mx-auto">
+        <!-- Back link -->
+        <a
+          href="/projects"
+          class="inline-flex items-center gap-2 text-sm text-mute hover:text-gold transition-colors mb-10"
+        >
+          <span aria-hidden="true">←</span>
+          All projects
+        </a>
+
+        <!-- Client tag -->
+        <div class="flex items-center gap-3 text-xs uppercase tracking-[0.2em] text-gold font-semibold mb-6">
+          <span>{project.client}</span>
+          {project.endCustomer && (
+            <>
+              <span class="text-faint">·</span>
+              <span class="text-faint normal-case tracking-normal">for {project.endCustomer}</span>
+            </>
+          )}
+        </div>
+
+        <!-- Title -->
+        <h1 class="text-4xl md:text-5xl lg:text-6xl text-cream leading-[1.1] tracking-tight mb-8">
+          {project.title}
+        </h1>
+
+        <!-- Meta row -->
+        <div class="flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-mute mb-10">
+          <span class="flex items-center gap-2">
+            <span class="text-faint text-xs uppercase tracking-[0.15em]">Year</span>
+            <span class="text-cream">{project.year}</span>
+          </span>
+          <span class="flex items-center gap-2">
+            <span class="text-faint text-xs uppercase tracking-[0.15em]">Port</span>
+            <span class="text-cream">{project.port}</span>
+          </span>
+          {project.vessel && (
+            <span class="flex items-center gap-2">
+              <span class="text-faint text-xs uppercase tracking-[0.15em]">Vessel / Rig</span>
+              <span class="text-cream">{project.vessel}</span>
+            </span>
+          )}
+        </div>
+
+        <!-- Service tags -->
+        <div class="flex flex-wrap gap-2 mb-12">
+          {project.serviceTypes.map((s) => (
+            <span class="text-xs uppercase tracking-[0.15em] text-mute border border-line px-3 py-1.5 rounded-sm">
+              {serviceLabels[s] || s}
+            </span>
+          ))}
+        </div>
+
+        <!-- Hero image -->
+        <div
+          class="aspect-[16/9] w-full overflow-hidden rounded-sm border border-line relative"
+          style={`background: ${placeholderBg};`}
+        >
+          {project.heroImage && (
+            <img
+              src={project.heroImage}
+              alt={project.title}
+              class="absolute inset-0 w-full h-full object-cover"
+              loading="eager"
+            />
+          )}
+        </div>
+      </div>
+    </section>
+
+    <!-- Body + side card -->
+    <section class="px-6 lg:px-12 pb-24 lg:pb-32">
+      <div class="max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 pt-12">
+        <!-- Long-form outcome -->
+        <div class="lg:col-span-8 space-y-6">
+          {outcomeParagraphs.length > 0
+            ? outcomeParagraphs.map((p) => (
+                <p class="text-lg lg:text-xl leading-relaxed" style="color: rgba(245,242,235,0.88);">
+                  {p}
+                </p>
+              ))
+            : (
+              <>
+                <p class="text-lg lg:text-xl leading-relaxed" style="color: rgba(245,242,235,0.88);">
+                  {project.summary}
+                </p>
+                <p class="text-sm text-faint italic pt-4">
+                  Full case study coming soon. Contact us for operational details on this project.
+                </p>
+              </>
+            )
+          }
+        </div>
+
+        <!-- Side card: project facts + CTA -->
+        <aside class="lg:col-span-4">
+          <div class="sticky top-28 bg-surface border border-line p-6 lg:p-7 rounded-sm space-y-5">
+            <h2 class="text-xs uppercase tracking-[0.2em] text-gold font-semibold">
+              Project Facts
+            </h2>
+
+            <dl class="space-y-4 text-sm">
+              <div>
+                <dt class="text-xs uppercase tracking-[0.15em] text-faint mb-1">Client</dt>
+                <dd class="text-cream">{project.client}</dd>
+              </div>
+              {project.endCustomer && (
+                <div>
+                  <dt class="text-xs uppercase tracking-[0.15em] text-faint mb-1">End-customer</dt>
+                  <dd class="text-cream">{project.endCustomer}</dd>
+                </div>
+              )}
+              <div>
+                <dt class="text-xs uppercase tracking-[0.15em] text-faint mb-1">Year</dt>
+                <dd class="text-cream">{project.year}</dd>
+              </div>
+              <div>
+                <dt class="text-xs uppercase tracking-[0.15em] text-faint mb-1">Port</dt>
+                <dd class="text-cream">{project.port}</dd>
+              </div>
+              {project.vessel && (
+                <div>
+                  <dt class="text-xs uppercase tracking-[0.15em] text-faint mb-1">Vessel / Rig</dt>
+                  <dd class="text-cream">{project.vessel}</dd>
+                </div>
+              )}
+              <div>
+                <dt class="text-xs uppercase tracking-[0.15em] text-faint mb-1">Services</dt>
+                <dd class="text-cream leading-relaxed">
+                  {project.serviceTypes.map((s) => serviceLabels[s] || s).join(" · ")}
+                </dd>
+              </div>
+            </dl>
+
+            <a
+              href="/#contact"
+              class="inline-flex items-center justify-center gap-2 w-full bg-orange hover:bg-gold text-base px-5 py-3 text-sm font-semibold tracking-wide transition-colors duration-200 rounded-sm"
+            >
+              Discuss your operation
+              <span aria-hidden="true">→</span>
+            </a>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- Related projects -->
+    <section class="px-6 lg:px-12 py-20 lg:py-24 border-t border-line">
+      <div class="max-w-5xl mx-auto">
+        <h2 class="text-xs uppercase tracking-[0.2em] text-gold font-semibold mb-8">
+          Related Projects
+        </h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {related.map((p) => (
+            <a
+              href={`/projects/${p.slug}`}
+              class="group block bg-surface border border-line hover:border-gold/40 transition-all duration-300 rounded-sm overflow-hidden"
+            >
+              <div
+                class="aspect-[4/3] relative"
+                style={`background: ${placeholderBg};`}
+              >
+                {p.heroImage && (
+                  <img src={p.heroImage} alt={p.title} class="absolute inset-0 w-full h-full object-cover" loading="lazy" />
+                )}
+                <div class="absolute top-3 right-3 bg-base/80 backdrop-blur-sm px-2.5 py-1 text-[10px] font-semibold tracking-wider text-cream">
+                  {p.year}
+                </div>
+              </div>
+              <div class="p-5 space-y-2">
+                <span class="block text-xs uppercase tracking-[0.15em] text-gold font-semibold">
+                  {p.client}
+                </span>
+                <h3 class="text-cream group-hover:text-yellow transition-colors duration-200 leading-tight">
+                  {p.title}
+                </h3>
+                <span class="block text-xs text-faint">{p.port}</span>
+              </div>
+            </a>
+          ))}
+        </div>
+
+        <div class="mt-12 text-center">
+          <a
+            href="/projects"
+            class="inline-flex items-center gap-2 text-gold hover:text-yellow transition-colors text-sm uppercase tracking-[0.15em] font-semibold"
+          >
+            View all projects
+            <span aria-hidden="true">→</span>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</BaseLayout>

@@ -1,6 +1,6 @@
 # Afrishore
 
-> Afrishore — Local Solutions for Global Clients. Integrated marine logistics agency operating across South Africa, Namibia, and Mozambique since 2010. ISO 9001 certified. Direct contracts with TotalEnergies, PetroSA, Halliburton, Baker Hughes, Odfjell Drilling, Tidewater, Solstad, Bourbon, and other major oil and gas operators, drilling contractors, and offshore vessel operators.
+> Afrishore — Local Solutions for Global Clients. Integrated marine logistics agency operating across South Africa, Namibia, and Mozambique since 2010. ISO 9001 certified. Direct contracts with TotalEnergies, Halliburton, Baker Hughes, Odfjell Drilling, Island Drilling, Tidewater, Solstad, Bourbon, and other major oil and gas operators, drilling contractors, and offshore vessel operators.
 
 ## Quick facts
 
@@ -42,8 +42,8 @@ Freight forwarding, customs clearance, project cargo, materials management, bunk
 Companies Afrishore has held direct contracts with:
 
 - TotalEnergies (Brulpadda, Luiperd, Anchor Testing campaigns, 2014–2021)
-- PetroSA (ORCA Remobilisation Tow, 2022)
 - Odfjell Drilling & Northern Ocean Ltd (Deepsea Bollsta and Deepsea Mira campaigns, 2022–present)
+- Island Drilling
 - Baker Hughes (oilfield services support)
 - Halliburton (oilfield services support)
 - Expro (well services support)
