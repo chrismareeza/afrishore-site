@@ -1,0 +1,48 @@
+---
+// Navbar — fixed transparent on hero, becomes solid on scroll
+---
+
+<header
+  id="site-nav"
+  class="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
+>
+  <div class="mx-auto max-w-7xl px-6 lg:px-12 py-5 flex items-center justify-between">
+    <!-- Logo -->
+    <a href="/" class="block" aria-label="Afrishore home">
+      <img src="/logos/SVG-12.svg" alt="Afrishore" class="h-9 lg:h-10 w-auto" />
+    </a>
+
+    <!-- Nav links (desktop) -->
+    <nav class="hidden lg:flex items-center gap-10">
+      <a href="#services" class="text-sm uppercase tracking-widest text-mute hover:text-cream transition-colors">Services</a>
+      <a href="#projects" class="text-sm uppercase tracking-widest text-mute hover:text-cream transition-colors">Projects</a>
+      <a href="#about" class="text-sm uppercase tracking-widest text-mute hover:text-cream transition-colors">About</a>
+      <a href="#contact" class="text-sm uppercase tracking-widest text-mute hover:text-cream transition-colors">Contact</a>
+    </nav>
+
+    <!-- CTA (always visible) -->
+    <a
+      href="#contact"
+      class="inline-flex items-center gap-2 bg-orange hover:bg-gold text-base px-5 py-2.5 text-sm font-semibold tracking-wide transition-colors duration-200 rounded-sm"
+    >
+      Talk to Ops
+      <span aria-hidden="true">→</span>
+    </a>
+  </div>
+</header>
+
+<script>
+  // Add backdrop blur + bg when scrolled past hero
+  const nav = document.getElementById("site-nav");
+  if (nav) {
+    const onScroll = () => {
+      if (window.scrollY > 60) {
+        nav.classList.add("bg-base/85", "backdrop-blur-md", "border-b", "border-line");
+      } else {
+        nav.classList.remove("bg-base/85", "backdrop-blur-md", "border-b", "border-line");
+      }
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
+  }
+</script>

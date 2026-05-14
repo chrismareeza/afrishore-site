@@ -1,0 +1,181 @@
+---
+import "../styles/global.css";
+
+interface Props {
+  title?: string;
+  description?: string;
+  ogImage?: string;
+  canonical?: string;
+}
+
+const {
+  title = "Afrishore — Local Solutions for Global Clients",
+  description = "Integrated marine logistics across South Africa, Namibia & Mozambique. Vessel agency, customs, supply base operations, project cargo, crew logistics, bunkering, procurement. ISO 9001 certified since 2010.",
+  ogImage = "/og-image.jpg",
+  canonical,
+} = Astro.props;
+
+const siteUrl = "https://www.afrishore.co";
+const fullCanonical = canonical || new URL(Astro.url.pathname, siteUrl).toString();
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={fullCanonical} />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={fullCanonical} />
+    <meta property="og:image" content={new URL(ogImage, siteUrl).toString()} />
+    <meta property="og:site_name" content="Afrishore" />
+    <meta property="og:locale" content="en_ZA" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={new URL(ogImage, siteUrl).toString()} />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/logos/SVG-10.svg" />
+    <link rel="apple-touch-icon" href="/logos/SVG-10.svg" />
+
+    <!-- Theme colour -->
+    <meta name="theme-color" content="#0A0A0A" />
+
+    <!-- Fonts: Boldonse (display) + Inter (body), preloaded for performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="preload"
+      as="style"
+      href="https://fonts.googleapis.com/css2?family=Boldonse&family=Inter:wght@400;500;600;700&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Boldonse&family=Inter:wght@400;500;600;700&display=swap"
+    />
+
+    <!-- JSON-LD: Organization + LocalBusiness × 4 + Services + FAQ -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": `${siteUrl}/#organization`,
+          "name": "Afrishore",
+          "legalName": "Afrishore Pty Ltd",
+          "url": siteUrl,
+          "logo": {
+            "@type": "ImageObject",
+            "url": `${siteUrl}/logos/SVG-03.svg`,
+          },
+          "description":
+            "Integrated marine logistics agency operating across South Africa, Namibia, and Mozambique since 2010. Vessel agency, customs, supply base operations, project cargo, crew logistics, bunkering, and procurement.",
+          "foundingDate": "2010",
+          "slogan": "Local Solutions for Global Clients",
+          "hasCredential": {
+            "@type": "EducationalOccupationalCredential",
+            "credentialCategory": "Quality Management Certification",
+            "name": "ISO 9001 Quality Management System",
+          },
+          "areaServed": [
+            { "@type": "Country", "name": "South Africa" },
+            { "@type": "Country", "name": "Namibia" },
+            { "@type": "Country", "name": "Mozambique" },
+          ],
+          "knowsAbout": [
+            "Vessel agency", "Rig agency", "Offshore supply base operations",
+            "Maritime customs clearance", "Project cargo handling",
+            "Subsea cable landing logistics", "Crew rotation logistics",
+            "Bunkering", "Heavy lift coordination", "Special Periodic Survey support",
+            "Blowout Preventer (BOP) transport", "Procurement",
+          ],
+          "sameAs": [
+            "https://www.linkedin.com/company/afrishore-shipping",
+            "https://www.instagram.com/afrishore_logistics/",
+            "https://www.facebook.com/people/afrishore_logistics/100063863929988/",
+          ],
+          "contactPoint": [{
+            "@type": "ContactPoint",
+            "telephone": "+27-44-691-3218",
+            "email": "info@afrishore.co",
+            "contactType": "customer support",
+            "areaServed": ["ZA", "NA", "MZ"],
+            "availableLanguage": "English",
+          }],
+        },
+        {
+          "@type": "LocalBusiness",
+          "@id": `${siteUrl}/#mossel-bay`,
+          "parentOrganization": { "@id": `${siteUrl}/#organization` },
+          "name": "Afrishore — Mossel Bay (HQ)",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "58 Bland Street",
+            "addressLocality": "Mossel Bay",
+            "addressRegion": "Western Cape",
+            "addressCountry": "ZA",
+          },
+          "telephone": "+27-44-691-3218",
+          "email": "info@afrishore.co",
+          "geo": { "@type": "GeoCoordinates", "latitude": -34.1830, "longitude": 22.1455 },
+        },
+        {
+          "@type": "LocalBusiness",
+          "@id": `${siteUrl}/#cape-town`,
+          "parentOrganization": { "@id": `${siteUrl}/#organization` },
+          "name": "Afrishore — Cape Town",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Unit 213, Buchanan Square",
+            "addressLocality": "Woodstock, Cape Town",
+            "addressRegion": "Western Cape",
+            "addressCountry": "ZA",
+          },
+          "geo": { "@type": "GeoCoordinates", "latitude": -33.9249, "longitude": 18.4574 },
+        },
+        {
+          "@type": "LocalBusiness",
+          "@id": `${siteUrl}/#walvis-bay`,
+          "parentOrganization": { "@id": `${siteUrl}/#organization` },
+          "name": "Afrishore — Walvis Bay (Namibia)",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Oil & Gas Section, Port of Walvis Bay",
+            "addressLocality": "Walvis Bay",
+            "addressCountry": "NA",
+          },
+          "geo": { "@type": "GeoCoordinates", "latitude": -22.9576, "longitude": 14.5052 },
+        },
+        {
+          "@type": "LocalBusiness",
+          "@id": `${siteUrl}/#durban`,
+          "parentOrganization": { "@id": `${siteUrl}/#organization` },
+          "name": "Afrishore — Durban",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "33 Wagtail Walk, Yellowwood Park",
+            "addressLocality": "Durban",
+            "addressRegion": "KwaZulu-Natal",
+            "addressCountry": "ZA",
+          },
+          "geo": { "@type": "GeoCoordinates", "latitude": -29.9249, "longitude": 30.9389 },
+        },
+      ],
+    })} />
+  </head>
+
+  <body class="bg-base text-cream font-sans antialiased">
+    <slot />
+  </body>
+</html>

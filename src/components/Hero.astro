@@ -1,0 +1,138 @@
+---
+// Hero — full-bleed cinematic intro
+// Background: rig + Table Mountain image with dark vignette
+// Content: eyebrow → H1 → subhead → CTAs, anchored bottom-left
+// Animation: GSAP-driven fade-up cascade on load + subtle scroll parallax
+---
+
+<section class="relative w-full h-[100svh] min-h-[640px] overflow-hidden bg-base">
+  <!-- Background image layer (will pan slightly on scroll) -->
+  <div
+    id="hero-bg"
+    class="absolute inset-0 will-change-transform"
+    style="
+      background-image: url('/images/hero-placeholder.svg');
+      background-size: cover;
+      background-position: center 60%;
+      background-color: #0a0a0a;
+      transform: scale(1.05);
+    "
+  ></div>
+
+  <!-- Dark vignette overlay (radial + bottom gradient) -->
+  <div
+    class="absolute inset-0 pointer-events-none"
+    style="
+      background:
+        radial-gradient(ellipse at center, transparent 30%, rgba(10,10,10,0.75) 100%),
+        linear-gradient(to top, rgba(10,10,10,0.95) 0%, rgba(10,10,10,0.3) 45%, rgba(10,10,10,0) 70%);
+    "
+  ></div>
+
+  <!-- Subtle film grain (low opacity) — adds texture, hides JPEG banding -->
+  <div
+    class="absolute inset-0 pointer-events-none opacity-[0.04] mix-blend-overlay"
+    style="
+      background-image: url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22200%22 height=%22200%22><filter id=%22n%22><feTurbulence type=%22fractalNoise%22 baseFrequency=%220.9%22 numOctaves=%221%22/></filter><rect width=%22200%22 height=%22200%22 filter=%22url(%23n)%22/></svg>');
+    "
+  ></div>
+
+  <!-- Content stack — anchored bottom-left -->
+  <div class="relative z-10 h-full max-w-7xl mx-auto px-6 lg:px-12 flex flex-col justify-end pb-24 lg:pb-32">
+    <div class="max-w-3xl space-y-7">
+      <!-- Eyebrow -->
+      <div data-anim="hero-eyebrow" class="opacity-0 -translate-y-2">
+        <span class="text-xs lg:text-sm font-semibold uppercase tracking-[0.25em] text-gold">
+          Maritime Logistics · Since 2010
+        </span>
+      </div>
+
+      <!-- H1 -->
+      <h1
+        data-anim="hero-headline"
+        class="opacity-0 translate-y-4 text-5xl md:text-7xl lg:text-8xl leading-[1.02] text-cream"
+      >
+        Local Solutions<br />
+        for <span class="gradient-text">Global Clients.</span>
+      </h1>
+
+      <!-- Subhead -->
+      <p
+        data-anim="hero-subhead"
+        class="opacity-0 translate-y-4 text-lg lg:text-xl text-mute max-w-2xl leading-relaxed"
+      >
+        Integrated offshore supply base operations across South Africa, Namibia, and Mozambique — serving the world's leading oil &amp; gas operators, drilling contractors, and subsea infrastructure partners since 2010.
+      </p>
+
+      <!-- CTAs -->
+      <div data-anim="hero-ctas" class="opacity-0 translate-y-4 flex flex-wrap items-center gap-4 pt-2">
+        <a
+          href="#contact"
+          class="inline-flex items-center gap-2 bg-orange hover:bg-gold text-base px-7 py-4 text-base font-semibold tracking-wide transition-all duration-200 rounded-sm"
+        >
+          Talk to Operations
+          <span aria-hidden="true">→</span>
+        </a>
+        <a
+          href="#services"
+          class="inline-flex items-center gap-2 border border-cream/30 hover:border-cream/60 hover:bg-cream/5 text-cream px-7 py-4 text-base font-semibold tracking-wide transition-all duration-200 rounded-sm"
+        >
+          Our Capabilities
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scroll indicator -->
+  <div
+    data-anim="hero-scroll"
+    class="absolute bottom-8 right-8 lg:right-12 opacity-0 z-10 flex items-center gap-3 text-faint"
+  >
+    <span class="text-xs uppercase tracking-[0.2em] hidden md:inline">Scroll to explore</span>
+    <span class="block w-px h-12 bg-faint/40 relative overflow-hidden">
+      <span
+        class="absolute top-0 left-0 w-full h-1/2 bg-gold animate-[scrollLine_2s_ease-in-out_infinite]"
+      ></span>
+    </span>
+  </div>
+</section>
+
+<style>
+  @keyframes scrollLine {
+    0%   { transform: translateY(-100%); }
+    50%  { transform: translateY(50%); }
+    100% { transform: translateY(200%); }
+  }
+</style>
+
+<script>
+  import { gsap } from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  // ── Entrance animation cascade ──
+  const tl = gsap.timeline({
+    defaults: { ease: "power3.out", duration: 1.0 },
+  });
+
+  tl.to("#hero-bg", { scale: 1.0, duration: 1.8, ease: "power2.out" }, 0)
+    .to("[data-anim='hero-eyebrow']", { opacity: 1, y: 0 }, 0.3)
+    .to("[data-anim='hero-headline']", { opacity: 1, y: 0, duration: 1.2 }, 0.5)
+    .to("[data-anim='hero-subhead']", { opacity: 1, y: 0 }, 0.85)
+    .to("[data-anim='hero-ctas']", { opacity: 1, y: 0 }, 1.05)
+    .to("[data-anim='hero-scroll']", { opacity: 1, duration: 0.8 }, 1.3);
+
+  // ── Scroll parallax ──
+  // Background moves slower than content as user scrolls
+  gsap.to("#hero-bg", {
+    yPercent: 25,
+    ease: "none",
+    scrollTrigger: {
+      trigger: "section",
+      start: "top top",
+      end: "bottom top",
+      scrub: true,
+    },
+  });
+</script>

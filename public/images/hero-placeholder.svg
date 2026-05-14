@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <radialGradient id="skyGlow" cx="50%" cy="35%" r="50%">
+      <stop offset="0%" stop-color="#3a2a1a" stop-opacity="0.8"/>
+      <stop offset="40%" stop-color="#1a1410" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#0A0A0A" stop-opacity="1"/>
+    </radialGradient>
+    <linearGradient id="ocean" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0F1419"/>
+      <stop offset="100%" stop-color="#050708"/>
+    </linearGradient>
+    <linearGradient id="horizon" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#ED7014" stop-opacity="0"/>
+      <stop offset="50%" stop-color="#F5AB2F" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#FDE64B" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="mountain" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1a1a1a"/>
+      <stop offset="100%" stop-color="#0a0a0a"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Sky with warm glow -->
+  <rect width="1920" height="1080" fill="url(#skyGlow)"/>
+
+  <!-- Stylized Table Mountain silhouette -->
+  <path d="M 0 640 L 280 640 L 380 540 L 520 535 L 720 530 L 900 545 L 1080 575 L 1240 605 L 1400 615 L 1920 625 L 1920 720 L 0 720 Z" fill="url(#mountain)"/>
+  <path d="M 380 540 L 520 535 L 720 530 L 900 545 L 720 530 Z" fill="#0d0d0d" opacity="0.5"/>
+
+  <!-- Horizon glow line -->
+  <rect x="0" y="635" width="1920" height="3" fill="url(#horizon)" opacity="0.6"/>
+
+  <!-- Ocean -->
+  <rect x="0" y="720" width="1920" height="360" fill="url(#ocean)"/>
+
+  <!-- Simple stylized rig silhouette (centered) -->
+  <g transform="translate(820,520)">
+    <rect x="40" y="120" width="200" height="80" fill="#222" stroke="#333" stroke-width="1"/>
+    <rect x="60" y="80" width="160" height="40" fill="#1a1a1a" stroke="#333"/>
+    <rect x="120" y="0" width="40" height="80" fill="#1a1a1a"/>
+    <rect x="135" y="-30" width="10" height="35" fill="#222"/>
+    <line x1="50" y1="200" x2="50" y2="245" stroke="#222" stroke-width="4"/>
+    <line x1="230" y1="200" x2="230" y2="245" stroke="#222" stroke-width="4"/>
+    <!-- Warm rig lights -->
+    <circle cx="90" cy="160" r="2" fill="#FDE64B" opacity="0.7"/>
+    <circle cx="140" cy="160" r="2" fill="#F5AB2F" opacity="0.7"/>
+    <circle cx="190" cy="160" r="2" fill="#FDE64B" opacity="0.7"/>
+    <circle cx="140" cy="90" r="2.5" fill="#ED7014" opacity="0.9"/>
+    <circle cx="140" cy="20" r="2" fill="#FDE64B" opacity="0.6"/>
+  </g>
+
+  <!-- Soft reflection on water -->
+  <ellipse cx="940" cy="780" rx="160" ry="6" fill="#F5AB2F" opacity="0.08"/>
+
+  <!-- Subtle vignette -->
+  <radialGradient id="vignette" cx="50%" cy="50%" r="75%">
+    <stop offset="60%" stop-color="#0A0A0A" stop-opacity="0"/>
+    <stop offset="100%" stop-color="#0A0A0A" stop-opacity="0.8"/>
+  </radialGradient>
+  <rect width="1920" height="1080" fill="url(#vignette)"/>
+</svg>

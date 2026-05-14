@@ -1,17 +1,34 @@
 ---
-
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Navbar from "../components/Navbar.astro";
+import Hero from "../components/Hero.astro";
+import Footer from "../components/Footer.astro";
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<BaseLayout
+  title="Afrishore — Local Solutions for Global Clients"
+  description="Integrated marine logistics across South Africa, Namibia & Mozambique. Vessel agency, customs, supply base operations, project cargo, crew logistics, bunkering, procurement. ISO 9001 certified since 2010."
+>
+  <Navbar />
+
+  <main>
+    <!-- Section 1 · Hero -->
+    <Hero />
+
+    <!-- Placeholder for next sections (to be built next) -->
+    <section id="about" class="py-32 px-6 lg:px-12 max-w-7xl mx-auto">
+      <div class="text-center space-y-6">
+        <span class="text-sm font-semibold uppercase tracking-[0.25em] text-gold">Coming Next</span>
+        <h2 class="text-4xl md:text-5xl text-cream max-w-3xl mx-auto leading-tight">
+          About · Stats Strip · Projects · Process · Services · Map · Clients · Timeline · FAQ · Contact
+        </h2>
+        <p class="text-lg text-mute max-w-2xl mx-auto">
+          The remaining 11 sections will land in the next iterations of this build.
+          Hero is live and animating.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</BaseLayout>
