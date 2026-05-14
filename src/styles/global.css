@@ -74,19 +74,48 @@ h1, h2, h3, h4, h5, h6 {
   color: transparent;
 }
 
-/* Gentle cream → warm-gold fade across hero text. Used on hero H1 only. */
-.hero-fade-text {
-  background: linear-gradient(
-    100deg,
-    rgba(245, 242, 235, 1) 0%,
-    rgba(245, 242, 235, 1) 25%,
-    rgba(245, 171, 47, 0.95) 80%,
-    rgba(237, 112, 20, 0.85) 100%
+/* ──────────────────────────────────────────────
+   Hero title — Barlow + per-line gradient + BlurText
+   (Spec from Claude Design)
+   ────────────────────────────────────────────── */
+
+.hero-title {
+  font-family: 'Barlow', system-ui, sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  letter-spacing: -0.04em;
+  line-height: 0.95;
+}
+
+.hero-title .line {
+  display: block;
+  background-image: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.98) 0%,
+    rgba(255, 249, 229, 0.95) 55%,
+    rgba(253, 230, 157, 0.92) 78%,
+    rgba(247, 197, 140, 0.88) 100%
   );
   -webkit-background-clip: text;
   background-clip: text;
-  -webkit-text-fill-color: transparent;
   color: transparent;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Each word inherits the line's gradient but offsets so the gradient
+   appears continuous across the whole line, not restarted per word */
+.hero-title .blur-word {
+  display: inline-block;
+  background-image: inherit;
+  background-size: var(--line-w, 100%) 100%;
+  background-position: var(--word-x, 0) 0;
+  background-repeat: no-repeat;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  /* Initial state — JS sets to step 0 explicitly anyway */
+  will-change: filter, opacity, transform;
 }
 
 .gradient-underline {
