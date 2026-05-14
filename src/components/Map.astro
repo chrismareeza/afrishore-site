@@ -22,7 +22,7 @@ const offices: Pin[] = [
 const ports: Pin[] = [
   { x: 232, y: 360, name: "Lüderitz" },
   { x: 275, y: 525, name: "Saldanha" },
-  { x: 490, y: 632, name: "Coega / Port Elizabeth" },
+  { x: 490, y: 612, name: "Coega / Port Elizabeth" },
   { x: 555, y: 590, name: "East London" },
   { x: 820, y: 125, name: "Pemba" },
 ];
@@ -74,28 +74,31 @@ const ports: Pin[] = [
           </radialGradient>
         </defs>
 
-        <!-- Country labels — subtle background type -->
-        <text x="100" y="200" fill="#2A2A2A" font-family="Inter, sans-serif" font-size="13" letter-spacing="0.25em" font-weight="600">NAMIBIA</text>
+        <!-- Country labels — subtle background type, positioned inland of each coast -->
+        <text x="230" y="135" fill="#2A2A2A" font-family="Inter, sans-serif" font-size="13" letter-spacing="0.25em" font-weight="600">NAMIBIA</text>
         <text x="370" y="500" fill="#2A2A2A" font-family="Inter, sans-serif" font-size="13" letter-spacing="0.25em" font-weight="600">SOUTH AFRICA</text>
-        <text x="720" y="200" fill="#2A2A2A" font-family="Inter, sans-serif" font-size="13" letter-spacing="0.25em" font-weight="600">MOZAMBIQUE</text>
+        <text x="715" y="180" text-anchor="middle" fill="#2A2A2A" font-family="Inter, sans-serif" font-size="13" letter-spacing="0.25em" font-weight="600">MOZAMBIQUE</text>
 
-        <!-- Country borders — thin faint gold, dashed (suggests political boundary) -->
+        <!-- Country borders — thin faint gold, dashed (geographically accurate) -->
         <g class="opacity-0" data-borders>
-          <!-- Namibia / South Africa (roughly the Orange River line) -->
+          <!-- Namibia / South Africa — Orange River from Atlantic coast (28.6°S) ESE
+               to the Namibia/Botswana corner (~26.9°S, 20°E) -->
           <path
-            d="M 240 440 Q 320 410, 400 380 T 520 340"
+            d="M 240 416 Q 285 390, 332 365"
             stroke="#F5AB2F"
             stroke-width="1"
-            stroke-opacity="0.28"
+            stroke-opacity="0.35"
             stroke-dasharray="4 4"
             fill="none"
           />
-          <!-- South Africa / Mozambique (roughly the Limpopo / Lebombo line) -->
+          <!-- Mozambique western boundary — SA/MZ (Lebombo) continuing as Zim/MZ
+               border from Indian Ocean coast (Kosi Bay, 26.85°S) north to where MZ
+               meets Tanzania (~16°S) -->
           <path
-            d="M 670 460 Q 720 410, 760 370 T 820 300"
+            d="M 660 441 C 635 380, 635 280, 661 196"
             stroke="#F5AB2F"
             stroke-width="1"
-            stroke-opacity="0.28"
+            stroke-opacity="0.35"
             stroke-dasharray="4 4"
             fill="none"
           />
@@ -139,10 +142,10 @@ const ports: Pin[] = [
           </g>
         ))}
 
-        <!-- Service port pins (gold, small) -->
+        <!-- Service port pins (gold, small, dark stroke for visibility against gradient coastline) -->
         {ports.map((p) => (
           <g class="opacity-0" data-pin="port">
-            <circle cx={p.x} cy={p.y} r="5" fill="#FDE64B" />
+            <circle cx={p.x} cy={p.y} r="5" fill="#FDE64B" stroke="#0A0A0A" stroke-width="1" />
             <text x={p.x + 10} y={p.y + 4} fill="#A39E94" font-family="Inter, sans-serif" font-size="11">{p.name}</text>
           </g>
         ))}
