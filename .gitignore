@@ -22,3 +22,7 @@ pnpm-debug.log*
 
 # jetbrains setting folder
 .idea/
+
+# Original / unoptimised image masters (keep on disk, not in repo)
+public/images/*.original.*
+
