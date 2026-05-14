@@ -1,4 +1,4 @@
-// Client roster — 15 direct clients (some with logos, some pending)
+// Client roster — direct clients (some with logos, some pending)
 // Logo field: relative path under /public, null if pending
 
 export interface Client {
@@ -11,21 +11,22 @@ export interface Client {
 export const clients: Client[] = [
   // Tier 1 — global household names
   { name: "TotalEnergies", slug: "totalenergies", sector: "oil-gas-major", logo: "/client-logos/totalenergies.png" },
-  { name: "Halliburton", slug: "halliburton", sector: "service-contractor", logo: null },
+  { name: "Halliburton", slug: "halliburton", sector: "service-contractor", logo: "/client-logos/halliburton.png" },
   { name: "Baker Hughes", slug: "baker-hughes", sector: "service-contractor", logo: null },
-  { name: "Odfjell Drilling", slug: "odfjell-drilling", sector: "drilling-contractor", logo: "/client-logos/odfjell-drilling.jpg" },
-  { name: "Island Drilling", slug: "island-drilling", sector: "drilling-contractor", logo: null },
-  { name: "Tidewater", slug: "tidewater", sector: "vessel-operator", logo: null },
+  { name: "Odfjell Drilling", slug: "odfjell-drilling", sector: "drilling-contractor", logo: "/client-logos/odfjell-drilling.png" },
+  { name: "Island Drilling", slug: "island-drilling", sector: "drilling-contractor", logo: "/client-logos/island-drilling.png" },
+  { name: "Tidewater", slug: "tidewater", sector: "vessel-operator", logo: "/client-logos/tidewater.png" },
   { name: "Bourbon", slug: "bourbon", sector: "vessel-operator", logo: null },
-  { name: "Solstad", slug: "solstad", sector: "vessel-operator", logo: null },
+  { name: "Solstad", slug: "solstad", sector: "vessel-operator", logo: "/client-logos/solstad.png" },
 
   // Tier 2 — specialists, very strong recognition in sector
   { name: "Oceaneering", slug: "oceaneering", sector: "subsea-services", logo: null },
   { name: "SBM Offshore", slug: "sbm-offshore", sector: "subsea-services", logo: null },
   { name: "Expro", slug: "expro", sector: "service-contractor", logo: null },
-  { name: "Northern Ocean Ltd", slug: "northern-ocean", sector: "drilling-contractor", logo: null },
+  { name: "Northern Ocean Ltd", slug: "northern-ocean", sector: "drilling-contractor", logo: "/client-logos/northern-ocean.jpeg" },
   { name: "Eco Atlantic Oil & Gas", slug: "eco-atlantic", sector: "oil-gas-major", logo: "/client-logos/eco-atlantic.png" },
   { name: "LD TravOcean", slug: "ld-travocean", sector: "subsea-services", logo: "/client-logos/ld-travocean.png" },
+  { name: "Peschaud", slug: "peschaud", sector: "service-contractor", logo: "/client-logos/peschaud.png" },
   { name: "Piriou Naval Services", slug: "piriou", sector: "service-contractor", logo: "/client-logos/piriou.jpg" },
   { name: "Port of Réunion", slug: "port-of-reunion", sector: "port-authority", logo: null },
 ];
