@@ -75,7 +75,15 @@ const articleSchema = {
   "about": [
     { "@type": "Organization", "name": project.client },
     ...(project.endCustomer ? [{ "@type": "Organization", "name": project.endCustomer }] : []),
-    ...(project.vessel ? [{ "@type": "Vehicle", "name": project.vessel }] : []),
+    // Use Thing (not Vehicle) for the vessel/rig — Vehicle is a subtype of
+    // Product in schema.org, which triggers the Rich Results Test to demand
+    // offers/review/aggregateRating fields that don't apply to a chartered
+    // marine asset. additionalType keeps the maritime semantic.
+    ...(project.vessel ? [{
+      "@type": "Thing",
+      "name": project.vessel,
+      "additionalType": "https://en.wikipedia.org/wiki/Watercraft",
+    }] : []),
   ],
   "keywords": [
     project.client,
