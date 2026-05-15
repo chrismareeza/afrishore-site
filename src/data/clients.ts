@@ -23,13 +23,14 @@ export const clients: Client[] = [
 
   // Tier 2 — specialists, very strong recognition in sector
   { name: "Oceaneering", slug: "oceaneering", sector: "subsea-services", logo: "/client-logos/oceaneering.png" },
-  { name: "SBM Offshore", slug: "sbm-offshore", sector: "subsea-services", logo: "/client-logos/sbm-offshore.png" },
+  { name: "SBM Offshore", slug: "sbm-offshore", sector: "subsea-services", logo: "/client-logos/sbm-offshore.png", displayBoost: 1.25 },
+  { name: "Fugro", slug: "fugro", sector: "subsea-services", logo: "/client-logos/fugro.png" },
   { name: "Expro", slug: "expro", sector: "service-contractor", logo: "/client-logos/expro.png" },
   { name: "Northern Ocean Ltd", slug: "northern-ocean", sector: "drilling-contractor", logo: "/client-logos/northern-ocean.png", displayBoost: 2.0 },
-  { name: "Eco Atlantic Oil & Gas", slug: "eco-atlantic", sector: "oil-gas-major", logo: "/client-logos/eco-atlantic.png", displayBoost: 1.2 },
+  { name: "Eco Atlantic Oil & Gas", slug: "eco-atlantic", sector: "oil-gas-major", logo: "/client-logos/eco-atlantic.png", displayBoost: 1.5 },
   { name: "LD TravOcean", slug: "ld-travocean", sector: "subsea-services", logo: "/client-logos/ld-travocean.png", displayBoost: 1.2 },
   { name: "Peschaud", slug: "peschaud", sector: "service-contractor", logo: "/client-logos/peschaud.png" },
-  { name: "UOS", slug: "uos", sector: "service-contractor", logo: "/client-logos/uos.png" },
+  { name: "United Offshore Support", slug: "uos", sector: "service-contractor", logo: "/client-logos/uos.png" },
   { name: "Piriou Naval Services", slug: "piriou", sector: "service-contractor", logo: "/client-logos/piriou.png", displayBoost: 1.75 },
   { name: "Port of Réunion", slug: "port-of-reunion", sector: "port-authority", logo: "/client-logos/port-of-reunion.png" },
 ];
