@@ -124,11 +124,11 @@ Trusted by Meta's subsea contractor for one of the most significant infrastructu
     vessel: "MV Transshelf (Boskalis)",
     heroImage: "/images/projects/dock-titan-cape-town-reunion.jpg",
     summary: "Onshore coordination of one of the largest semi-submersible heavy lift operations ever staged through the Port of Cape Town.",
-    outcome: `In 2025, Afrishore coordinated the upliftment and ocean transfer of the Titan Floating Dock from the Port of Cape Town to the Port of Réunion on behalf of Piriou Naval Services and the Port of Réunion. The dock was carried aboard the heavy lift vessel MV Transshelf, operated by Boskalis — one of the largest semi-submersible heavy lift operations ever staged through the Port of Cape Town.
+    outcome: `In 2025, Afrishore coordinated the upliftment and ocean transfer of the Titan Floating Dock from the Port of Cape Town to the Port of Réunion on behalf of Piriou Naval Services and the Port of Réunion. The dock was carried aboard the heavy lift vessel MV Transshelf, operated by Boskalis, and was one of the largest semi-submersible heavy lift operations ever staged in the Port of Cape Town through a very tight upliftment window in the Ben Schoeman dock.
 
-The operation required moving a piece of port infrastructure typically considered immovable. Afrishore delivered the South African-side coordination end-to-end: berth allocation and port authority liaison, customs clearance for the temporary export of an entire floating dock, immigration and accommodation for the specialist heavy lift crew, and the precise load-out sequencing required when the carrier vessel ballasts down to take its cargo on deck. The operation crossed two jurisdictions, three government departments, and the schedule of one of the world's most specialised vessel operators.
+This project actually commenced in 2024 when the Titan Dock arrived under tow in Cape Town for multiple dry docking periods. Upon completion of the yard stays the operation then required moving a piece of port infrastructure typically considered immovable. Afrishore delivered this port coordination end-to-end: dry dock bookings, berth allocation and port authority liaison, customs clearance for the export of an entire floating dock, immigration and accommodation for all technical teams and the precise load-out sequencing required when the carrier vessel ballasted down to uplift the dock. The operation crossed two jurisdictions, three government departments and the schedule of one of the world's most specialised vessel operators.
 
-A semi-submersible heavy lift is the kind of operation where every element must align to the hour. Afrishore delivered the shore-side coordination that made it possible.`,
+A semi-submersible heavy lift is the kind of operation where every element must align to the hour. Afrishore delivered the vessel and port coordination that made it possible.`,
     featured: true,
     published: true,
   },
