@@ -63,7 +63,7 @@ Luiperd confirmed Block 11B/12B as one of Africa's most significant new gas play
   {
     slug: "deepsea-bollsta-sps-walvis-bay",
     title: "Deepsea Bollsta — Special Periodic Survey",
-    client: "Odfjell Drilling",
+    client: "Odfjell Drilling & Northern Ocean Ltd",
     year: "2024",
     port: "Walvis Bay, Namibia",
     serviceTypes: ["supply-base", "ship-rig-agency", "integrated-logistics", "crew-visa"],
