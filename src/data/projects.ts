@@ -26,7 +26,7 @@ export const projects: Project[] = [
   // ──────────────────────────────────────────────
   {
     slug: "totalenergies-brulpadda-discovery",
-    title: "TotalEnergies — Brulpadda Discovery Campaign",
+    title: "TotalEnergies: Brulpadda Discovery Campaign",
     client: "TotalEnergies",
     year: "2018–2019",
     port: "Mossel Bay",
@@ -44,7 +44,7 @@ The Brulpadda discovery reopened South Africa's upstream story. Afrishore was th
   },
   {
     slug: "totalenergies-luiperd-supply-base",
-    title: "TotalEnergies — Luiperd Supply Base",
+    title: "TotalEnergies: Luiperd Supply Base",
     client: "TotalEnergies",
     year: "2020–2021",
     port: "Mossel Bay · Cape Town",
@@ -62,7 +62,7 @@ Luiperd confirmed Block 11B/12B as one of Africa's most significant new gas play
   },
   {
     slug: "deepsea-bollsta-sps-walvis-bay",
-    title: "Deepsea Bollsta — Special Periodic Survey",
+    title: "Deepsea Bollsta: Special Periodic Survey",
     client: "Odfjell Drilling & Northern Ocean Ltd",
     year: "2024",
     port: "Walvis Bay, Namibia",
@@ -80,7 +80,7 @@ The Bollsta returned to operations on schedule, recertified for another five-yea
   },
   {
     slug: "deepsea-mira-sps-walvis-bay",
-    title: "Deepsea Mira — SPS & BOP Exchange",
+    title: "Deepsea Mira: SPS & BOP Exchange",
     client: "Odfjell Drilling / Northern Ocean Ltd",
     year: "2024–2025",
     port: "Walvis Bay, Namibia",
@@ -98,7 +98,7 @@ A Special Periodic Survey is rarely simple. With a BOP exchange layered in, it r
   },
   {
     slug: "facebook-2africa-cable-landing",
-    title: "Facebook 2Africa — Subsea Cable Landing",
+    title: "Facebook 2Africa: Subsea Cable Landing",
     client: "LD TravOcean",
     endCustomer: "Meta",
     year: "2022–2023",
@@ -116,7 +116,7 @@ Trusted by Meta's subsea contractor for one of the most significant infrastructu
   },
   {
     slug: "dock-titan-cape-town-reunion",
-    title: "Dock Titan — Heavy Lift to Réunion",
+    title: "Dock Titan: Heavy Lift to Réunion",
     client: "Piriou Naval Services / Port of Réunion",
     year: "2025",
     port: "Cape Town · Port of Réunion",
@@ -138,7 +138,7 @@ A semi-submersible heavy lift is the kind of operation where every element must 
   // ──────────────────────────────────────────────
   {
     slug: "totalenergies-brulpadda-2014",
-    title: "TotalEnergies — Brulpadda Drilling Campaign",
+    title: "TotalEnergies: Brulpadda Drilling Campaign",
     client: "TotalEnergies",
     year: "2014",
     port: "Mossel Bay / Cape Town",
@@ -150,7 +150,7 @@ A semi-submersible heavy lift is the kind of operation where every element must 
   },
   {
     slug: "totalenergies-anchor-testing",
-    title: "TotalEnergies — Anchor Testing",
+    title: "TotalEnergies: Anchor Testing",
     client: "TotalEnergies",
     year: "2016",
     port: "Cape Town",
@@ -161,7 +161,7 @@ A semi-submersible heavy lift is the kind of operation where every element must 
   },
   {
     slug: "eco-atlantic-gazania-1",
-    title: "Eco Atlantic — Gazania-1 Drilling Campaign",
+    title: "Eco Atlantic: Gazania-1 Drilling Campaign",
     client: "Eco Atlantic Oil & Gas",
     year: "2023–2024",
     port: "Cape Town / Saldanha",
@@ -172,7 +172,7 @@ A semi-submersible heavy lift is the kind of operation where every element must 
   },
   {
     slug: "deepsea-bollsta-jonker-1",
-    title: "Deepsea Bollsta — Jonker-1 Drilling Campaign",
+    title: "Deepsea Bollsta: Jonker-1 Drilling Campaign",
     client: "Odfjell Drilling / Northern Ocean Ltd",
     year: "2022–2024",
     port: "Walvis Bay, Namibia",
@@ -184,7 +184,7 @@ A semi-submersible heavy lift is the kind of operation where every element must 
   },
   {
     slug: "galp-hercules-mopane-1x",
-    title: "Hercules — Mopane-1x Campaign",
+    title: "Hercules: Mopane-1x Campaign",
     client: "Odfjell Drilling",
     endCustomer: "Galp Energia",
     year: "2023–2024",
@@ -197,7 +197,7 @@ A semi-submersible heavy lift is the kind of operation where every element must 
   },
   {
     slug: "deepsea-mira-venus-1x",
-    title: "Deepsea Mira — Venus-1x Drilling",
+    title: "Deepsea Mira: Venus-1x Drilling",
     client: "Odfjell Drilling / Northern Ocean Ltd",
     year: "2023–2024",
     port: "Walvis Bay / Lüderitz",
@@ -209,7 +209,7 @@ A semi-submersible heavy lift is the kind of operation where every element must 
   },
   {
     slug: "deepsea-mira-tamboti-1x",
-    title: "Deepsea Mira — Tamboti-1x Drilling",
+    title: "Deepsea Mira: Tamboti-1x Drilling",
     client: "Odfjell Drilling / Northern Ocean Ltd",
     year: "2024–2025",
     port: "Walvis Bay / Lüderitz",
@@ -221,7 +221,7 @@ A semi-submersible heavy lift is the kind of operation where every element must 
   },
   {
     slug: "deepsea-mira-volans-kharas",
-    title: "Deepsea Mira — Volans-1x & Kharas-1 Drilling",
+    title: "Deepsea Mira: Volans-1x & Kharas-1 Drilling",
     client: "Odfjell Drilling / Northern Ocean Ltd",
     year: "2025–2026",
     port: "Walvis Bay",
@@ -233,7 +233,7 @@ A semi-submersible heavy lift is the kind of operation where every element must 
   },
   {
     slug: "petrosa-orca-remobilisation",
-    title: "PetroSA — ORCA Remobilisation Tow",
+    title: "PetroSA: ORCA Remobilisation Tow",
     client: "PetroSA",
     year: "2022",
     port: "Mossel Bay",
@@ -244,7 +244,7 @@ A semi-submersible heavy lift is the kind of operation where every element must 
   },
   {
     slug: "sbm-subsea-concrete-mattress",
-    title: "SBM Offshore — Subsea Concrete Mattress",
+    title: "SBM Offshore: Subsea Concrete Mattress",
     client: "SBM Offshore",
     year: "2015",
     port: "Mossel Bay",
@@ -255,7 +255,7 @@ A semi-submersible heavy lift is the kind of operation where every element must 
   },
   {
     slug: "oceaneering-subsea-grout-bags",
-    title: "Oceaneering — Subsea Grout Bags",
+    title: "Oceaneering: Subsea Grout Bags",
     client: "Oceaneering",
     year: "2018",
     port: "Mossel Bay",
@@ -266,7 +266,7 @@ A semi-submersible heavy lift is the kind of operation where every element must 
   },
   {
     slug: "sbm-subsea-pipelaying",
-    title: "SBM Offshore — Subsea Pipelaying",
+    title: "SBM Offshore: Subsea Pipelaying",
     client: "SBM Offshore",
     year: "2013",
     port: "Mossel Bay",
