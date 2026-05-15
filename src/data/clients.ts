@@ -23,14 +23,14 @@ export const clients: Client[] = [
 
   // Tier 2 — specialists, very strong recognition in sector
   { name: "Oceaneering", slug: "oceaneering", sector: "subsea-services", logo: "/client-logos/oceaneering.png" },
-  { name: "SBM Offshore", slug: "sbm-offshore", sector: "subsea-services", logo: "/client-logos/sbm-offshore.png", displayBoost: 1.25 },
+  { name: "United Offshore Support", slug: "uos", sector: "service-contractor", logo: "/client-logos/uos.png", displayBoost: 2.5 },
   { name: "Fugro", slug: "fugro", sector: "subsea-services", logo: "/client-logos/fugro.png" },
   { name: "Halliburton", slug: "halliburton", sector: "service-contractor", logo: "/client-logos/halliburton.png" },
-  { name: "Northern Ocean Ltd", slug: "northern-ocean", sector: "drilling-contractor", logo: "/client-logos/northern-ocean.png" },
+  { name: "Northern Ocean Ltd", slug: "northern-ocean", sector: "drilling-contractor", logo: "/client-logos/northern-ocean.png", displayBoost: 0.75 },
   { name: "Eco Atlantic Oil & Gas", slug: "eco-atlantic", sector: "oil-gas-major", logo: "/client-logos/eco-atlantic.png", displayBoost: 1.5 },
-  { name: "LD TravOcean", slug: "ld-travocean", sector: "subsea-services", logo: "/client-logos/ld-travocean.png", displayBoost: 1.2 },
+  { name: "LD TravOcean", slug: "ld-travocean", sector: "subsea-services", logo: "/client-logos/ld-travocean.png", displayBoost: 1.5 },
   { name: "Peschaud", slug: "peschaud", sector: "service-contractor", logo: "/client-logos/peschaud.png" },
-  { name: "United Offshore Support", slug: "uos", sector: "service-contractor", logo: "/client-logos/uos.png", displayBoost: 2.0 },
+  { name: "SBM Offshore", slug: "sbm-offshore", sector: "subsea-services", logo: "/client-logos/sbm-offshore.png", displayBoost: 1.25 },
   { name: "Piriou Naval Services", slug: "piriou", sector: "service-contractor", logo: "/client-logos/piriou.png", displayBoost: 1.75 },
   { name: "Port of Réunion", slug: "port-of-reunion", sector: "port-authority", logo: "/client-logos/port-of-reunion.png", displayBoost: 3.0 },
   { name: "Vantris Energy", slug: "vantris-energy", sector: "oil-gas-major", logo: "/client-logos/vantris-energy.png", displayBoost: 2.0 },
