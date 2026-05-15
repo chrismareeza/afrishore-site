@@ -74,10 +74,10 @@ const ports: Pin[] = [
           </radialGradient>
         </defs>
 
-        <!-- Country labels — subtle background type, positioned inland of each coast -->
-        <text x="230" y="135" fill="#2A2A2A" font-family="Inter, sans-serif" font-size="13" letter-spacing="0.25em" font-weight="600">NAMIBIA</text>
-        <text x="370" y="500" fill="#2A2A2A" font-family="Inter, sans-serif" font-size="13" letter-spacing="0.25em" font-weight="600">SOUTH AFRICA</text>
-        <text x="715" y="180" text-anchor="middle" fill="#2A2A2A" font-family="Inter, sans-serif" font-size="13" letter-spacing="0.25em" font-weight="600">MOZAMBIQUE</text>
+        <!-- Country labels — warm bronze background type, centred inland of each territory -->
+        <text x="285" y="260" text-anchor="middle" fill="#8A7551" font-family="Inter, sans-serif" font-size="15" letter-spacing="0.25em" font-weight="700">NAMIBIA</text>
+        <text x="450" y="510" text-anchor="middle" fill="#8A7551" font-family="Inter, sans-serif" font-size="15" letter-spacing="0.25em" font-weight="700">SOUTH AFRICA</text>
+        <text x="730" y="260" text-anchor="middle" fill="#8A7551" font-family="Inter, sans-serif" font-size="15" letter-spacing="0.25em" font-weight="700">MOZAMBIQUE</text>
 
         <!-- Country borders — thin faint gold dashed lines, geographically accurate.
              5 countries (NA, SA, MZ, Bot, Zim) meeting at 6 tri-points:
@@ -141,7 +141,7 @@ const ports: Pin[] = [
           />
         </g>
 
-        <!-- Coastline (will animate via stroke-dashoffset) -->
+        <!-- Coastline (will animate via stroke-dashoffset, lit by travelling spark) -->
         <path
           id="coastline-path"
           d="M 200 80
@@ -160,6 +160,17 @@ const ports: Pin[] = [
           pathLength="1"
           stroke-dasharray="1"
           stroke-dashoffset="1"
+        />
+
+        <!-- Fuse spark — travels along the coastline as it draws -->
+        <circle
+          id="coastline-spark"
+          cx="200"
+          cy="80"
+          r="6"
+          fill="#FDE64B"
+          opacity="0"
+          style="filter: drop-shadow(0 0 6px #FDE64B) drop-shadow(0 0 14px #ED7014);"
         />
 
         <!-- Office pins (orange + pulse halo) -->
@@ -223,36 +234,55 @@ const ports: Pin[] = [
     .to("[data-anim='map-sub']", { opacity: 1, y: 0 }, 0.4)
     .to("[data-anim='map-svg']", { opacity: 1, duration: 0.8 }, 0.6);
 
-  // Coastline draws on viewport entry
+  // Coastline animates like a lit fuse — spark travels from Namibian top
+  // to Mozambican top while the stroke draws in behind it.
   ScrollTrigger.create({
     trigger: "#coastline-path",
     start: "top 80%",
     once: true,
     onEnter: () => {
-      gsap.to("#coastline-path", {
-        strokeDashoffset: 0,
-        duration: 2.4,
-        ease: "power2.inOut",
+      const path = document.querySelector<SVGPathElement>("#coastline-path");
+      const spark = document.querySelector<SVGCircleElement>("#coastline-spark");
+      if (!path || !spark) return;
+
+      const total = path.getTotalLength();
+      const progress = { p: 0 };
+
+      gsap.set(spark, { opacity: 1 });
+
+      gsap.to(progress, {
+        p: 1,
+        duration: 1.1,
+        ease: "power2.out",
+        onUpdate: () => {
+          const pt = path.getPointAtLength(total * progress.p);
+          spark.setAttribute("cx", String(pt.x));
+          spark.setAttribute("cy", String(pt.y));
+          path.style.strokeDashoffset = String(1 - progress.p);
+        },
         onComplete: () => {
-          // Country borders fade in subtly after coast
+          // Fuse reaches Mozambican end — spark fades out
+          gsap.to(spark, { opacity: 0, duration: 0.4, ease: "power2.out" });
+
+          // Borders fade in subtly after coast
           gsap.to("[data-borders]", {
             opacity: 1,
-            duration: 1.2,
+            duration: 0.9,
             ease: "power2.out",
           });
-          // Pins drop in with stagger after coastline completes
+          // Pins drop in with stagger
           gsap.to("[data-pin='office']", {
             opacity: 1,
-            duration: 0.6,
-            stagger: 0.12,
-            delay: 0.3,
+            duration: 0.5,
+            stagger: 0.1,
+            delay: 0.15,
             ease: "power3.out",
           });
           gsap.to("[data-pin='port']", {
             opacity: 1,
             duration: 0.4,
-            stagger: 0.08,
-            delay: 0.6,
+            stagger: 0.06,
+            delay: 0.4,
             ease: "power2.out",
           });
         },
