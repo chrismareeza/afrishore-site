@@ -30,8 +30,14 @@ import { clients } from "../data/clients";
       {clients.map((client) => (
         <div
           data-anim="cli-cell"
-          class="opacity-0 group aspect-[3/2] bg-base hover:bg-surface flex items-center justify-center p-6 lg:p-8 transition-colors duration-300"
+          class="cli-cell opacity-0 group relative aspect-[3/2] bg-base flex items-center justify-center p-6 lg:p-8 overflow-hidden transition-all duration-300"
         >
+          <!-- Top gradient bar — draws on hover -->
+          <span
+            class="absolute top-0 left-0 right-0 h-[2px] origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500 z-10"
+            style="background: linear-gradient(90deg, #ED7014, #FDE64B);"
+          ></span>
+
           {client.logo ? (
             <img
               src={client.logo}
@@ -77,9 +83,21 @@ import { clients } from "../data/clients";
     color: #F5AB2F;
   }
 
+  /* Hover: orange-glow border (inset box-shadow stays within cell bounds, doesn't disturb grid layout) + subtle warm tint */
+  .cli-cell {
+    transition: background-color 0.3s ease, box-shadow 0.35s ease;
+  }
+  .cli-cell:hover {
+    background-color: rgba(20, 20, 20, 1); /* surface */
+    box-shadow:
+      inset 0 0 0 1px rgba(237, 112, 20, 0.55),
+      inset 0 0 20px rgba(237, 112, 20, 0.10);
+  }
+
   @media (prefers-reduced-motion: reduce) {
     .client-logo,
-    .client-text {
+    .client-text,
+    .cli-cell {
       transition: none;
     }
   }

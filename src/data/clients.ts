@@ -32,5 +32,5 @@ export const clients: Client[] = [
   { name: "Peschaud", slug: "peschaud", sector: "service-contractor", logo: "/client-logos/peschaud.png" },
   { name: "United Offshore Support", slug: "uos", sector: "service-contractor", logo: "/client-logos/uos.png" },
   { name: "Piriou Naval Services", slug: "piriou", sector: "service-contractor", logo: "/client-logos/piriou.png", displayBoost: 1.75 },
-  { name: "Port of Réunion", slug: "port-of-reunion", sector: "port-authority", logo: "/client-logos/port-of-reunion.png" },
+  { name: "Port of Réunion", slug: "port-of-reunion", sector: "port-authority", logo: "/client-logos/port-of-reunion.png", displayBoost: 2.0 },
 ];
