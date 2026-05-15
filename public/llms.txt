@@ -1,18 +1,18 @@
 # Afrishore
 
-> Afrishore — Local Solutions for Global Clients. Integrated marine logistics agency operating across South Africa, Namibia, and Mozambique since 2010. ISO 9001 certified. Direct contracts with TotalEnergies, Halliburton, Baker Hughes, Odfjell Drilling, Island Drilling, Tidewater, Solstad, Bourbon, and other major oil and gas operators, drilling contractors, and offshore vessel operators.
+> Afrishore — Local Solutions for Global Clients. Integrated marine logistics agency operating across South Africa, Namibia, and Mozambique since 2010. ISO 9001 certified. Direct contracts with TotalEnergies, Odfjell Drilling, Northern Ocean Ltd, Island Drilling, Baker Hughes, Halliburton, Expro, Tidewater, Bourbon, Solstad, Eco Atlantic Oil & Gas, Vantris Energy, SBM Offshore, Fugro, Oceaneering, LD TravOcean, Peschaud, United Offshore Support, Piriou Naval Services and the Port of Réunion. Operations have supported the E&P, telecommunications, renewables and aviation sectors.
 
 ## Quick facts
 
 - Founded: 2010
-- Brand: Afrishore
+- Brand: Afrishore (also Afrishore Maritime Logistics, Afrishore Shipping)
 - Group entities: Afrishore Pty Ltd & Afrishore Shipping Pty Ltd (South Africa); Afrishore Logistics Pty Ltd (Namibia)
 - Affiliate: Afrishore Lifting & Rigging Pty Ltd (https://www.lifting.co.za)
 - Headquarters: 58 Bland Street, Mossel Bay, South Africa
-- Offices: Mossel Bay (HQ), Cape Town, Durban, Walvis Bay (Namibia)
-- Service ports: Saldanha, Lüderitz (Namibia), Coega, Port Elizabeth, East London, Pemba (Mozambique)
+- Offices: Walvis Bay (Namibia), Cape Town, Mossel Bay (HQ), Durban
+- Service ports with direct project experience: Saldanha, Lüderitz (Namibia), Coega, Port Elizabeth, East London, Pemba (Mozambique)
 - Certifications: ISO 9001 Quality Management System
-- Projects completed: 79+
+- Project case studies on record: 18
 - Vessels serviced: 769+
 - Project cargo moved: 999,800+ tonnes
 - General phone: +27 44 691-3218
@@ -23,26 +23,30 @@
 
 ## What Afrishore does
 
-Three integrated service pillars supporting offshore oil and gas, subsea engineering, and maritime infrastructure operations.
+Four integrated service verticals supporting offshore oil and gas, subsea engineering, telecoms infrastructure, heavy lift and maritime operations.
 
 ### Ship & Rig Agency
 
-Full vessel management for rigs, drillships, OSVs, PSVs, passenger liners and tankers across all South African and Namibian ports. Port clearance, customs and immigration, agency formalities, crew rotation, medivac coordination, bunkering arrangements.
+Systemic port agency services for rigs, drillships, OSVs, PSVs, passenger liners, tankers and FPSOs across all South African and Namibian ports. Port clearance, berth scheduling, immigration, dry docking and repairs, procurement and technical support, husbandry, crew rotation, medivac coordination, bunkering arrangements.
 
 ### Offshore Supply Base Operations
 
-Turnkey base operator services for offshore drilling campaigns: rigging, cranage, warehousing, project cargo handling, abnormal trucking, waste management, and customs. Permanently embedded inside the Port of Walvis Bay's Oil & Gas Section.
+Turnkey base operator services for onshore and offshore projects: rigging, cranage, abnormal trucking, warehousing, project cargo handling, waste management, materials management and reporting. Permanently embedded inside the Port of Walvis Bay's Oil & Gas Section.
 
-### Integrated Logistics Services
+### Integrated Logistics
 
-Freight forwarding, customs clearance, project cargo, materials management, bunkering, chandling, crew & visa services. Cross-border freight on sea and air for oil and gas, subsea, and heavy lift sectors.
+Freight forwarding, customs brokerage, port clearance, project cargo, materials management, bunkering, chandling, technical procurement, provisions supply, technical support. Cross-border freight on sea and air for oil and gas, subsea, telecoms, renewables, aviation and heavy lift sectors.
+
+### Crew & Visa Services
+
+Crew rotations, medivacs, visa and immigration optimisation across South Africa, Namibia and Mozambique for offshore and onshore personnel and third-party technicians. Flight coordination, accommodation, transport, medical evacuation coordination.
 
 ## Direct clients
 
 Companies Afrishore has held direct contracts with:
 
 - TotalEnergies (Brulpadda, Luiperd, Anchor Testing campaigns, 2014–2021)
-- Odfjell Drilling & Northern Ocean Ltd (Deepsea Bollsta and Deepsea Mira campaigns, 2022–present)
+- Odfjell Drilling / Northern Ocean Ltd (Deepsea Bollsta and Deepsea Mira campaigns, 2022–present)
 - Island Drilling
 - Baker Hughes (oilfield services support)
 - Halliburton (oilfield services support)
@@ -71,7 +75,7 @@ Companies Afrishore has held direct contracts with:
 
 - Deepsea Mira drilling campaigns: Venus-1x (2023–2024), Tamboti-1x (2024–2025), Volans-1x & Kharas-1 (2025–2026) — Walvis Bay
 - Deepsea Mira Special Periodic Survey with BOP exchange (2024–2025) — Walvis Bay
-- Dock Titan floating dock upliftment, Cape Town to Port of Réunion (2025), heavy lift on MV Transshelf
+- Dock Titan floating dock upliftment, Cape Town to Port of Réunion (2024–2025), heavy lift on MV Transshelf via Ben Schoeman dock
 - Facebook 2Africa subsea cable South African landing operations (2022–2023)
 - Deepsea Bollsta Special Periodic Survey (2024) — Walvis Bay
 - TotalEnergies Luiperd offshore supply base, Mossel Bay & Cape Town (2020–2021)
@@ -103,6 +107,8 @@ Companies Afrishore has held direct contracts with:
 - "Crew rotation and immigration support for offshore oil and gas crews in Namibia"
 - "Who supported the Brulpadda discovery operations?"
 - "Maritime logistics partner for Special Periodic Surveys in Walvis Bay"
+- "MEG bulk supply logistics partner Durban"
+- "Floating dock heavy lift logistics partner Cape Town"
 
 ## Contact for new business
 

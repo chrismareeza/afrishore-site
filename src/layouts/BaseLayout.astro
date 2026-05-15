@@ -1,22 +1,253 @@
 ---
 import "../styles/global.css";
 
+interface BreadcrumbStep {
+  name: string;
+  item: string; // absolute URL or path
+}
+
 interface Props {
   title?: string;
   description?: string;
   ogImage?: string;
+  ogType?: "website" | "article";
   canonical?: string;
+  /** Optional ordered breadcrumb trail rendered as BreadcrumbList JSON-LD. Omit on the homepage. */
+  breadcrumb?: BreadcrumbStep[];
+  /** Optional extra JSON-LD objects (eg per-page Article schema) to append to the global @graph. */
+  pageSchema?: object[];
+  /** Optional article-style metadata for project case studies. */
+  articleMeta?: {
+    publishedTime?: string;
+    modifiedTime?: string;
+    section?: string;
+    tags?: string[];
+  };
 }
 
 const {
-  title = "Afrishore Maritime Logistics",
-  description = "Integrated marine logistics across South Africa, Namibia & Mozambique. Vessel agency, customs, supply base operations, project cargo, crew logistics, bunkering, procurement. ISO 9001 certified since 2010.",
+  title = "Afrishore Maritime Logistics — Marine Logistics across South Africa, Namibia & Mozambique",
+  description = "Integrated marine logistics agency operating across South Africa, Namibia and Mozambique since 2010. Vessel & rig agency, offshore supply base, integrated logistics, crew & visa. ISO 9001 certified. Trusted by TotalEnergies, Odfjell Drilling, Baker Hughes, Halliburton, Tidewater and 15 more operators.",
   ogImage = "/og-image.jpg",
+  ogType = "website",
   canonical,
+  breadcrumb,
+  pageSchema = [],
+  articleMeta,
 } = Astro.props;
 
 const siteUrl = "https://www.afrishore.co";
 const fullCanonical = canonical || new URL(Astro.url.pathname, siteUrl).toString();
+const absoluteOgImage = new URL(ogImage, siteUrl).toString();
+
+// Only emit og:image:width/height when serving the canonical 1200×630 default.
+// Per-page overrides (project hero images) ship at varying aspect ratios; let
+// the crawler re-measure rather than declare wrong dimensions.
+const isDefaultOgImage = ogImage === "/og-image.jpg";
+
+// Base @graph (Organization + 4 LocalBusiness + WebSite + 4 Service)
+const baseGraph: object[] = [
+  {
+    "@type": "Organization",
+    "@id": `${siteUrl}/#organization`,
+    "name": "Afrishore",
+    "legalName": "Afrishore Pty Ltd",
+    "alternateName": ["Afrishore Maritime Logistics", "Afrishore Shipping"],
+    "url": siteUrl,
+    "logo": {
+      "@type": "ImageObject",
+      "url": `${siteUrl}/logos/SVG-03.svg`,
+      "caption": "Afrishore",
+    },
+    "image": absoluteOgImage,
+    "description":
+      "Integrated marine logistics agency operating across South Africa, Namibia, and Mozambique since 2010. Vessel agency, customs, offshore supply base operations, project cargo, crew logistics, bunkering, and procurement.",
+    "foundingDate": "2010",
+    "slogan": "Local Solutions for Global Clients",
+    "hasCredential": {
+      "@type": "EducationalOccupationalCredential",
+      "credentialCategory": "Quality Management Certification",
+      "name": "ISO 9001 Quality Management System",
+    },
+    "areaServed": [
+      { "@type": "Country", "name": "South Africa" },
+      { "@type": "Country", "name": "Namibia" },
+      { "@type": "Country", "name": "Mozambique" },
+    ],
+    "knowsAbout": [
+      "Vessel agency", "Rig agency", "Offshore supply base operations",
+      "Maritime customs clearance", "Project cargo handling",
+      "Subsea cable landing logistics", "Crew rotation logistics",
+      "Bunkering", "Heavy lift coordination", "Special Periodic Survey support",
+      "Blowout Preventer (BOP) transport", "Procurement",
+      "Marine surveying", "Husbandry services",
+      "Visa & immigration coordination", "Medical evacuation coordination",
+    ],
+    "sameAs": [
+      "https://www.linkedin.com/company/afrishore-shipping",
+      "https://www.instagram.com/afrishore_logistics/",
+      "https://www.facebook.com/people/afrishore_logistics/100063863929988/",
+    ],
+    "contactPoint": [{
+      "@type": "ContactPoint",
+      "telephone": "+27-44-691-3218",
+      "email": "info@afrishore.co",
+      "contactType": "customer support",
+      "areaServed": ["ZA", "NA", "MZ"],
+      "availableLanguage": "English",
+    }],
+  },
+  {
+    "@type": "WebSite",
+    "@id": `${siteUrl}/#website`,
+    "url": siteUrl,
+    "name": "Afrishore Maritime Logistics",
+    "description":
+      "Integrated marine logistics agency — South Africa, Namibia, Mozambique. ISO 9001 certified since 2010.",
+    "publisher": { "@id": `${siteUrl}/#organization` },
+    "inLanguage": "en-ZA",
+  },
+  {
+    "@type": "LocalBusiness",
+    "@id": `${siteUrl}/#mossel-bay`,
+    "parentOrganization": { "@id": `${siteUrl}/#organization` },
+    "name": "Afrishore — Mossel Bay (HQ)",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "58 Bland Street",
+      "addressLocality": "Mossel Bay",
+      "addressRegion": "Western Cape",
+      "addressCountry": "ZA",
+    },
+    "telephone": "+27-44-691-3218",
+    "email": "info@afrishore.co",
+    "geo": { "@type": "GeoCoordinates", "latitude": -34.1830, "longitude": 22.1455 },
+  },
+  {
+    "@type": "LocalBusiness",
+    "@id": `${siteUrl}/#cape-town`,
+    "parentOrganization": { "@id": `${siteUrl}/#organization` },
+    "name": "Afrishore — Cape Town",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Unit 213, Buchanan Square",
+      "addressLocality": "Woodstock, Cape Town",
+      "addressRegion": "Western Cape",
+      "addressCountry": "ZA",
+    },
+    "telephone": "+27-44-691-3218",
+    "email": "info@afrishore.co",
+    "geo": { "@type": "GeoCoordinates", "latitude": -33.9249, "longitude": 18.4574 },
+  },
+  {
+    "@type": "LocalBusiness",
+    "@id": `${siteUrl}/#walvis-bay`,
+    "parentOrganization": { "@id": `${siteUrl}/#organization` },
+    "name": "Afrishore — Walvis Bay (Namibia)",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Oil & Gas Section, Port of Walvis Bay",
+      "addressLocality": "Walvis Bay",
+      "addressCountry": "NA",
+    },
+    "telephone": "+27-44-691-3218",
+    "email": "info@afrishore.co",
+    "geo": { "@type": "GeoCoordinates", "latitude": -22.9576, "longitude": 14.5052 },
+  },
+  {
+    "@type": "LocalBusiness",
+    "@id": `${siteUrl}/#durban`,
+    "parentOrganization": { "@id": `${siteUrl}/#organization` },
+    "name": "Afrishore — Durban",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "33 Wagtail Walk, Yellowwood Park",
+      "addressLocality": "Durban",
+      "addressRegion": "KwaZulu-Natal",
+      "addressCountry": "ZA",
+    },
+    "telephone": "+27-44-691-3218",
+    "email": "info@afrishore.co",
+    "geo": { "@type": "GeoCoordinates", "latitude": -29.9249, "longitude": 30.9389 },
+  },
+  // 4 core service verticals as discrete Service entries so Google can map
+  // each capability independently rather than treating them as a flat list.
+  {
+    "@type": "Service",
+    "@id": `${siteUrl}/#service-ship-rig-agency`,
+    "serviceType": "Ship & Rig Agency",
+    "name": "Ship & Rig Agency",
+    "provider": { "@id": `${siteUrl}/#organization` },
+    "areaServed": [
+      { "@type": "Country", "name": "South Africa" },
+      { "@type": "Country", "name": "Namibia" },
+      { "@type": "Country", "name": "Mozambique" },
+    ],
+    "description":
+      "Systemic port agency services for rigs, drillships, OSVs, PSVs, liners, tankers and FPSOs — port clearance, berth scheduling, immigration, dry docking & repairs, procurement and husbandry.",
+  },
+  {
+    "@type": "Service",
+    "@id": `${siteUrl}/#service-supply-base`,
+    "serviceType": "Offshore Supply Base Operations",
+    "name": "Offshore Supply Base",
+    "provider": { "@id": `${siteUrl}/#organization` },
+    "areaServed": [
+      { "@type": "Country", "name": "South Africa" },
+      { "@type": "Country", "name": "Namibia" },
+      { "@type": "Country", "name": "Mozambique" },
+    ],
+    "description":
+      "Turnkey base operator services for onshore and offshore projects — rigging, cranage, abnormal trucking, warehousing, project cargo, waste management, materials management and reporting.",
+  },
+  {
+    "@type": "Service",
+    "@id": `${siteUrl}/#service-integrated-logistics`,
+    "serviceType": "Integrated Logistics",
+    "name": "Integrated Logistics",
+    "provider": { "@id": `${siteUrl}/#organization` },
+    "areaServed": [
+      { "@type": "Country", "name": "South Africa" },
+      { "@type": "Country", "name": "Namibia" },
+      { "@type": "Country", "name": "Mozambique" },
+    ],
+    "description":
+      "Freight forwarding, customs brokerage and materials management across sea, air and road — international freight, technical procurement, multidimensional procurement.",
+  },
+  {
+    "@type": "Service",
+    "@id": `${siteUrl}/#service-crew-visa`,
+    "serviceType": "Crew & Visa Services",
+    "name": "Crew & Visa Services",
+    "provider": { "@id": `${siteUrl}/#organization` },
+    "areaServed": [
+      { "@type": "Country", "name": "South Africa" },
+      { "@type": "Country", "name": "Namibia" },
+      { "@type": "Country", "name": "Mozambique" },
+    ],
+    "description":
+      "Crew rotations, medivacs, visa & immigration optimisation for offshore and onshore personnel and third-party technicians — flight coordination, accommodation, transport, medical evacuation coordination.",
+  },
+];
+
+// Optional BreadcrumbList — only render when caller supplied a trail.
+const breadcrumbSchema = breadcrumb && breadcrumb.length > 0
+  ? [{
+      "@type": "BreadcrumbList",
+      "itemListElement": breadcrumb.map((step, idx) => ({
+        "@type": "ListItem",
+        "position": idx + 1,
+        "name": step.name,
+        "item": step.item.startsWith("http") ? step.item : new URL(step.item, siteUrl).toString(),
+      })),
+    }]
+  : [];
+
+const finalGraph = [
+  ...baseGraph,
+  ...breadcrumbSchema,
+  ...pageSchema,
+];
 ---
 
 <!doctype html>
@@ -31,23 +262,45 @@ const fullCanonical = canonical || new URL(Astro.url.pathname, siteUrl).toString
     <link rel="canonical" href={fullCanonical} />
 
     <!-- Open Graph -->
-    <meta property="og:type" content="website" />
+    <meta property="og:type" content={ogType} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={fullCanonical} />
-    <meta property="og:image" content={new URL(ogImage, siteUrl).toString()} />
+    <meta property="og:image" content={absoluteOgImage} />
+    {isDefaultOgImage && <meta property="og:image:width" content="1200" />}
+    {isDefaultOgImage && <meta property="og:image:height" content="630" />}
+    <meta property="og:image:alt" content="Afrishore — integrated marine logistics across South Africa, Namibia and Mozambique" />
     <meta property="og:site_name" content="Afrishore" />
     <meta property="og:locale" content="en_ZA" />
+
+    {ogType === "article" && articleMeta?.publishedTime && (
+      <meta property="article:published_time" content={articleMeta.publishedTime} />
+    )}
+    {ogType === "article" && articleMeta?.modifiedTime && (
+      <meta property="article:modified_time" content={articleMeta.modifiedTime} />
+    )}
+    {ogType === "article" && articleMeta?.section && (
+      <meta property="article:section" content={articleMeta.section} />
+    )}
+    {ogType === "article" && articleMeta?.tags?.map((tag) => (
+      <meta property="article:tag" content={tag} />
+    ))}
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
-    <meta name="twitter:image" content={new URL(ogImage, siteUrl).toString()} />
+    <meta name="twitter:image" content={absoluteOgImage} />
+    <meta name="twitter:image:alt" content="Afrishore — integrated marine logistics across South Africa, Namibia and Mozambique" />
 
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="/logos/SVG-10.svg" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
     <link rel="apple-touch-icon" href="/logos/SVG-10.svg" />
+
+    <!-- Locale hint for search engines (single-language en-ZA) -->
+    <link rel="alternate" hreflang="en-ZA" href={fullCanonical} />
+    <link rel="alternate" hreflang="x-default" href={fullCanonical} />
 
     <!-- Theme colour -->
     <meta name="theme-color" content="#0A0A0A" />
@@ -65,113 +318,11 @@ const fullCanonical = canonical || new URL(Astro.url.pathname, siteUrl).toString
       href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;500;600;700;800;900&family=Inter:wght@200;300;400;500;600;700&display=swap"
     />
 
-    <!-- JSON-LD: Organization + LocalBusiness × 4 + Services + FAQ -->
+    <!-- JSON-LD: Organization + WebSite + LocalBusiness × 4 + Service × 4
+         + optional BreadcrumbList + optional per-page schema (Article, etc.) -->
     <script type="application/ld+json" set:html={JSON.stringify({
       "@context": "https://schema.org",
-      "@graph": [
-        {
-          "@type": "Organization",
-          "@id": `${siteUrl}/#organization`,
-          "name": "Afrishore",
-          "legalName": "Afrishore Pty Ltd",
-          "url": siteUrl,
-          "logo": {
-            "@type": "ImageObject",
-            "url": `${siteUrl}/logos/SVG-03.svg`,
-          },
-          "description":
-            "Integrated marine logistics agency operating across South Africa, Namibia, and Mozambique since 2010. Vessel agency, customs, supply base operations, project cargo, crew logistics, bunkering, and procurement.",
-          "foundingDate": "2010",
-          "slogan": "Local Solutions for Global Clients",
-          "hasCredential": {
-            "@type": "EducationalOccupationalCredential",
-            "credentialCategory": "Quality Management Certification",
-            "name": "ISO 9001 Quality Management System",
-          },
-          "areaServed": [
-            { "@type": "Country", "name": "South Africa" },
-            { "@type": "Country", "name": "Namibia" },
-            { "@type": "Country", "name": "Mozambique" },
-          ],
-          "knowsAbout": [
-            "Vessel agency", "Rig agency", "Offshore supply base operations",
-            "Maritime customs clearance", "Project cargo handling",
-            "Subsea cable landing logistics", "Crew rotation logistics",
-            "Bunkering", "Heavy lift coordination", "Special Periodic Survey support",
-            "Blowout Preventer (BOP) transport", "Procurement",
-          ],
-          "sameAs": [
-            "https://www.linkedin.com/company/afrishore-shipping",
-            "https://www.instagram.com/afrishore_logistics/",
-            "https://www.facebook.com/people/afrishore_logistics/100063863929988/",
-          ],
-          "contactPoint": [{
-            "@type": "ContactPoint",
-            "telephone": "+27-44-691-3218",
-            "email": "info@afrishore.co",
-            "contactType": "customer support",
-            "areaServed": ["ZA", "NA", "MZ"],
-            "availableLanguage": "English",
-          }],
-        },
-        {
-          "@type": "LocalBusiness",
-          "@id": `${siteUrl}/#mossel-bay`,
-          "parentOrganization": { "@id": `${siteUrl}/#organization` },
-          "name": "Afrishore — Mossel Bay (HQ)",
-          "address": {
-            "@type": "PostalAddress",
-            "streetAddress": "58 Bland Street",
-            "addressLocality": "Mossel Bay",
-            "addressRegion": "Western Cape",
-            "addressCountry": "ZA",
-          },
-          "telephone": "+27-44-691-3218",
-          "email": "info@afrishore.co",
-          "geo": { "@type": "GeoCoordinates", "latitude": -34.1830, "longitude": 22.1455 },
-        },
-        {
-          "@type": "LocalBusiness",
-          "@id": `${siteUrl}/#cape-town`,
-          "parentOrganization": { "@id": `${siteUrl}/#organization` },
-          "name": "Afrishore — Cape Town",
-          "address": {
-            "@type": "PostalAddress",
-            "streetAddress": "Unit 213, Buchanan Square",
-            "addressLocality": "Woodstock, Cape Town",
-            "addressRegion": "Western Cape",
-            "addressCountry": "ZA",
-          },
-          "geo": { "@type": "GeoCoordinates", "latitude": -33.9249, "longitude": 18.4574 },
-        },
-        {
-          "@type": "LocalBusiness",
-          "@id": `${siteUrl}/#walvis-bay`,
-          "parentOrganization": { "@id": `${siteUrl}/#organization` },
-          "name": "Afrishore — Walvis Bay (Namibia)",
-          "address": {
-            "@type": "PostalAddress",
-            "streetAddress": "Oil & Gas Section, Port of Walvis Bay",
-            "addressLocality": "Walvis Bay",
-            "addressCountry": "NA",
-          },
-          "geo": { "@type": "GeoCoordinates", "latitude": -22.9576, "longitude": 14.5052 },
-        },
-        {
-          "@type": "LocalBusiness",
-          "@id": `${siteUrl}/#durban`,
-          "parentOrganization": { "@id": `${siteUrl}/#organization` },
-          "name": "Afrishore — Durban",
-          "address": {
-            "@type": "PostalAddress",
-            "streetAddress": "33 Wagtail Walk, Yellowwood Park",
-            "addressLocality": "Durban",
-            "addressRegion": "KwaZulu-Natal",
-            "addressCountry": "ZA",
-          },
-          "geo": { "@type": "GeoCoordinates", "latitude": -29.9249, "longitude": 30.9389 },
-        },
-      ],
+      "@graph": finalGraph,
     })} />
   </head>
 

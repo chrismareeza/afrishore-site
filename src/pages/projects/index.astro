@@ -4,6 +4,8 @@ import Navbar from "../../components/Navbar.astro";
 import Footer from "../../components/Footer.astro";
 import { allProjects } from "../../data/projects";
 
+const siteUrl = "https://www.afrishore.co";
+
 const placeholders = [
   "linear-gradient(135deg, #1a1410 0%, #ED7014 100%)",
   "linear-gradient(135deg, #0F1419 0%, #F5AB2F 100%)",
@@ -12,11 +14,41 @@ const placeholders = [
   "linear-gradient(135deg, #0a0a0a 0%, #F5AB2F 100%)",
   "linear-gradient(135deg, #1a1a1a 0%, #FDE64B 100%)",
 ];
+
+// CollectionPage schema with ItemList of every case study so search engines
+// can map the catalogue directly without crawling each [slug] page.
+const collectionSchema = {
+  "@type": "CollectionPage",
+  "@id": `${siteUrl}/projects/#collection`,
+  "url": `${siteUrl}/projects`,
+  "name": "Afrishore Project Case Studies",
+  "description": `${allProjects.length} marine logistics project case studies supporting offshore drilling, subsea engineering, telecommunications infrastructure and heavy lift operations across South Africa, Namibia and Mozambique.`,
+  "isPartOf": { "@id": `${siteUrl}/#website` },
+  "publisher": { "@id": `${siteUrl}/#organization` },
+  "mainEntity": {
+    "@type": "ItemList",
+    "numberOfItems": allProjects.length,
+    "itemListElement": allProjects.map((p, idx) => ({
+      "@type": "ListItem",
+      "position": idx + 1,
+      "url": `${siteUrl}/projects/${p.slug}`,
+      "name": p.title,
+    })),
+  },
+};
+
+const breadcrumb = [
+  { name: "Home", item: "/" },
+  { name: "Projects", item: "/projects" },
+];
 ---
 
 <BaseLayout
-  title="Projects · Afrishore Maritime Logistics"
-  description="Selected projects supporting TotalEnergies, Odfjell Drilling, Baker Hughes, Oceaneering, and more across South Africa, Namibia and Mozambique."
+  title="Project Case Studies · Afrishore Maritime Logistics"
+  description={`${allProjects.length} marine logistics case studies — offshore drilling, subsea engineering, telecoms cable landings and heavy lift operations. Trusted by TotalEnergies, Odfjell Drilling, Baker Hughes, Halliburton, Tidewater, SBM Offshore, Oceaneering and more across South Africa, Namibia and Mozambique.`}
+  canonical={`${siteUrl}/projects`}
+  breadcrumb={breadcrumb}
+  pageSchema={[collectionSchema]}
 >
   <Navbar />
 
@@ -60,9 +92,11 @@ const placeholders = [
               {p.heroImage && (
                 <img
                   src={p.heroImage}
-                  alt={p.title}
+                  alt={`${p.title} — ${p.client} marine logistics project at ${p.port} (${p.year})`}
                   class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                   loading="lazy"
+                  width="800"
+                  height="600"
                 />
               )}
               <div class="absolute top-4 right-4 bg-base/80 backdrop-blur-sm px-3 py-1 text-xs font-semibold tracking-wider text-cream">

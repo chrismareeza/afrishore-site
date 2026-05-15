@@ -19,6 +19,9 @@ interface Props {
 
 const { project } = Astro.props;
 
+const siteUrl = "https://www.afrishore.co";
+const projectUrl = `${siteUrl}/projects/${project.slug}`;
+
 // SEO
 const metaTitle = `${project.title} · Afrishore Maritime Logistics`;
 const metaDescription = project.summary;
@@ -42,9 +45,71 @@ const outcomeParagraphs = project.outcome
 
 // Gradient placeholder for missing images
 const placeholderBg = "linear-gradient(135deg, #1a1410 0%, #ED7014 50%, #FDE64B 100%)";
+
+// Derive a stable ISO date from the year field ("2024", "2024–2025", "2018–2019")
+// so Article schema gets datePublished/dateModified.
+const yearParts = project.year.split(/[–-]/).map((s) => s.trim());
+const startYear = yearParts[0] || "2010";
+const endYear = yearParts[yearParts.length - 1] || startYear;
+const publishedTime = `${startYear}-01-01`;
+const modifiedTime = `${endYear}-12-31`;
+
+// Article schema for the case study (with image when available).
+const heroAbsolute = project.heroImage
+  ? new URL(project.heroImage, siteUrl).toString()
+  : new URL("/og-image.jpg", siteUrl).toString();
+
+const articleSchema = {
+  "@type": "Article",
+  "@id": `${projectUrl}#article`,
+  "headline": project.title,
+  "name": project.title,
+  "description": project.summary,
+  "image": [heroAbsolute],
+  "datePublished": publishedTime,
+  "dateModified": modifiedTime,
+  "author": { "@id": `${siteUrl}/#organization` },
+  "publisher": { "@id": `${siteUrl}/#organization` },
+  "mainEntityOfPage": { "@type": "WebPage", "@id": projectUrl },
+  "articleSection": "Case Study",
+  "about": [
+    { "@type": "Organization", "name": project.client },
+    ...(project.endCustomer ? [{ "@type": "Organization", "name": project.endCustomer }] : []),
+    ...(project.vessel ? [{ "@type": "Vehicle", "name": project.vessel }] : []),
+  ],
+  "keywords": [
+    project.client,
+    ...(project.endCustomer ? [project.endCustomer] : []),
+    ...(project.vessel ? [project.vessel] : []),
+    project.port,
+    ...project.serviceTypes.map((s) => serviceLabels[s] || s),
+    "marine logistics", "offshore", "Afrishore",
+  ].join(", "),
+  "isPartOf": { "@id": `${siteUrl}/#website` },
+};
+
+const breadcrumb = [
+  { name: "Home", item: "/" },
+  { name: "Projects", item: "/projects" },
+  { name: project.title, item: `/projects/${project.slug}` },
+];
 ---
 
-<BaseLayout title={metaTitle} description={metaDescription}>
+<BaseLayout
+  title={metaTitle}
+  description={metaDescription}
+  ogImage={project.heroImage || "/og-image.jpg"}
+  ogType="article"
+  canonical={projectUrl}
+  breadcrumb={breadcrumb}
+  pageSchema={[articleSchema]}
+  articleMeta={{
+    publishedTime,
+    modifiedTime,
+    section: "Case Study",
+    tags: [project.client, project.port, ...(project.vessel ? [project.vessel] : [])],
+  }}
+>
   <Navbar />
 
   <main>
@@ -111,9 +176,11 @@ const placeholderBg = "linear-gradient(135deg, #1a1410 0%, #ED7014 50%, #FDE64B 
           {project.heroImage && (
             <img
               src={project.heroImage}
-              alt={project.title}
+              alt={`${project.title}${project.vessel ? ` — ${project.vessel}` : ""} at ${project.port} (${project.year})`}
               class="absolute inset-0 w-full h-full object-cover"
               loading="eager"
+              width="1920"
+              height="1080"
             />
           )}
         </div>
@@ -214,7 +281,14 @@ const placeholderBg = "linear-gradient(135deg, #1a1410 0%, #ED7014 50%, #FDE64B 
                 style={`background: ${placeholderBg};`}
               >
                 {p.heroImage && (
-                  <img src={p.heroImage} alt={p.title} class="absolute inset-0 w-full h-full object-cover" loading="lazy" />
+                  <img
+                    src={p.heroImage}
+                    alt={`${p.title} — ${p.client} project at ${p.port}`}
+                    class="absolute inset-0 w-full h-full object-cover"
+                    loading="lazy"
+                    width="800"
+                    height="600"
+                  />
                 )}
                 <div class="absolute top-3 right-3 bg-base/80 backdrop-blur-sm px-2.5 py-1 text-[10px] font-semibold tracking-wider text-cream">
                   {p.year}
