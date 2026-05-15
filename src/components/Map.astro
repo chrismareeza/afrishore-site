@@ -74,10 +74,11 @@ const ports: Pin[] = [
           </radialGradient>
         </defs>
 
-        <!-- Country labels — warm bronze background type, centred inland of each territory -->
-        <text x="285" y="260" text-anchor="middle" fill="#8A7551" font-family="Inter, sans-serif" font-size="15" letter-spacing="0.25em" font-weight="700">NAMIBIA</text>
-        <text x="450" y="510" text-anchor="middle" fill="#8A7551" font-family="Inter, sans-serif" font-size="15" letter-spacing="0.25em" font-weight="700">SOUTH AFRICA</text>
-        <text x="690" y="210" text-anchor="middle" fill="#8A7551" font-family="Inter, sans-serif" font-size="15" letter-spacing="0.25em" font-weight="700">MOZAMBIQUE</text>
+        <!-- Country labels — warm bronze background type, centred inland of each territory.
+             Larger font-size so labels stay legible when the SVG scales down on mobile. -->
+        <text x="285" y="260" text-anchor="middle" fill="#8A7551" font-family="Inter, sans-serif" font-size="22" letter-spacing="0.25em" font-weight="700">NAMIBIA</text>
+        <text x="450" y="510" text-anchor="middle" fill="#8A7551" font-family="Inter, sans-serif" font-size="22" letter-spacing="0.25em" font-weight="700">SOUTH AFRICA</text>
+        <text x="690" y="210" text-anchor="middle" fill="#8A7551" font-family="Inter, sans-serif" font-size="22" letter-spacing="0.25em" font-weight="700">MOZAMBIQUE</text>
 
         <!-- Country borders — thin faint gold dashed lines, geographically accurate.
              5 countries (NA, SA, MZ, Bot, Zim) meeting at 6 tri-points:
@@ -179,15 +180,15 @@ const ports: Pin[] = [
             <circle cx={o.x} cy={o.y} r="22" fill="url(#pinPulse)" />
             <circle cx={o.x} cy={o.y} r={o.isHQ ? 10 : 8} fill="#ED7014" />
             {o.labelPos === "below" ? (
-              <text x={o.x} y={o.y + 38} text-anchor="middle" fill="#F5F2EB" font-family="Inter, sans-serif" font-size="15" font-weight="600">
+              <text x={o.x} y={o.y + 38} text-anchor="middle" fill="#F5F2EB" font-family="Inter, sans-serif" font-size="18" font-weight="600">
                 {o.name}
               </text>
             ) : o.labelPos === "left" ? (
-              <text x={o.x - 18} y={o.y + 5} text-anchor="end" fill="#F5F2EB" font-family="Inter, sans-serif" font-size="15" font-weight="600">
+              <text x={o.x - 18} y={o.y + 5} text-anchor="end" fill="#F5F2EB" font-family="Inter, sans-serif" font-size="18" font-weight="600">
                 {o.name}
               </text>
             ) : (
-              <text x={o.x + 18} y={o.y + 5} fill="#F5F2EB" font-family="Inter, sans-serif" font-size="15" font-weight="600">
+              <text x={o.x + 18} y={o.y + 5} fill="#F5F2EB" font-family="Inter, sans-serif" font-size="18" font-weight="600">
                 {o.name}
               </text>
             )}
@@ -198,7 +199,7 @@ const ports: Pin[] = [
         {ports.map((p) => (
           <g class="opacity-0" data-pin="port">
             <circle cx={p.x} cy={p.y} r="5" fill="#FDE64B" stroke="#0A0A0A" stroke-width="1" />
-            <text x={p.x + 10} y={p.y + 4} fill="#A39E94" font-family="Inter, sans-serif" font-size="11">{p.name}</text>
+            <text x={p.x + 10} y={p.y + 4} fill="#A39E94" font-family="Inter, sans-serif" font-size="14">{p.name}</text>
           </g>
         ))}
       </svg>

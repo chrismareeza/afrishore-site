@@ -47,8 +47,10 @@
         </span>
       </div>
 
-      <!-- H1 — Barlow + per-line gradient + per-word BlurText reveal -->
-      <h1 class="hero-title text-6xl md:text-7xl lg:text-[5.5rem]">
+      <!-- H1 — Barlow + per-line gradient + per-word BlurText reveal.
+           Mobile cap at text-5xl so 'Local Solutions.' / 'Global Clients.'
+           fit cleanly on 375px viewports without horizontal overflow. -->
+      <h1 class="hero-title text-5xl sm:text-6xl md:text-7xl lg:text-[5.5rem]">
         <span class="block line" data-blurtext="Local Solutions." data-delay="100">Local Solutions.</span>
         <span class="block line" data-blurtext="Global Clients." data-delay="100">Global Clients.</span>
       </h1>
@@ -62,18 +64,18 @@
         World-class logistics agency to the world's leading oil &amp; gas operators, drilling contractors and rig and vessel owners since 2010. Integrated offshore supply base operations across South Africa, Namibia and Mozambique.
       </p>
 
-      <!-- CTAs -->
-      <div data-anim="hero-ctas" class="opacity-0 translate-y-4 flex flex-wrap items-center gap-4 pt-2">
+      <!-- CTAs — min-h-[48px] keeps tap targets comfortable on touch devices -->
+      <div data-anim="hero-ctas" class="opacity-0 translate-y-4 flex flex-col sm:flex-row sm:flex-wrap sm:items-center gap-3 sm:gap-4 pt-2">
         <a
           href="#contact"
-          class="inline-flex items-center gap-2 bg-orange hover:bg-gold text-base px-7 py-4 text-base font-semibold tracking-wide transition-all duration-200 rounded-sm"
+          class="inline-flex items-center justify-center sm:justify-start gap-2 bg-orange hover:bg-gold text-base px-7 py-4 text-base font-semibold tracking-wide transition-all duration-200 rounded-sm min-h-[48px]"
         >
           Talk to Operations
           <span aria-hidden="true">→</span>
         </a>
         <a
           href="#services"
-          class="inline-flex items-center gap-2 border border-cream/30 hover:border-cream/60 hover:bg-cream/5 text-cream px-7 py-4 text-base font-semibold tracking-wide transition-all duration-200 rounded-sm"
+          class="inline-flex items-center justify-center sm:justify-start gap-2 border border-cream/30 hover:border-cream/60 hover:bg-cream/5 text-cream px-7 py-4 text-base font-semibold tracking-wide transition-all duration-200 rounded-sm min-h-[48px]"
         >
           Our Capabilities
         </a>

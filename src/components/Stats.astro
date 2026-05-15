@@ -19,12 +19,12 @@ const stats: Stat[] = [
 
 <section id="stats" class="relative w-full bg-base border-y border-line py-20 lg:py-28">
   <div class="max-w-7xl mx-auto px-6 lg:px-12">
-    <div class="grid grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8">
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12 lg:gap-8">
       {stats.map((stat) => (
         <div class="text-center lg:text-left space-y-3">
           <div class="relative inline-block">
             <span
-              class="block text-5xl md:text-6xl lg:text-7xl font-display text-yellow leading-none"
+              class="block text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-display text-yellow leading-none whitespace-nowrap"
               data-counter
               data-target={stat.value}
               data-display={stat.display ?? ""}

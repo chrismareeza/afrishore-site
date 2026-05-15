@@ -1,6 +1,6 @@
 ---
-// Navbar — always has a subtle gradient backdrop for legibility against bright hero imagery
-// Becomes solid + bordered once scrolled past hero
+// Navbar — gradient backdrop over hero, solid bordered once scrolled past hero.
+// Below lg: hamburger toggle opens a full-screen drawer with the same nav links.
 ---
 
 <header
@@ -8,13 +8,13 @@
   class="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
   style="background: linear-gradient(to bottom, rgba(10,10,10,0.7) 0%, rgba(10,10,10,0.3) 55%, rgba(10,10,10,0) 100%);"
 >
-  <div class="mx-auto max-w-7xl px-6 lg:px-12 py-5 flex items-center justify-between">
+  <div class="mx-auto max-w-7xl px-6 lg:px-12 py-4 lg:py-5 flex items-center justify-between gap-4">
     <!-- Logo -->
-    <a href="/" class="block" aria-label="Afrishore home">
+    <a href="/" class="block flex-shrink-0" aria-label="Afrishore home">
       <img
         src="/logos/SVG-12.svg"
         alt="Afrishore"
-        class="h-12 lg:h-16 w-auto"
+        class="h-10 lg:h-16 w-auto"
         style="filter: drop-shadow(0 3px 10px rgba(0,0,0,0.55));"
       />
     </a>
@@ -22,46 +22,98 @@
     <!-- Nav links (desktop) -->
     <nav class="hidden lg:flex items-center gap-10">
       <a
-        href="#services"
+        href="/#services"
         class="text-sm uppercase tracking-[0.15em] font-semibold text-cream hover:text-yellow transition-colors"
         style="text-shadow: 0 1px 4px rgba(0,0,0,0.5);"
       >Services</a>
       <a
-        href="#projects"
+        href="/#projects"
         class="text-sm uppercase tracking-[0.15em] font-semibold text-cream hover:text-yellow transition-colors"
         style="text-shadow: 0 1px 4px rgba(0,0,0,0.5);"
       >Projects</a>
       <a
-        href="#about"
+        href="/#about"
         class="text-sm uppercase tracking-[0.15em] font-semibold text-cream hover:text-yellow transition-colors"
         style="text-shadow: 0 1px 4px rgba(0,0,0,0.5);"
       >About</a>
       <a
-        href="#contact"
+        href="/#contact"
         class="text-sm uppercase tracking-[0.15em] font-semibold text-cream hover:text-yellow transition-colors"
         style="text-shadow: 0 1px 4px rgba(0,0,0,0.5);"
       >Contact</a>
     </nav>
 
-    <!-- CTA (always visible) -->
-    <a
-      href="#contact"
-      class="inline-flex items-center gap-2 bg-orange hover:bg-gold text-base px-5 py-2.5 text-sm font-semibold tracking-wide transition-colors duration-200 rounded-sm"
-      style="box-shadow: 0 4px 14px rgba(237,112,20,0.35);"
-    >
-      Talk to Ops
-      <span aria-hidden="true">→</span>
-    </a>
+    <div class="flex items-center gap-3">
+      <!-- CTA (always visible) -->
+      <a
+        href="/#contact"
+        class="hidden sm:inline-flex items-center gap-2 bg-orange hover:bg-gold text-base px-5 py-3 lg:py-2.5 text-sm font-semibold tracking-wide transition-colors duration-200 rounded-sm min-h-[44px]"
+        style="box-shadow: 0 4px 14px rgba(237,112,20,0.35);"
+      >
+        Talk to Ops
+        <span aria-hidden="true">→</span>
+      </a>
+
+      <!-- Mobile hamburger toggle (below lg) -->
+      <button
+        id="nav-toggle"
+        type="button"
+        aria-controls="mobile-nav"
+        aria-expanded="false"
+        aria-label="Open menu"
+        class="lg:hidden inline-flex items-center justify-center w-11 h-11 rounded-sm border border-cream/25 hover:border-cream/60 hover:bg-cream/5 transition-colors"
+      >
+        <svg class="nav-icon-open w-6 h-6 text-cream" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <line x1="3" y1="6" x2="21" y2="6"/>
+          <line x1="3" y1="12" x2="21" y2="12"/>
+          <line x1="3" y1="18" x2="21" y2="18"/>
+        </svg>
+        <svg class="nav-icon-close w-6 h-6 text-cream hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <line x1="18" y1="6" x2="6" y2="18"/>
+          <line x1="6" y1="6" x2="18" y2="18"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile drawer — full-width sheet below the bar -->
+  <div
+    id="mobile-nav"
+    class="lg:hidden hidden border-t border-line"
+    style="background: rgba(10,10,10,0.96); backdrop-filter: blur(12px);"
+  >
+    <nav class="px-6 py-4 flex flex-col">
+      <a href="/#services" class="block py-4 text-base uppercase tracking-[0.15em] font-semibold text-cream border-b border-line/60 hover:text-yellow transition-colors" data-nav-link>Services</a>
+      <a href="/#projects" class="block py-4 text-base uppercase tracking-[0.15em] font-semibold text-cream border-b border-line/60 hover:text-yellow transition-colors" data-nav-link>Projects</a>
+      <a href="/#about" class="block py-4 text-base uppercase tracking-[0.15em] font-semibold text-cream border-b border-line/60 hover:text-yellow transition-colors" data-nav-link>About</a>
+      <a href="/#contact" class="block py-4 text-base uppercase tracking-[0.15em] font-semibold text-cream hover:text-yellow transition-colors" data-nav-link>Contact</a>
+
+      <a
+        href="/#contact"
+        class="inline-flex items-center justify-center gap-2 bg-orange hover:bg-gold text-base px-6 py-4 text-sm font-semibold tracking-wide transition-colors duration-200 rounded-sm mt-5 mb-2 min-h-[48px]"
+        style="box-shadow: 0 4px 14px rgba(237,112,20,0.35);"
+        data-nav-link
+      >
+        Talk to Ops
+        <span aria-hidden="true">→</span>
+      </a>
+    </nav>
   </div>
 </header>
 
 <script>
-  const nav = document.getElementById("site-nav") as HTMLElement;
+  const nav = document.getElementById("site-nav") as HTMLElement | null;
+  const toggle = document.getElementById("nav-toggle") as HTMLButtonElement | null;
+  const drawer = document.getElementById("mobile-nav") as HTMLElement | null;
+
+  // ── Scroll-state: gradient → solid ──
   if (nav) {
     const gradientBg = "linear-gradient(to bottom, rgba(10,10,10,0.7) 0%, rgba(10,10,10,0.3) 55%, rgba(10,10,10,0) 100%)";
     const solidBg = "rgba(10,10,10,0.88)";
 
     const onScroll = () => {
+      // Don't fight the drawer's solid background while it's open
+      if (drawer && !drawer.classList.contains("hidden")) return;
       if (window.scrollY > 60) {
         nav.style.background = solidBg;
         nav.style.backdropFilter = "blur(12px)";
@@ -74,5 +126,50 @@
     };
     window.addEventListener("scroll", onScroll, { passive: true });
     onScroll();
+  }
+
+  // ── Mobile drawer toggle ──
+  if (toggle && drawer && nav) {
+    const openIcon = toggle.querySelector<HTMLElement>(".nav-icon-open");
+    const closeIcon = toggle.querySelector<HTMLElement>(".nav-icon-close");
+
+    const setOpen = (open: boolean) => {
+      drawer.classList.toggle("hidden", !open);
+      toggle.setAttribute("aria-expanded", open ? "true" : "false");
+      toggle.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+      openIcon?.classList.toggle("hidden", open);
+      closeIcon?.classList.toggle("hidden", !open);
+      // Solid background while drawer is open for legibility
+      if (open) {
+        nav.style.background = "rgba(10,10,10,0.96)";
+        nav.style.backdropFilter = "blur(12px)";
+        nav.style.borderBottom = "none";
+      } else {
+        // Force re-evaluation of scroll state
+        window.dispatchEvent(new Event("scroll"));
+      }
+      // Lock body scroll
+      document.body.style.overflow = open ? "hidden" : "";
+    };
+
+    toggle.addEventListener("click", () => {
+      const open = drawer.classList.contains("hidden");
+      setOpen(open);
+    });
+
+    // Close drawer on any nav-link tap
+    drawer.querySelectorAll<HTMLAnchorElement>("[data-nav-link]").forEach((link) => {
+      link.addEventListener("click", () => setOpen(false));
+    });
+
+    // Close on Esc
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && !drawer.classList.contains("hidden")) setOpen(false);
+    });
+
+    // Close drawer if viewport grows past lg
+    window.matchMedia("(min-width: 1024px)").addEventListener("change", (e) => {
+      if (e.matches) setOpen(false);
+    });
   }
 </script>
