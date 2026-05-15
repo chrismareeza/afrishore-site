@@ -277,8 +277,14 @@ A semi-submersible heavy lift is the kind of operation where every element must 
   },
 ];
 
-// Helper: get only featured projects
-export const featuredProjects = projects.filter(p => p.featured && p.published);
+// Helper: get only featured projects, sorted chronologically (oldest first → newest last)
+export const featuredProjects = projects
+  .filter(p => p.featured && p.published)
+  .sort((a, b) => {
+    const aStart = parseInt(a.year.split(/[–-]/)[0] || "0");
+    const bStart = parseInt(b.year.split(/[–-]/)[0] || "0");
+    return aStart - bStart;
+  });
 
 // Helper: get all published, sorted by year (most recent first)
 export const allProjects = projects
