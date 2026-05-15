@@ -215,6 +215,7 @@ A semi-submersible heavy lift is the kind of operation where every element must 
     port: "Walvis Bay / Lüderitz",
     serviceTypes: ["ship-rig-agency", "supply-base"],
     vessel: "Deepsea Mira",
+    heroImage: "/images/projects/deepsea-mira-tamboti-1x.jpg",
     summary: "Continued Deepsea Mira drilling campaign on the Tamboti-1x well, with Afrishore providing full onshore logistics.",
     featured: false,
     published: true,
