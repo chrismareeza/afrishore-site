@@ -303,11 +303,19 @@ export const featuredProjects = projects
     return bEnd - aEnd;
   });
 
-// Helper: get all published, sorted by year (most recent first)
+// Helper: get all published, sorted reverse-chronologically (newest first).
+// Primary: start year desc. Tiebreaker: end year desc.
+// Matches the featuredProjects sort so the homepage tile order and the
+// /projects index list stay consistent.
 export const allProjects = projects
   .filter(p => p.published)
   .sort((a, b) => {
-    const aYear = parseInt(a.year.split(/[–-]/).pop() || "0");
-    const bYear = parseInt(b.year.split(/[–-]/).pop() || "0");
-    return bYear - aYear;
+    const aParts = a.year.split(/[–-]/);
+    const bParts = b.year.split(/[–-]/);
+    const aStart = parseInt(aParts[0] || "0");
+    const bStart = parseInt(bParts[0] || "0");
+    if (bStart !== aStart) return bStart - aStart;
+    const aEnd = parseInt(aParts[aParts.length - 1] || "0");
+    const bEnd = parseInt(bParts[bParts.length - 1] || "0");
+    return bEnd - aEnd;
   });
