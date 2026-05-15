@@ -25,4 +25,6 @@ pnpm-debug.log*
 
 # Original / unoptimised image masters (keep on disk, not in repo)
 public/images/*.original.*
+public/images/projects/*.original.*
+public/client-logos/*.original.*
 
