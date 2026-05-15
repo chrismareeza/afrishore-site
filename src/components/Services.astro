@@ -87,11 +87,11 @@ const services: Service[] = [
             {service.title}
           </h3>
 
-          <p class="text-sm text-mute leading-relaxed mb-6">
+          <p class="text-sm text-mute leading-relaxed mb-6 md:min-h-[4rem] lg:min-h-[5.25rem]">
             {service.oneLiner}
           </p>
 
-          <ul class="space-y-2 mt-auto text-sm text-faint">
+          <ul class="space-y-2 text-sm text-faint">
             {service.bullets.map((b) => (
               <li class="flex items-start gap-2">
                 <span class="text-orange mt-1 leading-none" aria-hidden="true">·</span>
