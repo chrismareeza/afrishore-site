@@ -14,7 +14,9 @@
   /* Text */
   --color-cream: #F5F2EB;
   --color-mute: #A39E94;
-  --color-faint: #6B6862;
+  /* Bumped from #6B6862 to #8C8980 — old value scored 3.58 on bg-base,
+     failing WCAG AA (4.5) for normal text. New value scores ~5.0. */
+  --color-faint: #8C8980;
 
   /* Brand accents (from logo gradient: #ED7014 → #FDE64B) */
   --color-orange: #ED7014;

@@ -41,10 +41,13 @@ import { clients } from "../data/clients";
           {client.logo ? (
             <img
               src={client.logo}
-              alt={client.name}
+              alt={`${client.name} logo`}
               class="client-logo max-h-12 lg:max-h-14 max-w-full w-auto object-contain"
               style={client.displayBoost ? `transform: scale(${client.displayBoost});` : undefined}
               loading="lazy"
+              decoding="async"
+              width="200"
+              height="80"
             />
           ) : (
             <span class="client-text text-xs md:text-sm font-semibold text-cream uppercase tracking-[0.12em] text-center leading-tight transition-colors duration-300">

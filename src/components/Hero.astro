@@ -6,12 +6,20 @@
 ---
 
 <section class="relative w-full h-[100svh] min-h-[640px] overflow-hidden bg-base">
-  <!-- Background image layer (will pan slightly on scroll) -->
+  <!-- Background image layer (will pan slightly on scroll).
+       image-set() lets modern browsers prefer the smaller WebP; the JPEG
+       URL stays declared as the fallback (and is referenced as a sibling
+       <link rel="preload" as="image"> in <head> so it starts downloading
+       before the CSS is parsed → lowers LCP). -->
   <div
     id="hero-bg"
     class="absolute inset-0 will-change-transform"
     style="
       background-image: url('/images/hero-cape-town.jpg');
+      background-image: image-set(
+        url('/images/hero-cape-town.webp') type('image/webp'),
+        url('/images/hero-cape-town.jpg') type('image/jpeg')
+      );
       background-size: cover;
       background-position: center 55%;
       background-color: #0a0a0a;
