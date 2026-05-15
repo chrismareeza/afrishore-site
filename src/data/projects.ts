@@ -63,7 +63,7 @@ Luiperd confirmed Block 11B/12B as one of Africa's most significant new gas play
   {
     slug: "deepsea-bollsta-sps-walvis-bay",
     title: "Deepsea Bollsta: Special Periodic Survey",
-    client: "Odfjell Drilling & Northern Ocean Ltd",
+    client: "Odfjell Drilling / Northern Ocean LTD",
     year: "2024",
     port: "Walvis Bay, Namibia",
     serviceTypes: ["supply-base", "ship-rig-agency", "integrated-logistics", "crew-visa"],
@@ -81,7 +81,7 @@ The Bollsta returned to operations on schedule, recertified for another five-yea
   {
     slug: "deepsea-mira-sps-walvis-bay",
     title: "Deepsea Mira: SPS & BOP Exchange",
-    client: "Odfjell Drilling / Northern Ocean Ltd",
+    client: "Odfjell Drilling / Northern Ocean LTD",
     year: "2024–2025",
     port: "Walvis Bay, Namibia",
     serviceTypes: ["supply-base", "ship-rig-agency", "integrated-logistics", "crew-visa"],
@@ -176,7 +176,7 @@ A semi-submersible heavy lift is the kind of operation where every element must 
   {
     slug: "deepsea-bollsta-jonker-1",
     title: "Deepsea Bollsta: Jonker-1 Drilling Campaign",
-    client: "Odfjell Drilling / Northern Ocean Ltd",
+    client: "Odfjell Drilling / Northern Ocean LTD",
     year: "2022–2024",
     port: "Walvis Bay, Namibia",
     serviceTypes: ["ship-rig-agency", "supply-base"],
@@ -203,7 +203,7 @@ A semi-submersible heavy lift is the kind of operation where every element must 
   {
     slug: "deepsea-mira-venus-1x",
     title: "Deepsea Mira: Venus-1x Drilling",
-    client: "Odfjell Drilling / Northern Ocean Ltd",
+    client: "Odfjell Drilling / Northern Ocean LTD",
     year: "2023–2024",
     port: "Walvis Bay / Lüderitz",
     serviceTypes: ["ship-rig-agency", "supply-base"],
@@ -216,7 +216,7 @@ A semi-submersible heavy lift is the kind of operation where every element must 
   {
     slug: "deepsea-mira-tamboti-1x",
     title: "Deepsea Mira: Tamboti-1x Drilling",
-    client: "Odfjell Drilling / Northern Ocean Ltd",
+    client: "Odfjell Drilling / Northern Ocean LTD",
     year: "2024–2025",
     port: "Walvis Bay / Lüderitz",
     serviceTypes: ["ship-rig-agency", "supply-base"],
@@ -229,7 +229,7 @@ A semi-submersible heavy lift is the kind of operation where every element must 
   {
     slug: "deepsea-mira-volans-kharas",
     title: "Deepsea Mira: Volans-1x & Kharas-1 Drilling",
-    client: "Odfjell Drilling / Northern Ocean Ltd",
+    client: "Odfjell Drilling / Northern Ocean LTD",
     year: "2025–2026",
     port: "Walvis Bay",
     serviceTypes: ["ship-rig-agency", "supply-base"],
