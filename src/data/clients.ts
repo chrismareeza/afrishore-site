@@ -14,7 +14,7 @@ export const clients: Client[] = [
   // Tier 1 — global household names
   { name: "TotalEnergies", slug: "totalenergies", sector: "oil-gas-major", logo: "/client-logos/totalenergies.png" },
   { name: "Halliburton", slug: "halliburton", sector: "service-contractor", logo: "/client-logos/halliburton.png" },
-  { name: "Baker Hughes", slug: "baker-hughes", sector: "service-contractor", logo: "/client-logos/baker-hughes.png" },
+  { name: "Baker Hughes", slug: "baker-hughes", sector: "service-contractor", logo: "/client-logos/baker-hughes.png", displayBoost: 1.75 },
   { name: "Odfjell Drilling", slug: "odfjell-drilling", sector: "drilling-contractor", logo: "/client-logos/odfjell-drilling.png" },
   { name: "Island Drilling", slug: "island-drilling", sector: "drilling-contractor", logo: "/client-logos/island-drilling.png", displayBoost: 1.2 },
   { name: "Tidewater", slug: "tidewater", sector: "vessel-operator", logo: "/client-logos/tidewater.png" },
@@ -23,12 +23,12 @@ export const clients: Client[] = [
 
   // Tier 2 — specialists, very strong recognition in sector
   { name: "Oceaneering", slug: "oceaneering", sector: "subsea-services", logo: "/client-logos/oceaneering.png" },
-  { name: "SBM Offshore", slug: "sbm-offshore", sector: "subsea-services", logo: null },
+  { name: "SBM Offshore", slug: "sbm-offshore", sector: "subsea-services", logo: "/client-logos/sbm-offshore.png" },
   { name: "Expro", slug: "expro", sector: "service-contractor", logo: "/client-logos/expro.png" },
-  { name: "Northern Ocean Ltd", slug: "northern-ocean", sector: "drilling-contractor", logo: "/client-logos/northern-ocean.png" },
+  { name: "Northern Ocean Ltd", slug: "northern-ocean", sector: "drilling-contractor", logo: "/client-logos/northern-ocean.png", displayBoost: 2.0 },
   { name: "Eco Atlantic Oil & Gas", slug: "eco-atlantic", sector: "oil-gas-major", logo: "/client-logos/eco-atlantic.png", displayBoost: 1.2 },
   { name: "LD TravOcean", slug: "ld-travocean", sector: "subsea-services", logo: "/client-logos/ld-travocean.png", displayBoost: 1.2 },
   { name: "Peschaud", slug: "peschaud", sector: "service-contractor", logo: "/client-logos/peschaud.png" },
-  { name: "Piriou Naval Services", slug: "piriou", sector: "service-contractor", logo: "/client-logos/piriou.png" },
-  { name: "Port of Réunion", slug: "port-of-reunion", sector: "port-authority", logo: null },
+  { name: "Piriou Naval Services", slug: "piriou", sector: "service-contractor", logo: "/client-logos/piriou.png", displayBoost: 1.75 },
+  { name: "Port of Réunion", slug: "port-of-reunion", sector: "port-authority", logo: "/client-logos/port-of-reunion.png" },
 ];
