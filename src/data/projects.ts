@@ -70,11 +70,11 @@ Luiperd confirmed Block 11B/12B as one of Africa's most significant new gas play
     vessel: "Deepsea Bollsta",
     heroImage: "/images/projects/deepsea-bollsta-sps-walvis-bay.jpg",
     summary: "Integrated supply base operations for the 5-yearly recertification of the Deepsea Bollsta semi-submersible drilling unit.",
-    outcome: `Mobile offshore drilling units must undergo a comprehensive Special Periodic Survey (SPS) every five years — a full hull, machinery, and safety systems recertification required by classification societies. In 2024, the Deepsea Bollsta completed its SPS at the Port of Walvis Bay, with Afrishore acting as the integrated onshore logistics partner throughout the survey period.
+    outcome: `Mobile offshore drilling units must undergo comprehensive Special Periodic Surveys (SPS) which means a full hull, machinery and safety systems recertification required by classification societies. In 2024, the Deepsea Bollsta completed its SPS at the Port of Walvis Bay with Afrishore acting as the integrated onshore logistics partner throughout the survey period.
 
-For the duration of the SPS, Afrishore handled the full shore-side scope: temporary importation of spare parts and project equipment, customs clearance, warehousing of project cargo, abnormal trucking for oversized components, crane and rigging coordination, waste management, and crew rotation logistics including visa and immigration for international specialist teams. The SPS scope brought multiple discipline crews to Walvis Bay simultaneously — every visa, every customs entry, every supply chain link coordinated from the Port of Walvis Bay's Oil & Gas Section, where Afrishore is permanently embedded.
+For the duration of the SPS, Afrishore handled the full shore-side scope: temporary importation of spare parts and project equipment, customs clearance, warehousing of project cargo, abnormal trucking for oversized components, crane and rigging coordination, waste management and crew rotation logistics including visa and immigration for international specialist teams. The SPS scope brought multiple discipline crews to Walvis Bay simultaneously and every visa, every customs entry and every supply chain link was coordinated from the Port of Walvis Bay's Oil & Gas Section, where Afrishore is permanently embedded. A highlight of the project was being involved in the assembly and shipping out of 15T Stevshark MK5 Anchors in collaboration with Delmar Systems.
 
-The Bollsta returned to operations on schedule, recertified for another five-year operational cycle.`,
+The Bollsta returned to operations on schedule, recertified for another operational cycle.`,
     featured: true,
     published: true,
   },
