@@ -175,11 +175,14 @@ export const servicePages: ServicePage[] = [
       "East London",
       "Pemba",
     ],
+    heroImage: "/images/services/integrated-logistics-hero.jpg",
+    heroAlt:
+      "Subsea cable reel on a tensioning spread at the quayside in the Port of Cape Town, an offshore supply vessel alongside — Afrishore integrated logistics and project cargo, South Africa",
     secondaryImage: {
       src: "/images/services/integrated-logistics-cargo.jpg",
       alt: "Abnormal project cargo — a large riser section on a multi-axle low-bed trailer at the quayside, Afrishore integrated logistics, Southern Africa",
       caption:
-        "Abnormal project cargo under tow at the quayside — international freight, customs clearance and heavy-lift trucking moved as one chain across South Africa, Namibia and Mozambique.",
+        "Abnormal project cargo under tow at the quayside: international freight, customs clearance and heavy-lift trucking moved as one chain across South Africa, Namibia and Mozambique.",
       portrait: true,
     },
   },
