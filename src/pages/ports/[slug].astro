@@ -2,79 +2,83 @@
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import Navbar from "../../components/Navbar.astro";
 import Footer from "../../components/Footer.astro";
-import { servicePages, type ServicePage } from "../../data/services";
+import { ports, portContact, type PortPage } from "../../data/ports";
 import { projects } from "../../data/projects";
-import { ports } from "../../data/ports";
-
-// Map a port display name → its landing-page slug (only the 6 licence
-// ports have a page; project-only ports stay plain text).
-const portSlug = new Map(ports.map((p) => [p.portName, p.slug]));
 
 export function getStaticPaths() {
-  return servicePages.map((s) => ({
-    params: { slug: s.slug },
-    props: { service: s },
+  return ports.map((p) => ({
+    params: { slug: p.slug },
+    props: { port: p },
   }));
 }
 
 interface Props {
-  service: ServicePage;
+  port: PortPage;
 }
 
-const { service } = Astro.props;
+const { port } = Astro.props;
 
 const siteUrl = "https://www.afrishore.co";
-const pageUrl = `${siteUrl}/services/${service.slug}`;
+const pageUrl = `${siteUrl}/ports/${port.slug}`;
 
-// Related case studies — published projects tagged with this serviceType.
+// Related case studies — published projects whose `port` string contains
+// one of this port's match tokens (case-insensitive).
 const related = projects
-  .filter((p) => p.published && p.serviceTypes.includes(service.serviceType))
+  .filter(
+    (p) =>
+      p.published &&
+      port.matchPort.some((m) =>
+        p.port.toLowerCase().includes(m.toLowerCase())
+      )
+  )
   .slice(0, 3);
 
 const placeholderBg =
   "linear-gradient(135deg, #1a1410 0%, #ED7014 50%, #FDE64B 100%)";
 
-// Each optimised JPEG ships with a sibling .webp (image pipeline).
 const webp = (p: string) => p.replace(/\.jpe?g$/i, ".webp");
 
 const heroAltText =
-  service.heroAlt ||
-  `Afrishore ${service.name} — South Africa, Namibia and Mozambique`;
+  port.heroAlt ||
+  `Afrishore ship, vessel and rig agent — Port of ${port.portName}, ${port.country}`;
 
-const heroAbsolute = service.heroImage
-  ? new URL(service.heroImage, siteUrl).toString()
+const heroAbsolute = port.heroImage
+  ? new URL(port.heroImage, siteUrl).toString()
   : new URL("/og-image.jpg", siteUrl).toString();
 
-// Service JSON-LD — kept clean (no Offer/price fields → no Rich Results
-// non-critical warnings). provider + isPartOf link into the global @graph.
-const serviceSchema = {
+// Service JSON-LD — clean (no Offer/price). provider/isPartOf link into
+// the global @graph; areaServed pins the specific port + country. For
+// office ports, `about` ties the page to the LocalBusiness already
+// emitted globally in BaseLayout (no duplicate entity).
+const serviceSchema: Record<string, unknown> = {
   "@type": "Service",
   "@id": `${pageUrl}#service`,
-  "name": service.name,
-  "serviceType": service.schemaServiceType,
-  "description": service.metaDescription,
+  "name": `Ship, Vessel & Rig Agent — Port of ${port.portName}`,
+  "serviceType": "Ship & Rig Agency",
+  "description": port.metaDescription,
   "url": pageUrl,
   "provider": { "@id": `${siteUrl}/#organization` },
   "isPartOf": { "@id": `${siteUrl}/#website` },
   "areaServed": [
-    { "@type": "Country", "name": "South Africa" },
-    { "@type": "Country", "name": "Namibia" },
-    { "@type": "Country", "name": "Mozambique" },
+    { "@type": "Place", "name": `Port of ${port.portName}` },
+    { "@type": "Country", "name": port.country },
   ],
   "image": heroAbsolute,
 };
+if (port.office) {
+  serviceSchema.about = { "@id": `${siteUrl}/${port.office.localBusinessId}` };
+}
 
 const breadcrumb = [
   { name: "Home", item: "/" },
-  { name: "Services", item: "/#services" },
-  { name: service.name, item: `/services/${service.slug}` },
+  { name: `Port of ${port.portName}`, item: `/ports/${port.slug}` },
 ];
 ---
 
 <BaseLayout
-  title={service.metaTitle}
-  description={service.metaDescription}
-  ogImage={service.heroImage || "/og-image.jpg"}
+  title={port.metaTitle}
+  description={port.metaDescription}
+  ogImage={port.heroImage || "/og-image.jpg"}
   canonical={pageUrl}
   breadcrumb={breadcrumb}
   pageSchema={[serviceSchema]}
@@ -82,38 +86,38 @@ const breadcrumb = [
   <Navbar />
 
   <main id="main">
-    <!-- Service hero -->
+    <!-- Port hero -->
     <section class="relative pt-32 lg:pt-40 pb-12 px-6 lg:px-12">
       <div class="max-w-5xl mx-auto">
         <a
-          href="/#services"
+          href="/"
           class="inline-flex items-center gap-2 text-sm text-mute hover:text-gold transition-colors mb-10"
         >
           <span aria-hidden="true">←</span>
-          All services
+          Afrishore
         </a>
 
         <div class="text-xs uppercase tracking-[0.2em] text-gold font-semibold mb-6">
-          Capability
+          {port.country} · Port
         </div>
 
         <h1 class="text-4xl md:text-5xl lg:text-6xl text-cream leading-[1.1] tracking-tight mb-5">
-          {service.h1}
+          {port.h1}
         </h1>
 
         <p class="text-lg lg:text-xl text-gold/90 mb-10 max-w-3xl leading-snug">
-          {service.geoSub}
+          {port.geoSub}
         </p>
 
         <div
           class="aspect-[16/9] w-full overflow-hidden rounded-sm border border-line relative"
           style={`background: ${placeholderBg};`}
         >
-          {service.heroImage && (
+          {port.heroImage && (
             <picture>
-              <source srcset={webp(service.heroImage)} type="image/webp" />
+              <source srcset={webp(port.heroImage)} type="image/webp" />
               <img
-                src={service.heroImage}
+                src={port.heroImage}
                 alt={heroAltText}
                 class="absolute inset-0 w-full h-full object-cover"
                 loading="eager"
@@ -132,43 +136,19 @@ const breadcrumb = [
       <div class="max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 pt-12">
         <div class="lg:col-span-8 space-y-10">
           <div class="space-y-6">
-            {service.intro.map((p) => (
+            {port.intro.map((p) => (
               <p class="text-lg lg:text-xl leading-relaxed" style="color: rgba(245,242,235,0.88);">
                 {p}
               </p>
             ))}
           </div>
 
-          {service.secondaryImage && (
-            <figure class={service.secondaryImage.portrait ? "space-y-3 max-w-md mx-auto" : "space-y-3"}>
-              <div
-                class={`${service.secondaryImage.portrait ? "aspect-[3/4]" : "aspect-[3/2]"} w-full overflow-hidden rounded-sm border border-line relative`}
-                style={`background: ${placeholderBg};`}
-              >
-                <picture>
-                  <source srcset={webp(service.secondaryImage.src)} type="image/webp" />
-                  <img
-                    src={service.secondaryImage.src}
-                    alt={service.secondaryImage.alt}
-                    class="absolute inset-0 w-full h-full object-cover"
-                    loading="lazy"
-                    width={service.secondaryImage.portrait ? 1200 : 1920}
-                    height={service.secondaryImage.portrait ? 1600 : 1440}
-                  />
-                </picture>
-              </div>
-              <figcaption class="text-sm text-faint leading-relaxed">
-                {service.secondaryImage.caption}
-              </figcaption>
-            </figure>
-          )}
-
           <div>
             <h2 class="text-xs uppercase tracking-[0.2em] text-gold font-semibold mb-5">
-              What we handle
+              What we handle at {port.portName}
             </h2>
             <ul class="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-3">
-              {service.scope.map((s) => (
+              {port.scope.map((s) => (
                 <li class="flex items-start gap-2 text-base text-cream/90">
                   <span class="text-orange mt-1 leading-none" aria-hidden="true">·</span>
                   <span>{s}</span>
@@ -177,45 +157,69 @@ const breadcrumb = [
             </ul>
           </div>
 
-          {service.vesselTypes && (
-            <div>
-              <h2 class="text-xs uppercase tracking-[0.2em] text-gold font-semibold mb-5">
-                Vessel & rig types
-              </h2>
-              <div class="flex flex-wrap gap-2">
-                {service.vesselTypes.map((v) => (
-                  <span class="text-xs uppercase tracking-[0.15em] text-mute border border-line px-3 py-1.5 rounded-sm">
-                    {v}
-                  </span>
-                ))}
-              </div>
+          <div>
+            <h2 class="text-xs uppercase tracking-[0.2em] text-gold font-semibold mb-5">
+              Vessel & rig types
+            </h2>
+            <div class="flex flex-wrap gap-2">
+              {port.vesselTypes.map((v) => (
+                <span class="text-xs uppercase tracking-[0.15em] text-mute border border-line px-3 py-1.5 rounded-sm">
+                  {v}
+                </span>
+              ))}
             </div>
-          )}
+          </div>
         </div>
 
         <aside class="lg:col-span-4">
           <div class="sticky top-28 bg-surface border border-line p-6 lg:p-7 rounded-sm space-y-5">
-            <h2 class="text-xs uppercase tracking-[0.2em] text-gold font-semibold">
-              Ports we cover
-            </h2>
-            <ul class="space-y-2 text-sm text-cream/90">
-              {service.ports.map((port) => (
-                <li class="flex items-center gap-2">
-                  <span class="w-1.5 h-1.5 rounded-full bg-gold flex-shrink-0" aria-hidden="true"></span>
-                  {portSlug.has(port)
-                    ? <a href={`/ports/${portSlug.get(port)}`} class="hover:text-gold transition-colors">{port}</a>
-                    : <span>{port}</span>}
-                </li>
-              ))}
-            </ul>
-            <p class="text-xs text-faint leading-relaxed pt-1">
-              South Africa · Namibia · Mozambique
-            </p>
+            {port.office ? (
+              <>
+                <h2 class="text-xs uppercase tracking-[0.2em] text-gold font-semibold">
+                  Afrishore — {port.portName}
+                </h2>
+                <address class="not-italic text-sm text-cream/90 leading-relaxed">
+                  {port.office.streetAddress}<br />
+                  {port.office.addressLocality}{port.office.addressRegion ? `, ${port.office.addressRegion}` : ""}<br />
+                  {port.country}
+                </address>
+                <p class="text-xs text-faint leading-relaxed pt-1">
+                  Own port agency licence · physical office
+                </p>
+              </>
+            ) : (
+              <>
+                <h2 class="text-xs uppercase tracking-[0.2em] text-gold font-semibold">
+                  Agency licence — {port.portName}
+                </h2>
+                <p class="text-sm text-cream/90 leading-relaxed">
+                  Afrishore holds its own port agency licence for the Port of
+                  {` ${port.portName}`}, {port.country}, coordinated from our
+                  licensed office network.
+                </p>
+              </>
+            )}
+
+            <div class="space-y-1.5 text-sm border-t border-line pt-4">
+              <a
+                href={`tel:${portContact.phoneE164}`}
+                class="block text-gold hover:text-yellow transition-colors"
+              >
+                {portContact.phoneDisplay}
+              </a>
+              <a
+                href={`mailto:${portContact.email}?subject=${encodeURIComponent(`Afrishore — ${port.portName} enquiry`)}`}
+                class="block text-gold hover:text-yellow transition-colors break-words"
+              >
+                {portContact.email}
+              </a>
+            </div>
+
             <a
               href="/#contact"
               class="inline-flex items-center justify-center gap-2 w-full bg-orange hover:bg-gold text-base px-5 py-3 text-sm font-semibold tracking-wide transition-colors duration-200 rounded-sm"
             >
-              Discuss your operation
+              Discuss your {port.portName} call
               <span aria-hidden="true">→</span>
             </a>
           </div>
@@ -227,7 +231,7 @@ const breadcrumb = [
       <section class="px-6 lg:px-12 py-20 lg:py-24 border-t border-line">
         <div class="max-w-5xl mx-auto">
           <h2 class="text-xs uppercase tracking-[0.2em] text-gold font-semibold mb-8">
-            {service.name} in action
+            Afrishore at {port.portName}
           </h2>
 
           <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
