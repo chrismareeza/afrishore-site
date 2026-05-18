@@ -1,0 +1,64 @@
+---
+// POPIA / GDPR cookie-consent banner.
+// Gates Google Analytics only (Consent Mode v2 — analytics_storage
+// defaults to 'denied' in BaseLayout; Accept flips it to 'granted'
+// and the choice is stored in localStorage). Cloudflare Web Analytics
+// is cookieless and runs regardless, so basic traffic is never lost.
+---
+
+<div
+  id="consent-banner"
+  hidden
+  role="region"
+  aria-label="Cookie consent"
+  class="fixed inset-x-0 bottom-0 z-[60] border-t border-line bg-base/95 backdrop-blur-sm"
+>
+  <div
+    class="max-w-7xl mx-auto px-6 lg:px-12 py-4 lg:py-5 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between"
+  >
+    <p class="text-sm text-mute leading-relaxed max-w-3xl">
+      We use Google Analytics cookies to understand how this site is used.
+      Decline and only privacy-friendly, <span class="text-cream">cookieless</span>
+      traffic measurement runs — your choice is remembered.
+    </p>
+    <div class="flex items-center gap-3 flex-shrink-0">
+      <button
+        id="consent-decline"
+        type="button"
+        class="text-sm text-mute hover:text-cream border border-line px-4 py-2 rounded-sm transition-colors duration-200"
+      >
+        Decline
+      </button>
+      <button
+        id="consent-accept"
+        type="button"
+        class="text-sm font-semibold tracking-wide bg-orange hover:bg-gold text-base px-5 py-2 rounded-sm transition-colors duration-200"
+      >
+        Accept
+      </button>
+    </div>
+  </div>
+</div>
+
+<script is:inline>
+  (function () {
+    var KEY = "afrishore-consent";
+    var el = document.getElementById("consent-banner");
+    if (!el) return;
+    var choice = null;
+    try { choice = localStorage.getItem(KEY); } catch (e) {}
+    if (choice === "granted" || choice === "denied") return; // already decided
+    el.hidden = false;
+    function decide(value) {
+      try { localStorage.setItem(KEY, value); } catch (e) {}
+      if (value === "granted" && typeof window.gtag === "function") {
+        window.gtag("consent", "update", { analytics_storage: "granted" });
+      }
+      el.hidden = true;
+    }
+    var a = document.getElementById("consent-accept");
+    var d = document.getElementById("consent-decline");
+    if (a) a.addEventListener("click", function () { decide("granted"); });
+    if (d) d.addEventListener("click", function () { decide("denied"); });
+  })();
+</script>

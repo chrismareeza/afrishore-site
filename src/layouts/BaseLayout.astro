@@ -1,5 +1,6 @@
 ---
 import "../styles/global.css";
+import ConsentBanner from "../components/ConsentBanner.astro";
 
 interface BreadcrumbStep {
   name: string;
@@ -261,15 +262,30 @@ const finalGraph = [
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
-    <!-- Google Analytics 4 — afrishore.co property (G-E28C5EH0TG).
-         is:inline keeps Astro from bundling the third-party snippet. -->
-    <script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-E28C5EH0TG"></script>
+    <!-- Google Analytics 4 (G-E28C5EH0TG) with Consent Mode v2.
+         analytics_storage defaults to DENIED (POPIA/GDPR); the consent
+         banner flips it to 'granted' on Accept and the choice is
+         remembered in localStorage. is:inline so Astro doesn't bundle
+         the third-party snippet. -->
     <script is:inline>
       window.dataLayer = window.dataLayer || [];
       function gtag(){ dataLayer.push(arguments); }
+      gtag('consent', 'default', {
+        ad_storage: 'denied',
+        ad_user_data: 'denied',
+        ad_personalization: 'denied',
+        analytics_storage: 'denied',
+        wait_for_update: 500
+      });
+      try {
+        if (localStorage.getItem('afrishore-consent') === 'granted') {
+          gtag('consent', 'update', { analytics_storage: 'granted' });
+        }
+      } catch (e) {}
       gtag('js', new Date());
       gtag('config', 'G-E28C5EH0TG');
     </script>
+    <script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-E28C5EH0TG"></script>
 
     <!-- Cloudflare Web Analytics (cookieless, privacy-first).
          is:inline keeps Astro from bundling the third-party beacon. -->
@@ -379,5 +395,6 @@ const finalGraph = [
 
   <body class="bg-base text-cream font-sans antialiased">
     <slot />
+    <ConsentBanner />
   </body>
 </html>
