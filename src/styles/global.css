@@ -111,12 +111,14 @@ h1, h2, h3, h4, h5, h6 {
 
 .hero-title .line {
   display: block;
+  /* 60/40 white→gold: holds pure white through ~58%, then fades to the
+     brand gold (#F5AB2F) by 100% via a warm pale-gold midpoint. */
   background-image: linear-gradient(
     90deg,
-    rgba(255, 255, 255, 0.98) 0%,
-    rgba(255, 249, 229, 0.95) 55%,
-    rgba(253, 230, 157, 0.92) 78%,
-    rgba(247, 197, 140, 0.88) 100%
+    #ffffff 0%,
+    #ffffff 58%,
+    #FBE3A6 76%,
+    #F5AB2F 100%
   );
   -webkit-background-clip: text;
   background-clip: text;

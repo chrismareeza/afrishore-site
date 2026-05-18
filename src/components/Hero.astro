@@ -60,7 +60,7 @@
            fit cleanly on 375px viewports without horizontal overflow. -->
       <h1 class="hero-title text-5xl sm:text-6xl md:text-7xl lg:text-[5.5rem]">
         <span class="block line" data-blurtext="Local Solutions." data-delay="100">Local Solutions.</span>
-        <span class="block line" data-blurtext="Global Clients." data-delay="100">Global Clients.</span>
+        <span class="block line" data-blurtext="Global Clients." data-delay="700">Global Clients.</span>
       </h1>
 
       <!-- Subhead — high contrast against bright imagery -->
@@ -200,9 +200,14 @@
 
     function start() {
       const lines = document.querySelectorAll<HTMLElement>(".hero-title [data-blurtext]");
+      // Line 0 ("Local Solutions.") reveals first, unchanged. Line 1
+      // ("Global Clients.") only begins once line 0 has fully resolved
+      // (~2×STEP + last-word offset ≈ 800ms) so it reads as a distinct
+      // second beat — and its data-delay="700" then sequences "Clients"
+      // to appear only after "Global" has finished.
+      const lineStart = [0, 950];
       lines.forEach((line, i) => {
-        // Stagger lines: line 2 starts 350ms after line 1
-        initLine(line, i * 350);
+        initLine(line, lineStart[i] ?? i * 950);
       });
     }
 
