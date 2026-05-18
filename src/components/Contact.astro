@@ -5,7 +5,6 @@
 
 interface Office {
   city: string;
-  isHQ?: boolean;
   street: string;
   region: string;
   country: string;
@@ -14,7 +13,6 @@ interface Office {
 const offices: Office[] = [
   {
     city: "Mossel Bay",
-    isHQ: true,
     street: "58 Bland Street",
     region: "Western Cape",
     country: "South Africa",
@@ -170,14 +168,7 @@ const centralEmail = "info@afrishore.co";
             data-anim="cont-office"
             class="opacity-0 translate-y-3 p-6 lg:p-7 bg-surface/40 border border-line hover:border-gold/40 rounded-sm transition-colors duration-300 flex flex-col"
           >
-            <div class="flex items-center gap-2 mb-3">
-              <h4 class="text-xl text-cream leading-none">{office.city}</h4>
-              {office.isHQ && (
-                <span class="text-[10px] uppercase tracking-[0.15em] text-orange font-semibold border border-orange/40 px-2 py-0.5">
-                  HQ
-                </span>
-              )}
-            </div>
+            <h4 class="text-xl text-cream leading-none mb-3">{office.city}</h4>
             <p class="text-sm text-mute leading-relaxed flex-1">
               {office.street}<br />
               {office.region}<br />
