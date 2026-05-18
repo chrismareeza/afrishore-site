@@ -113,6 +113,15 @@ The reseller panel is where nameservers + auto-renew + WHOIS are managed.
 (Wix's panel correctly shows "NS records are not editable" — they live at
 the Axxess/Tucows registrar level. This is the Phase 3 action.)
 
+> ✅ **DNSSEC — checked, CLEAR (2026-05-18).** Registry DS: none.
+> Wix DNSKEY: none. `whois` → `DNSSEC: unsigned`. The zone is
+> unsigned, so the nameserver change carries **no DNSSEC chain-of-
+> trust risk** (a signed zone + NS change is one of the few ways to
+> hard-break resolution — not applicable here). Cloudflare's "make
+> sure DNSSEC is off" onboarding warning is satisfied. Do **not**
+> enable DNSSEC at Cloudflare until ≥30 stable days post-cutover
+> (§8), and only then by adding the DS at the registrar via Axxess.
+
 ### E · Telephony (Teams Phone) — checked, NO DNS dependency
 
 The business **landlines run through Microsoft Teams**. Probed the live
