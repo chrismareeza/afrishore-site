@@ -77,17 +77,23 @@ The reseller panel is where nameservers + auto-renew + WHOIS are managed.
 
 | Type | Host | Value | What it is | Action |
 |---|---|---|---|---|
-| CNAME | `app` | `1bad7e6e5faed0ff.vercel-dns-016.com` | A **separate application on Vercel** | Replicate as-is, DNS-only. **Independent of this migration — do not break it.** |
-| CNAME | `en` | `cdn1.wixdns.net` | An English/`en` subdomain **on Wix infrastructure** | ⚠️ **DECISION NEEDED — see below** |
+| CNAME | `app` | `1bad7e6e5faed0ff.vercel-dns-016.com` | 🔴 **Business-critical app** — bespoke ops platform on Vercel, Xero-integrated, runs core operational functions of the business | **Replicate EXACTLY, DNS-only. Higher business criticality than the marketing site.** Verify `app.afrishore.co` loads + Xero sync works the moment NS resolves (Phase 4). |
+| CNAME | `en` | `cdn1.wixdns.net` | Orphaned Wix subdomain — confirmed **NOT in use** (serves Wix "domain isn't connected to a website yet", 2026-05-18) | ✅ **DROP.** Do not recreate in Cloudflare. |
 
-> 🟠 **`en.afrishore.co` will break when Wix is decommissioned** — it points
-> at Wix's CDN. Before cutover, confirm with the client:
-> 1. Is `en.afrishore.co` actually used / linked / indexed? (Check GSC,
->    analytics, and `https://en.afrishore.co`.)
-> 2. If **unused** → drop the record (don't recreate in Cloudflare).
-> 3. If **used** → it needs its own destination (301 to the main site, or
->    its content folded into the new build). Do NOT just copy the Wix
->    CNAME into Cloudflare — it will 404/dead once the Wix sub is gone.
+> 🔴 **`app.afrishore.co` is the single highest-stakes record in this
+> migration** — it is the live operations platform (Xero + business
+> functions), more critical to day-to-day trading than the public site.
+> Treat its CNAME as sacred: replicate the exact Vercel target, DNS-only
+> (grey cloud — proxying it breaks Vercel's own TLS/routing), and make it
+> the **first** thing tested in Phase 4. Vercel manages its own SSL via
+> that CNAME; nothing about it changes — it just needs the record present
+> in the new zone from the first moment NS resolves to Cloudflare.
+>
+> ✅ **`en.afrishore.co` — RESOLVED.** Live check returns the Wix
+> "Looks like this domain isn't connected to a website yet" placeholder
+> → it is an orphaned/unused subdomain serving nothing. Decision: **drop
+> it.** It is simply omitted from the Cloudflare zone — no redirect, no
+> recreation. (Step 1.5b is satisfied.)
 
 ### C · Web records — these are the ONLY records that CHANGE
 
@@ -207,7 +213,11 @@ redirect rule staged. **Nameservers NOT yet changed — nothing is live.**
 ## 3 · Cutover (the only irreversible-ish step — but TTL is 5 min)
 
 - [ ] **3.1 Pick a low-traffic window.** Early AM SAST, mid-week. Avoid
-      Fridays. Have the §0 sheet and registrar login open.
+      Fridays. Have the §0 sheet and registrar login open. **Pick a time
+      when a brief `app.afrishore.co` blip is acceptable** — it shouldn't
+      blip (the CNAME is pre-staged in Cloudflare in Phase 2), but treat
+      the ops platform as if it could, and have someone able to confirm
+      Xero sync on standby.
 - [ ] **3.2 Change nameservers at Tucows / reseller** from
       `ns12.wixdns.net` / `ns13.wixdns.net` to the **two Cloudflare
       nameservers** shown in your Cloudflare dashboard (e.g.
@@ -224,6 +234,17 @@ nameservers.
 ---
 
 ## 4 · Verification (run the moment Cloudflare NS resolves)
+
+🔴 **FIRST — business-critical app (before anything else):**
+- [ ] `dig +short CNAME app.afrishore.co` → resolves to the Vercel target
+      (`...vercel-dns-016.com`)
+- [ ] `https://app.afrishore.co` → the ops platform loads over HTTPS with
+      a valid cert
+- [ ] Log in and confirm the **Xero integration** + a core operational
+      function still work (the app's own SSL/routing is Vercel-managed; we
+      only need the CNAME present — but verify, don't assume)
+- [ ] If `app` is down → the `app` CNAME is missing/wrong in Cloudflare.
+      Fix it immediately; this outranks every other item here.
 
 Web:
 - [ ] `dig +short NS afrishore.co` → Cloudflare nameservers
