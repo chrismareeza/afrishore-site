@@ -6,6 +6,30 @@
 
 ---
 
+## ✅ CUTOVER COMPLETE — 2026-05-18
+
+**Status: LIVE & VERIFIED end-to-end.** Phases 1–4 done.
+
+- **NS changed** via Axxess ticket #d7b7d6hbk5 → `milan.ns.cloudflare.com`
+  / `susan.ns.cloudflare.com`. Propagated to 1.1.1.1 + 8.8.8.8.
+- **Site:** new Astro build live on `https://www.afrishore.co` (HTTP 200,
+  108 KB, full schema, zero Wix residue). SSL issued (Cloudflare/GTS,
+  90-day). Pages custom domains `afrishore.co` + `www` both Active.
+- **apex → www** 301 with path preservation (Dynamic-concat rule).
+- **All 18 legacy Wix URLs** 301 to the correct new pages, incl. the
+  confirmed `/copy-of-deepsea-mira-venus-1x → Tamboti` fix.
+- **Email:** §0 records byte-correct on the new zone **AND functionally
+  confirmed** — chris@ + info@ send & receive both ways (client test
+  2026-05-18).
+- **Telephony:** Microsoft Teams calling confirmed working post-cutover.
+- **`app.afrishore.co`** (Xero ops platform): never blipped — verified
+  alive throughout (HTTP 307, CNAME exact).
+
+Rollback (revert NS to Wix) remains available until the §8 30-day
+cleanup. Remaining: Phase 5 SEO post-cutover actions + §8 cleanup.
+
+---
+
 ## 0 · Snapshot of the current production DNS (source of truth)
 
 Captured **2026-05-18** by `dig` against the live Wix-hosted domain. This is
