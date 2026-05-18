@@ -25,8 +25,8 @@ const offices: Pin[] = [
 const ports: Pin[] = [
   { x: 232, y: 360, name: "Lüderitz" },
   { x: 275, y: 525, name: "Saldanha" },
-  { x: 492, y: 610, name: "Coega", labelPos: "above" },
-  { x: 510, y: 616, name: "Gqeberha", labelPos: "below" },
+  { x: 489, y: 607, name: "Coega", labelPos: "above" },
+  { x: 513, y: 602, name: "Gqeberha", labelPos: "below" },
   { x: 555, y: 590, name: "East London" },
   { x: 820, y: 125, name: "Pemba" },
 ];
@@ -80,13 +80,12 @@ const ports: Pin[] = [
 
         <!-- Country labels — warm bronze background type, centred inland of each territory.
              Larger font-size so labels stay legible when the SVG scales down on mobile. -->
-        <text x="285" y="260" text-anchor="middle" fill="#8A7551" font-family="Inter, sans-serif" font-size="22" letter-spacing="0.25em" font-weight="700">NAMIBIA</text>
-        <text x="450" y="510" text-anchor="middle" fill="#8A7551" font-family="Inter, sans-serif" font-size="22" letter-spacing="0.25em" font-weight="700">SOUTH AFRICA</text>
-        <!-- MOZAMBIQUE is a narrow NE–SW wedge; at 22px/0.25em the label
-             is wider than the territory and crosses the coast. Smaller
-             size + tighter tracking + placed in the widest upper section
-             keeps it fully inland. -->
-        <text x="690" y="180" text-anchor="middle" fill="#8A7551" font-family="Inter, sans-serif" font-size="15" letter-spacing="0.10em" font-weight="700">MOZAMBIQUE</text>
+        <!-- All three standardised to 18px / 0.12em. MOZAMBIQUE is a
+             narrow NE–SW wedge, so it's placed in the widest upper
+             section (~y180) where it fits fully inland at this size. -->
+        <text x="285" y="260" text-anchor="middle" fill="#8A7551" font-family="Inter, sans-serif" font-size="18" letter-spacing="0.12em" font-weight="700">NAMIBIA</text>
+        <text x="450" y="510" text-anchor="middle" fill="#8A7551" font-family="Inter, sans-serif" font-size="18" letter-spacing="0.12em" font-weight="700">SOUTH AFRICA</text>
+        <text x="690" y="180" text-anchor="middle" fill="#8A7551" font-family="Inter, sans-serif" font-size="18" letter-spacing="0.12em" font-weight="700">MOZAMBIQUE</text>
 
         <!-- Country borders — thin faint gold dashed lines, geographically accurate.
              5 countries (NA, SA, MZ, Bot, Zim) meeting at 6 tri-points:
