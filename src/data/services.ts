@@ -133,7 +133,7 @@ export const servicePages: ServicePage[] = [
       src: "/images/services/offshore-supply-base-team.jpg",
       alt: "Afrishore team at the offshore supply base inside the Port of Walvis Bay's Oil & Gas Section, Namibia",
       caption:
-        "Afrishore's team embedded in the Port of Walvis Bay's Oil & Gas Section — the turnkey supply base behind drilling, renewable and subsea campaigns across Namibia, South Africa and Mozambique.",
+        "Afrishore's management visit to their Walvis Bay offshore supply base, the turnkey supply base behind successful drilling campaigns for Deepsea Mira, Deepsea Bollsta and Hercules.",
       portrait: true,
     },
   },
