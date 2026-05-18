@@ -354,21 +354,27 @@ const finalGraph = [
 
     <!-- Preload the hero LCP image on the homepage so the browser starts the
          fetch in parallel with the CSS/JS parse instead of waiting for the
-         CSS rule to be matched. ~250 ms LCP win on cold loads. -->
+         CSS rule to be matched (~250 ms LCP win). media= matches the
+         responsive hero exactly: phones preload the 1280w (~74 KB),
+         desktop the 1920w — never both, no wasted bytes. WebP only
+         (universal support; the JPEG stays as the CSS image-set fallback). -->
     {Astro.url.pathname === "/" && (
       <>
         <link
           rel="preload"
           as="image"
-          href="/images/hero-cape-town.webp"
+          href="/images/hero-cape-town-1280.webp"
           type="image/webp"
+          media="(max-width: 768px)"
           fetchpriority="high"
         />
         <link
           rel="preload"
           as="image"
-          href="/images/hero-cape-town.jpg"
-          type="image/jpeg"
+          href="/images/hero-cape-town.webp"
+          type="image/webp"
+          media="(min-width: 769px)"
+          fetchpriority="high"
         />
       </>
     )}

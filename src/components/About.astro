@@ -8,17 +8,8 @@
   <!-- Background image / gradient.
        Same image-set pattern as Hero — WebP preferred, JPEG fallback. -->
   <div
-    class="absolute inset-0"
+    class="about-bg-img absolute inset-0"
     style="
-      background-image:
-        linear-gradient(115deg, rgba(10,10,10,0.95) 0%, rgba(10,10,10,0.6) 50%, rgba(10,10,10,0.85) 100%),
-        url('/images/about-night-rig.jpg');
-      background-image:
-        linear-gradient(115deg, rgba(10,10,10,0.95) 0%, rgba(10,10,10,0.6) 50%, rgba(10,10,10,0.85) 100%),
-        image-set(
-          url('/images/about-night-rig.webp') type('image/webp'),
-          url('/images/about-night-rig.jpg') type('image/jpeg')
-        );
       background-size: cover;
       background-position: center;
       background-color: #0a0a0a;
@@ -75,6 +66,35 @@
     </div>
   </div>
 </section>
+
+<style>
+  /* Responsive background (gradient overlay + image). Desktop 1920w;
+     ≤768px viewport 1280w. Same crop, ~half the bytes on phones. */
+  .about-bg-img {
+    background-image:
+      linear-gradient(115deg, rgba(10,10,10,0.95) 0%, rgba(10,10,10,0.6) 50%, rgba(10,10,10,0.85) 100%),
+      url('/images/about-night-rig.jpg');
+    background-image:
+      linear-gradient(115deg, rgba(10,10,10,0.95) 0%, rgba(10,10,10,0.6) 50%, rgba(10,10,10,0.85) 100%),
+      image-set(
+        url('/images/about-night-rig.webp') type('image/webp'),
+        url('/images/about-night-rig.jpg') type('image/jpeg')
+      );
+  }
+  @media (max-width: 768px) {
+    .about-bg-img {
+      background-image:
+        linear-gradient(115deg, rgba(10,10,10,0.95) 0%, rgba(10,10,10,0.6) 50%, rgba(10,10,10,0.85) 100%),
+        url('/images/about-night-rig-1280.jpg');
+      background-image:
+        linear-gradient(115deg, rgba(10,10,10,0.95) 0%, rgba(10,10,10,0.6) 50%, rgba(10,10,10,0.85) 100%),
+        image-set(
+          url('/images/about-night-rig-1280.webp') type('image/webp'),
+          url('/images/about-night-rig-1280.jpg') type('image/jpeg')
+        );
+    }
+  }
+</style>
 
 <script>
   import { gsap } from "gsap";
