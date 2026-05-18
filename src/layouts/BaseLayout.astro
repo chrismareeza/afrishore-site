@@ -396,5 +396,31 @@ const finalGraph = [
   <body class="bg-base text-cream font-sans antialiased">
     <slot />
     <ConsentBanner />
+
+    <!-- Lead-intent tracking: one delegated listener fires a GA4
+         `generate_lead` event on any phone, email, or #contact CTA
+         (nav, hero, footer, service & project pages). No per-component
+         wiring; respects Consent Mode (gtag is consent-gated). -->
+    <script is:inline>
+      (function () {
+        document.addEventListener("click", function (e) {
+          var a = e.target && e.target.closest && e.target.closest("a[href]");
+          if (!a) return;
+          var href = a.getAttribute("href") || "";
+          var method;
+          if (href.indexOf("tel:") === 0) method = "phone";
+          else if (href.indexOf("mailto:") === 0) method = "email";
+          else if (href.indexOf("#contact") !== -1) method = "cta";
+          else return;
+          if (typeof window.gtag === "function") {
+            window.gtag("event", "generate_lead", {
+              method: method,
+              link_url: href,
+              link_text: (a.textContent || "").trim().slice(0, 80)
+            });
+          }
+        }, true);
+      })();
+    </script>
   </body>
 </html>
