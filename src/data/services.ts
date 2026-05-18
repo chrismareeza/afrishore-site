@@ -194,8 +194,8 @@ export const servicePages: ServicePage[] = [
     geoSub: "Crew rotations, visas, immigration & medivac across three countries",
     schemaServiceType: "Crew & Visa Services",
     intro: [
-      "Afrishore handles full crew logistics for offshore and onshore personnel and third-party technicians across South Africa, Namibia and Mozambique — visa and work-permit processing, immigration optimisation, flight coordination, accommodation and transport, crew-change coordination and medical evacuation.",
-      "Drilling and subsea campaigns bring multiple discipline crews and international specialists into the region simultaneously, each with their own visa, immigration and travel requirements against a moving rig schedule. Afrishore coordinated exactly this through the Deepsea Bollsta and Deepsea Mira Special Periodic Surveys and the TotalEnergies campaigns — every visa, every entry, every rotation handled so personnel arrive on time and compliant.",
+      "Afrishore handles full crew logistics for offshore and onshore personnel and third-party technicians across South Africa, Namibia and Mozambique: visa and work-permit processing, immigration optimisation, flight coordination, accommodation and transport, crew-change coordination and medical evacuation.",
+      "Drilling and subsea campaigns bring multiple discipline crews and international specialists into the region simultaneously, each with their own visa, immigration and travel requirements against a dynamic project schedule. Afrishore coordinated exactly this through dry docking schedules, marine projects and exploration campaigns: every visa, every entry, every rotation handled so personnel arrive on time and compliant.",
       "Run alongside Afrishore's agency, supply-base and logistics operations, crew and visa services close the loop on a fully integrated shore-side operation.",
     ],
     scope: [
@@ -215,5 +215,8 @@ export const servicePages: ServicePage[] = [
       "Mossel Bay",
       "Durban",
     ],
+    heroImage: "/images/services/crew-visa-services-hero.jpg",
+    heroAlt:
+      "South African and German passports — Afrishore crew visa, work-permit and immigration processing across South Africa, Namibia and Mozambique",
   },
 ];
