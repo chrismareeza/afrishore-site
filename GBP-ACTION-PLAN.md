@@ -22,9 +22,9 @@ lockstep.
 
 | Office | GBP exists? | Listed name now | Site-side binding done | Your actions |
 |---|---|---|---|---|
-| **Walvis Bay** | ✅ | "Afrishore Logistics Base" | geo ✅ · sameAs ✅ · Maps link ✅ | Rename, set website, confirm address/phone/categories |
-| **Cape Town** | ✅ | "Afrishore Cape Town" | geo ✅ · sameAs ✅ · Maps link ✅ | Name decision, set website, confirm address/phone/categories |
-| **Mossel Bay** | ✅ | "Afrishore Head Office" | geo ✅ · sameAs ✅ · Maps link ✅ | Name decision, **address → 58 Bland St by 1 Aug**, set website |
+| **Walvis Bay** | ✅ | "Afrishore Logistics Base" | geo ✅ · sameAs ✅ · Maps link ✅ | Rename → **"Afrishore"**, set website, confirm address/phone/categories |
+| **Cape Town** | ✅ | "Afrishore Cape Town" | geo ✅ · sameAs ✅ · Maps link ✅ | Rename → **"Afrishore"**, set website, confirm address/phone/categories |
+| **Mossel Bay** | ✅ | "Afrishore Head Office" | geo ✅ · sameAs ✅ · Maps link ✅ | Rename → **"Afrishore"**, **address → 58 Bland St by 1 Aug**, set website |
 | **Durban** | ❌ none | — | done when GBP exists | **Create from scratch**, then send me the Maps link |
 
 "Site-side binding done" = the LocalBusiness schema geo now matches the
@@ -35,22 +35,23 @@ real GBP pin, `sameAs` points at the GBP, and the port page shows a
 
 ## Cross-cutting rules (apply to every listing)
 
-1. **Business name = the branch display name, as the client lists it.**
-   The chosen convention is brand + branch — "Afrishore Cape Town",
-   "Afrishore Durban", "Afrishore Head Office", "Afrishore Logistics Pty
-   Ltd" (Walvis Bay). The site's `LocalBusiness` `name` and the visible
-   name on each port page have been aligned to exactly these — that is
-   the NAP-critical match. The **registered legal entities** (Afrishore
-   Shipping Pty Ltd / Afrishore Pty Ltd) are intentionally **not** the
-   public listing name and are not asserted in schema.
-   - *Light advisory only:* brand+city names ("Afrishore Cape Town",
-     "Afrishore Durban") are standard and safe for genuine separate
-     locations. A pure descriptor like **"Afrishore Head Office"** is
-     the one Google may, on a review, ask to be a real-world name —
-     "Afrishore Mossel Bay" would be the safest equivalent. Your call;
-     whatever you list, tell me and the site will mirror it exactly.
-   - Never add keywords/locations *beyond* the convention (e.g.
-     "Afrishore Cape Town Ship Agent") — that does risk suspension.
+1. **Business name = `Afrishore` on EVERY listing.** All branches in
+   SA and Namibia trade as "Afrishore"; the registration entities
+   (Afrishore Shipping Pty Ltd / Afrishore Pty Ltd in SA; Afrishore
+   Logistics Pty Ltd in Namibia) are **not** the public listing name.
+   This is the Google-correct multi-location pattern: one brand name on
+   every location, distinguished by the **address** — fully compliant,
+   no suspension risk, and Google still ranks each location per city by
+   proximity + the matching port page. The site's `LocalBusiness`
+   `name` and every port page now show exactly **"Afrishore"**;
+   registration entities live in schema as `legalName` only
+   (Organization = "Afrishore Pty Ltd"; Walvis Bay = "Afrishore
+   Logistics Pty Ltd").
+   - **Do NOT** put the city or a keyword in the GBP name ("Afrishore
+     Cape Town", "Afrishore Head Office", "Afrishore Ship Agent …") —
+     it breaches Google policy and competitors can get it
+     reverted/suspended. The city SEO is already captured by the
+     address, service area, and the `/ports/<city>` page.
 2. **Website field → the matching port page**, not the homepage:
    - Walvis Bay → `https://www.afrishore.co/ports/walvis-bay`
    - Cape Town → `https://www.afrishore.co/ports/cape-town`
@@ -77,9 +78,10 @@ real GBP pin, `sameAs` points at the GBP, and the port page shows a
 
 ## 1. Walvis Bay  *(existing GBP — edit)*
 
-- **Rename to:** `Afrishore Logistics Pty Ltd` (decided — this is the
-  trading entity; the site schema + page already say exactly this).
-  Match punctuation exactly.
+- **Rename to:** `Afrishore` (trading name — same as all branches).
+  "Afrishore Logistics Pty Ltd" is the Namibian registration entity and
+  is held in schema as `legalName`, NOT the GBP name. Site already says
+  "Afrishore".
 - **Address:** confirm the GBP shows the same as the site —
   `Oil & Gas Section, Port of Walvis Bay, Walvis Bay, Namibia`. If the
   real address differs, send me the correct one (I'll update the site to
@@ -91,8 +93,9 @@ real GBP pin, `sameAs` points at the GBP, and the port page shows a
 
 ## 2. Cape Town  *(existing GBP — edit)*
 
-- **Name:** keep `Afrishore Cape Town` (the branch convention). Site
-  schema + page already aligned to this exact string.
+- **Name:** set to `Afrishore` (the trading name — drop "Cape Town"
+  from the listing name; the address carries the city). Site already
+  says "Afrishore".
 - **Address:** confirm GBP = site:
   `Unit 213, Buchanan Square, Woodstock, Cape Town, Western Cape, South Africa`.
 - **Primary category:** Ship Agent. Secondaries per rule 3.
@@ -101,11 +104,9 @@ real GBP pin, `sameAs` points at the GBP, and the port page shows a
 
 ## 3. Mossel Bay  *(existing GBP — edit; HQ)*
 
-- **Name:** `Afrishore Head Office` (the branch convention). Site is
-  aligned to this exactly. *Light advisory:* this is the one descriptor-
-  style name Google could query on review — "Afrishore Mossel Bay" is
-  the safer equivalent if you ever want to switch; tell me and the site
-  follows.
+- **Name:** rename to `Afrishore` (drop "Head Office" — it's a
+  descriptor, highest revert risk, zero SEO value). Site already says
+  "Afrishore".
 - **Address — IMPORTANT:** office moves to **58 Bland Street, Mossel
   Bay, Western Cape, South Africa by 1 August**. The **site already
   shows 58 Bland Street**. Update the GBP address to 58 Bland Street
@@ -121,8 +122,8 @@ real GBP pin, `sameAs` points at the GBP, and the port page shows a
 
 Create at business.google.com → "Add business". Enter:
 
-- **Name:** `Afrishore Durban` (the branch convention; matches the
-  site, which is already aligned).
+- **Name:** `Afrishore` (same as every branch; the address gives the
+  city). Site already says "Afrishore".
 - **Address:** `33 Wagtail Walk, Yellowwood Park, Durban, KwaZulu-Natal, South Africa`
 - **Phone:** `+27 44 691 3218` (or a Durban local number if you have one)
 - **Primary category:** Ship Agent · **Secondaries:** Logistics Service,
@@ -143,13 +144,14 @@ Create at business.google.com → "Add business". Enter:
 
 ## Open decisions (need your call)
 
-1. **GBP names — RESOLVED.** Branch convention confirmed: Afrishore
-   Cape Town · Afrishore Head Office · Afrishore Durban · Afrishore
-   Logistics Pty Ltd (Walvis Bay). Site schema + port pages already
-   aligned to these exact strings. *Optional:* if you want the
-   registered entities (Afrishore Shipping Pty Ltd / Afrishore Pty Ltd)
-   represented in schema as `legalName`, give me the entity→branch map
-   and I'll add it (kept separate from the public `name`).
+1. **GBP names — RESOLVED.** Every listing = **"Afrishore"** (the
+   common trading name, SA + Namibia). Site schema + all port pages
+   already say exactly "Afrishore". Registration entities are
+   `legalName` only (Organization = "Afrishore Pty Ltd"; Walvis Bay =
+   "Afrishore Logistics Pty Ltd"). *Optional:* if you want the SA
+   entities (Afrishore Shipping Pty Ltd / Afrishore Pty Ltd) mapped to
+   specific branches as per-location `legalName`, send the entity→branch
+   map and I'll add it (kept separate from the public `name`).
 2. **Phone strategy:** single SA number everywhere, or local numbers per
    country/city (recommended for Walvis Bay at least). Tell me the final
    numbers per office and I'll match the site.

@@ -92,7 +92,7 @@ export const ports: PortPage[] = [
     ],
     vesselTypes: VESSEL_TYPES,
     office: {
-      businessName: "Afrishore Logistics Pty Ltd",
+      businessName: "Afrishore",
       localBusinessId: "#walvis-bay",
       streetAddress: "Oil & Gas Section, Port of Walvis Bay",
       addressLocality: "Walvis Bay",
@@ -158,7 +158,7 @@ export const ports: PortPage[] = [
     ],
     vesselTypes: VESSEL_TYPES,
     office: {
-      businessName: "Afrishore Cape Town",
+      businessName: "Afrishore",
       localBusinessId: "#cape-town",
       streetAddress: "Unit 213, Buchanan Square",
       addressLocality: "Woodstock, Cape Town",
@@ -225,7 +225,7 @@ export const ports: PortPage[] = [
     ],
     vesselTypes: VESSEL_TYPES,
     office: {
-      businessName: "Afrishore Head Office",
+      businessName: "Afrishore",
       localBusinessId: "#mossel-bay",
       streetAddress: "58 Bland Street",
       addressLocality: "Mossel Bay",
@@ -264,7 +264,7 @@ export const ports: PortPage[] = [
     ],
     vesselTypes: VESSEL_TYPES,
     office: {
-      businessName: "Afrishore Durban",
+      businessName: "Afrishore",
       localBusinessId: "#durban",
       streetAddress: "33 Wagtail Walk, Yellowwood Park",
       addressLocality: "Durban",
