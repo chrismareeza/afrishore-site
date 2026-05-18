@@ -382,7 +382,29 @@ nameservers.
 
 ## 4 · Verification (run the moment Cloudflare NS resolves)
 
-🔴 **FIRST — business-critical app (before anything else):**
+🔴 **STEP 0 — business-critical app (before ANYTHING, before the
+website binding):**
+- [ ] `dig +short CNAME app.afrishore.co` → resolves to the Vercel
+      target (`...vercel-dns-016.com`)
+- [ ] `https://app.afrishore.co` loads + Xero sync works
+- [ ] This is independent of the Pages binding below — it must work the
+      instant NS resolves (record was pre-staged in Phase 2).
+
+⚙️ **STEP A — bind the Pages custom domain (do IMMEDIATELY, the brochure
+site is down until this completes):**
+- [ ] Cloudflare zone status now shows **Active** (NS resolved).
+- [ ] Workers & Pages → `afrishore-site` → Custom domains → add
+      `www.afrishore.co`, then add `afrishore.co`. (Now permitted —
+      it was blocked pre-cutover; see PHASE-2 Step D.)
+- [ ] Add the **apex→www 301 redirect rule** (PHASE-2 Step E) if not
+      already staged.
+- [ ] Wait for both custom domains → **Active** + SSL cert issued
+      (minutes, up to ~15). Until then the website 404s but email/app
+      are unaffected.
+
+**Then continue the detailed verification:**
+
+🔴 **app re-confirm (belt-and-braces):**
 - [ ] `dig +short CNAME app.afrishore.co` → resolves to the Vercel target
       (`...vercel-dns-016.com`)
 - [ ] `https://app.afrishore.co` → the ops platform loads over HTTPS with

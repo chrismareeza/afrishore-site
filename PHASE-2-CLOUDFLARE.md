@@ -102,15 +102,37 @@ Leave them out of Step C entirely.
 
 ## Step D — Connect the custom domain in Cloudflare Pages
 
-1. Cloudflare → **Workers & Pages** → your `afrishore-site` Pages
-   project → **Custom domains** tab.
-2. **Add** `www.afrishore.co` → Cloudflare creates a proxied CNAME and
-   begins issuing the SSL cert.
-3. **Add** `afrishore.co` (apex) → Cloudflare creates a CNAME-flattened
-   apex record (proxied) and a second cert SAN.
-4. Both will show "pending"/"verifying" until the nameservers actually
-   move (Phase 3) — that is expected. The records exist in the zone now;
-   they just don't resolve publicly until delegation flips.
+> ⚠️ **SEQUENCING CORRECTION (observed in the live UI, 2026-05-18).**
+> Cloudflare Pages **will not let you bind the custom domain until the
+> zone is Active** (i.e. until the nameservers actually point to
+> Cloudflare). Pre-cutover it shows *"Transfer DNS management — Before
+> adding afrishore.co you'll need to transfer your DNS to Cloudflare"*
+> with a **"Begin DNS transfer"** button. **Do NOT click that button
+> during Phase 2** — it initiates the nameserver change (= Phase 3) and
+> must stay gated on Step F + the cutover window + the Axxess ticket.
+>
+> Therefore **Step D is performed at the START of Phase 4**, in the
+> first minutes *after* Axxess flips the nameservers and the Cloudflare
+> zone flips to **Active** — not during Phase 2.
+
+When (and only when) the Cloudflare zone status shows **Active**
+(Phase 4, post-NS-change):
+
+1. Cloudflare → **Workers & Pages** → `afrishore-site` → **Custom
+   domains** → Add `www.afrishore.co`. With DNS now active it validates
+   in seconds–minutes; Cloudflare creates the proxied record + issues
+   the SSL cert.
+2. Add `afrishore.co` (apex) → CNAME-flattened proxied apex + cert SAN.
+3. Wait for both to show **Active** and the cert to issue (usually a few
+   minutes; can be up to ~15).
+
+**Brief expected gap:** between the NS flip and these two adds
+completing, the **website** (apex/www) is briefly unreachable —
+**email, `app.afrishore.co`, autodiscover, Postmark and every other
+§0 service keep working throughout** (their records were pre-staged in
+Step C and resolve the instant Cloudflare goes active). Do Step D
+*immediately* at cutover to keep the brochure-site gap to minutes,
+inside the chosen low-traffic window.
 
 ---
 
