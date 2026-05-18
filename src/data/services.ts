@@ -143,7 +143,7 @@ export const servicePages: ServicePage[] = [
     serviceType: "integrated-logistics",
     name: "Integrated Logistics",
     metaTitle:
-      "Freight Forwarding & Customs Clearance — Marine Logistics, Southern Africa | Afrishore",
+      "Freight Forwarding & Customs Clearance | Marine Logistics, Southern Africa | Afrishore",
     metaDescription:
       "Freight forwarding, customs brokerage, project cargo, bunkering, chandling and technical procurement across South Africa, Namibia and Mozambique — cross-border on sea, air and road for oil & gas, subsea, telecoms and heavy lift.",
     h1: "Integrated Logistics",
