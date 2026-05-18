@@ -208,10 +208,10 @@ export const ports: PortPage[] = [
       "From Mossel Bay Afrishore operated the supply base and rig agency for the TotalEnergies Brulpadda discovery and Luiperd campaigns and the earlier Eirik Raude drilling campaign, closing out cleanly through Cape Town. It is where Afrishore's integration-as-design model was proven.",
     ],
     scope: [
-      "Offshore supply base operations",
       "Port clearance & customs formalities",
       "Berth scheduling & port-authority liaison",
       "Immigration & crew-change compliance",
+      "Offshore supply base operations",
       "Rigging, cranage & project cargo",
       "Bunkering & husbandry",
       "Procurement & technical support",

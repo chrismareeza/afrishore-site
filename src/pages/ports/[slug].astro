@@ -58,7 +58,10 @@ const serviceSchema: Record<string, unknown> = {
   "description": port.metaDescription,
   "url": pageUrl,
   "provider": { "@id": `${siteUrl}/#organization` },
-  "isPartOf": { "@id": `${siteUrl}/#website` },
+  // Port pages are spokes of the Ship, Vessel & Rig Agency pillar —
+  // isPartOf ties each to that vertical's Service node in the global
+  // @graph (topical cluster signal; the page is agency-optimised).
+  "isPartOf": { "@id": `${siteUrl}/#service-ship-rig-agency` },
   "areaServed": [
     { "@type": "Place", "name": `Port of ${port.portName}` },
     { "@type": "Country", "name": port.country },
@@ -71,6 +74,7 @@ if (port.office) {
 
 const breadcrumb = [
   { name: "Home", item: "/" },
+  { name: "Ship, Vessel & Rig Agency", item: "/services/ship-rig-agency" },
   { name: `Port of ${port.portName}`, item: `/ports/${port.slug}` },
 ];
 ---
@@ -90,15 +94,15 @@ const breadcrumb = [
     <section class="relative pt-32 lg:pt-40 pb-12 px-6 lg:px-12">
       <div class="max-w-5xl mx-auto">
         <a
-          href="/"
+          href="/services/ship-rig-agency"
           class="inline-flex items-center gap-2 text-sm text-mute hover:text-gold transition-colors mb-10"
         >
           <span aria-hidden="true">←</span>
-          Afrishore
+          Ship, Vessel & Rig Agency
         </a>
 
         <div class="text-xs uppercase tracking-[0.2em] text-gold font-semibold mb-6">
-          {port.country} · Port
+          Ship, Vessel & Rig Agency · {port.country}
         </div>
 
         <h1 class="text-4xl md:text-5xl lg:text-6xl text-cream leading-[1.1] tracking-tight mb-5">
@@ -168,6 +172,22 @@ const breadcrumb = [
                 </span>
               ))}
             </div>
+          </div>
+
+          <div class="border-t border-line pt-8">
+            <h2 class="text-xs uppercase tracking-[0.2em] text-gold font-semibold mb-3">
+              Beyond agency at {port.portName}
+            </h2>
+            <p class="text-sm text-mute leading-relaxed mb-4 max-w-2xl">
+              Vessel and rig agency is the focus here — but Afrishore runs
+              these from {port.portName} too, under the same single point of
+              accountability:
+            </p>
+            <ul class="flex flex-wrap gap-x-6 gap-y-2 text-sm">
+              <li><a href="/services/offshore-supply-base" class="text-gold hover:text-yellow transition-colors">Offshore Supply Base →</a></li>
+              <li><a href="/services/integrated-logistics" class="text-gold hover:text-yellow transition-colors">Integrated Logistics →</a></li>
+              <li><a href="/services/crew-visa-services" class="text-gold hover:text-yellow transition-colors">Crew &amp; Visa Services →</a></li>
+            </ul>
           </div>
         </div>
 
