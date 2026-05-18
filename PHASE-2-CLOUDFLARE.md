@@ -188,23 +188,26 @@ dig @NS1.ns.cloudflare.com www.afrishore.co +short
 - app → `1bad7e6e5faed0ff.vercel-dns-016.com`
 - www → a Cloudflare Pages target
 
-- [ ] **Checkpoint F:** every line matches §0. If anything is wrong, fix
-      it in Cloudflare DNS and re-query. **Do not proceed to Phase 3
-      until F is 100% green.** This is the whole safety net — a correct
-      Cloudflare zone verified *before* the delegation moves means email
-      + app + site keep working through propagation.
+- [x] **Checkpoint F — ✅ PASSED 2026-05-18, 16/16, ZERO failures.**
+      Verified directly against `milan.ns.cloudflare.com` /
+      `susan.ns.cloudflare.com` while the world still resolved to Wix.
+      All §0-A/B records exact, the stale-SPF trap confirmed absent,
+      and the `app` CNAME byte-for-byte correct with **no zone-append
+      trap** (`…vercel-dns-016.com` exactly, not `…com.afrishore.co`).
+      Both nameservers serve identical data.
 
 ---
 
 ## Step G — Hand off to Phase 3
 
-- [ ] Record the two Cloudflare nameservers (from Step A) here:
-      - `__________________.ns.cloudflare.com`
-      - `__________________.ns.cloudflare.com`
-- [ ] Those two values go into the **Phase 3.2 reply to Axxess ticket
-      #d7b7d6hbk5** (template in `MIGRATION.md` §3.2).
-- [ ] Phase 2 is complete. Nothing is live yet. Proceed to Phase 3 only
-      when Step F is fully verified and the cutover window is chosen.
+- [x] **Cloudflare nameservers (captured + verified 2026-05-18):**
+      - `milan.ns.cloudflare.com`
+      - `susan.ns.cloudflare.com`
+- [x] Filled into the **Phase 3.2 reply to Axxess ticket #d7b7d6hbk5**
+      (`MIGRATION.md` §3.2).
+- [x] **Phase 2 COMPLETE. Nothing live yet.** Phase 3 is GO once: the
+      cutover window is chosen + the Productivity-Tools `app`-footprint
+      reply is in + final staging QA (1.6) signed off.
 
 ---
 

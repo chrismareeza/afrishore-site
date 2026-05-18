@@ -359,18 +359,18 @@ redirect rule staged. **Nameservers NOT yet changed — nothing is live.**
       someone able to confirm Xero sync on standby (the `app` CNAME is
       pre-staged in Phase 2 so it shouldn't blip — verify regardless).
 - [ ] **3.2 Reply to Axxess ticket #d7b7d6hbk5** with the two Cloudflare
-      nameservers from Phase 2. Copy/adapt:
+      nameservers (captured + Step-F-verified 2026-05-18). Copy/adapt:
       > Hi Sandisiwe,
       >
       > Please update the nameservers for **afrishore.co** to the
       > following two Cloudflare nameservers:
       >
-      > &nbsp;&nbsp;`<ns1>.ns.cloudflare.com`
-      > &nbsp;&nbsp;`<ns2>.ns.cloudflare.com`
+      > &nbsp;&nbsp;`milan.ns.cloudflare.com`
+      > &nbsp;&nbsp;`susan.ns.cloudflare.com`
       >
-      > (Replace `ns12.wixdns.net` / `ns13.wixdns.net`.) Please leave
-      > `clientUpdateProhibited` and `clientTransferProhibited` in place
-      > as you advised. Kindly confirm once applied. Thank you.
+      > (These replace `ns12.wixdns.net` / `ns13.wixdns.net`.) Please
+      > leave `clientUpdateProhibited` and `clientTransferProhibited`
+      > in place as you advised. Kindly confirm once applied. Thank you.
       >
       > [Name] — Afrishore
 
