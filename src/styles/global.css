@@ -114,15 +114,15 @@ h1, h2, h3, h4, h5, h6 {
   /* Stops are % of the full line box; the text fills ~0–72% of it, so
      these map onto the words as: white holds through the first word +
      start of the second ("Local Sol…" / "Global Cli…"), then ramps —
-     deep gold #D7B362 by ~mid second word, antique gold #AF8C4F by the
-     end of the text. (Golds lightened 25% toward white from #C99A2E /
-     #946614 — positions unchanged.) */
+     deep gold #DFC281 by ~mid second word, antique gold #BFA372 by the
+     end of the text. (Golds lightened toward white from brand #C99A2E /
+     #946614 — 25% then a further 20%; positions unchanged.) */
   background-image: linear-gradient(
     90deg,
     #ffffff 0%,
     #ffffff 24%,
-    #D7B362 44%,
-    #AF8C4F 66%
+    #DFC281 44%,
+    #BFA372 66%
   );
   -webkit-background-clip: text;
   background-clip: text;
