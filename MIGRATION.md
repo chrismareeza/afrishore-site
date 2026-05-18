@@ -41,35 +41,66 @@ The reseller panel is where nameservers + auto-renew + WHOIS are managed.
 > — replicating the live SPF keeps its mail valid. Evaluate whether
 > it's still needed in §8 cleanup, not now.
 
-### Email & verification records — MUST be replicated EXACTLY
+> **This table is the COMPLETE authoritative zone**, transcribed from the
+> Wix "Manage DNS Records" panel on 2026-05-18. It supersedes the earlier
+> `dig` probe (which missed the Postmark + Vercel + `en` records — `dig`
+> only returns what you query, and these subdomains weren't probed).
+> Replicate **every PRESERVE row** verbatim into Cloudflare DNS.
 
-| Type | Host | Value | Purpose |
-|---|---|---|---|
-| MX | `@` | `afrishore-co.mail.protection.outlook.com` (priority 0) | Microsoft 365 mail |
-| TXT | `@` | `v=spf1 +a +mx +ip4:156.155.252.20 include:relay.mailchannels.net include:spf.protection.outlook.com ~all` | SPF |
-| TXT | `@` | `MS=ms81963765` | M365 domain verification |
-| TXT | `@` | `google-site-verification=9yZbCMNMEJqvOMnJNY1gZWtWnbOyNMzd6snrSTCvRy8` | **Google Search Console verification — SEO critical** |
-| TXT | `_dmarc` | `v=DMARC1; p=quarantine; rua=mailto:chris@afrishore.co; ruf=mailto:chris@afrishore.co; fo=1` | DMARC |
-| CNAME | `selector1._domainkey` | `selector1-afrishore-co._domainkey.afrishoreza.r-v1.dkim.mail.microsoft` | DKIM 1 |
-| CNAME | `selector2._domainkey` | `selector2-afrishore-co._domainkey.afrishoreza.r-v1.dkim.mail.microsoft` | DKIM 2 |
-| CNAME | `autodiscover` | `autodiscover.outlook.com` | Outlook autodiscover |
+### A · Email & email-auth records — replicate EXACTLY (10)
 
-> ⚠️ **If any of these eight records is wrong or missing after cutover, email
-> stops or starts failing SPF/DKIM.** They are independent of web hosting —
-> they stay identical whether the site is on Wix or Cloudflare.
+| Type | Host | Value | Purpose | Cloudflare proxy |
+|---|---|---|---|---|
+| MX | `@` | `afrishore-co.mail.protection.outlook.com` (priority 0) | Microsoft 365 inbound mail | DNS-only |
+| TXT | `@` | `v=spf1 +a +mx +ip4:156.155.252.20 include:relay.mailchannels.net include:spf.protection.outlook.com ~all` | SPF (M365 + Axxess + MailChannels) | n/a |
+| TXT | `@` | `MS=ms81963765` | M365 domain verification | n/a |
+| TXT | `@` | `google-site-verification=9yZbCMNMEJqvOMnJNY1gZWtWnbOyNMzd6snrSTCvRy8` | **GSC verification — SEO critical** | n/a |
+| TXT | `_dmarc` | `v=DMARC1; p=quarantine; rua=mailto:chris@afrishore.co; ruf=mailto:chris@afrishore.co; fo=1` | DMARC | n/a |
+| CNAME | `selector1._domainkey` | `selector1-afrishore-co._domainkey.afrishoreza.r-v1.dkim.mail.microsoft` | M365 DKIM 1 | DNS-only |
+| CNAME | `selector2._domainkey` | `selector2-afrishore-co._domainkey.afrishoreza.r-v1.dkim.mail.microsoft` | M365 DKIM 2 | DNS-only |
+| CNAME | `autodiscover` | `autodiscover.outlook.com` | Outlook autodiscover | DNS-only |
+| CNAME | `pm-bounces` | `pm.mtasv.net` | **Postmark** transactional-mail bounce tracking | DNS-only |
+| TXT | `20260226183137pm._domainkey` | `k=rsa;p=MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCAro04rK64Z4JMfNL7eBRjyRdm5DP++4M2/bMe6/+xsigZm+6FFyDbgMWoKrntFBBOYNM1LloFArpWmnsKhQ1MBjmbUdypJeeYa37m1LiWiUBpRKq2Cz9pFIu8qUPHU/uxDsg2j3dHtvnJ1J+kyR4neUJ3I0j8VtzkjATBGMeUawIDAQAB` | **Postmark DKIM** public key | n/a |
+
+> ⚠️ Miss/mangle any row → mail breaks or fails SPF/DKIM/DMARC. The two
+> **Postmark** rows are easy to forget — they are transactional email
+> (e.g. site form notifications / system mail). The DKIM TXT value is one
+> long unbroken string; paste it whole, no added quotes/spaces.
 >
-> Before cutover, also log into the Microsoft 365 admin centre
-> (admin.microsoft.com → Settings → Domains → afrishore.co) and screenshot
-> its "DNS records" page — that is Microsoft's own canonical list and may
-> include extra records (e.g. SIP/Teams `SRV` `_sip._tls`, `_sipfederationtls`,
-> `lyncdiscover` CNAME) not in the live zone. Replicate whatever it shows.
+> Also screenshot the **Microsoft 365 admin centre** DNS page
+> (admin.microsoft.com → Settings → Domains → afrishore.co) before cutover
+> — it may list extra Teams/Skype records (`SRV _sip._tls`,
+> `_sipfederationtls`, `lyncdiscover` CNAME) Wix's panel doesn't surface.
+> Replicate whatever it shows.
 
-### Web records — these are the ONLY records that change
+### B · Other subdomains — PRESERVE (separate services)
 
-| Type | Host | Current (Wix) | After cutover (Cloudflare Pages) |
+| Type | Host | Value | What it is | Action |
+|---|---|---|---|---|
+| CNAME | `app` | `1bad7e6e5faed0ff.vercel-dns-016.com` | A **separate application on Vercel** | Replicate as-is, DNS-only. **Independent of this migration — do not break it.** |
+| CNAME | `en` | `cdn1.wixdns.net` | An English/`en` subdomain **on Wix infrastructure** | ⚠️ **DECISION NEEDED — see below** |
+
+> 🟠 **`en.afrishore.co` will break when Wix is decommissioned** — it points
+> at Wix's CDN. Before cutover, confirm with the client:
+> 1. Is `en.afrishore.co` actually used / linked / indexed? (Check GSC,
+>    analytics, and `https://en.afrishore.co`.)
+> 2. If **unused** → drop the record (don't recreate in Cloudflare).
+> 3. If **used** → it needs its own destination (301 to the main site, or
+>    its content folded into the new build). Do NOT just copy the Wix
+>    CNAME into Cloudflare — it will 404/dead once the Wix sub is gone.
+
+### C · Web records — these are the ONLY records that CHANGE
+
+| Type | Host | Current (Wix) | After cutover |
 |---|---|---|---|
-| A | `@` | 185.230.63.186 / .171 / .107 | (removed — replaced by CNAME flattening / Pages) |
-| CNAME/A | `www` | `cdn1.wixdns.net` | Cloudflare Pages target |
+| A | `@` | 185.230.63.171 / .186 / .107 | removed — Cloudflare Pages apex (CNAME-flattened) |
+| CNAME | `www` | `cdn1.wixdns.net` | Cloudflare Pages target |
+
+### D · NS — changed at the registrar, not in a zone editor
+
+`ns12.wixdns.net` / `ns13.wixdns.net` → the two Cloudflare nameservers.
+(Wix's panel correctly shows "NS records are not editable" — they live at
+the Axxess/Tucows registrar level. This is the Phase 3 action.)
 
 ---
 
@@ -99,10 +130,12 @@ The reseller panel is where nameservers + auto-renew + WHOIS are managed.
 - [ ] **1.4 Snapshot Microsoft 365 DNS.** admin.microsoft.com → Settings →
       Domains → afrishore.co → screenshot the full DNS records list. This is
       the email source of truth. Cross-check against §0.
-- [ ] **1.5 Snapshot current Wix DNS zone.** In the Wix dashboard
-      (Settings → Domains → Advanced / Manage DNS), export or screenshot
-      every record. Catch anything `dig` can't see (e.g. records with no
-      live lookup).
+- [x] **1.5 Snapshot current Wix DNS zone.** ✅ DONE — full zone
+      transcribed into §0 (the A/B/C/D tables) on 2026-05-18 from the Wix
+      "Manage DNS Records" panel. This is the authoritative source for
+      Phase 2.2.
+- [ ] **1.5b Resolve the `en.afrishore.co` decision** (§0-B). Confirm
+      whether it's used; decide drop vs 301 vs fold-in *before* Phase 2.
 - [ ] **1.6 Final content QA on staging.** `afrishore-site.pages.dev` is
       the production build. Click every nav item, every project tile, test
       the mobile menu, submit nothing-breaks. Confirm the latest commit is
@@ -128,24 +161,29 @@ email records documented from two sources, staging signed off, TTL lowered.
 - [ ] **2.1 Add the site to Cloudflare.** Cloudflare dashboard → Add a Site
       → `afrishore.co` → Free plan. Cloudflare auto-scans existing DNS.
 - [ ] **2.2 AUDIT the imported zone against §0.** Cloudflare's scan is
-      best-effort and **routinely misses TXT/DKIM/SRV**. Go through §0 row
-      by row. For every email/verification record that is missing or wrong,
-      add/fix it manually in Cloudflare DNS:
-  - MX `@` → `afrishore-co.mail.protection.outlook.com` priority 0
-  - TXT `@` SPF (exact string from §0)
-  - TXT `@` `MS=ms81963765`
-  - TXT `@` `google-site-verification=9yZbCMNMEJqvOMnJNY1gZWtWnbOyNMzd6snrSTCvRy8`
-  - TXT `_dmarc` (exact string from §0)
-  - CNAME `selector1._domainkey` → (value from §0) — **set DNS-only (grey
-    cloud), not proxied**
-  - CNAME `selector2._domainkey` → (value from §0) — **DNS-only**
-  - CNAME `autodiscover` → `autodiscover.outlook.com` — **DNS-only**
+      best-effort and **routinely misses TXT/DKIM/SRV**. Go through the
+      §0-A table **all 10 rows** + §0-B, and add/fix anything missing:
+  - **§0-A (email/auth — all 10):** MX; SPF TXT; `MS=` TXT;
+    `google-site-verification` TXT; `_dmarc` TXT; `selector1._domainkey`
+    CNAME; `selector2._domainkey` CNAME; `autodiscover` CNAME;
+    **`pm-bounces` CNAME → `pm.mtasv.net`**; **`20260226183137pm._domainkey`
+    TXT (the long Postmark RSA key — paste whole, no quotes)**
+  - **§0-B `app` CNAME → `1bad7e6e5faed0ff.vercel-dns-016.com`** — the
+    Vercel app. Replicate exactly; **DNS-only**. Verify `app.afrishore.co`
+    still loads after cutover (it's an independent service).
+  - **§0-B `en`** — only recreate if the 1.5b decision said "keep". If
+    drop → omit. If 301 → handle via a Cloudflare redirect rule, not a
+    Wix CNAME.
   - …plus anything extra the M365 admin snapshot (1.4) showed.
-  > Rule: **all mail/verification records are DNS-only (grey cloud).**
-  > Proxying (orange cloud) them breaks mail and verification.
+  > Rule: **every mail/auth/service record is DNS-only (grey cloud).**
+  > Proxying (orange cloud) any of them breaks mail, DKIM, autodiscover,
+  > Postmark, or the Vercel app. Only the web records (§0-C) get proxied,
+  > and Pages handles those in 2.4.
 - [ ] **2.3 Remove the old Wix web records** from the Cloudflare zone: the
-      three apex `A` records (185.230.63.x) and the `www` Wix CNAME. They'll
-      be replaced in Phase 3.
+      three apex `A` records (185.230.63.171/.186/.107) and the `www` Wix
+      CNAME (`cdn1.wixdns.net`). They're replaced in 2.4 / Phase 3. **Do
+      not** touch `app`, `en`, `pm-bounces`, `autodiscover`, or any
+      `_domainkey` record.
 - [ ] **2.4 Connect the custom domain in Cloudflare Pages.** Pages project
       (the one building from GitHub `chrismareeza/afrishore-site`) →
       Custom domains → add **`afrishore.co`** and **`www.afrishore.co`**.
