@@ -24,13 +24,12 @@
 /total-brulpadda1718-campaign       /projects/totalenergies-brulpadda-discovery   301
 /total-luiperd-exploration          /projects/totalenergies-luiperd-supply-base   301
 
-# ── Wix duplicate page ────────────────────────────────────────────
-# "/copy-of-deepsea-mira-venus-1x" was a Wix page duplicate (it is the
-# GSC "Alternate page with proper canonical tag" entry — canonicalised
-# to the real Venus-1x page). Pointed at the closest live equivalent.
-# CONFIRM with client whether this page actually held Tamboti-1x
-# content; if so retarget to /projects/deepsea-mira-tamboti-1x.
-/copy-of-deepsea-mira-venus-1x      /projects/deepsea-mira-venus-1x               301
+# ── Wix mis-named page (CONFIRMED) ────────────────────────────────
+# "/copy-of-deepsea-mira-venus-1x" was created via Wix "duplicate
+# page" — the URL kept the venus-1x stub but the content is the
+# DEEPSEA MIRA TAMBOTI-1x CAMPAIGN 2024-2025. Confirmed from the
+# live page export. Redirect to the Tamboti-1x case study.
+/copy-of-deepsea-mira-venus-1x      /projects/deepsea-mira-tamboti-1x             301
 
 # ── Common Wix system / legacy paths → home (defensive) ───────────
 # Old multi-page nav collapses into the single-scroll homepage.
