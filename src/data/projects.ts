@@ -151,6 +151,13 @@ A semi-submersible heavy lift is the kind of operation where every element must 
     vessel: "Eirik Raude",
     heroImage: "/images/projects/totalenergies-brulpadda-2014.jpg",
     summary: "First drilling attempt at Brulpadda on the Eirik Raude rig — a campaign that laid the groundwork for the 2018–19 discovery.",
+    outcome: `The Brulpadda campaign marked Afrishore's first appointment as offshore supply base operator, under the direction of TotalEnergies.
+
+The mandate covered operation of the Mossel Bay offshore supply base in support of the initial Brulpadda drilling campaign. TotalEnergies' operational standards, logistical methodologies and supply base disciplines were transferred to Afrishore over the course of the campaign and applied directly in the running of the base.
+
+The measure of a skills transfer is not the training. It is what is delivered once the training is over. Afrishore performed a turnkey demobilisation of the campaign out of the Port of Cape Town, executed to the standards established during the operation with zero safety-related incidents during the project.
+
+A first appointment is a test as much as a mandate. Afrishore operated the Mossel Bay base to TotalEnergies' standard and closed the campaign out cleanly through Cape Town showcasing its multi-port capabilities.`,
     featured: false,
     published: true,
   },
