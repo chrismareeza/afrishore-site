@@ -135,9 +135,9 @@ const breadcrumb = [
           </div>
 
           {service.secondaryImage && (
-            <figure class="space-y-3">
+            <figure class={service.secondaryImage.portrait ? "space-y-3 max-w-md mx-auto" : "space-y-3"}>
               <div
-                class="aspect-[3/2] w-full overflow-hidden rounded-sm border border-line relative"
+                class={`${service.secondaryImage.portrait ? "aspect-[3/4]" : "aspect-[3/2]"} w-full overflow-hidden rounded-sm border border-line relative`}
                 style={`background: ${placeholderBg};`}
               >
                 <picture>
@@ -147,8 +147,8 @@ const breadcrumb = [
                     alt={service.secondaryImage.alt}
                     class="absolute inset-0 w-full h-full object-cover"
                     loading="lazy"
-                    width="1920"
-                    height="1440"
+                    width={service.secondaryImage.portrait ? 1200 : 1920}
+                    height={service.secondaryImage.portrait ? 1600 : 1440}
                   />
                 </picture>
               </div>

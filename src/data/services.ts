@@ -25,6 +25,7 @@ export interface ServicePage {
     src: string;
     alt: string;
     caption: string;
+    portrait?: boolean;           // portrait → centered, capped width
   };
 }
 
@@ -97,12 +98,12 @@ export const servicePages: ServicePage[] = [
     metaDescription:
       "Turnkey offshore supply base operator for drilling and subsea campaigns across Namibia and South Africa — rigging, cranage, abnormal trucking, warehousing, project cargo, waste and materials management. Permanently embedded at the Port of Walvis Bay's Oil & Gas Section.",
     h1: "Offshore Supply Base Operations",
-    geoSub: "Turnkey base operator — Walvis Bay, Cape Town, Mossel Bay & beyond",
+    geoSub: "Turnkey base operator: Walvis Bay, Cape Town, Mossel Bay, Pemba & beyond.",
     schemaServiceType: "Offshore Supply Base Operations",
     intro: [
-      "Afrishore operates turnkey offshore supply bases for drilling and subsea campaigns across Namibia and South Africa. Permanently embedded inside the Port of Walvis Bay's Oil & Gas Section, and licensed across the South African coast, Afrishore provides the full shore-side operation a rig or vessel needs to stay on schedule offshore.",
-      "Running a supply base is the operational core: rigging, cranage and abnormal trucking, warehousing and laydown, temporary importation and customs clearance, project cargo handling, waste management, and materials management with full reporting — all sequenced to the campaign clock. Afrishore has delivered this for the Deepsea Mira and Deepsea Bollsta Special Periodic Surveys and continuous drilling, the TotalEnergies Brulpadda and Luiperd campaigns, and the Eco Atlantic Gazania-1 programme.",
-      "Because the supply base runs alongside Afrishore's ship and rig agency, integrated logistics and crew services from the same point of accountability, operators get one coordinated shore operation instead of a fragmented supplier chain.",
+      "Afrishore operates turnkey offshore supply bases for drilling, renewable and subsea campaigns across Namibia, South Africa & Mozambique. Permanently embedded inside the Port of Walvis Bay's Oil & Gas Section and licensed across the Southern African coast, Afrishore provides the full shore-side operations an operator, rig or vessel needs to stay on schedule offshore.",
+      "Running a supply base is the operational core: rigging, cranage and abnormal trucking, warehousing and laydown, temporary importation and customs clearance, project cargo handling, QHSE implementation, waste management and materials management with full reporting, all sequenced to the campaign clock. Afrishore has delivered this from inception to the Deepsea Mira and Deepsea Bollsta Special Periodic Surveys and continuous drilling, the TotalEnergies Brulpadda and Luiperd campaigns, Petronas Rovuma Basin campaign and the Eco Atlantic Gazania-1 programme.",
+      "Because the supply base runs alongside Afrishore's ship and rig agency, integrated logistics and crew services from the same point of accountability, operators get one coordinated shore operation instead of fragmented logistics and supplier chains.",
     ],
     scope: [
       "Base activation & operational asset provisioning",
@@ -125,6 +126,16 @@ export const servicePages: ServicePage[] = [
       "Gqeberha",
       "Coega",
     ],
+    heroImage: "/images/services/offshore-supply-base-hero.jpg",
+    heroAlt:
+      "Subsea riser sections rigged with crane slings at Afrishore's offshore supply base laydown yard in the Port of Walvis Bay, Namibia",
+    secondaryImage: {
+      src: "/images/services/offshore-supply-base-team.jpg",
+      alt: "Afrishore team at the offshore supply base inside the Port of Walvis Bay's Oil & Gas Section, Namibia",
+      caption:
+        "Afrishore's team embedded in the Port of Walvis Bay's Oil & Gas Section — the turnkey supply base behind drilling, renewable and subsea campaigns across Namibia, South Africa and Mozambique.",
+      portrait: true,
+    },
   },
   {
     slug: "integrated-logistics",
