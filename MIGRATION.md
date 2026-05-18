@@ -161,20 +161,9 @@ Use it only as a **cross-check**. Findings:
   156.155.252.20`, and the placeholder `_domainkey TXT "v=DKIM1; k=rsa;
   t=y;"` (an empty cPanel test key — would actively harm DKIM if added).
   None of these are in the live zone; none get recreated in Cloudflare.
-- ⚠️ **DMARC differs between the two zones — DECISION (step 1.5c):**
-
-  | Zone | DMARC `rua` / `ruf` |
-  |---|---|
-  | **Live / authoritative (Wix)** | `mailto:chris@afrishore.co` (both) |
-  | clusterdns (non-auth, stale) | `mailto:e5e39940@mxtoolbox.dmarc-report.com` / `…@forensics.dmarc-report.com` |
-
-  The live policy mails aggregate/forensic reports to **chris@**. The
-  stale one points at an **MXToolbox DMARC-monitoring** mailbox (someone
-  trialled MXToolbox reporting at some point; it is *not* live).
-  **Default: replicate the live `chris@` value verbatim (§0-A).** Only
-  switch to the MXToolbox endpoints if the client *wants* managed DMARC
-  reporting/dashboards — that's a business choice, not a migration
-  requirement. Either way, **`p=quarantine` stays unchanged.**
+- ⚠️ **DMARC differs between the two zones — DECISION (step 1.5c).**
+  Full detail below; this is **not migration-blocking** (the live value
+  is a valid record — we can ship it and revisit later).
 
 ---
 
@@ -213,18 +202,76 @@ Use it only as a **cross-check**. Findings:
       > the world never resolves; changes there are invisible and only
       > create confusion. All real DNS work happens in Cloudflare
       > (Phase 2), after NS delegation moves.
-- [ ] **1.3 Locate where nameservers are changed.** **Not SiteWorx**
-      (hosting only — see 1.2 warning). The registrar-level controls live
-      in the **billing/reseller panel** (the green "XS Linux Hosting" view
-      that shows *Auto Renewal* + *Whois Information* — look there for
-      "Domain Management" / "Nameservers", likely near *Whois
-      Information*), **or** Axxess action it via the support ticket.
-      Recommended: in the **same support ticket as 1.2**, also ask:
-      > "Please also confirm how/where we change the nameservers for
-      > afrishore.co (currently ns12/ns13.wixdns.net) — we will be moving
-      > them to two Cloudflare nameservers shortly."
-      Fallback if neither: Wix dashboard → "Disconnect domain", then set
-      NS at the reseller. Confirm the path *now*, not on cutover day.
+- [ ] **1.3 Establish the nameserver-change path (deep detail).**
+
+  **The problem in one sentence:** to point afrishore.co at the new site
+  we must replace the registry-level nameserver delegation
+  (`ns12.wixdns.net` / `ns13.wixdns.net` → 2 × Cloudflare NS), and that
+  control is *not* in SiteWorx (hosting) and *not* in Wix (Wix only holds
+  the zone, not the delegation). It lives at the **registrar layer
+  (Tucows/OpenSRS) operated by the Axxess reseller**.
+
+  **Three places it could be actionable, in priority order:**
+  1. **Axxess billing/reseller panel** — the green "XS Linux Hosting
+     Interworx" view that shows *Auto Renewal* + *Whois Information* +
+     *Domain Contact Whois*. Look for a "Nameservers" / "Domain
+     Management" / "DNS / Nameservers" item (often adjacent to *Whois
+     Information*). If present and editable → this is the self-service
+     path; you change NS here at Phase 3.
+  2. **Axxess support actions it** — if the panel has no editable NS
+     field, Axxess set the delegation for you. This is why the ticket
+     below pre-warns them.
+  3. **Wix-side disconnect (last resort)** — Wix dashboard → Domains →
+     afrishore.co → "Disconnect" / "Point domain away". Only needed if
+     Wix is holding the delegation hostage; usually *not* required since
+     the registry NS are set at the registrar, not Wix.
+
+  **Sequencing note (important):** the *actual* Cloudflare nameserver
+  values do not exist until the Cloudflare zone is created in **Phase 2**.
+  So this step is **discovery + lock removal only** — establish *how* the
+  change is made and get the lock off now, then execute the real NS swap
+  at **Phase 3** once Phase 2 has produced the two `*.ns.cloudflare.com`
+  hostnames.
+
+  **→ Consolidated support ticket to send Axxess NOW (covers 1.2 + 1.3
+  discovery). Copy verbatim:**
+
+  > **Subject:** afrishore.co — remove clientUpdateProhibited + confirm
+  > nameserver-change process (planned migration)
+  >
+  > Hi Axxess team,
+  >
+  > We're migrating the afrishore.co website to a new host and need to
+  > update the domain's **nameservers** shortly. Two requests:
+  >
+  > **1. EPP lock.** Please remove the **`clientUpdateProhibited`**
+  > status from afrishore.co so the nameservers can be updated. Please
+  > **leave `clientTransferProhibited` in place** (we want to keep
+  > transfer-hijack protection).
+  >
+  > **2. Nameserver change process.** The domain currently delegates to
+  > `ns12.wixdns.net` / `ns13.wixdns.net`. Within the next 1–2 weeks we
+  > will move it to **two Cloudflare nameservers** (exact hostnames
+  > supplied at that time). Please confirm:
+  >   a) Can we change the nameservers ourselves in the Axxess control
+  >      panel? If so, exactly where?
+  >   b) If not self-service, what is the process / turnaround time for
+  >      Axxess to update the delegation when we send the two Cloudflare
+  >      NS hostnames?
+  >   c) Please confirm this nameserver change will **not affect** the
+  >      separate Microsoft 365 email service on this domain (MX/SPF/
+  >      DKIM/DMARC are being replicated at the new DNS host before any
+  >      change — we just want confirmation nothing is auto-reset on
+  >      your side).
+  >
+  > The domain auto-renew is on and payment is valid — no billing action
+  > needed. Please keep this ticket open until the NS change is done.
+  >
+  > Thanks,
+  > [Name] — Afrishore
+
+  When Axxess replies, paste their answer back to Claude so the runbook
+  can record the confirmed path before Phase 2/3.
 - [x] **1.4 Snapshot Microsoft 365 DNS.** ✅ DONE (2026-05-18). M365
       admin → Domains → afrishore.co shows **only** the Microsoft Exchange
       block: MX, the *recommended* narrow SPF (ignore — see SPF trap), and
@@ -238,8 +285,48 @@ Use it only as a **cross-check**. Findings:
       zone transcribed into §0-A/B/C/D from the Wix "Manage DNS Records"
       panel + live `dig`.
 - [x] **1.5b Resolve `en.afrishore.co`.** ✅ RESOLVED → DROP (§0-B).
-- [ ] **1.5c Decide DMARC reporting target** (see §0-F below). One-line
-      business decision; default = keep the live `chris@` value.
+- [ ] **1.5c Decide DMARC reporting target (deep detail).**
+
+  **What DMARC reporting is.** The DMARC record (`_dmarc.afrishore.co`)
+  does two separate things: (1) the **policy** — `p=quarantine` — tells
+  receiving mail servers what to do with mail that fails SPF *and* DKIM
+  ("send to spam"); (2) the **reporting addresses** — `rua=` (daily
+  aggregate XML: who sent mail as you, pass/fail counts) and `ruf=`
+  (forensic copies of individual failing messages). **Reporting
+  addresses have ZERO effect on mail delivery** — they only decide who
+  gets visibility into spoofing/auth health. Changing them cannot break
+  email; it only changes who can *see* the data.
+
+  **The two candidate values:**
+
+  | | `rua` / `ruf` target | What you get |
+  |---|---|---|
+  | **A — keep live (default)** | `chris@afrishore.co` (both) | Raw DMARC XML lands in Chris's inbox daily. Unreadable by eye (it's machine XML), but it's *yours*, free, zero setup, and continuity-safe. In practice almost nobody reads raw rua mail — it's "on but unused". |
+  | **B — MXToolbox endpoints** | `e5e39940@mxtoolbox.dmarc-report.com` / `…@forensics…` | Routes reports into an **MXToolbox DMARC dashboard** — parsed, charted: every sender using afrishore.co, SPF/DKIM pass rates, spoof attempts, drill-downs. Genuinely useful for a brand whose name has deliverability value. |
+
+  **The catch with B — must verify before choosing it:** the
+  `e5e39940` token means a *specific MXToolbox DMARC account* was
+  provisioned at some point (it appears only in the dead clusterdns
+  zone, so it was likely a trial that never went live on the real
+  zone). **Before pointing live DMARC at it, confirm:**
+  1. Does anyone still have the MXToolbox account login (the `e5e39940`
+     identifier ties to one account)?
+  2. Is it on a plan that still ingests reports (free tier is limited;
+     a lapsed trial = reports vanish into a void)?
+  3. Who owns/monitors it? No point sending data somewhere nobody checks.
+
+  **Recommendation (and why):** **Choose A — replicate the live
+  `chris@afrishore.co` value verbatim — for the migration itself.** It
+  is the authoritative live value, zero-risk, and keeps continuity.
+  Treat "proper DMARC monitoring" as a **separate post-migration
+  improvement** (§8 cleanup era), done deliberately with a known-good
+  account — *not* by inheriting a mystery trial endpoint mid-cutover.
+  If the client actively wants the dashboard now AND items 1–3 above
+  check out, B is fine — but it should be a conscious yes, not a
+  default. **`p=quarantine` is unchanged in both cases.**
+
+  *Decision recorded:* ____________________  (A = keep chris@ /
+  B = MXToolbox, conditions met)
 - [ ] **1.6 Final content QA on staging.** `afrishore-site.pages.dev` is
       the production build. Click every nav item, every project tile, test
       the mobile menu, submit nothing-breaks. Confirm the latest commit is
