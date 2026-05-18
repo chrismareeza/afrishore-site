@@ -163,7 +163,8 @@ export const ports: PortPage[] = [
       addressLocality: "Woodstock, Cape Town",
       addressRegion: "Western Cape",
       addressCountry: "ZA",
-      geo: { lat: -33.9249, lng: 18.4574 },
+      geo: { lat: -33.9280523, lng: 18.4369372 },
+      mapsUrl: "https://maps.app.goo.gl/4mbkkrdewg3erXhA7",
     },
   },
   {
@@ -228,7 +229,8 @@ export const ports: PortPage[] = [
       addressLocality: "Mossel Bay",
       addressRegion: "Western Cape",
       addressCountry: "ZA",
-      geo: { lat: -34.183, lng: 22.1455 },
+      geo: { lat: -34.1841336, lng: 22.1474263 },
+      mapsUrl: "https://maps.app.goo.gl/oZZ7X5m96RPtTNUA6",
     },
   },
   {
