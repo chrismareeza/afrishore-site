@@ -140,22 +140,67 @@ nameserver change.
 > Belt-and-braces: Phase 4 still includes a live test call (cheap
 > insurance — DNS says it can't be affected, but verify anyway).
 
+### F · There are TWO zones — only the Wix one is authoritative
+
+A `zone_records.txt` export exists from the **Axxess hosting nameservers**
+(`ns1.clusterdns.co.za` / `ns2.clusterdns.co.za` / `ns3.hostdns.co.za` /
+`ns4.clusterdns.org`, SOA `hostingservers@internet.co.za`, serial
+`2024062400` = the hosting-creation date). **This zone is NOT
+authoritative** — the registry delegates afrishore.co to
+`ns12/ns13.wixdns.net`, so the world only ever resolves the Wix zone
+(= §0-A/B/C). The clusterdns zone is the default cPanel/InterWorx zone
+auto-generated when the hosting was created and never used.
+
+Use it only as a **cross-check**. Findings:
+
+- ✅ Email core (MX, SPF *good* value, `MS=`, autodiscover, M365 DKIM
+  CNAMEs, Postmark `pm-bounces` + `…pm._domainkey`, `app`→Vercel) match
+  §0-A/B — good, our source of truth is confirmed correct.
+- ❌ **Do NOT replicate the clusterdns-only junk:** `mail`/`api`/`web`/
+  `ftp` CNAMEs (cPanel defaults → the Axxess box), the apex `A
+  156.155.252.20`, and the placeholder `_domainkey TXT "v=DKIM1; k=rsa;
+  t=y;"` (an empty cPanel test key — would actively harm DKIM if added).
+  None of these are in the live zone; none get recreated in Cloudflare.
+- ⚠️ **DMARC differs between the two zones — DECISION (step 1.5c):**
+
+  | Zone | DMARC `rua` / `ruf` |
+  |---|---|
+  | **Live / authoritative (Wix)** | `mailto:chris@afrishore.co` (both) |
+  | clusterdns (non-auth, stale) | `mailto:e5e39940@mxtoolbox.dmarc-report.com` / `…@forensics.dmarc-report.com` |
+
+  The live policy mails aggregate/forensic reports to **chris@**. The
+  stale one points at an **MXToolbox DMARC-monitoring** mailbox (someone
+  trialled MXToolbox reporting at some point; it is *not* live).
+  **Default: replicate the live `chris@` value verbatim (§0-A).** Only
+  switch to the MXToolbox endpoints if the client *wants* managed DMARC
+  reporting/dashboards — that's a business choice, not a migration
+  requirement. Either way, **`p=quarantine` stays unchanged.**
+
 ---
 
 ## 1 · Pre-flight checklist (do days BEFORE cutover)
 
-- [ ] **1.1 Confirm auto-renew will fire.** Auto-renew is **ON**, expiry
-      2026-06-24 (renewal typically fires ~30 days prior — i.e. ~now). The
-      risk is a *silent* failure if the card on file is expired. In the
-      Axxess/InterWorx panel → check the billing/payment method is valid,
-      OR just **renew manually now** to remove all timing risk. Confirm the
-      expiry date moves to 2027+.
-- [ ] **1.2 Lift the registrar lock.** `clientUpdateProhibited` is set on
-      the domain. Most registrars block nameserver edits while this status
-      is active. In the reseller panel (or via a support ticket) remove
-      `clientUpdateProhibited` (keep `clientTransferProhibited` — that only
-      blocks transfers, not NS edits, and protects against hijack). Only
-      needs lifting long enough to change nameservers; re-lock after.
+- [x] **1.1 Confirm auto-renew will fire.** ✅ DONE — auto-renew ON,
+      payment method confirmed valid (2026-05-18). Expiry 2026-06-24 will
+      roll forward automatically. No manual renewal needed.
+- [ ] **1.2 Lift the `clientUpdateProhibited` lock.** Still set (confirmed
+      via whois 2026-05-18). Registrar = **Tucows via the OpenSRS reseller
+      platform**, reseller = **Axxess / internet.co.za**.
+      **How to lift it:**
+      1. First check the Axxess/InterWorx domain-management panel for a
+         "Registrar Lock" / "Domain Lock" / "Theft Protection" toggle.
+      2. ⚠️ Most panels only toggle `clientTransferProhibited` (the
+         *transfer* lock). `clientUpdateProhibited` is a *separate* EPP
+         status that blocks nameserver/contact edits and is usually only
+         removable by the reseller, not self-service.
+      3. **Reliable path — raise an Axxess/internet.co.za support ticket**,
+         verbatim:
+         > "Please remove the `clientUpdateProhibited` EPP status from
+         > afrishore.co — we need to update the domain's nameservers.
+         > Please leave `clientTransferProhibited` in place."
+      4. Verify: re-run `whois afrishore.co` (or ask Claude) — only
+         `clientTransferProhibited` should remain. Re-lock with
+         `clientUpdateProhibited` after Phase 3 if desired.
 - [ ] **1.3 Confirm registrar access + locate the nameserver screen.**
       Access is **confirmed** — the Axxess/InterWorx panel manages this
       domain (it shows Auto-Renewal, WHOIS, etc.). Before cutover day, find
@@ -165,15 +210,21 @@ nameserver change.
       ticket with the host to change NS, or (b) in the Wix dashboard use
       "Disconnect domain", then set NS at the reseller. Verify which path
       exists *now*, not on cutover day.
-- [ ] **1.4 Snapshot Microsoft 365 DNS.** admin.microsoft.com → Settings →
-      Domains → afrishore.co → screenshot the full DNS records list. This is
-      the email source of truth. Cross-check against §0.
-- [x] **1.5 Snapshot current Wix DNS zone.** ✅ DONE — full zone
-      transcribed into §0 (the A/B/C/D tables) on 2026-05-18 from the Wix
-      "Manage DNS Records" panel. This is the authoritative source for
-      Phase 2.2.
-- [ ] **1.5b Resolve the `en.afrishore.co` decision** (§0-B). Confirm
-      whether it's used; decide drop vs 301 vs fold-in *before* Phase 2.
+- [x] **1.4 Snapshot Microsoft 365 DNS.** ✅ DONE (2026-05-18). M365
+      admin → Domains → afrishore.co shows **only** the Microsoft Exchange
+      block: MX, the *recommended* narrow SPF (ignore — see SPF trap), and
+      `autodiscover` CNAME — all "OK". **No "Skype for Business" section,
+      no SRV records** → confirms §0-E (telephony has no afrishore.co DNS
+      dependency; Calling Plans/Operator Connect). The
+      `afrishoreza.onmicrosoft.com` DKIM TXTs seen in the tenant are for
+      the *fallback domain* — they stay under onmicrosoft.com and are NOT
+      replicated into the afrishore.co zone.
+- [x] **1.5 Snapshot current Wix DNS zone.** ✅ DONE — full authoritative
+      zone transcribed into §0-A/B/C/D from the Wix "Manage DNS Records"
+      panel + live `dig`.
+- [x] **1.5b Resolve `en.afrishore.co`.** ✅ RESOLVED → DROP (§0-B).
+- [ ] **1.5c Decide DMARC reporting target** (see §0-F below). One-line
+      business decision; default = keep the live `chris@` value.
 - [ ] **1.6 Final content QA on staging.** `afrishore-site.pages.dev` is
       the production build. Click every nav item, every project tile, test
       the mobile menu, submit nothing-breaks. Confirm the latest commit is
