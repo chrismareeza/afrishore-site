@@ -146,11 +146,11 @@ export const servicePages: ServicePage[] = [
     metaDescription:
       "Freight forwarding, customs brokerage, project cargo, bunkering, chandling and technical procurement across South Africa, Namibia and Mozambique — cross-border on sea, air and road for oil & gas, subsea, telecoms and heavy lift.",
     h1: "Integrated Logistics",
-    geoSub: "Freight forwarding, customs & project cargo — sea, air & road",
+    geoSub: "Freight forwarding, customs & project cargo via sea, air & road.",
     schemaServiceType: "Integrated Logistics",
     intro: [
-      "Afrishore provides integrated marine and project logistics across South Africa, Namibia and Mozambique — freight forwarding, customs brokerage and port clearance, project and abnormal cargo, bunkering, chandling, technical procurement and provisions supply, moving freight cross-border on sea, air and road.",
-      "Offshore and subsea campaigns rarely move in straight lines: equipment arrives by international freight, clears customs under temporary importation, is staged and trucked, and returns through the same chain in reverse — every leg time-bound to the operation. Afrishore has run exactly this for the Facebook/Meta 2Africa subsea cable landing, the Dock Titan heavy-lift to Réunion, and continuous drilling-campaign supply across Walvis Bay and the South African coast.",
+      "Afrishore provides integrated marine and project logistics across South Africa, Namibia and Mozambique: freight forwarding, customs brokerage and port clearance, project and abnormal cargo, bunkering, chandling, technical procurement and provisions supply, moving freight into location and cross-border on sea, air and road.",
+      "Offshore and subsea campaigns rarely move in straight lines: equipment arrives by international freight, clears customs under bond or temporary importation, is staged and trucked and returns through the same chain in reverse, every leg time-bound to the operation. Afrishore has run exactly this for the Facebook/Meta 2Africa subsea cable landing, the Dock Titan heavy-lift to Réunion and continuous drilling-campaign supply across the Southern African coast.",
       "Delivered as one chain rather than disconnected steps, integrated logistics is what lets the supply base, rig agency and crew operations move on a single schedule.",
     ],
     scope: [
@@ -174,6 +174,13 @@ export const servicePages: ServicePage[] = [
       "East London",
       "Pemba",
     ],
+    secondaryImage: {
+      src: "/images/services/integrated-logistics-cargo.jpg",
+      alt: "Abnormal project cargo — a large riser section on a multi-axle low-bed trailer at the quayside, Afrishore integrated logistics, Southern Africa",
+      caption:
+        "Abnormal project cargo under tow at the quayside — international freight, customs clearance and heavy-lift trucking moved as one chain across South Africa, Namibia and Mozambique.",
+      portrait: true,
+    },
   },
   {
     slug: "crew-visa-services",
