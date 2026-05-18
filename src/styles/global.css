@@ -53,6 +53,33 @@ html {
   html { scroll-padding-top: 96px; }
 }
 
+/* A11y: visible keyboard-focus ring (WCAG 2.4.7/2.4.11). Keyboard
+   users only (:focus-visible) — mouse clicks stay clean. High-contrast
+   gold against the dark theme, with offset so it never clips glyphs. */
+:focus-visible {
+  outline: 2px solid #F5AB2F;
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* A11y: skip-to-content link (WCAG 2.4.1). Off-screen until focused,
+   then pinned top-left so keyboard/screen-reader users can bypass the
+   site-wide nav. */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 100;
+  background: #F5AB2F;
+  color: #0A0A0A;
+  font-weight: 600;
+  padding: 0.65rem 1rem;
+  border-radius: 0 0 4px 0;
+}
+.skip-link:focus {
+  left: 0;
+}
+
 /* Respect reduced-motion preference — disable smooth scroll + animations */
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
