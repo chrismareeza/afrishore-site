@@ -32,7 +32,7 @@ export const servicePages: ServicePage[] = [
     metaDescription:
       "Afrishore is a licensed ship, vessel and rig agency in South Africa, Namibia and Mozambique — port clearance, berth scheduling, immigration, husbandry and crew rotation for rigs, drillships, OSVs, PSVs, tankers and FPSOs at Walvis Bay, Cape Town, Durban, Mossel Bay, Saldanha and Lüderitz.",
     h1: "Ship, Vessel & Rig Agency",
-    geoSub: "Licensed port agency across South Africa, Namibia & Mozambique",
+    geoSub: "Maritime agency covering Namibia, South Africa & Mozambique",
     schemaServiceType: "Ship & Rig Agency",
     intro: [
       "Afrishore holds its own port agency licences in and at Walvis Bay, Lüderitz, Saldanha, Cape Town, Mossel Bay and Durban with extensive logistical experience in the ports of Gqeberha, Coega and Pemba in addition. Afrishore operates as a full ship, vessel and rig agency for rigs, drillships, semi-submersibles, OSVs, PSVs, AHTS, tankers, FPSOs and passenger liners. From a single accountable point of contact, every call is cleared and operational on arrival for marine assets in transit or temporarily imported for operations.",
