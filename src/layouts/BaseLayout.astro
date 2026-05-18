@@ -397,6 +397,23 @@ const finalGraph = [
     <slot />
     <ConsentBanner />
 
+    <!-- Page-engagement conversions: fired on load of the destination
+         (reliable — no click/unload race; also counts organic/direct
+         arrivals). Service landing pages → `view_service`; individual
+         case studies → `view_case_study` (the /projects listing index
+         is excluded). Respects Consent Mode (gtag is consent-gated). -->
+    <script is:inline>
+      (function () {
+        if (typeof window.gtag !== "function") return;
+        var p = location.pathname;
+        if (/^\/services\/[^/]+\/?$/.test(p)) {
+          window.gtag("event", "view_service", { page_path: p });
+        } else if (/^\/projects\/[^/]+\/?$/.test(p)) {
+          window.gtag("event", "view_case_study", { page_path: p });
+        }
+      })();
+    </script>
+
     <!-- Lead-intent tracking: one delegated listener fires a GA4
          `generate_lead` event on any phone, email, or #contact CTA
          (nav, hero, footer, service & project pages). No per-component
