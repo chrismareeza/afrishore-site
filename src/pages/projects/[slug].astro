@@ -147,9 +147,17 @@ const breadcrumb = [
         </div>
 
         <!-- Title -->
-        <h1 class="text-4xl md:text-5xl lg:text-6xl text-cream leading-[1.1] tracking-tight mb-8">
+        <h1
+          class={`text-4xl md:text-5xl lg:text-6xl text-cream leading-[1.1] tracking-tight ${project.tagline ? "mb-4" : "mb-8"}`}
+        >
           {project.title}
         </h1>
+
+        {project.tagline && (
+          <p class="text-lg lg:text-xl text-gold/90 mb-8 max-w-3xl leading-snug">
+            {project.tagline}
+          </p>
+        )}
 
         <!-- Meta row -->
         <div class="flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-mute mb-10">

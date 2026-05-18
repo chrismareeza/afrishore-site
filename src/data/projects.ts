@@ -10,6 +10,7 @@ export interface Project {
   port: string;
   serviceTypes: string[];
   summary: string;
+  tagline?: string; // Optional gold sub-headline under the H1 (case-study page)
   outcome?: string; // Full case study body, only for featured
   heroImage?: string; // Path under /public; falls back to gradient placeholder
   featured: boolean;
@@ -275,7 +276,8 @@ A semi-submersible heavy lift is the kind of operation where every element must 
     port: "Cape Town",
     serviceTypes: ["subsea-services", "integrated-logistics"],
     heroImage: "/images/projects/oceaneering-subsea-grout-bags.jpg",
-    summary: "Subsea pipeline support and stabilisation using grout bag installations.",
+    summary: "200 subsea grout bags manufactured, certified, secured and exported from Cape Town to Angola: a single coordinated consignment.",
+    tagline: "Subsea pipeline stabilisation with Afrishore's grout bag solution",
     outcome: `Oceaneering required 200 subsea grout bags for the stabilisation of subsea infrastructure offshore Angola. Each bag had to be manufactured to subsea specification, filled, certified, secured for sea freight, and exported as a single coordinated consignment.
 
 Afrishore managed the scope end to end. Each unit was manufactured in polypropylene, subsea rated and certified, packed with 25kg grout charges and fitted with certified lifting slings. All 200 units were then individually secured and wrapped for sea freight transport. The consignment was loaded out of A-Berth at the Port of Cape Town onto a coastal liner for carriage to Angola.
