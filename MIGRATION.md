@@ -12,8 +12,34 @@ Captured **2026-05-18** by `dig` against the live Wix-hosted domain. This is
 the authoritative list of what must exist in the new DNS zone. **Print this
 section.**
 
-**Registrar:** Tucows Domains Inc. · **Expiry: 2026-06-24** · DNS today: Wix
-(`ns12.wixdns.net`, `ns13.wixdns.net`)
+**Registrar:** Tucows (upstream) via a SA reseller — the **Axxess /
+InterWorx control-panel** account (hosting `iwhost4.vpslocal.co.za`,
+server `156.155.252.20`). Domain **auto-renew is ON**, expiry
+**2026-06-24**. DNS today: Wix (`ns12.wixdns.net`, `ns13.wixdns.net`).
+The reseller panel is where nameservers + auto-renew + WHOIS are managed.
+
+> ⚠️ **CRITICAL — do NOT use the InterWorx/Axxess control panel's DNS
+> tab as the migration source.** It is stale and NOT authoritative
+> (Wix nameservers are). Its exported zone shows a *wrong, narrower*
+> SPF:
+>
+> | Source | SPF record |
+> |---|---|
+> | InterWorx panel export (STALE — do not use) | `v=spf1 include:spf.protection.outlook.com -all` |
+> | **Live authoritative zone (USE THIS — §0 table)** | `v=spf1 +a +mx +ip4:156.155.252.20 include:relay.mailchannels.net include:spf.protection.outlook.com ~all` |
+>
+> Copying the stale version would (a) drop `ip4:156.155.252.20` → mail
+> sent from the Axxess server starts failing SPF, (b) drop
+> `include:relay.mailchannels.net` → relayed mail fails SPF, and
+> (c) flip `~all` softfail to `-all` hardfail → borderline mail bounces
+> instead of going to spam. **Always replicate the §0 live values.**
+>
+> Note: server `156.155.252.20` (the Axxess hosting) is an *authorised
+> sender* in the live SPF — something on it sends mail for the domain
+> (website/transactional). It is barely used for web (0.66 MB) since
+> the site is on Wix. **Leave that hosting untouched during migration**
+> — replicating the live SPF keeps its mail valid. Evaluate whether
+> it's still needed in §8 cleanup, not now.
 
 ### Email & verification records — MUST be replicated EXACTLY
 
@@ -49,18 +75,27 @@ section.**
 
 ## 1 · Pre-flight checklist (do days BEFORE cutover)
 
-- [ ] **1.1 Renew the domain.** Expiry is 2026-06-24. Renew now via the
-      Tucows reseller so it cannot lapse mid-migration. Confirm new expiry.
+- [ ] **1.1 Confirm auto-renew will fire.** Auto-renew is **ON**, expiry
+      2026-06-24 (renewal typically fires ~30 days prior — i.e. ~now). The
+      risk is a *silent* failure if the card on file is expired. In the
+      Axxess/InterWorx panel → check the billing/payment method is valid,
+      OR just **renew manually now** to remove all timing risk. Confirm the
+      expiry date moves to 2027+.
 - [ ] **1.2 Lift the registrar lock.** `clientUpdateProhibited` is set on
       the domain. Most registrars block nameserver edits while this status
-      is active. Ask the reseller to remove `clientUpdateProhibited`
-      (keep `clientTransferProhibited` — that only blocks transfers, not NS
-      edits, and protects against hijack). You only need it lifted long
-      enough to change nameservers; re-lock after.
-- [ ] **1.3 Confirm registrar access.** You must be able to edit
-      **nameservers** at Tucows / the reseller control panel. Verify login
-      works *before* cutover day. (Whoever set up the domain originally —
-      possibly the Wix account or an agency — controls this.)
+      is active. In the reseller panel (or via a support ticket) remove
+      `clientUpdateProhibited` (keep `clientTransferProhibited` — that only
+      blocks transfers, not NS edits, and protects against hijack). Only
+      needs lifting long enough to change nameservers; re-lock after.
+- [ ] **1.3 Confirm registrar access + locate the nameserver screen.**
+      Access is **confirmed** — the Axxess/InterWorx panel manages this
+      domain (it shows Auto-Renewal, WHOIS, etc.). Before cutover day, find
+      the **nameserver / DNS delegation** edit screen in that panel (often
+      under "Domain Management" / "Nameservers" / "DNS"). If the panel does
+      not expose nameserver editing, the fallback is: (a) raise a support
+      ticket with the host to change NS, or (b) in the Wix dashboard use
+      "Disconnect domain", then set NS at the reseller. Verify which path
+      exists *now*, not on cutover day.
 - [ ] **1.4 Snapshot Microsoft 365 DNS.** admin.microsoft.com → Settings →
       Domains → afrishore.co → screenshot the full DNS records list. This is
       the email source of truth. Cross-check against §0.
