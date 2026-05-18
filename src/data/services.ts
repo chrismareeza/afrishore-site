@@ -125,6 +125,7 @@ export const servicePages: ServicePage[] = [
       "Durban",
       "Gqeberha",
       "Coega",
+      "Pemba",
     ],
     heroImage: "/images/services/offshore-supply-base-hero.jpg",
     heroAlt:
