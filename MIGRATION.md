@@ -172,106 +172,45 @@ Use it only as a **cross-check**. Findings:
 - [x] **1.1 Confirm auto-renew will fire.** ✅ DONE — auto-renew ON,
       payment method confirmed valid (2026-05-18). Expiry 2026-06-24 will
       roll forward automatically. No manual renewal needed.
-- [ ] **1.2 Lift the `clientUpdateProhibited` lock.** Still set (confirmed
-      via whois 2026-05-18). Registrar = **Tucows via the OpenSRS reseller
-      platform**, reseller = **Axxess / internet.co.za**.
-      **How to lift it:**
-      1. First check the Axxess/InterWorx domain-management panel for a
-         "Registrar Lock" / "Domain Lock" / "Theft Protection" toggle.
-      2. ⚠️ Most panels only toggle `clientTransferProhibited` (the
-         *transfer* lock). `clientUpdateProhibited` is a *separate* EPP
-         status that blocks nameserver/contact edits and is usually only
-         removable by the reseller, not self-service.
-      3. **Reliable path — raise an Axxess/internet.co.za support ticket**,
-         verbatim:
-         > "Please remove the `clientUpdateProhibited` EPP status from
-         > afrishore.co — we need to update the domain's nameservers.
-         > Please leave `clientTransferProhibited` in place."
-      4. Verify: re-run `whois afrishore.co` (or ask Claude) — only
-         `clientTransferProhibited` should remain. Re-lock with
-         `clientUpdateProhibited` after Phase 3 if desired.
-      > ⚠️ **SiteWorx is NOT the portal for this.** SiteWorx (and the
-      > InterWorx hosting panel generally) is a *hosting* control panel —
-      > email boxes, FTP, MySQL, files, and a DNS editor for the **dead
-      > non-authoritative clusterdns zone only**. It has **no registrar
-      > controls** — it cannot lift an EPP lock or change nameserver
-      > delegation. Those are registrar/registry-level. The support
-      > ticket already logged with Axxess is the correct route. ✅
-      > **Do NOT edit DNS / SPF / DKIM / DMARC inside SiteWorx during
-      > this migration** — that panel writes to the §0-F clusterdns zone
-      > the world never resolves; changes there are invisible and only
-      > create confusion. All real DNS work happens in Cloudflare
-      > (Phase 2), after NS delegation moves.
-- [ ] **1.3 Establish the nameserver-change path (deep detail).**
+- [x] **1.2 `clientUpdateProhibited` lock — NO ACTION NEEDED.** ✅
+      RESOLVED (Axxess ticket **#d7b7d6hbk5**, agent Sandisiwe K,
+      2026-05-18). Axxess confirmed verbatim: *"as the registrar, we are
+      able to update the domain nameservers on your behalf **without
+      removing the clientUpdateProhibited status**. The domain status
+      does not need to be changed for a nameserver update to be
+      processed."*
+      **Implication — this is the best outcome:** both EPP locks
+      (`clientUpdateProhibited` + `clientTransferProhibited`) **stay ON
+      for the entire migration** — maximum anti-tamper / anti-hijack
+      posture throughout. Axxess (the registrar) applies the NS change
+      internally via the ticket; the lock only blocks *third-party/
+      self-service* edits, not the registrar's own action. No lock
+      removal, no re-lock step, no security window.
+      > ⚠️ **SiteWorx is still NOT a DNS portal for this migration.** It
+      > only edits the dead §0-F clusterdns zone the world never
+      > resolves. **Do NOT touch DNS/SPF/DKIM/DMARC in SiteWorx** — all
+      > real DNS work happens in Cloudflare (Phase 2).
+- [x] **1.3 Nameserver-change path — CONFIRMED.** ✅ RESOLVED (Axxess
+  ticket **#d7b7d6hbk5**, agent Sandisiwe K, 2026-05-18).
 
-  **The problem in one sentence:** to point afrishore.co at the new site
-  we must replace the registry-level nameserver delegation
-  (`ns12.wixdns.net` / `ns13.wixdns.net` → 2 × Cloudflare NS), and that
-  control is *not* in SiteWorx (hosting) and *not* in Wix (Wix only holds
-  the zone, not the delegation). It lives at the **registrar layer
-  (Tucows/OpenSRS) operated by the Axxess reseller**.
+  **The confirmed path:** Axxess (the registrar) **applies the
+  nameserver change for us, via this open ticket, with the lock left
+  on.** It is not self-service and does not need to be — it's a
+  named-agent, ticketed, registrar-level action. Their exact words:
+  *"Please provide the nameservers you would like us to apply to the
+  domain, and we will gladly assist further."*
 
-  **Three places it could be actionable, in priority order:**
-  1. **Axxess billing/reseller panel** — the green "XS Linux Hosting
-     Interworx" view that shows *Auto Renewal* + *Whois Information* +
-     *Domain Contact Whois*. Look for a "Nameservers" / "Domain
-     Management" / "DNS / Nameservers" item (often adjacent to *Whois
-     Information*). If present and editable → this is the self-service
-     path; you change NS here at Phase 3.
-  2. **Axxess support actions it** — if the panel has no editable NS
-     field, Axxess set the delegation for you. This is why the ticket
-     below pre-warns them.
-  3. **Wix-side disconnect (last resort)** — Wix dashboard → Domains →
-     afrishore.co → "Disconnect" / "Point domain away". Only needed if
-     Wix is holding the delegation hostage; usually *not* required since
-     the registry NS are set at the registrar, not Wix.
+  **What this means for sequencing — the ONLY remaining registrar
+  action is a single ticket reply at Phase 3:**
+  1. Phase 2 builds the Cloudflare zone → Cloudflare assigns the two
+     `*.ns.cloudflare.com` nameservers.
+  2. **Phase 3 = reply to ticket #d7b7d6hbk5** with exactly those two
+     nameservers (template in §3.2). Axxess applies them; propagation
+     starts.
 
-  **Sequencing note (important):** the *actual* Cloudflare nameserver
-  values do not exist until the Cloudflare zone is created in **Phase 2**.
-  So this step is **discovery + lock removal only** — establish *how* the
-  change is made and get the lock off now, then execute the real NS swap
-  at **Phase 3** once Phase 2 has produced the two `*.ns.cloudflare.com`
-  hostnames.
-
-  **→ Consolidated support ticket to send Axxess NOW (covers 1.2 + 1.3
-  discovery). Copy verbatim:**
-
-  > **Subject:** afrishore.co — remove clientUpdateProhibited + confirm
-  > nameserver-change process (planned migration)
-  >
-  > Hi Axxess team,
-  >
-  > We're migrating the afrishore.co website to a new host and need to
-  > update the domain's **nameservers** shortly. Two requests:
-  >
-  > **1. EPP lock.** Please remove the **`clientUpdateProhibited`**
-  > status from afrishore.co so the nameservers can be updated. Please
-  > **leave `clientTransferProhibited` in place** (we want to keep
-  > transfer-hijack protection).
-  >
-  > **2. Nameserver change process.** The domain currently delegates to
-  > `ns12.wixdns.net` / `ns13.wixdns.net`. Within the next 1–2 weeks we
-  > will move it to **two Cloudflare nameservers** (exact hostnames
-  > supplied at that time). Please confirm:
-  >   a) Can we change the nameservers ourselves in the Axxess control
-  >      panel? If so, exactly where?
-  >   b) If not self-service, what is the process / turnaround time for
-  >      Axxess to update the delegation when we send the two Cloudflare
-  >      NS hostnames?
-  >   c) Please confirm this nameserver change will **not affect** the
-  >      separate Microsoft 365 email service on this domain (MX/SPF/
-  >      DKIM/DMARC are being replicated at the new DNS host before any
-  >      change — we just want confirmation nothing is auto-reset on
-  >      your side).
-  >
-  > The domain auto-renew is on and payment is valid — no billing action
-  > needed. Please keep this ticket open until the NS change is done.
-  >
-  > Thanks,
-  > [Name] — Afrishore
-
-  When Axxess replies, paste their answer back to Claude so the runbook
-  can record the confirmed path before Phase 2/3.
+  No lock juggling, no panel hunting, no Wix disconnect, no
+  self-service fumbling. Keep ticket **#d7b7d6hbk5 open** until the NS
+  change is confirmed live (Phase 4).
 - [x] **1.4 Snapshot Microsoft 365 DNS.** ✅ DONE (2026-05-18). M365
       admin → Domains → afrishore.co shows **only** the Microsoft Exchange
       block: MX, the *recommended* narrow SPF (ignore — see SPF trap), and
@@ -402,21 +341,39 @@ redirect rule staged. **Nameservers NOT yet changed — nothing is live.**
 
 ## 3 · Cutover (the only irreversible-ish step — but TTL is 5 min)
 
-- [ ] **3.1 Pick a low-traffic window.** Early AM SAST, mid-week. Avoid
-      Fridays. Have the §0 sheet and registrar login open. **Pick a time
-      when a brief `app.afrishore.co` blip is acceptable** — it shouldn't
-      blip (the CNAME is pre-staged in Cloudflare in Phase 2), but treat
-      the ops platform as if it could, and have someone able to confirm
-      Xero sync on standby.
-- [ ] **3.2 Change nameservers at Tucows / reseller** from
-      `ns12.wixdns.net` / `ns13.wixdns.net` to the **two Cloudflare
-      nameservers** shown in your Cloudflare dashboard (e.g.
-      `xxx.ns.cloudflare.com`). Save.
-- [ ] **3.3 Start the propagation clock.** NS delegation changes take
-      **2–48 h** globally (usually < 2 h). During this window some users hit
-      Wix, some hit Cloudflare — **both serve a working site and email keeps
-      flowing** (because Cloudflare's zone already mirrors the M365 records
-      from Phase 2). This is why §0 accuracy matters.
+- [ ] **3.1 Pick a low-traffic window & coordinate timing.** Early AM
+      SAST, mid-week, avoid Fridays. Because Axxess actions the NS change
+      (not us), this means: reply to the ticket and **expect a turnaround
+      lag** (their stated process — could be minutes to hours). Send the
+      reply at the *start* of the chosen window, or ask Axxess in the
+      reply to apply it at a specific time. Have the §0 sheet open and
+      someone able to confirm Xero sync on standby (the `app` CNAME is
+      pre-staged in Phase 2 so it shouldn't blip — verify regardless).
+- [ ] **3.2 Reply to Axxess ticket #d7b7d6hbk5** with the two Cloudflare
+      nameservers from Phase 2. Copy/adapt:
+      > Hi Sandisiwe,
+      >
+      > Please update the nameservers for **afrishore.co** to the
+      > following two Cloudflare nameservers:
+      >
+      > &nbsp;&nbsp;`<ns1>.ns.cloudflare.com`
+      > &nbsp;&nbsp;`<ns2>.ns.cloudflare.com`
+      >
+      > (Replace `ns12.wixdns.net` / `ns13.wixdns.net`.) Please leave
+      > `clientUpdateProhibited` and `clientTransferProhibited` in place
+      > as you advised. Kindly confirm once applied. Thank you.
+      >
+      > [Name] — Afrishore
+
+      Fill the two real values from the Cloudflare dashboard (Phase 2).
+      Double-check spelling against Cloudflare before sending — a typo
+      here points the whole domain at nothing.
+- [ ] **3.3 Axxess applies it → propagation clock starts.** NS
+      delegation changes take **2–48 h** globally (usually < 2 h).
+      During the window some resolvers still hit Wix, some hit
+      Cloudflare — **both serve a working site and email keeps flowing**
+      (Cloudflare's zone already mirrors every §0-A/B record from
+      Phase 2). This dual-serve safety is *why* §0 accuracy matters.
 
 **Checkpoint 3:** `dig NS afrishore.co` begins returning the Cloudflare
 nameservers.
