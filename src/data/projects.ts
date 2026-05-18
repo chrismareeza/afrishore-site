@@ -88,11 +88,15 @@ The Bollsta returned to operations on schedule, recertified for another five-yea
     vessel: "Deepsea Mira",
     heroImage: "/images/projects/deepsea-mira-sps-walvis-bay.jpg",
     summary: "Special Periodic Survey of the Deepsea Mira at Walvis Bay, scoped with a Blowout Preventer (BOP) exchange and multiple heavy lift logistics movements.",
-    outcome: `The Deepsea Mira has been continuously deployed in Namibian waters since 2023 under Afrishore's onshore supply base support — sequential drilling campaigns at Venus-1x, Tamboti-1x, and Volans-1x & Kharas-1. In 2024–2025, between campaigns, the rig underwent its Special Periodic Survey at the Port of Walvis Bay — with one significant additional scope item: a Blowout Preventer (BOP) exchange. BOPs are subsea safety assemblies weighing in excess of 400 tonnes; exchanging one requires specialised heavy lift coordination far beyond standard SPS scope.
+    outcome: `The Deepsea Mira has operated continuously in Namibian waters since 2023 under Afrishore's onshore supply base support, across sequential drilling campaigns at Venus-1x, Tamboti-1x, Volans-1x, and Kharas-1.
 
-Afrishore delivered the integrated supply base services for the survey period — customs, warehousing, rigging, crane and trucking coordination, crew rotation, immigration support — and managed the additional heavy lift logistics required for the BOP exchange itself. The replacement BOP arrived via international freight, was staged shoreside, transported to the rig via supply vessel, and the outgoing unit returned through the same chain in reverse. Multiple heavy lift movements, each requiring rigorous rigging plans, customs documentation, and port coordination beyond a standard SPS scope.
+Between campaigns in 2024 to 2025, the rig underwent its Special Periodic Survey at the Port of Walvis Bay. The survey carried one significant additional scope item: a Blowout Preventer exchange. A BOP is a subsea safety assembly weighing in excess of 400 tonnes. Exchanging one requires specialised heavy lift coordination well beyond standard SPS scope.
 
-A Special Periodic Survey is rarely simple. With a BOP exchange layered in, it requires a partner already embedded in the port.`,
+Afrishore delivered the integrated supply base services for the survey period: customs compliance, warehousing, rigging, crane and trucking coordination, crew rotation, and immigration support, including support for all attending third parties. Alongside this, Afrishore managed the heavy lift logistics for the BOP exchange itself.
+
+The replacement BOP arrived by international freight, was staged shoreside, and was transported to the rig by supply vessel, with extensive vessel modification and sea-fastening for safe passage. The outgoing unit returned through the same chain in reverse. Each leg involved multiple heavy lift movements, every one requiring a rigorous rigging plan, full customs documentation, and port coordination beyond standard SPS scope.
+
+A Special Periodic Survey is rarely simple. With a BOP exchange layered in, it requires a partner already embedded in the port. Afrishore coordinated the first on-rig assembly of the Cameron 15K TL 6 RAM cavity BOP, including full testing and commissioning.`,
     featured: true,
     published: true,
   },
