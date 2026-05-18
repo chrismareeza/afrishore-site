@@ -25,6 +25,7 @@ export interface PortOffice {
   addressRegion?: string;
   addressCountry: string;    // ISO-2
   geo: { lat: number; lng: number };
+  mapsUrl?: string;          // canonical Google Business Profile / Maps link
 }
 
 export interface PortPage {
@@ -94,7 +95,8 @@ export const ports: PortPage[] = [
       streetAddress: "Oil & Gas Section, Port of Walvis Bay",
       addressLocality: "Walvis Bay",
       addressCountry: "NA",
-      geo: { lat: -22.9576, lng: 14.5052 },
+      geo: { lat: -22.9585384, lng: 14.4848436 },
+      mapsUrl: "https://maps.app.goo.gl/rrigVze54LhREuQ3A",
     },
   },
   {

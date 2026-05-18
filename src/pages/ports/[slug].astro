@@ -206,6 +206,17 @@ const breadcrumb = [
                 <p class="text-xs text-faint leading-relaxed pt-1">
                   Own port agency licence · physical office
                 </p>
+                {port.office.mapsUrl && (
+                  <a
+                    href={port.office.mapsUrl}
+                    target="_blank"
+                    rel="noopener"
+                    class="inline-flex items-center gap-1 text-sm text-gold hover:text-yellow transition-colors"
+                  >
+                    View on Google Maps
+                    <span aria-hidden="true">↗</span>
+                  </a>
+                )}
               </>
             ) : (
               <>
