@@ -191,7 +191,7 @@ export const servicePages: ServicePage[] = [
     serviceType: "crew-visa",
     name: "Crew & Visa Services",
     metaTitle:
-      "Offshore Crew Logistics, Visa & Immigration — SA, Namibia & Mozambique | Afrishore",
+      "Expat Crew Logistics, Visa & Immigration Support | NAM, SA & MOZ | Afrishore",
     metaDescription:
       "Offshore and onshore crew logistics, visa and work-permit processing, immigration optimisation and medical evacuation coordination across South Africa, Namibia and Mozambique — for crews and third-party technicians.",
     h1: "Crew & Visa Services",
