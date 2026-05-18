@@ -4,6 +4,7 @@
 
 interface Service {
   title: string;
+  slug: string;
   oneLiner: string;
   bullets: string[];
 }
@@ -11,6 +12,7 @@ interface Service {
 const services: Service[] = [
   {
     title: "Ship & Rig Agency",
+    slug: "ship-rig-agency",
     oneLiner: "Systemic port agency services for rigs, drillships, OSVs, PSVs, liners, tankers and FPSOs across our licensed port network.",
     bullets: [
       "Port clearance, berth scheduling & immigration",
@@ -21,6 +23,7 @@ const services: Service[] = [
   },
   {
     title: "Offshore Supply Base",
+    slug: "offshore-supply-base",
     oneLiner: "Turnkey base operator services for onshore and offshore projects.",
     bullets: [
       "Rigging, cranage & abnormal trucking",
@@ -31,6 +34,7 @@ const services: Service[] = [
   },
   {
     title: "Integrated Logistics",
+    slug: "integrated-logistics",
     oneLiner: "Freight forwarding, customs compliance and materials management for sea, air and road.",
     bullets: [
       "Customs brokerage & management",
@@ -41,6 +45,7 @@ const services: Service[] = [
   },
   {
     title: "Crew & Visa Services",
+    slug: "crew-visa-services",
     oneLiner: "Crew rotations, medivacs, visa & immigration optimisation across SA, Namibia & Mozambique.",
     bullets: [
       "Visa & work permit processing",
@@ -73,7 +78,8 @@ const services: Service[] = [
     <!-- Service cards: 4-col desktop, 2-col tablet, 1-col mobile -->
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
       {services.map((service) => (
-        <article
+        <a
+          href={`/services/${service.slug}`}
           data-anim="serv-card"
           class="opacity-0 translate-y-6 group relative bg-surface border border-line hover:border-orange/60 transition-all duration-400 p-7 lg:p-8 rounded-sm flex flex-col"
         >
@@ -91,7 +97,7 @@ const services: Service[] = [
             {service.oneLiner}
           </p>
 
-          <ul class="space-y-2 text-sm text-faint">
+          <ul class="space-y-2 text-sm text-faint mb-6">
             {service.bullets.map((b) => (
               <li class="flex items-start gap-2">
                 <span class="text-orange mt-1 leading-none" aria-hidden="true">·</span>
@@ -99,7 +105,12 @@ const services: Service[] = [
               </li>
             ))}
           </ul>
-        </article>
+
+          <span class="mt-auto inline-flex items-center gap-1 text-xs uppercase tracking-[0.15em] text-gold font-semibold group-hover:gap-2 transition-all">
+            Learn more
+            <span aria-hidden="true">→</span>
+          </span>
+        </a>
       ))}
     </div>
   </div>

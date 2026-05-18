@@ -1,0 +1,240 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Navbar from "../../components/Navbar.astro";
+import Footer from "../../components/Footer.astro";
+import { servicePages, type ServicePage } from "../../data/services";
+import { projects } from "../../data/projects";
+
+export function getStaticPaths() {
+  return servicePages.map((s) => ({
+    params: { slug: s.slug },
+    props: { service: s },
+  }));
+}
+
+interface Props {
+  service: ServicePage;
+}
+
+const { service } = Astro.props;
+
+const siteUrl = "https://www.afrishore.co";
+const pageUrl = `${siteUrl}/services/${service.slug}`;
+
+// Related case studies — published projects tagged with this serviceType.
+const related = projects
+  .filter((p) => p.published && p.serviceTypes.includes(service.serviceType))
+  .slice(0, 3);
+
+const placeholderBg =
+  "linear-gradient(135deg, #1a1410 0%, #ED7014 50%, #FDE64B 100%)";
+
+const heroAbsolute = service.heroImage
+  ? new URL(service.heroImage, siteUrl).toString()
+  : new URL("/og-image.jpg", siteUrl).toString();
+
+// Service JSON-LD — kept clean (no Offer/price fields → no Rich Results
+// non-critical warnings). provider + isPartOf link into the global @graph.
+const serviceSchema = {
+  "@type": "Service",
+  "@id": `${pageUrl}#service`,
+  "name": service.name,
+  "serviceType": service.schemaServiceType,
+  "description": service.metaDescription,
+  "url": pageUrl,
+  "provider": { "@id": `${siteUrl}/#organization` },
+  "isPartOf": { "@id": `${siteUrl}/#website` },
+  "areaServed": [
+    { "@type": "Country", "name": "South Africa" },
+    { "@type": "Country", "name": "Namibia" },
+    { "@type": "Country", "name": "Mozambique" },
+  ],
+  "image": heroAbsolute,
+};
+
+const breadcrumb = [
+  { name: "Home", item: "/" },
+  { name: "Services", item: "/#services" },
+  { name: service.name, item: `/services/${service.slug}` },
+];
+---
+
+<BaseLayout
+  title={service.metaTitle}
+  description={service.metaDescription}
+  ogImage={service.heroImage || "/og-image.jpg"}
+  canonical={pageUrl}
+  breadcrumb={breadcrumb}
+  pageSchema={[serviceSchema]}
+>
+  <Navbar />
+
+  <main>
+    <!-- Service hero -->
+    <section class="relative pt-32 lg:pt-40 pb-12 px-6 lg:px-12">
+      <div class="max-w-5xl mx-auto">
+        <a
+          href="/#services"
+          class="inline-flex items-center gap-2 text-sm text-mute hover:text-gold transition-colors mb-10"
+        >
+          <span aria-hidden="true">←</span>
+          All services
+        </a>
+
+        <div class="text-xs uppercase tracking-[0.2em] text-gold font-semibold mb-6">
+          Capability
+        </div>
+
+        <h1 class="text-4xl md:text-5xl lg:text-6xl text-cream leading-[1.1] tracking-tight mb-5">
+          {service.h1}
+        </h1>
+
+        <p class="text-lg lg:text-xl text-gold/90 mb-10 max-w-3xl leading-snug">
+          {service.geoSub}
+        </p>
+
+        <div
+          class="aspect-[16/9] w-full overflow-hidden rounded-sm border border-line relative"
+          style={`background: ${placeholderBg};`}
+        >
+          {service.heroImage && (
+            <img
+              src={service.heroImage}
+              alt={`Afrishore ${service.name} — South Africa, Namibia and Mozambique`}
+              class="absolute inset-0 w-full h-full object-cover"
+              loading="eager"
+              width="1920"
+              height="1080"
+            />
+          )}
+        </div>
+      </div>
+    </section>
+
+    <!-- Body + side card -->
+    <section class="px-6 lg:px-12 pb-24 lg:pb-32">
+      <div class="max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 pt-12">
+        <div class="lg:col-span-8 space-y-10">
+          <div class="space-y-6">
+            {service.intro.map((p) => (
+              <p class="text-lg lg:text-xl leading-relaxed" style="color: rgba(245,242,235,0.88);">
+                {p}
+              </p>
+            ))}
+          </div>
+
+          <div>
+            <h2 class="text-xs uppercase tracking-[0.2em] text-gold font-semibold mb-5">
+              What we handle
+            </h2>
+            <ul class="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-3">
+              {service.scope.map((s) => (
+                <li class="flex items-start gap-2 text-base text-cream/90">
+                  <span class="text-orange mt-1 leading-none" aria-hidden="true">·</span>
+                  <span>{s}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {service.vesselTypes && (
+            <div>
+              <h2 class="text-xs uppercase tracking-[0.2em] text-gold font-semibold mb-5">
+                Vessel & rig types
+              </h2>
+              <div class="flex flex-wrap gap-2">
+                {service.vesselTypes.map((v) => (
+                  <span class="text-xs uppercase tracking-[0.15em] text-mute border border-line px-3 py-1.5 rounded-sm">
+                    {v}
+                  </span>
+                ))}
+              </div>
+            </div>
+          )}
+        </div>
+
+        <aside class="lg:col-span-4">
+          <div class="sticky top-28 bg-surface border border-line p-6 lg:p-7 rounded-sm space-y-5">
+            <h2 class="text-xs uppercase tracking-[0.2em] text-gold font-semibold">
+              Ports we cover
+            </h2>
+            <ul class="space-y-2 text-sm text-cream/90">
+              {service.ports.map((port) => (
+                <li class="flex items-center gap-2">
+                  <span class="w-1.5 h-1.5 rounded-full bg-gold flex-shrink-0" aria-hidden="true"></span>
+                  <span>{port}</span>
+                </li>
+              ))}
+            </ul>
+            <p class="text-xs text-faint leading-relaxed pt-1">
+              South Africa · Namibia · Mozambique
+            </p>
+            <a
+              href="/#contact"
+              class="inline-flex items-center justify-center gap-2 w-full bg-orange hover:bg-gold text-base px-5 py-3 text-sm font-semibold tracking-wide transition-colors duration-200 rounded-sm"
+            >
+              Discuss your operation
+              <span aria-hidden="true">→</span>
+            </a>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    {related.length > 0 && (
+      <section class="px-6 lg:px-12 py-20 lg:py-24 border-t border-line">
+        <div class="max-w-5xl mx-auto">
+          <h2 class="text-xs uppercase tracking-[0.2em] text-gold font-semibold mb-8">
+            {service.name} in action
+          </h2>
+
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {related.map((p) => (
+              <a
+                href={`/projects/${p.slug}`}
+                class="group block bg-surface border border-line hover:border-gold/40 transition-all duration-300 rounded-sm overflow-hidden"
+              >
+                <div class="aspect-[4/3] relative" style={`background: ${placeholderBg};`}>
+                  {p.heroImage && (
+                    <img
+                      src={p.heroImage}
+                      alt={`${p.title} — ${p.client} project at ${p.port}`}
+                      class="absolute inset-0 w-full h-full object-cover"
+                      loading="lazy"
+                      width="800"
+                      height="600"
+                    />
+                  )}
+                  <div class="absolute top-3 right-3 bg-base/80 backdrop-blur-sm px-2.5 py-1 text-[10px] font-semibold tracking-wider text-cream">
+                    {p.year}
+                  </div>
+                </div>
+                <div class="p-5 space-y-2">
+                  <span class="block text-xs uppercase tracking-[0.15em] text-gold font-semibold">
+                    {p.client}
+                  </span>
+                  <h3 class="text-cream group-hover:text-yellow transition-colors duration-200 leading-tight">
+                    {p.title}
+                  </h3>
+                  <span class="block text-xs text-faint">{p.port}</span>
+                </div>
+              </a>
+            ))}
+          </div>
+
+          <div class="mt-12 text-center">
+            <a
+              href="/projects"
+              class="inline-flex items-center gap-2 text-gold hover:text-yellow transition-colors text-sm uppercase tracking-[0.15em] font-semibold"
+            >
+              View all projects
+              <span aria-hidden="true">→</span>
+            </a>
+          </div>
+        </div>
+      </section>
+    )}
+  </main>
+
+  <Footer />
+</BaseLayout>
