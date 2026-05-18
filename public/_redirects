@@ -1,0 +1,40 @@
+# Afrishore — Wix → Astro URL migration map
+# Cloudflare Pages reads this file from the build output root.
+# 301 = permanent redirect; passes ~all link equity + keeps the 18
+# Google-indexed Wix URLs ranking after DNS cutover.
+#
+# Source: live Wix pages-sitemap.xml (18 indexed pages, matches GSC).
+# Homepage (/) is unchanged — same URL, no rule needed.
+
+# ── Project case studies ──────────────────────────────────────────
+/deepsea-bollsta-sps-wvb            /projects/deepsea-bollsta-sps-walvis-bay      301
+/deepsea-mira-venus-1x              /projects/deepsea-mira-venus-1x               301
+/deepsea-mira-volans-1x-kharas-1    /projects/deepsea-mira-volans-kharas          301
+/docktitancapetown                  /projects/dock-titan-cape-town-reunion        301
+/facebook2africa                    /projects/facebook-2africa-cable-landing      301
+/gazania1westcoast                  /projects/eco-atlantic-gazania-1              301
+/hercules-mopane1x-exploration      /projects/galp-hercules-mopane-1x             301
+/jonker-1xdeepseabollsta            /projects/deepsea-bollsta-jonker-1            301
+/orca-remobilisation-tow            /projects/petrosa-orca-remobilisation         301
+/subsea-concrete-mattress-2015      /projects/sbm-subsea-concrete-mattress        301
+/subsea-groutbags                   /projects/oceaneering-subsea-grout-bags       301
+/subsea-pipelaying-2013             /projects/sbm-subsea-pipelaying               301
+/total-anchor-2016                  /projects/totalenergies-anchor-testing        301
+/total-brulpadda-2014               /projects/totalenergies-brulpadda-2014        301
+/total-brulpadda1718-campaign       /projects/totalenergies-brulpadda-discovery   301
+/total-luiperd-exploration          /projects/totalenergies-luiperd-supply-base   301
+
+# ── Wix duplicate page ────────────────────────────────────────────
+# "/copy-of-deepsea-mira-venus-1x" was a Wix page duplicate (it is the
+# GSC "Alternate page with proper canonical tag" entry — canonicalised
+# to the real Venus-1x page). Pointed at the closest live equivalent.
+# CONFIRM with client whether this page actually held Tamboti-1x
+# content; if so retarget to /projects/deepsea-mira-tamboti-1x.
+/copy-of-deepsea-mira-venus-1x      /projects/deepsea-mira-venus-1x               301
+
+# ── Common Wix system / legacy paths → home (defensive) ───────────
+# Old multi-page nav collapses into the single-scroll homepage.
+/about                              /#about                                       301
+/services                           /#services                                    301
+/contact                            /#contact                                     301
+/home                               /                                             301
