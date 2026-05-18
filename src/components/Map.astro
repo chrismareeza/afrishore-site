@@ -1,7 +1,10 @@
 ---
 // Section 7 · Coastal Footprint Map
 // Stylized SVG of SA + Namibia + Mozambique coastline
-// 4 office pins (orange, large) + 6 service port pins (gold, small)
+// 4 office pins (orange, large) + 6 port pins (gold, small).
+// Footprint: 4 offices · 6 agency-licence ports (Saldanha, Durban,
+// Mossel Bay, Cape Town, Lüderitz, Walvis Bay) · 4 project ports
+// (Gqeberha, Coega, Pemba, East London). Pins shown = non-office ports.
 
 interface Pin {
   x: number;
@@ -22,7 +25,8 @@ const offices: Pin[] = [
 const ports: Pin[] = [
   { x: 232, y: 360, name: "Lüderitz" },
   { x: 275, y: 525, name: "Saldanha" },
-  { x: 490, y: 612, name: "Coega / Port Elizabeth" },
+  { x: 490, y: 612, name: "Coega" },
+  { x: 505, y: 622, name: "Gqeberha" },
   { x: 555, y: 590, name: "East London" },
   { x: 820, y: 125, name: "Pemba" },
 ];
@@ -40,7 +44,7 @@ const ports: Pin[] = [
         data-anim="map-headline"
         class="opacity-0 translate-y-4 text-4xl md:text-5xl lg:text-6xl leading-[1.1] text-cream"
       >
-        Four offices. Six service ports.<br />
+        Four offices. Ten ports.<br />
         <span class="text-gold">One coast.</span>
       </h2>
       <p
