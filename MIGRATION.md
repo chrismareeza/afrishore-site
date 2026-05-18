@@ -23,10 +23,15 @@ The reseller panel is where nameservers + auto-renew + WHOIS are managed.
 > (Wix nameservers are). Its exported zone shows a *wrong, narrower*
 > SPF:
 >
-> | Source | SPF record |
-> |---|---|
-> | InterWorx panel export (STALE — do not use) | `v=spf1 include:spf.protection.outlook.com -all` |
-> | **Live authoritative zone (USE THIS — §0 table)** | `v=spf1 +a +mx +ip4:156.155.252.20 include:relay.mailchannels.net include:spf.protection.outlook.com ~all` |
+> | Source | SPF record | Verdict |
+> |---|---|---|
+> | InterWorx/Axxess panel export | `v=spf1 include:spf.protection.outlook.com -all` | ❌ STALE |
+> | Microsoft 365 `.zone` file export | `v=spf1 include:spf.protection.outlook.com -all` | ❌ GENERIC — Microsoft's boilerplate, ignores the Axxess + MailChannels senders |
+> | **Live authoritative zone (USE THIS — §0-A)** | `v=spf1 +a +mx +ip4:156.155.252.20 include:relay.mailchannels.net include:spf.protection.outlook.com ~all` | ✅ THE TRUTH |
+>
+> **Three** separate exports now show the wrong narrow SPF. They are all
+> "what Microsoft/the host *recommends*", not what is actually live and
+> working. Only the §0-A value is authoritative — use it and nothing else.
 >
 > Copying the stale version would (a) drop `ip4:156.155.252.20` → mail
 > sent from the Axxess server starts failing SPF, (b) drop
@@ -107,6 +112,33 @@ The reseller panel is where nameservers + auto-renew + WHOIS are managed.
 `ns12.wixdns.net` / `ns13.wixdns.net` → the two Cloudflare nameservers.
 (Wix's panel correctly shows "NS records are not editable" — they live at
 the Axxess/Tucows registrar level. This is the Phase 3 action.)
+
+### E · Telephony (Teams Phone) — checked, NO DNS dependency
+
+The business **landlines run through Microsoft Teams**. Probed the live
+zone on 2026-05-18 for every Teams/Skype-for-Business DNS record:
+
+| Record | Result |
+|---|---|
+| `_sip._tls` SRV | none |
+| `_sipfederationtls._tcp` SRV | none |
+| `sip` CNAME | none |
+| `lyncdiscover` CNAME | none |
+
+**None exist.** This means the numbers are provisioned via **Microsoft
+Calling Plans / Operator Connect**, where call routing is entirely
+Microsoft↔Microsoft and needs **no custom DNS on afrishore.co**. The only
+DNS dependency telephony shares with email is the domain staying
+**M365-verified** — the `MS=ms81963765` TXT in §0-A. As long as that TXT
+(and MX/autodiscover) carry over, Teams Phone is unaffected by the
+nameserver change.
+
+> ⚠️ Do not *add* speculative `sip`/`lyncdiscover`/SRV records "to be
+> safe" — they're for legacy Skype for Business / Direct Routing setups
+> and would be wrong here. Replicate only what §0-A/B lists.
+>
+> Belt-and-braces: Phase 4 still includes a live test call (cheap
+> insurance — DNS says it can't be affected, but verify anyway).
 
 ---
 
@@ -268,6 +300,12 @@ Email (**do not skip — highest business risk**):
       `chris@afrishore.co` AND `info@afrishore.co`. Confirm receipt.
 - [ ] **Reply from** each mailbox to the external account. Confirm it
       arrives and (via Gmail "Show original") passes **SPF + DKIM + DMARC**.
+
+Telephony (Teams Phone — DNS says unaffected, verify anyway):
+- [ ] Place an **outbound call** from a Teams landline number to a mobile.
+- [ ] Receive an **inbound call** to a Teams landline number from a mobile.
+- [ ] Both connect with audio → Calling Plan routing intact. (If these
+      fail it is a Microsoft-side issue, NOT this DNS change — but confirm.)
 
 **Checkpoint 4:** new site live on www, apex redirects, all 18 legacy URLs
 301, sitemap reachable, **email sends + receives + passes SPF/DKIM/DMARC.**
