@@ -52,11 +52,11 @@ The Brulpadda discovery reopened South Africa's upstream story. Afrishore was th
     vessel: "Deepsea Stavanger",
     heroImage: "/images/projects/totalenergies-luiperd-supply-base.jpg",
     summary: "Twin-port offshore supply base operations across Mossel Bay and Cape Town for TotalEnergies' Luiperd gas-condensate discovery campaign.",
-    outcome: `In 2020, TotalEnergies returned to Block 11B/12B on the south coast of South Africa to drill the Luiperd-1X exploration well — a follow-on to the Brulpadda discovery. The campaign confirmed a second significant gas-condensate find. Afrishore operated the integrated offshore supply base across both Mossel Bay and Cape Town for the full duration of the campaign.
+    outcome: `In 2020, TotalEnergies returned to Block 11B/12B on the south coast of South Africa to drill the Luiperd-1X exploration well, a follow-on to the Brulpadda discovery. The campaign confirmed a second significant gas-condensate find. Afrishore operated the integrated offshore supply base across both Mossel Bay and Cape Town for the full duration of the campaign.
 
-Running supply chain operations from two ports simultaneously is the operational challenge — synchronised customs clearance, port calls, supply vessel mobilisations, project cargo handling, and crew rotations across two physical locations and three campaign phases (mobilisation, drilling, demobilisation). The campaign was further executed under the operational constraints of the COVID-19 period — adding immigration, quarantine, and travel coordination layers that didn't exist on previous campaigns. The Deepsea Stavanger drillship was supported from shore throughout.
+Running logistical operations from two ports simultaneously is the operational challenge, synchronised customs clearance, port calls, supply vessel mobilisations, project cargo handling, bunkering and crew rotations across two physical locations and three campaign phases (mobilisation, drilling, demobilisation). The campaign was further executed under the operational constraints of the COVID-19 period adding immigration, quarantine and travel coordination layers that didn't exist on previous campaigns. The Deepsea Stavanger drillship was supported from shore throughout, as were the Bourbon and Tidewater PSVs, Solstad AHTSs, Halliburton mud plant operators, Oceaneering ROV operators and Baker Hughes torque technicians.
 
-Luiperd confirmed Block 11B/12B as one of Africa's most significant new gas plays. Afrishore made the shore-side logistics invisible.`,
+Luiperd confirmed Block 11B/12B as one of Africa's most significant new gas plays. Afrishore made the shore-side multi-location and multi-client logistics exceptional through integration.`,
     featured: true,
     published: true,
   },
