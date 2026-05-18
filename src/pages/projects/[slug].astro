@@ -43,6 +43,14 @@ const outcomeParagraphs = project.outcome
   ? project.outcome.split("\n\n").filter((p) => p.trim())
   : [];
 
+// Asset label: exact when known ("Rig"/"Vessel"), else the generic hedge.
+const assetLabel =
+  project.assetType === "rig"
+    ? "Rig"
+    : project.assetType === "vessel"
+      ? "Vessel"
+      : "Vessel / Rig";
+
 // Gradient placeholder for missing images
 const placeholderBg = "linear-gradient(135deg, #1a1410 0%, #ED7014 50%, #FDE64B 100%)";
 
@@ -171,7 +179,7 @@ const breadcrumb = [
           </span>
           {project.vessel && (
             <span class="flex items-center gap-2">
-              <span class="text-faint text-xs uppercase tracking-[0.15em]">Vessel / Rig</span>
+              <span class="text-faint text-xs uppercase tracking-[0.15em]">{assetLabel}</span>
               <span class="text-cream">{project.vessel}</span>
             </span>
           )}
@@ -257,7 +265,7 @@ const breadcrumb = [
               </div>
               {project.vessel && (
                 <div>
-                  <dt class="text-xs uppercase tracking-[0.15em] text-faint mb-1">Vessel / Rig</dt>
+                  <dt class="text-xs uppercase tracking-[0.15em] text-faint mb-1">{assetLabel}</dt>
                   <dd class="text-cream">{project.vessel}</dd>
                 </div>
               )}

@@ -19,6 +19,9 @@ export interface Project {
   endCustomer?: string;
   // Optional operational details
   vessel?: string;
+  // Labels the asset precisely on the case-study page. Unset → the
+  // generic "Vessel / Rig" hedge (unchanged behaviour).
+  assetType?: "rig" | "vessel";
 }
 
 export const projects: Project[] = [
@@ -149,6 +152,7 @@ A semi-submersible heavy lift is the kind of operation where every element must 
     port: "Mossel Bay / Cape Town",
     serviceTypes: ["supply-base", "ship-rig-agency"],
     vessel: "Eirik Raude",
+    assetType: "rig",
     heroImage: "/images/projects/totalenergies-brulpadda-2014.jpg",
     summary: "First drilling attempt at Brulpadda on the Eirik Raude rig — a campaign that laid the groundwork for the 2018–19 discovery.",
     outcome: `The Brulpadda campaign marked Afrishore's first appointment as offshore supply base operator, under the direction of TotalEnergies.
