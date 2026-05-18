@@ -65,17 +65,34 @@ is not changing in any way.**
    work**. We don't expect a blip; the ops platform is simply too
    important to assume.
 
-## Timeline
+## Timeline & how the cutover actually happens
+
+The domain registrar (Axxess) has **confirmed in writing** they will
+apply the nameserver change on our behalf via a support ticket, with the
+domain's security locks left in place the whole time. So the cutover is
+a single controlled registrar action on a known date — not a risky
+self-service scramble.
 
 | Phase | State |
 |---|---|
-| Preparation (domain admin, full DNS inventory) | ✅ complete & verified |
-| Cloudflare zone built, **all records incl. your CNAME pre-staged** | next |
-| Nameserver cutover (agreed low-traffic window, you're notified) | scheduled later |
-| Verification (`app` checked first) + 30-day monitoring | post-cutover |
+| Preparation: full DNS inventory + registrar process confirmed | ✅ complete & verified |
+| Cloudflare zone built — **all records incl. your `app` CNAME pre-staged** and verified by direct query *before* anything goes live | in progress |
+| Nameserver cutover — Axxess applies it in an agreed low-traffic window (you get **≥48 h notice**) | scheduled |
+| Verification — **`app.afrishore.co` is the first thing checked**, then email, then site + 30-day monitoring | post-cutover |
 | Old infrastructure retired | only after 30 stable days |
+
+**Why `app.afrishore.co` should see zero downtime:** its exact CNAME →
+Vercel record is created in the new DNS zone *before* the nameserver
+change, and we verify it resolves correctly by querying the new
+nameservers directly while the old ones are still live. By the time the
+delegation flips, the record is already proven correct. During the
+1–2 h global propagation, resolvers see *either* the old or the new
+zone — and **both contain the identical `app` CNAME**, so the Vercel
+app resolves correctly on either path. There is no window where it
+points anywhere else.
 
 ---
 
 *DNS single point of contact: Afrishore (Chris). Technical migration plan
-of record: `MIGRATION.md` in the afrishore-site repository.*
+of record: `MIGRATION.md` (+ `PHASE-2-CLOUDFLARE.md`) in the
+afrishore-site repository.*
