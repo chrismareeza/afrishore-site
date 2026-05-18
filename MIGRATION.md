@@ -569,6 +569,64 @@ Because TTLs were lowered (1.8) and the only changed records are web:
 
 ---
 
+## 9 · Post-cutover additions — 2026-05-18
+
+### 9.1 Analytics stack (live, site-wide)
+
+Installed in `src/layouts/BaseLayout.astro` (every page), both as
+`is:inline` so Astro does not bundle the third-party snippets:
+
+- **Google Analytics 4** — property **afrishore.co**, Measurement ID
+  **`G-E28C5EH0TG`** (standard `gtag.js`).
+- **Cloudflare Web Analytics** — beacon token
+  **`ac81d6efc4bf47618bcca4e30f845840`** (cookieless / privacy-first,
+  no consent banner required).
+- The second GA4 property **`G-E5TS8D8VNX` (afrishore.co.za) is
+  deliberately NOT installed** — .co.za is a 301 redirect (no page
+  renders, so it cannot collect). That property is **dormant/retired**;
+  afrishore.co's GA4 captures all landed traffic.
+
+CSP (`public/_headers`) widened accordingly:
+- `script-src` += `https://www.googletagmanager.com https://static.cloudflareinsights.com`
+- `connect-src` += `https://*.google-analytics.com https://*.analytics.google.com https://www.googletagmanager.com https://cloudflareinsights.com`
+- `img-src` += `https://www.google-analytics.com https://www.googletagmanager.com`
+
+Outstanding (optional): a lightweight POPIA/EU cookie-consent gate for
+GA4 only (Cloudflare Web Analytics needs none). Not yet implemented.
+
+### 9.2 afrishore.co.za → www.afrishore.co (301)
+
+Secondary domain consolidated into the canonical site. Configured in
+the **afrishore.co.za Cloudflare zone** (not the Pages project — adding
+it as a Pages custom domain would duplicate the site):
+
+- DNS: `@` and `www` → A `192.0.2.1`, **Proxied** (edge answers before
+  origin; IP never contacted).
+- Redirect Rule — **Dynamic** (not Static): filter
+  `(http.host eq "afrishore.co.za") or (http.host eq "www.afrishore.co.za")`,
+  target `concat("https://www.afrishore.co", http.request.uri.path)`,
+  **301**, preserve query string.
+- SSL/TLS **Full**, **Always Use HTTPS** on.
+
+Verified 2026-05-18:
+
+```
+https://afrishore.co.za/             301 -> https://www.afrishore.co/
+https://www.afrishore.co.za/         301 -> https://www.afrishore.co/
+https://afrishore.co.za/projects?x=1 301 -> https://www.afrishore.co/projects?x=1
+http://afrishore.co.za/              301 -> https://afrishore.co.za/ (then -> www.afrishore.co)
+```
+
+Notes:
+- `http://` entry is a 2-hop chain (scheme upgrade, then domain 301) —
+  standard with Always Use HTTPS; `https://` is a clean single 301.
+- **Keep afrishore.co.za registered indefinitely** so the redirect and
+  brand stay protected.
+- Optional: add afrishore.co.za to Search Console to watch the 301
+  consolidation; legacy .co.za equity flows into afrishore.co.
+
+---
+
 ### Why no schema/SEO rework is required at cutover
 
 Everything that encodes the domain was built for production from day one:
