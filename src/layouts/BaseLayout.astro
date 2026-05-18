@@ -271,6 +271,10 @@ const finalGraph = [
       gtag('config', 'G-E28C5EH0TG');
     </script>
 
+    <!-- Cloudflare Web Analytics (cookieless, privacy-first).
+         is:inline keeps Astro from bundling the third-party beacon. -->
+    <script is:inline defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "ac81d6efc4bf47618bcca4e30f845840"}'></script>
+
     <title>{title}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={fullCanonical} />
