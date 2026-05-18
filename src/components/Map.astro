@@ -12,7 +12,7 @@ interface Pin {
   name: string;
   sub?: string;
   isHQ?: boolean;
-  labelPos?: "right" | "left" | "below"; // default "right"
+  labelPos?: "right" | "left" | "below" | "above"; // default "right"
 }
 
 const offices: Pin[] = [
@@ -25,8 +25,8 @@ const offices: Pin[] = [
 const ports: Pin[] = [
   { x: 232, y: 360, name: "Lüderitz" },
   { x: 275, y: 525, name: "Saldanha" },
-  { x: 490, y: 612, name: "Coega" },
-  { x: 505, y: 622, name: "Gqeberha" },
+  { x: 492, y: 610, name: "Coega", labelPos: "above" },
+  { x: 510, y: 616, name: "Gqeberha", labelPos: "below" },
   { x: 555, y: 590, name: "East London" },
   { x: 820, y: 125, name: "Pemba" },
 ];
@@ -82,7 +82,11 @@ const ports: Pin[] = [
              Larger font-size so labels stay legible when the SVG scales down on mobile. -->
         <text x="285" y="260" text-anchor="middle" fill="#8A7551" font-family="Inter, sans-serif" font-size="22" letter-spacing="0.25em" font-weight="700">NAMIBIA</text>
         <text x="450" y="510" text-anchor="middle" fill="#8A7551" font-family="Inter, sans-serif" font-size="22" letter-spacing="0.25em" font-weight="700">SOUTH AFRICA</text>
-        <text x="690" y="210" text-anchor="middle" fill="#8A7551" font-family="Inter, sans-serif" font-size="22" letter-spacing="0.25em" font-weight="700">MOZAMBIQUE</text>
+        <!-- MOZAMBIQUE is a narrow NE–SW wedge; at 22px/0.25em the label
+             is wider than the territory and crosses the coast. Smaller
+             size + tighter tracking + placed in the widest upper section
+             keeps it fully inland. -->
+        <text x="690" y="180" text-anchor="middle" fill="#8A7551" font-family="Inter, sans-serif" font-size="15" letter-spacing="0.10em" font-weight="700">MOZAMBIQUE</text>
 
         <!-- Country borders — thin faint gold dashed lines, geographically accurate.
              5 countries (NA, SA, MZ, Bot, Zim) meeting at 6 tri-points:
@@ -203,7 +207,13 @@ const ports: Pin[] = [
         {ports.map((p) => (
           <g class="opacity-0" data-pin="port">
             <circle cx={p.x} cy={p.y} r="5" fill="#FDE64B" stroke="#0A0A0A" stroke-width="1" />
-            <text x={p.x + 10} y={p.y + 4} fill="#A39E94" font-family="Inter, sans-serif" font-size="14">{p.name}</text>
+            {p.labelPos === "above" ? (
+              <text x={p.x} y={p.y - 11} text-anchor="middle" fill="#A39E94" font-family="Inter, sans-serif" font-size="14">{p.name}</text>
+            ) : p.labelPos === "below" ? (
+              <text x={p.x} y={p.y + 20} text-anchor="middle" fill="#A39E94" font-family="Inter, sans-serif" font-size="14">{p.name}</text>
+            ) : (
+              <text x={p.x + 10} y={p.y + 4} fill="#A39E94" font-family="Inter, sans-serif" font-size="14">{p.name}</text>
+            )}
           </g>
         ))}
       </svg>
