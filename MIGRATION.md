@@ -201,15 +201,30 @@ Use it only as a **cross-check**. Findings:
       4. Verify: re-run `whois afrishore.co` (or ask Claude) — only
          `clientTransferProhibited` should remain. Re-lock with
          `clientUpdateProhibited` after Phase 3 if desired.
-- [ ] **1.3 Confirm registrar access + locate the nameserver screen.**
-      Access is **confirmed** — the Axxess/InterWorx panel manages this
-      domain (it shows Auto-Renewal, WHOIS, etc.). Before cutover day, find
-      the **nameserver / DNS delegation** edit screen in that panel (often
-      under "Domain Management" / "Nameservers" / "DNS"). If the panel does
-      not expose nameserver editing, the fallback is: (a) raise a support
-      ticket with the host to change NS, or (b) in the Wix dashboard use
-      "Disconnect domain", then set NS at the reseller. Verify which path
-      exists *now*, not on cutover day.
+      > ⚠️ **SiteWorx is NOT the portal for this.** SiteWorx (and the
+      > InterWorx hosting panel generally) is a *hosting* control panel —
+      > email boxes, FTP, MySQL, files, and a DNS editor for the **dead
+      > non-authoritative clusterdns zone only**. It has **no registrar
+      > controls** — it cannot lift an EPP lock or change nameserver
+      > delegation. Those are registrar/registry-level. The support
+      > ticket already logged with Axxess is the correct route. ✅
+      > **Do NOT edit DNS / SPF / DKIM / DMARC inside SiteWorx during
+      > this migration** — that panel writes to the §0-F clusterdns zone
+      > the world never resolves; changes there are invisible and only
+      > create confusion. All real DNS work happens in Cloudflare
+      > (Phase 2), after NS delegation moves.
+- [ ] **1.3 Locate where nameservers are changed.** **Not SiteWorx**
+      (hosting only — see 1.2 warning). The registrar-level controls live
+      in the **billing/reseller panel** (the green "XS Linux Hosting" view
+      that shows *Auto Renewal* + *Whois Information* — look there for
+      "Domain Management" / "Nameservers", likely near *Whois
+      Information*), **or** Axxess action it via the support ticket.
+      Recommended: in the **same support ticket as 1.2**, also ask:
+      > "Please also confirm how/where we change the nameservers for
+      > afrishore.co (currently ns12/ns13.wixdns.net) — we will be moving
+      > them to two Cloudflare nameservers shortly."
+      Fallback if neither: Wix dashboard → "Disconnect domain", then set
+      NS at the reseller. Confirm the path *now*, not on cutover day.
 - [x] **1.4 Snapshot Microsoft 365 DNS.** ✅ DONE (2026-05-18). M365
       admin → Domains → afrishore.co shows **only** the Microsoft Exchange
       block: MX, the *recommended* narrow SPF (ignore — see SPF trap), and
