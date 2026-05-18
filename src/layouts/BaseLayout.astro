@@ -126,7 +126,7 @@ const baseGraph: object[] = [
     "@id": `${siteUrl}/#mossel-bay`,
     "parentOrganization": { "@id": `${siteUrl}/#organization` },
     "image": `${siteUrl}/og-image.jpg`,
-    "name": "Afrishore — Mossel Bay (HQ)",
+    "name": "Afrishore Head Office",
     "address": {
       "@type": "PostalAddress",
       "streetAddress": "58 Bland Street",
@@ -144,7 +144,7 @@ const baseGraph: object[] = [
     "@id": `${siteUrl}/#cape-town`,
     "parentOrganization": { "@id": `${siteUrl}/#organization` },
     "image": `${siteUrl}/og-image.jpg`,
-    "name": "Afrishore — Cape Town",
+    "name": "Afrishore Cape Town",
     "address": {
       "@type": "PostalAddress",
       "streetAddress": "Unit 213, Buchanan Square",
@@ -162,11 +162,12 @@ const baseGraph: object[] = [
     "@id": `${siteUrl}/#walvis-bay`,
     "parentOrganization": { "@id": `${siteUrl}/#organization` },
     "image": `${siteUrl}/og-image.jpg`,
-    // Walvis Bay trades as a distinct entity — name MUST match the GBP
-    // exactly (NAP). Client is renaming the GBP to "Afrishore Logistics
-    // Pty Ltd"; keep these in lockstep.
+    // GBP display name = branch convention; site NAP must match it
+    // exactly. Client renaming the Walvis Bay GBP to this. (Registered
+    // legal entities — Afrishore Shipping Pty Ltd / Afrishore Pty Ltd —
+    // are intentionally NOT the public listing name; no legalName
+    // asserted until the entity↔branch map is confirmed.)
     "name": "Afrishore Logistics Pty Ltd",
-    "legalName": "Afrishore Logistics Pty Ltd",
     "address": {
       "@type": "PostalAddress",
       "streetAddress": "Oil & Gas Section, Port of Walvis Bay",
@@ -183,7 +184,7 @@ const baseGraph: object[] = [
     "@id": `${siteUrl}/#durban`,
     "parentOrganization": { "@id": `${siteUrl}/#organization` },
     "image": `${siteUrl}/og-image.jpg`,
-    "name": "Afrishore — Durban",
+    "name": "Afrishore Durban",
     "address": {
       "@type": "PostalAddress",
       "streetAddress": "33 Wagtail Walk, Yellowwood Park",

@@ -158,6 +158,7 @@ export const ports: PortPage[] = [
     ],
     vesselTypes: VESSEL_TYPES,
     office: {
+      businessName: "Afrishore Cape Town",
       localBusinessId: "#cape-town",
       streetAddress: "Unit 213, Buchanan Square",
       addressLocality: "Woodstock, Cape Town",
@@ -224,6 +225,7 @@ export const ports: PortPage[] = [
     ],
     vesselTypes: VESSEL_TYPES,
     office: {
+      businessName: "Afrishore Head Office",
       localBusinessId: "#mossel-bay",
       streetAddress: "58 Bland Street",
       addressLocality: "Mossel Bay",
@@ -262,6 +264,7 @@ export const ports: PortPage[] = [
     ],
     vesselTypes: VESSEL_TYPES,
     office: {
+      businessName: "Afrishore Durban",
       localBusinessId: "#durban",
       streetAddress: "33 Wagtail Walk, Yellowwood Park",
       addressLocality: "Durban",

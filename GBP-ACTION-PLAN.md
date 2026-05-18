@@ -35,12 +35,22 @@ real GBP pin, `sameAs` points at the GBP, and the port page shows a
 
 ## Cross-cutting rules (apply to every listing)
 
-1. **Business name = the real registered name only.** Google's
-   guidelines forbid location/keyword stuffing in the GBP name (e.g.
-   "Afrishore — Cape Town (HQ)" or "Afrishore Ship Agent Walvis Bay"
-   risks **suspension**). Use the legal/trading name; the *address*
-   distinguishes locations. Multiple locations sharing one brand name is
-   correct and expected.
+1. **Business name = the branch display name, as the client lists it.**
+   The chosen convention is brand + branch — "Afrishore Cape Town",
+   "Afrishore Durban", "Afrishore Head Office", "Afrishore Logistics Pty
+   Ltd" (Walvis Bay). The site's `LocalBusiness` `name` and the visible
+   name on each port page have been aligned to exactly these — that is
+   the NAP-critical match. The **registered legal entities** (Afrishore
+   Shipping Pty Ltd / Afrishore Pty Ltd) are intentionally **not** the
+   public listing name and are not asserted in schema.
+   - *Light advisory only:* brand+city names ("Afrishore Cape Town",
+     "Afrishore Durban") are standard and safe for genuine separate
+     locations. A pure descriptor like **"Afrishore Head Office"** is
+     the one Google may, on a review, ask to be a real-world name —
+     "Afrishore Mossel Bay" would be the safest equivalent. Your call;
+     whatever you list, tell me and the site will mirror it exactly.
+   - Never add keywords/locations *beyond* the convention (e.g.
+     "Afrishore Cape Town Ship Agent") — that does risk suspension.
 2. **Website field → the matching port page**, not the homepage:
    - Walvis Bay → `https://www.afrishore.co/ports/walvis-bay`
    - Cape Town → `https://www.afrishore.co/ports/cape-town`
@@ -81,8 +91,8 @@ real GBP pin, `sameAs` points at the GBP, and the port page shows a
 
 ## 2. Cape Town  *(existing GBP — edit)*
 
-- **Name:** currently "Afrishore Cape Town". Decide the consistent SA
-  registered name (see Open Decisions). Whatever it is, GBP = site.
+- **Name:** keep `Afrishore Cape Town` (the branch convention). Site
+  schema + page already aligned to this exact string.
 - **Address:** confirm GBP = site:
   `Unit 213, Buchanan Square, Woodstock, Cape Town, Western Cape, South Africa`.
 - **Primary category:** Ship Agent. Secondaries per rule 3.
@@ -91,8 +101,11 @@ real GBP pin, `sameAs` points at the GBP, and the port page shows a
 
 ## 3. Mossel Bay  *(existing GBP — edit; HQ)*
 
-- **Name:** currently "Afrishore Head Office" — not guideline-safe as a
-  name. Set to the SA registered name (see Open Decisions).
+- **Name:** `Afrishore Head Office` (the branch convention). Site is
+  aligned to this exactly. *Light advisory:* this is the one descriptor-
+  style name Google could query on review — "Afrishore Mossel Bay" is
+  the safer equivalent if you ever want to switch; tell me and the site
+  follows.
 - **Address — IMPORTANT:** office moves to **58 Bland Street, Mossel
   Bay, Western Cape, South Africa by 1 August**. The **site already
   shows 58 Bland Street**. Update the GBP address to 58 Bland Street
@@ -108,8 +121,8 @@ real GBP pin, `sameAs` points at the GBP, and the port page shows a
 
 Create at business.google.com → "Add business". Enter:
 
-- **Name:** SA registered name (same as Cape Town/Mossel Bay — see Open
-  Decisions).
+- **Name:** `Afrishore Durban` (the branch convention; matches the
+  site, which is already aligned).
 - **Address:** `33 Wagtail Walk, Yellowwood Park, Durban, KwaZulu-Natal, South Africa`
 - **Phone:** `+27 44 691 3218` (or a Durban local number if you have one)
 - **Primary category:** Ship Agent · **Secondaries:** Logistics Service,
@@ -130,11 +143,13 @@ Create at business.google.com → "Add business". Enter:
 
 ## Open decisions (need your call)
 
-1. **SA registered/trading name** for the Mossel Bay, Cape Town and
-   Durban GBPs (Walvis Bay is settled = "Afrishore Logistics Pty Ltd").
-   Give me the exact SA entity name; I'll align the site schema and you
-   set all three SA GBPs to it. (Do not use "— City"/"(HQ)"/keyword
-   suffixes in the GBP name.)
+1. **GBP names — RESOLVED.** Branch convention confirmed: Afrishore
+   Cape Town · Afrishore Head Office · Afrishore Durban · Afrishore
+   Logistics Pty Ltd (Walvis Bay). Site schema + port pages already
+   aligned to these exact strings. *Optional:* if you want the
+   registered entities (Afrishore Shipping Pty Ltd / Afrishore Pty Ltd)
+   represented in schema as `legalName`, give me the entity→branch map
+   and I'll add it (kept separate from the public `name`).
 2. **Phone strategy:** single SA number everywhere, or local numbers per
    country/city (recommended for Walvis Bay at least). Tell me the final
    numbers per office and I'll match the site.
