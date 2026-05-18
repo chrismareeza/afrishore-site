@@ -285,7 +285,8 @@ Use it only as a **cross-check**. Findings:
       zone transcribed into §0-A/B/C/D from the Wix "Manage DNS Records"
       panel + live `dig`.
 - [x] **1.5b Resolve `en.afrishore.co`.** ✅ RESOLVED → DROP (§0-B).
-- [ ] **1.5c Decide DMARC reporting target (deep detail).**
+- [x] **1.5c Decide DMARC reporting target.** ✅ DONE → **A (keep
+      `chris@`)**, confirmed by client 2026-05-18. Detail retained below.
 
   **What DMARC reporting is.** The DMARC record (`_dmarc.afrishore.co`)
   does two separate things: (1) the **policy** — `p=quarantine` — tells
@@ -325,8 +326,12 @@ Use it only as a **cross-check**. Findings:
   check out, B is fine — but it should be a conscious yes, not a
   default. **`p=quarantine` is unchanged in both cases.**
 
-  *Decision recorded:* ____________________  (A = keep chris@ /
-  B = MXToolbox, conditions met)
+  ✅ *Decision recorded (2026-05-18, confirmed by client):* **A — keep
+  the live `rua=mailto:chris@afrishore.co; ruf=mailto:chris@afrishore.co`
+  value, replicated verbatim into Cloudflare (§0-A).** `p=quarantine`
+  unchanged. Managed DMARC monitoring deferred to a separate
+  post-migration improvement (not inheriting the orphaned MXToolbox
+  trial endpoint).
 - [ ] **1.6 Final content QA on staging.** `afrishore-site.pages.dev` is
       the production build. Click every nav item, every project tile, test
       the mobile menu, submit nothing-breaks. Confirm the latest commit is
