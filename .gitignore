@@ -23,8 +23,8 @@ pnpm-debug.log*
 # jetbrains setting folder
 .idea/
 
-# Original / unoptimised image masters (keep on disk, not in repo)
-public/images/*.original.*
-public/images/projects/*.original.*
-public/client-logos/*.original.*
+# Original / unoptimised image masters (keep on disk, not in repo).
+# Recursive — covers every public/ subdir incl. images/services/ and any
+# added later. They are also stripped from the build output (astro.config).
+public/**/*.original.*
 
