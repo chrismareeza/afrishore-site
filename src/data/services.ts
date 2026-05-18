@@ -35,7 +35,7 @@ export const servicePages: ServicePage[] = [
     serviceType: "ship-rig-agency",
     name: "Ship & Rig Agency",
     metaTitle:
-      "Ship, Vessel & Rig Agency — South Africa, Namibia & Mozambique | Afrishore",
+      "Ship, Vessel & Rig Agency | Namibia, South Africa & Mozambique | Afrishore",
     metaDescription:
       "Afrishore is a licensed ship, vessel and rig agency in South Africa, Namibia and Mozambique — port clearance, berth scheduling, immigration, husbandry and crew rotation for rigs, drillships, OSVs, PSVs, tankers and FPSOs at Walvis Bay, Cape Town, Durban, Mossel Bay, Saldanha and Lüderitz.",
     h1: "Ship, Vessel & Rig Agency",
