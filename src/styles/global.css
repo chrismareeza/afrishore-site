@@ -111,14 +111,17 @@ h1, h2, h3, h4, h5, h6 {
 
 .hero-title .line {
   display: block;
-  /* 60/40 white→gold. White hold (0–58%) unchanged; gold ramp per brief:
-     deep gold #C99A2E at 76%, antique gold #946614 at 100%. */
+  /* Stops are % of the full line box; the text fills ~0–72% of it, so
+     these map onto the words as: white holds through the first word +
+     start of the second ("Local Sol…" / "Global Cli…"), then ramps —
+     deep gold #C99A2E by ~mid second word, antique gold #946614 by the
+     end of the text. */
   background-image: linear-gradient(
     90deg,
     #ffffff 0%,
-    #ffffff 58%,
-    #C99A2E 76%,
-    #946614 100%
+    #ffffff 24%,
+    #C99A2E 44%,
+    #946614 66%
   );
   -webkit-background-clip: text;
   background-clip: text;
