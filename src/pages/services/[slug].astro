@@ -29,6 +29,13 @@ const related = projects
 const placeholderBg =
   "linear-gradient(135deg, #1a1410 0%, #ED7014 50%, #FDE64B 100%)";
 
+// Each optimised JPEG ships with a sibling .webp (image pipeline).
+const webp = (p: string) => p.replace(/\.jpe?g$/i, ".webp");
+
+const heroAltText =
+  service.heroAlt ||
+  `Afrishore ${service.name} — South Africa, Namibia and Mozambique`;
+
 const heroAbsolute = service.heroImage
   ? new URL(service.heroImage, siteUrl).toString()
   : new URL("/og-image.jpg", siteUrl).toString();
@@ -98,14 +105,18 @@ const breadcrumb = [
           style={`background: ${placeholderBg};`}
         >
           {service.heroImage && (
-            <img
-              src={service.heroImage}
-              alt={`Afrishore ${service.name} — South Africa, Namibia and Mozambique`}
-              class="absolute inset-0 w-full h-full object-cover"
-              loading="eager"
-              width="1920"
-              height="1080"
-            />
+            <picture>
+              <source srcset={webp(service.heroImage)} type="image/webp" />
+              <img
+                src={service.heroImage}
+                alt={heroAltText}
+                class="absolute inset-0 w-full h-full object-cover"
+                loading="eager"
+                fetchpriority="high"
+                width="1920"
+                height="1080"
+              />
+            </picture>
           )}
         </div>
       </div>
@@ -122,6 +133,30 @@ const breadcrumb = [
               </p>
             ))}
           </div>
+
+          {service.secondaryImage && (
+            <figure class="space-y-3">
+              <div
+                class="aspect-[3/2] w-full overflow-hidden rounded-sm border border-line relative"
+                style={`background: ${placeholderBg};`}
+              >
+                <picture>
+                  <source srcset={webp(service.secondaryImage.src)} type="image/webp" />
+                  <img
+                    src={service.secondaryImage.src}
+                    alt={service.secondaryImage.alt}
+                    class="absolute inset-0 w-full h-full object-cover"
+                    loading="lazy"
+                    width="1920"
+                    height="1440"
+                  />
+                </picture>
+              </div>
+              <figcaption class="text-sm text-faint leading-relaxed">
+                {service.secondaryImage.caption}
+              </figcaption>
+            </figure>
+          )}
 
           <div>
             <h2 class="text-xs uppercase tracking-[0.2em] text-gold font-semibold mb-5">

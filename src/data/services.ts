@@ -20,6 +20,12 @@ export interface ServicePage {
   vesselTypes?: string[];         // ship & rig agency only
   ports: string[];                // ports this service covers
   heroImage?: string;             // /public path; gradient fallback if absent
+  heroAlt?: string;               // precise hero alt (else a generated default)
+  secondaryImage?: {              // optional in-body proof photo (captioned)
+    src: string;
+    alt: string;
+    caption: string;
+  };
 }
 
 export const servicePages: ServicePage[] = [
@@ -72,6 +78,15 @@ export const servicePages: ServicePage[] = [
       "East London",
       "Pemba",
     ],
+    heroImage: "/images/services/ship-rig-agency-hero.jpg",
+    heroAlt:
+      "Aerial view of the Port of Mossel Bay, South Africa — offshore supply vessels alongside the breakwater quay where Afrishore provides ship, vessel and rig agency services",
+    secondaryImage: {
+      src: "/images/services/ship-rig-agency-vessel.jpg",
+      alt: "Pacific Greylag offshore supply vessel alongside in the Port of Cape Town with Table Mountain behind — Afrishore vessel and rig agency, South Africa",
+      caption:
+        "Pacific Greylag alongside in the Port of Cape Town. Vessel and rig agency, port clearance, immigration and husbandry handled end-to-end across South Africa, Namibia and Mozambique.",
+    },
   },
   {
     slug: "offshore-supply-base",
