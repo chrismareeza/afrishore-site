@@ -272,10 +272,17 @@ A semi-submersible heavy lift is the kind of operation where every element must 
     title: "Oceaneering: Subsea Grout Bags",
     client: "Oceaneering",
     year: "2018",
-    port: "Mossel Bay",
+    port: "Cape Town",
     serviceTypes: ["subsea-services", "integrated-logistics"],
     heroImage: "/images/projects/oceaneering-subsea-grout-bags.jpg",
     summary: "Subsea pipeline support and stabilisation using grout bag installations.",
+    outcome: `Oceaneering required 200 subsea grout bags for the stabilisation of subsea infrastructure offshore Angola. Each bag had to be manufactured to subsea specification, filled, certified, secured for sea freight, and exported as a single coordinated consignment.
+
+Afrishore managed the scope end to end. Each unit was manufactured in polypropylene, subsea rated and certified, packed with 25kg grout charges and fitted with certified lifting slings. All 200 units were then individually secured and wrapped for sea freight transport. The consignment was loaded out of A-Berth at the Port of Cape Town onto a coastal liner for carriage to Angola.
+
+Subsea grout bags are a stabilisation product where the integrity of every unit matters. The certification, the rated material and the lifting slings are not finishing touches. They are what allows a bag to be lifted, placed and to perform on the seabed. A single compromised unit is one that cannot do its job. The securing and wrapping of each of the 200 bags was therefore not incidental to the work. It was the work.
+
+Afrishore delivered the full consignment, manufactured to specification, certified, secured and exported, through a single point of accountability from manufacture to supply onto the vessel.`,
     featured: false,
     published: true,
   },
