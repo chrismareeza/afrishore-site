@@ -1,5 +1,18 @@
 ---
 import "../styles/global.css";
+// Self-hosted fonts (Fontsource → Vite-fingerprinted woff2, served from
+// our own origin). Replaces the render-blocking Google Fonts request;
+// also a POPIA win (no visitor IPs to Google) and lets the CSP drop
+// fonts.googleapis.com / fonts.gstatic.com. Latin subset, only the
+// weights the design uses (400/500/600/700).
+import "@fontsource/barlow/latin-400.css";
+import "@fontsource/barlow/latin-500.css";
+import "@fontsource/barlow/latin-600.css";
+import "@fontsource/barlow/latin-700.css";
+import "@fontsource/inter/latin-400.css";
+import "@fontsource/inter/latin-500.css";
+import "@fontsource/inter/latin-600.css";
+import "@fontsource/inter/latin-700.css";
 import ConsentBanner from "../components/ConsentBanner.astro";
 
 interface BreadcrumbStep {
@@ -360,30 +373,10 @@ const finalGraph = [
       </>
     )}
 
-    <!-- Fonts: Barlow (display) + Inter (body).
-         Loaded async via the media=print → onload swap trick so the stylesheet
-         is non-render-blocking. font-display=swap (in the URL) means text
-         paints immediately in the system fallback then swaps to Barlow/Inter
-         once they arrive. -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      rel="preload"
-      as="style"
-      href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;500;600;700;800;900&family=Inter:wght@200;300;400;500;600;700&display=swap"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;500;600;700;800;900&family=Inter:wght@200;300;400;500;600;700&display=swap"
-      media="print"
-      onload="this.media='all'"
-    />
-    <noscript>
-      <link
-        rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;500;600;700;800;900&family=Inter:wght@200;300;400;500;600;700&display=swap"
-      />
-    </noscript>
+    <!-- Fonts: Barlow (display) + Inter (body) are self-hosted via
+         Fontsource (imported in the frontmatter → bundled, fingerprinted,
+         long-cached from our origin). No external font request. -->
+
 
     <!-- JSON-LD: Organization + WebSite + LocalBusiness × 4 + Service × 4
          + optional BreadcrumbList + optional per-page schema (Article, etc.) -->
