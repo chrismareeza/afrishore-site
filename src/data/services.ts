@@ -94,9 +94,9 @@ export const servicePages: ServicePage[] = [
     serviceType: "supply-base",
     name: "Offshore Supply Base",
     metaTitle:
-      "Offshore Supply Base Operator — Walvis Bay, Namibia & South Africa | Afrishore",
+      "Offshore Supply Base Operator — Namibia, South Africa & Mozambique | Afrishore",
     metaDescription:
-      "Turnkey offshore supply base operator for drilling and subsea campaigns across Namibia and South Africa — rigging, cranage, abnormal trucking, warehousing, project cargo, waste and materials management. Permanently embedded at the Port of Walvis Bay's Oil & Gas Section.",
+      "Turnkey offshore supply base operator for drilling, renewable and subsea campaigns across Namibia, South Africa and Mozambique — rigging, cranage, abnormal trucking, warehousing, project cargo, QHSE, waste and materials management. Permanently embedded in the Port of Walvis Bay's Oil & Gas Section.",
     h1: "Offshore Supply Base Operations",
     geoSub: "Turnkey base operator: Walvis Bay, Cape Town, Mossel Bay, Pemba & beyond.",
     schemaServiceType: "Offshore Supply Base Operations",
