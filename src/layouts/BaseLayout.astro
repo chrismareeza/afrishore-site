@@ -160,7 +160,11 @@ const baseGraph: object[] = [
     "@id": `${siteUrl}/#walvis-bay`,
     "parentOrganization": { "@id": `${siteUrl}/#organization` },
     "image": `${siteUrl}/og-image.jpg`,
-    "name": "Afrishore — Walvis Bay (Namibia)",
+    // Walvis Bay trades as a distinct entity — name MUST match the GBP
+    // exactly (NAP). Client is renaming the GBP to "Afrishore Logistics
+    // Pty Ltd"; keep these in lockstep.
+    "name": "Afrishore Logistics Pty Ltd",
+    "legalName": "Afrishore Logistics Pty Ltd",
     "address": {
       "@type": "PostalAddress",
       "streetAddress": "Oil & Gas Section, Port of Walvis Bay",

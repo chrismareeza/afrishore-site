@@ -19,6 +19,7 @@
 // time (same workflow as the service pages).
 
 export interface PortOffice {
+  businessName?: string;     // exact registered name (NAP — must match GBP)
   localBusinessId: string;   // matches the @id in BaseLayout's @graph
   streetAddress: string;
   addressLocality: string;
@@ -91,6 +92,7 @@ export const ports: PortPage[] = [
     ],
     vesselTypes: VESSEL_TYPES,
     office: {
+      businessName: "Afrishore Logistics Pty Ltd",
       localBusinessId: "#walvis-bay",
       streetAddress: "Oil & Gas Section, Port of Walvis Bay",
       addressLocality: "Walvis Bay",

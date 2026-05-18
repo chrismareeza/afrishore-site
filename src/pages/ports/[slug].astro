@@ -196,7 +196,7 @@ const breadcrumb = [
             {port.office ? (
               <>
                 <h2 class="text-xs uppercase tracking-[0.2em] text-gold font-semibold">
-                  Afrishore — {port.portName}
+                  {port.office.businessName || `Afrishore — ${port.portName}`}
                 </h2>
                 <address class="not-italic text-sm text-cream/90 leading-relaxed">
                   {port.office.streetAddress}<br />
