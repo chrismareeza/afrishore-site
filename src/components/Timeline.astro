@@ -1,7 +1,9 @@
 ---
 // Section 9 · Company Timeline
 // Horizontal scrolling milestones from 2010 → 2026
-// Mobile: vertical stack instead of horizontal scroll
+// Desktop only (lg+): the vertical mobile stack is intentionally hidden
+// below lg — the horizontal-scroll treatment doesn't translate to small
+// screens, so the section is excluded there entirely.
 
 interface Milestone {
   year: string;
@@ -23,7 +25,7 @@ const milestones: Milestone[] = [
 ];
 ---
 
-<section id="timeline" class="relative bg-base py-24 lg:py-32 overflow-hidden">
+<section id="timeline" class="hidden lg:block relative bg-base py-24 lg:py-32 overflow-hidden">
   <div class="max-w-7xl mx-auto px-6 lg:px-12">
     <div class="max-w-3xl mb-16 lg:mb-20 space-y-6">
       <div data-anim="time-eyebrow" class="opacity-0 -translate-y-2">
