@@ -107,7 +107,7 @@ The Bollsta returned to operations on schedule, recertified for another operatio
       src: "/images/projects/deepsea-mira-sps-bop-trailer.jpg",
       alt: "Decommissioned Deepsea Mira blowout preventer (BOP), 130+ tonnes, on a multi-axle heavy-lift low-bed trailer at the Port of Walvis Bay for breakbulk export — Afrishore heavy-lift logistics",
       caption:
-        "The decommissioned Deepsea Mira BOP — 130+ MT — loaded onto a multi-axle heavy-lift low-bed trailer at the Port of Walvis Bay, prepared for return-to-origin sailing on a breakbulk liner.",
+        "The decommissioned Deepsea Mira BOP — 130+ tonnes — on a multi-axle heavy-lift low-bed trailer at the Port of Walvis Bay, prepared for its return-to-origin sailing on a breakbulk liner: the outbound leg of a BOP exchange Afrishore coordinated end-to-end.",
     },
     summary: "Special Periodic Survey of the Deepsea Mira at Walvis Bay, scoped with a Blowout Preventer (BOP) exchange and multiple heavy lift logistics movements.",
     outcome: `The Deepsea Mira has operated continuously in Namibian waters since 2023 under Afrishore's onshore supply base support, across sequential drilling campaigns at Venus-1x, Tamboti-1x, Volans-1x, and Kharas-1.
