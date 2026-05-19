@@ -236,9 +236,9 @@ export const ports: PortPage[] = [
     h1: "Ship, Vessel & Rig Agent – Port of Mossel Bay",
     geoSub: "Afrishore head office — supply base for the Brulpadda & Luiperd gas play",
     intro: [
-      "Afrishore was founded in Mossel Bay and holds its own port agency licence here, with its head office at 58 Bland Street. Mossel Bay is the shore base for South Africa's most significant offshore gas play — Block 11B/12B (Brulpadda and Luiperd) — and Afrishore acts as full ship, vessel and rig agent for rigs, drillships, OSVs, PSVs, AHTS and tankers supporting it.",
-      "Mossel Bay agency means running an offshore supply base to the rhythm of a deep-water drilling campaign: port clearance and port-authority liaison, immigration and crew changes, husbandry, rigging and project cargo, bunkering and full mobilisation/demobilisation — with zero margin for error 175 km offshore.",
-      "From Mossel Bay Afrishore operated the supply base and rig agency for the TotalEnergies Brulpadda discovery and Luiperd campaigns and the earlier Eirik Raude drilling campaign, closing out cleanly through Cape Town. It is where Afrishore's integration-as-design model was proven.",
+      "Afrishore was founded in Mossel Bay and holds its own port agency licence here, with its head office at 58 Bland Street. Mossel Bay is the shore base for South Africa's most significant offshore gas play, Block 11B/12B (Brulpadda and Luiperd), and Afrishore acts as full vessel and rig agent for rigs, drillships, OSVs, PSVs, AHTS and tankers supporting it on the owners and charterers side.",
+      "Mossel Bay agency means running an offshore supply base to the rhythm of a deep-water drilling campaign: port clearance and port-authority liaison, immigration and crew changes, husbandry, rigging and project cargo, bunkering and full mobilisation/demobilisation with zero margin for error 175 km offshore.",
+      "From Mossel Bay Afrishore operated the supply base and rig agency for the TotalEnergies Brulpadda discovery and Luiperd campaigns and the earlier Eirik Raude drilling campaign, closing out cleanly through Cape Town. It is where Afrishore's integration-as-design model was proven and is applied to anything from tanker calls, transit stops, medivacs and project scopes.",
     ],
     scope: [
       "Port clearance & customs formalities",
