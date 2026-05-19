@@ -207,9 +207,9 @@ export const ports: PortPage[] = [
     h1: "Vessel & Rig Agent – Port of Saldanha Bay",
     geoSub: "Licensed agency for Saldanha Bay — South Africa's deepest natural port",
     intro: [
-      "Afrishore holds its own port agency licence at Saldanha Bay, South Africa's deepest natural harbour and a designated oil & gas and bulk port. Afrishore acts as ship, vessel and rig agent here for rigs, drillships, OSVs, PSVs, AHTS, tankers and bulk carriers.",
-      "Saldanha's scale — deep draught, iron-ore and crude handling, and a growing offshore-support mandate — demands an agent who can move between bulk, tanker and rig disciplines. Afrishore handles port clearance and port-authority liaison, immigration and crew changes, husbandry, bunkering coordination, project and abnormal cargo and offshore mobilisation.",
-      "Run alongside Afrishore's Cape Town office and the wider licensed network, Saldanha coverage gives operators one accountable agent across the entire South African west coast.",
+      "Afrishore holds its own port agency licence at Saldanha Bay, South Africa's deepest natural harbour and a designated oil & gas and bulk port. Afrishore acts as vessel and rig agent here for rigs, drillships, OSVs, PSVs, AHTS, barges, tankers and bulk carriers.",
+      "Saldanha's scale; deep draught, iron-ore and crude handling and a growing offshore-support mandate, demands an agent who can move between bulk, tanker and rig disciplines. Afrishore handles port clearance and port-authority liaison, immigration and crew changes, husbandry, bunkering coordination, project and abnormal cargo and offshore mobilisation.",
+      "Run alongside Afrishore's Cape Town office and the wider licensed network, Saldanha coverage gives operators one accountable agent across the entire South African west coast with an effective West Coast deepwater option in close proximity to Cape Town.",
     ],
     scope: [
       "Port clearance & customs formalities",
