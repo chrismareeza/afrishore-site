@@ -251,15 +251,14 @@
   // absolute; +~300ms breath = 3250.
   (function () {
     const SUNRISE_DELAY = 3250;
-    const reduce = window.matchMedia(
-      "(prefers-reduced-motion: reduce)"
-    ).matches;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      // Motion-sensitive users: present the brightened end-state from
+      // the start — no delayed jump, no animation.
+      gsap.set("#hero-tint", { opacity: 0 });
+      gsap.set("#hero-bg", { filter: "brightness(1.18)" });
+      return;
+    }
     const sunrise = () => {
-      if (reduce) {
-        gsap.set("#hero-tint", { opacity: 0 });
-        gsap.set("#hero-bg", { filter: "brightness(1.18)" });
-        return;
-      }
       gsap.to("#hero-tint", { opacity: 0, duration: 2.6, ease: "power2.inOut" });
       gsap.fromTo(
         "#hero-bg",
