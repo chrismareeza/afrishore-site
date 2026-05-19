@@ -22,10 +22,19 @@ lockstep.
 
 | Office | GBP exists? | Listed name now | Site-side binding done | Your actions |
 |---|---|---|---|---|
-| **Walvis Bay** | ✅ | "Afrishore Logistics Base" | geo ✅ · sameAs ✅ · Maps link ✅ | Rename → **"Afrishore"**, set website, confirm address/phone/categories |
-| **Cape Town** | ✅ | "Afrishore Cape Town" | geo ✅ · sameAs ✅ · Maps link ✅ · phone ✅ | **SPECCED 2026-05-19** — rename → "Afrishore", set website/categories/description/services; address confirmed, phone `+27 87 092 0949` (site matched) |
-| **Mossel Bay** | ✅ | "Afrishore Head Office" | geo ⚠ re-bind to new pin · sameAs ⚠ · Maps link ⚠ | Rename → **"Afrishore"**, **address → 58 Bland St NOW + re-verify**, set website, **send new Maps link** |
-| **Durban** | ❌ none | — | NAP/schema ready · geo placeholder · no sameAs/Maps yet | **SPECCED 2026-05-19** — create from scratch (name/address/phone `+27 79 695 9816`/website/categories/description/services), verify, **then send me the Maps link** to bind geo+sameAs |
+| **Walvis Bay** | ✅ | → "Afrishore" | geo ✅ · sameAs ✅ · Maps link ✅ | **GBP DONE 2026-05-19.** Site bound; address unchanged — complete. |
+| **Cape Town** | ✅ | → "Afrishore" | geo ✅ · sameAs ✅ · Maps link ✅ · phone ✅ | **GBP DONE 2026-05-19.** Site bound; address unchanged; phone `+27 87 092 0949` matched — complete. |
+| **Mossel Bay** | ✅ | → "Afrishore" | ⚠ geo/sameAs/Maps need re-bind to NEW pin | **GBP DONE 2026-05-19** (address moved → 58 Bland St). **ACTION: send the new resolved Maps short link** so the site geo/sameAs/Maps link can be re-pointed to the new pin. |
+| **Durban** | ✅ created | "Afrishore" | ⚠ geo placeholder · no sameAs/Maps yet | **GBP DONE 2026-05-19** (created from scratch, `+27 79 695 9816`). **ACTION: send the resolved Maps short link** so the site geo/sameAs/Maps link can be bound. |
+
+> **GBP cards: ALL FOUR ACTIONED (2026-05-19)** — names → "Afrishore",
+> categories/description/services/website/phones set per this plan.
+> Site "Our Offices" section + per-office schema phones aligned.
+> **Only remaining step:** the client sends the **Mossel Bay (new
+> pin, post-move)** and **Durban (new listing)** Maps short links →
+> site geo/`sameAs`/"View on Google Maps" re-bound + redeployed.
+> Cape Town & Walvis Bay are fully complete (already bound, address
+> unchanged).
 
 "Site-side binding done" = the LocalBusiness schema geo now matches the
 real GBP pin, `sameAs` points at the GBP, and the port page shows a
@@ -145,8 +154,13 @@ real GBP pin, `sameAs` points at the GBP, and the port page shows a
 
 ---
 
-## 1. Walvis Bay  *(existing GBP — edit)*
+## 1. Walvis Bay  *(existing GBP — DONE 2026-05-19)*
 
+- **STATUS: COMPLETE.** GBP renamed to "Afrishore"; categories,
+  description, services, website set. Address unchanged from the site
+  and site already bound (geo/sameAs/Maps link), phone is the local
+  Namibian number `+264 81 767 3069` (already on site + #walvis-bay
+  schema). No further action either side.
 - **Rename to:** `Afrishore` (trading name — same as all branches).
   "Afrishore Logistics Pty Ltd" is the Namibian registration entity and
   is held in schema as `legalName`, NOT the GBP name. Site already says
