@@ -45,7 +45,7 @@ const webp = (p: string) => p.replace(/\.jpe?g$/i, ".webp");
 
 const heroAltText =
   port.heroAlt ||
-  `Afrishore ship, vessel and rig agent — Port of ${port.portName}, ${port.country}`;
+  `Afrishore vessel and rig agent — Port of ${port.portName}, ${port.country}`;
 
 const heroAbsolute = port.heroImage
   ? new URL(port.heroImage, siteUrl).toString()
@@ -58,12 +58,12 @@ const heroAbsolute = port.heroImage
 const serviceSchema: Record<string, unknown> = {
   "@type": "Service",
   "@id": `${pageUrl}#service`,
-  "name": `Ship, Vessel & Rig Agent — Port of ${port.portName}`,
-  "serviceType": "Ship & Rig Agency",
+  "name": `Vessel & Rig Agent — Port of ${port.portName}`,
+  "serviceType": "Vessel & Rig Agency",
   "description": port.metaDescription,
   "url": pageUrl,
   "provider": { "@id": `${siteUrl}/#organization` },
-  // Port pages are spokes of the Ship, Vessel & Rig Agency pillar —
+  // Port pages are spokes of the Vessel & Rig Agency pillar —
   // isPartOf ties each to that vertical's Service node in the global
   // @graph (topical cluster signal; the page is agency-optimised).
   "isPartOf": { "@id": `${siteUrl}/#service-ship-rig-agency` },
@@ -79,7 +79,7 @@ if (port.office) {
 
 const breadcrumb = [
   { name: "Home", item: "/" },
-  { name: "Ship, Vessel & Rig Agency", item: "/services/ship-rig-agency" },
+  { name: "Vessel & Rig Agency", item: "/services/ship-rig-agency" },
   { name: `Port of ${port.portName}`, item: `/ports/${port.slug}` },
 ];
 ---
@@ -103,11 +103,11 @@ const breadcrumb = [
           class="inline-flex items-center gap-2 text-sm text-mute hover:text-gold transition-colors mb-10"
         >
           <span aria-hidden="true">←</span>
-          Ship, Vessel & Rig Agency
+          Vessel & Rig Agency
         </a>
 
         <div class="text-xs uppercase tracking-[0.2em] text-gold font-semibold mb-6">
-          Ship, Vessel & Rig Agency · {port.country}
+          Vessel & Rig Agency · {port.country}
         </div>
 
         <h1 class="text-4xl md:text-5xl lg:text-6xl text-cream leading-[1.1] tracking-tight mb-5">

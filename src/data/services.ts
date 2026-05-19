@@ -17,7 +17,7 @@ export interface ServicePage {
   schemaServiceType: string;      // schema.org Service.serviceType
   intro: string[];                // body paragraphs (semantic, keyword-rich)
   scope: string[];                // "What we handle" detailed list
-  vesselTypes?: string[];         // ship & rig agency only
+  vesselTypes?: string[];         // vessel & rig agency only
   ports: string[];                // ports this service covers
   heroImage?: string;             // /public path; gradient fallback if absent
   heroAlt?: string;               // precise hero alt (else a generated default)
@@ -33,16 +33,16 @@ export const servicePages: ServicePage[] = [
   {
     slug: "ship-rig-agency",
     serviceType: "ship-rig-agency",
-    name: "Ship & Rig Agency",
+    name: "Vessel & Rig Agency",
     metaTitle:
-      "Ship, Vessel & Rig Agency | Namibia, South Africa & Mozambique | Afrishore",
+      "Vessel & Rig Agency | Namibia, South Africa & Mozambique | Afrishore",
     metaDescription:
-      "Afrishore is a licensed ship, vessel and rig agency in South Africa, Namibia and Mozambique — port clearance, berth scheduling, immigration, husbandry and crew rotation for rigs, drillships, OSVs, PSVs, tankers and FPSOs at Walvis Bay, Cape Town, Durban, Mossel Bay, Saldanha and Lüderitz.",
-    h1: "Ship, Vessel & Rig Agency",
+      "Afrishore is a licensed vessel and rig agency in South Africa, Namibia and Mozambique — port clearance, berth scheduling, immigration, husbandry and crew rotation for rigs, drillships, OSVs, PSVs, tankers and FPSOs at Walvis Bay, Cape Town, Durban, Mossel Bay, Saldanha and Lüderitz.",
+    h1: "Vessel & Rig Agency",
     geoSub: "Maritime agency covering Namibia, South Africa & Mozambique",
-    schemaServiceType: "Ship & Rig Agency",
+    schemaServiceType: "Vessel & Rig Agency",
     intro: [
-      "Afrishore holds its own port agency licences in and at Walvis Bay, Lüderitz, Saldanha, Cape Town, Mossel Bay and Durban with extensive logistical experience in the ports of Gqeberha, Coega and Pemba in addition. Afrishore operates as a full ship, vessel and rig agency for rigs, drillships, semi-submersibles, OSVs, PSVs, AHTS, tankers, FPSOs and passenger liners. From a single accountable point of contact, every call is cleared and operational on arrival for marine assets in transit or temporarily imported for operations.",
+      "Afrishore holds its own port agency licences in and at Walvis Bay, Lüderitz, Saldanha, Cape Town, Mossel Bay and Durban with extensive logistical experience in the ports of Gqeberha, Coega and Pemba in addition. Afrishore operates as a full vessel and rig agency for rigs, drillships, semi-submersibles, OSVs, PSVs, AHTS, tankers, FPSOs and passenger liners. From a single accountable point of contact, every call is cleared and operational on arrival for marine assets in transit or temporarily imported for operations.",
       "Vessel and rig agency in this region is unforgiving: tight berthing windows, complex immigration for international crews, customs and classification-society deadlines and weather that does not wait. Afrishore's embedded teams, permanently on-call across the Southern African coast, handle port clearance, berth scheduling and port-authority liaison, immigration compliance, dry docking and repairs coordination, bunkering arrangements, procurement, provisions supply and a technical support network and full husbandry, so the master, vessel/rig management and the operator deal with one agent rather than a chain of subcontractors.",
       "On campaigns including the TotalEnergies Brulpadda discovery and the Deepsea Mira and Deepsea Bollsta drilling programmes, Afrishore's rig agency ran alongside supply-base, integrated-logistics and crew operations from the same shore base. That integration, not a single service in isolation, is what keeps offshore schedules intact.",
     ],
@@ -82,7 +82,7 @@ export const servicePages: ServicePage[] = [
     ],
     heroImage: "/images/services/ship-rig-agency-hero.jpg",
     heroAlt:
-      "Aerial view of the Port of Mossel Bay, South Africa — offshore supply vessels alongside the breakwater quay where Afrishore provides ship, vessel and rig agency services",
+      "Aerial view of the Port of Mossel Bay, South Africa — offshore supply vessels alongside the breakwater quay where Afrishore provides vessel and rig agency services",
     secondaryImage: {
       src: "/images/services/ship-rig-agency-vessel.jpg",
       alt: "Pacific Greylag offshore supply vessel alongside in the Port of Cape Town with Table Mountain behind — Afrishore vessel and rig agency, South Africa",
@@ -104,7 +104,7 @@ export const servicePages: ServicePage[] = [
     intro: [
       "Afrishore operates turnkey offshore supply bases for drilling, renewable and subsea campaigns across Namibia, South Africa & Mozambique. Permanently embedded inside the Port of Walvis Bay's Oil & Gas Section and licensed across the Southern African coast, Afrishore provides the full shore-side operations an operator, rig or vessel needs to stay on schedule offshore.",
       "Running a supply base is the operational core: rigging, cranage and abnormal trucking, warehousing and laydown, temporary importation and customs clearance, project cargo handling, QHSE implementation, waste management and materials management with full reporting, all sequenced to the campaign clock. Afrishore has delivered this from inception to the Deepsea Mira and Deepsea Bollsta Special Periodic Surveys and continuous drilling, the TotalEnergies Brulpadda and Luiperd campaigns, Petronas Rovuma Basin campaign and the Eco Atlantic Gazania-1 programme.",
-      "Because the supply base runs alongside Afrishore's ship and rig agency, integrated logistics and crew services from the same point of accountability, operators get one coordinated shore operation instead of fragmented logistics and supplier chains.",
+      "Because the supply base runs alongside Afrishore's vessel and rig agency, integrated logistics and crew services from the same point of accountability, operators get one coordinated shore operation instead of fragmented logistics and supplier chains.",
     ],
     scope: [
       "Base activation & operational asset provisioning",

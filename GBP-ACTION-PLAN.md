@@ -71,7 +71,7 @@ real GBP pin, `sameAs` points at the GBP, and the port page shows a
      than "Shipping service" surfaces for "marine"/"maritime", prefer
      it. Same primary + secondaries on all four GBPs.
    - Compensate for the missing category in the **business description
-     + services**: explicitly state "ship, vessel & rig agency, port
+     + services**: explicitly state "vessel & rig agency, port
      agency, port clearance, husbandry, offshore supply base, customs &
      freight forwarding" — Google reads these as relevance signals.
    - **CONFIRMED SET (2026-05-19) — apply identically to all 4 GBPs:**
@@ -101,7 +101,7 @@ real GBP pin, `sameAs` points at the GBP, and the port page shows a
    "best/#1" superlatives, no HTML** — Google rejects those). Same
    text per branch, swapping only the location clause:
    - **Walvis Bay:** *Afrishore is an integrated marine logistics
-     company and licensed ship, vessel and rig agent at the Port of
+     company and licensed vessel and rig agent at the Port of
      Walvis Bay, Namibia, embedded in the port's Oil & Gas Section.
      Services include port agency and clearance, customs and
      immigration, husbandry, crew changes and visa support, offshore
@@ -202,7 +202,7 @@ Create at business.google.com → "Add business". Enter:
   category exists in GBP.)
 - **Website:** `https://www.afrishore.co/ports/durban`
 - **Service area:** Port of Durban + KwaZulu-Natal coast
-- **Description:** licensed ship, vessel & rig agent at the Port of
+- **Description:** licensed vessel & rig agent at the Port of
   Durban — port clearance, immigration, husbandry, dry docking, project
   cargo. Part of the Afrishore licensed network across SA, Namibia &
   Mozambique.

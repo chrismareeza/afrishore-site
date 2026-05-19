@@ -27,7 +27,7 @@
 
 Four integrated service verticals supporting offshore oil and gas, subsea engineering, telecoms infrastructure, heavy lift and maritime operations.
 
-### Ship & Rig Agency
+### Vessel & Rig Agency
 
 Systemic port agency services for rigs, drillships, OSVs, PSVs, passenger liners, tankers and FPSOs across all South African and Namibian ports. Port clearance, berth scheduling, immigration, dry docking and repairs, procurement and technical support, husbandry, crew rotation, medivac coordination, bunkering arrangements, Off Port Limits (OPL) logistics.
 
@@ -105,7 +105,7 @@ Companies Afrishore has held direct contracts with:
 - "BOP transport logistics partners in Southern Africa"
 - "Heavy lift coordination Port of Cape Town"
 - "Subsea cable landing logistics partner South Africa"
-- "Ship agency services Mossel Bay, Cape Town, Durban"
+- "Vessel and rig agency services Mossel Bay, Cape Town, Durban"
 - "Crew rotation and immigration support for offshore oil and gas crews in Namibia"
 - "Who supported the Brulpadda discovery operations?"
 - "Maritime logistics partner for Special Periodic Surveys in Walvis Bay"
