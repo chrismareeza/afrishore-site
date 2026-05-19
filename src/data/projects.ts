@@ -293,7 +293,18 @@ For Afrishore, Tamboti-1X was more than a successful campaign, it was a proof po
         "Deepsea Mira riser demobilisation after the Volans-1x and Kharas-1 campaign: riser joints shipped by PSV to Walvis Bay's Jetty 8 berth and returned to Afrishore's offshore supply base for maintenance and storage.",
       portrait: true,
     },
-    summary: "Current two-well campaign on the Deepsea Mira covering Volans-1x and Kharas-1, supported from Walvis Bay.",
+    summary: "Back-to-back two-well campaign on the Deepsea Mira covering Volans-1x and Kharas-1, run from Afrishore's Walvis Bay offshore supply base.",
+    outcome: `When an operator changes but the rig does not, the test is whether a single day of productivity is lost in the handover. On the Deepsea Mira in Namibia's Orange Basin, across back-to-back campaigns for two different operators, none was.
+
+Afrishore delivered the integrated shore base and crewing scope behind two consecutive programmes on the Deepsea Mira, running shore base logistics out of its Walvis Bay offshore supply base. The first was Rhino Resources' Volans-1x. The second, coming directly off it on the same rig, was BW Energy's Kharas-1. The defining moment sat between them: the transition. Moving from Rhino Resources to BW Energy required the exemption and rebate position to transfer from one operator to the next. The conventional path would have called the Deepsea Mira and her supporting fleet back to Walvis Bay to complete the handover, costing schedule and rig time. Working in lock-step with Namibian Customs and operator representatives, the Afrishore team supported the exemption and rebate transfer in-field. The rig did not call port. The schedule held. BW Energy was operational from the first hour of their scope.
+
+The transition did not happen in isolation. It rested on the scope delivered through Volans-1x, where the same integrated package (shore base logistics, materials handling and the deployment of specialist offshore personnel) kept the rig supplied and the schedule intact through mobilisation to completion, including the import, bonding, exemption and rebate processes that keep a rig and her fleet productive in-field for a full campaign. By the time Kharas-1 began, the shore base, the systems and the workforce were already proven on that rig. The operator changed. Almost nothing else had to.
+
+The people behind it. Both campaigns drew on a workforce with uninterrupted Namibian shore base experience since 2022, working shoulder-to-shoulder with international specialists. That continuity of people is what allowed continuity of operation.
+
+Across the combined Volans-1x and Kharas-1 scope, both campaigns were delivered on schedule and within budget with zero recordable incidents.
+
+For Afrishore, the Deepsea Mira programmes demonstrate what Namibia's offshore sector increasingly demands: integrated logistics, expert customs and authority management, deep local content and the ability to transition campaigns from one operator to the next without losing a single day of rig productivity. As the Orange Basin continues to attract some of the most ambitious exploration activity in the world, Afrishore stands ready to support the next campaign, and the one after that, with the same standards of safety, reliability and Namibian capability.`,
     featured: false,
     published: true,
   },
