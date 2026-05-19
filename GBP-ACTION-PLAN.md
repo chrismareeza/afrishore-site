@@ -98,27 +98,26 @@ real GBP pin, `sameAs` points at the GBP, and the port page shows a
 7. **Photos:** add real photos to each profile (exterior/office, quay,
    operations, team). You have plenty from the case studies.
 8. **Business description** (≤750 chars; **no URLs, no phone, no
-   "best/#1" superlatives, no HTML** — Google rejects those). Same
-   text per branch, swapping only the location clause:
-   - **Walvis Bay:** *Afrishore is an integrated marine logistics
-     company and licensed vessel and rig agent at the Port of
-     Walvis Bay, Namibia, embedded in the port's Oil & Gas Section.
-     Services include port agency and clearance, customs and
-     immigration, husbandry, crew changes and visa support, offshore
-     supply base operations, rigging, project and abnormal cargo,
-     bunkering, and freight forwarding for rigs, drillships, OSVs,
-     PSVs, AHTS, tankers and FPSOs. Operating across Namibia, South
-     Africa and Mozambique since 2010 and ISO 9001 certified,
-     Afrishore supports deepwater exploration in the Orange Basin and
-     the wider Sub-Saharan offshore sector — one accountable partner
-     from pre-arrival to demobilisation.*
-   - **Cape Town:** swap clause → "…at the Port of Cape Town, South
-     Africa, with an office in Woodstock…" and "across South Africa,
-     Namibia and Mozambique".
-   - **Mossel Bay:** "…at the Port of Mossel Bay, South Africa (head
-     office)…".
-   - **Durban:** "…at the Port of Durban, South Africa, with an office
-     in Yellowwood Park…".
+   "best/#1" superlatives, no HTML** — Google rejects those).
+   **Canonical base = the FINAL Mossel Bay description in §3**
+   (client-approved 2026-05-19, 742/750). Use it on every branch,
+   swapping only the marked clauses:
+   - **Location clause** ("…licensed vessel and rig agent at the Port
+     of Mossel Bay, South Africa.") becomes:
+     - **Walvis Bay:** "…at the Port of Walvis Bay, Namibia, embedded
+       in the port's Oil & Gas Section." (add **FPSOs** to the
+       vessel list; lead "Operating across **Namibia, South Africa**
+       and Mozambique").
+     - **Cape Town:** "…at the Port of Cape Town, South Africa, with
+       an office in Woodstock."
+     - **Durban:** "…at the Port of Durban, South Africa, with an
+       office in Yellowwood Park."
+   - **Block 11B/12B sentence** ("Mossel Bay has hosted the shore
+     base for South Africa's Block 11B/12B (Brulpadda and Luiperd)
+     gas play.") is **Mossel-Bay-specific** — drop it on the other
+     three branches (re-check the 750-char budget after the swap).
+   - Keep everything else identical so the brand reads consistently
+     across all four listings.
 9. **Services field** (high value — carries the terms the category
    cannot): Port agency · Port & customs clearance · Immigration &
    crew change · Husbandry · Offshore supply base · Rigging, cranage &
@@ -196,6 +195,23 @@ real GBP pin, `sameAs` points at the GBP, and the port page shows a
   verified pin and redeployed.
 - **Categories:** per rule 3 (primary `Shipping service`; no "Ship Agent" category exists).
 - **Website field:** `https://www.afrishore.co/ports/mossel-bay`
+- **Description — FINAL (RESOLVED 2026-05-19, 742/750 chars, verbatim):**
+  > Afrishore is an integrated marine logistics company and licensed
+  > vessel and rig agent at the Port of Mossel Bay, South Africa.
+  > Services include port agency and clearance, customs and
+  > immigration, husbandry, crew changes and visa support, offshore
+  > supply base operations, rigging, project and abnormal cargo,
+  > bunkering, procurement, provisions supply and freight forwarding
+  > for rigs, drillships, OSVs, PSVs, AHTS and tankers. Mossel Bay
+  > has hosted the shore base for South Africa's Block 11B/12B
+  > (Brulpadda and Luiperd) gas play. Operating across South Africa,
+  > Namibia and Mozambique since 2010 and ISO 9001 certified,
+  > Afrishore is one accountable partner from pre-arrival to
+  > demobilisation for project, transit and discharge vessels and
+  > rigs.
+  >
+  > This is the new canonical description base — see rule 8 for the
+  > per-branch clause swaps for Walvis Bay / Cape Town / Durban.
 
 ## 4. Durban  *(no GBP — create from scratch)*
 
