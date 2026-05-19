@@ -18,6 +18,11 @@ interface Props {
 
 const { port } = Astro.props;
 
+// Per-office phone overrides the central number (e.g. Walvis Bay's
+// local Namibian line); licence-only ports use the central number.
+const phoneE164 = port.office?.phoneE164 ?? portContact.phoneE164;
+const phoneDisplay = port.office?.phoneDisplay ?? portContact.phoneDisplay;
+
 const siteUrl = "https://www.afrishore.co";
 const pageUrl = `${siteUrl}/ports/${port.slug}`;
 
@@ -233,10 +238,10 @@ const breadcrumb = [
 
             <div class="space-y-1.5 text-sm border-t border-line pt-4">
               <a
-                href={`tel:${portContact.phoneE164}`}
+                href={`tel:${phoneE164}`}
                 class="block text-gold hover:text-yellow transition-colors"
               >
-                {portContact.phoneDisplay}
+                {phoneDisplay}
               </a>
               <a
                 href={`mailto:${portContact.email}?subject=${encodeURIComponent(`Afrishore — ${port.portName} enquiry`)}`}

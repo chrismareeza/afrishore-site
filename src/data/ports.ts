@@ -27,6 +27,8 @@ export interface PortOffice {
   addressCountry: string;    // ISO-2
   geo: { lat: number; lng: number };
   mapsUrl?: string;          // canonical Google Business Profile / Maps link
+  phoneDisplay?: string;     // per-office number (else the central one)
+  phoneE164?: string;        // tel: form of the above
 }
 
 export interface PortPage {
@@ -94,11 +96,16 @@ export const ports: PortPage[] = [
     office: {
       businessName: "Afrishore",
       localBusinessId: "#walvis-bay",
+      // No civic street address — sited in the port's Oil & Gas Section.
+      // Google Plus Code 2FRM+HW Walvis Bay; precise location is the
+      // geo coords below + the Maps link.
       streetAddress: "Oil & Gas Section, Port of Walvis Bay",
       addressLocality: "Walvis Bay",
       addressCountry: "NA",
       geo: { lat: -22.9585384, lng: 14.4848436 },
       mapsUrl: "https://maps.app.goo.gl/rrigVze54LhREuQ3A",
+      phoneDisplay: "+264 81 767 3069",
+      phoneE164: "+264817673069",
     },
   },
   {
