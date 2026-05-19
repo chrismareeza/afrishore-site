@@ -24,7 +24,7 @@ lockstep.
 |---|---|---|---|---|
 | **Walvis Bay** | ✅ | "Afrishore Logistics Base" | geo ✅ · sameAs ✅ · Maps link ✅ | Rename → **"Afrishore"**, set website, confirm address/phone/categories |
 | **Cape Town** | ✅ | "Afrishore Cape Town" | geo ✅ · sameAs ✅ · Maps link ✅ | Rename → **"Afrishore"**, set website, confirm address/phone/categories |
-| **Mossel Bay** | ✅ | "Afrishore Head Office" | geo ✅ · sameAs ✅ · Maps link ✅ | Rename → **"Afrishore"**, **address → 58 Bland St by 1 Aug**, set website |
+| **Mossel Bay** | ✅ | "Afrishore Head Office" | geo ⚠ re-bind to new pin · sameAs ⚠ · Maps link ⚠ | Rename → **"Afrishore"**, **address → 58 Bland St NOW + re-verify**, set website, **send new Maps link** |
 | **Durban** | ❌ none | — | done when GBP exists | **Create from scratch**, then send me the Maps link |
 
 "Site-side binding done" = the LocalBusiness schema geo now matches the
@@ -177,16 +177,25 @@ real GBP pin, `sameAs` points at the GBP, and the port page shows a
 - **Name:** rename to `Afrishore` (drop "Head Office" — it's a
   descriptor, highest revert risk, zero SEO value). Site already says
   "Afrishore".
-- **Address — IMPORTANT:** office moves to **58 Bland Street, Mossel
-  Bay, Western Cape, South Africa by 1 August**. The **site already
-  shows 58 Bland Street**. Update the GBP address to 58 Bland Street
-  **on/around 1 August** (when you physically move / can receive the
-  Google verification postcard there). Until then there is a deliberate,
-  temporary GBP↔site address mismatch — that is acceptable short-term;
-  do **not** change the site back.
+- **Address — RESOLVED (2026-05-19):** the move to **58 Bland Street,
+  Mossel Bay, Western Cape, South Africa** has happened early
+  (user-confirmed they can verify there now). Set the GBP address to
+  **58 Bland Street** immediately and **re-verify** (postcard/phone/
+  video). The **site already shows 58 Bland Street**, so once the GBP
+  is updated the addresses are in lockstep — the temporary mismatch is
+  closed. Do **not** change the site.
+- **Phone — RESOLVED:** `+27 44 691 3218` (central number, same as the
+  site). No change either side.
+- **⚠ Re-bind needed after re-verification:** changing the address
+  moves the GBP pin, so the site's on-file Mossel Bay geo
+  (`-34.1841336, 22.1474263`), `sameAs` and Maps link
+  (`maps.app.goo.gl/oZZ7X5m96RPtTNUA6`) were bound to the **old**
+  pin and are now stale. **After the GBP re-verifies at 58 Bland
+  Street, send the new resolved Maps short link** — the site geo +
+  `sameAs` + "View on Google Maps" link will be re-pointed to the new
+  verified pin and redeployed.
 - **Categories:** per rule 3 (primary `Shipping service`; no "Ship Agent" category exists).
 - **Website field:** `https://www.afrishore.co/ports/mossel-bay`
-- Site already bound (geo, `sameAs`, Maps link).
 
 ## 4. Durban  *(no GBP — create from scratch)*
 
@@ -227,6 +236,9 @@ Create at business.google.com → "Add business". Enter:
 2. **Phone strategy:** single SA number everywhere, or local numbers per
    country/city (recommended for Walvis Bay at least). Tell me the final
    numbers per office and I'll match the site.
+   - **Mossel Bay — RESOLVED (2026-05-19):** `+27 44 691 3218` (central
+     SA number, same as the site). Walvis Bay still uses its local
+     Namibian number; Cape Town / Durban still open.
 3. **Exact street addresses & categories:** confirm each against the
    GBP/your records so site and GBP are identical.
 
