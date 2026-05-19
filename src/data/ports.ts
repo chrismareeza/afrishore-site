@@ -222,6 +222,12 @@ export const ports: PortPage[] = [
       "Offshore mobilisation / demobilisation",
     ],
     vesselTypes: VESSEL_TYPES,
+    secondaryImage: {
+      src: "/images/ports/saldanha-port.jpg",
+      alt: "Operations vantage over Saldanha Bay, South Africa at last light — vessel-tracking and electronic-chart monitors with the bay, moored craft and headland beyond, where Afrishore coordinates west-coast port calls",
+      caption:
+        "Looking out over Saldanha Bay at last light from the operations desk — live vessel tracking and electronic charts keeping calls coordinated. Saldanha runs alongside Afrishore's Cape Town office, giving operators one accountable agent across the South African west coast.",
+    },
   },
   {
     slug: "mossel-bay",
