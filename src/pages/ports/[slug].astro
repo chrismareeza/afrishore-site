@@ -152,6 +152,30 @@ const breadcrumb = [
             ))}
           </div>
 
+          {port.secondaryImage && (
+            <figure class={port.secondaryImage.portrait ? "space-y-3 max-w-md mx-auto" : "space-y-3"}>
+              <div
+                class={`${port.secondaryImage.portrait ? "aspect-[3/4]" : "aspect-[3/2]"} w-full overflow-hidden rounded-sm border border-line relative`}
+                style={`background: ${placeholderBg};`}
+              >
+                <picture>
+                  <source srcset={webp(port.secondaryImage.src)} type="image/webp" />
+                  <img
+                    src={port.secondaryImage.src}
+                    alt={port.secondaryImage.alt}
+                    class="absolute inset-0 w-full h-full object-cover"
+                    loading="lazy"
+                    width={port.secondaryImage.portrait ? 1200 : 1920}
+                    height={port.secondaryImage.portrait ? 1600 : 1440}
+                  />
+                </picture>
+              </div>
+              <figcaption class="text-sm text-faint leading-relaxed">
+                {port.secondaryImage.caption}
+              </figcaption>
+            </figure>
+          )}
+
           <div>
             <h2 class="text-xs uppercase tracking-[0.2em] text-gold font-semibold mb-5">
               What we handle at {port.portName}

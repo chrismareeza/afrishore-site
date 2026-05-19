@@ -47,6 +47,12 @@ export interface PortPage {
   office?: PortOffice;       // present when kind === "office"
   heroImage?: string;        // optional; gradient fallback if absent
   heroAlt?: string;
+  secondaryImage?: {         // optional in-body captioned photo
+    src: string;
+    alt: string;
+    caption: string;
+    portrait?: boolean;
+  };
 }
 
 const PHONE_DISPLAY = "+27 44 691 3218";
@@ -94,6 +100,16 @@ export const ports: PortPage[] = [
       "Mobilisation / demobilisation",
     ],
     vesselTypes: VESSEL_TYPES,
+    heroImage: "/images/ports/walvis-bay-hero.jpg",
+    heroAlt:
+      "Riser joints laid down with a mobile crane on the port apron at the Port of Walvis Bay, Namibia — Afrishore offshore supply base and ship & rig agency",
+    secondaryImage: {
+      src: "/images/ports/walvis-bay-base.jpg",
+      alt: "Afrishore's Walvis Bay logistics base — mobile crane and rigging spread handling rig tubulars on the Port of Walvis Bay apron, Namibia",
+      caption:
+        "Afrishore's Walvis Bay logistics base in operation — crane and rigging spread handling rig tubulars on the port apron, the commercial quay beyond. Turnkey shore-side support embedded in the Port of Walvis Bay's Oil & Gas Section.",
+      portrait: true,
+    },
     office: {
       businessName: "Afrishore",
       localBusinessId: "#walvis-bay",
