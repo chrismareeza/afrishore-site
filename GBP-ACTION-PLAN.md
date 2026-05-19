@@ -118,7 +118,7 @@ real GBP pin, `sameAs` points at the GBP, and the port page shows a
    crew change · Husbandry · Offshore supply base · Rigging, cranage &
    project cargo · Bunkering · Freight forwarding · Visa & work-permit
    support · Dry docking & repairs coordination ·
-   Mobilisation/demobilisation.
+   Mobilisation/demobilisation · OPL (Off Port Limits) logistics.
 10. **"More" attributes — skip almost all.** Accessibility, Amenities,
    Parking, Place-page attributes, Service options and Planning are
    consumer-venue attributes — N/A to a B2B port agency inside a
