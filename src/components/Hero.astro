@@ -22,14 +22,19 @@
     "
   ></div>
 
-  <!-- Dark vignette overlay (radial + stronger bottom gradient for text legibility) -->
+  <!-- Text-legibility gradient — CONSTANT. Keeps the headline / subhead
+       / CTAs readable over the photo; never animated. -->
   <div
     class="absolute inset-0 pointer-events-none"
-    style="
-      background:
-        radial-gradient(ellipse at center, transparent 20%, rgba(10,10,10,0.7) 100%),
-        linear-gradient(to top, rgba(10,10,10,0.97) 0%, rgba(10,10,10,0.88) 30%, rgba(10,10,10,0.6) 55%, rgba(10,10,10,0.25) 75%, rgba(10,10,10,0) 90%);
-    "
+    style="background: linear-gradient(to top, rgba(10,10,10,0.97) 0%, rgba(10,10,10,0.88) 30%, rgba(10,10,10,0.6) 55%, rgba(10,10,10,0.25) 75%, rgba(10,10,10,0) 90%);"
+  ></div>
+
+  <!-- Ambient scene tint (radial vignette). Starts at full strength,
+       then lifts ~50% after the headline ("sunrise") — see hero script. -->
+  <div
+    id="hero-tint"
+    class="absolute inset-0 pointer-events-none"
+    style="background: radial-gradient(ellipse at center, transparent 20%, rgba(10,10,10,0.7) 100%);"
   ></div>
 
   <!-- Subtle film grain (low opacity) — adds texture, hides JPEG banding -->
@@ -231,6 +236,39 @@
       document.addEventListener("DOMContentLoaded", () => setTimeout(start, 600));
     } else {
       setTimeout(start, 600);
+    }
+  })();
+
+  // ── "Sunrise" ──────────────────────────────────────────────────────
+  // After the "Global Clients." headline finishes resolving, the ambient
+  // radial tint lifts ~50% so the photo brightens — like dawn breaking.
+  // The separate text-legibility gradient is untouched, so the headline
+  // / CTAs stay readable. Timing math (from ready):
+  //   start() @ +600 · line-1 begins @ +950 · "Clients." word base
+  //   = 950 + 1×700 = 1650 · +STEP_DURATION×2 (350×2) ≈ resolves @ ~2350
+  //   → ~2950 absolute; +~300ms breath = 3250.
+  (function () {
+    const SUNRISE_DELAY = 3250;
+    const reduce = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    ).matches;
+    const sunrise = () => {
+      if (reduce) {
+        gsap.set("#hero-tint", { opacity: 0.5 }); // end-state, no motion
+      } else {
+        gsap.to("#hero-tint", {
+          opacity: 0.5,
+          duration: 2.4,
+          ease: "power2.inOut",
+        });
+      }
+    };
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", () =>
+        setTimeout(sunrise, SUNRISE_DELAY)
+      );
+    } else {
+      setTimeout(sunrise, SUNRISE_DELAY);
     }
   })();
 </script>
