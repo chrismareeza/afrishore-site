@@ -262,6 +262,11 @@ A first appointment is a test as much as a mandate. Afrishore operated the Mosse
     assetType: "rig",
     heroImage: "/images/projects/deepsea-mira-tamboti-1x.jpg",
     summary: "Continued Deepsea Mira drilling campaign on the Tamboti-1x well, with Afrishore providing full onshore logistics.",
+    outcome: `The TotalEnergies Tamboti-1X campaign marked another defining chapter in the unfolding story of Namibia's Orange Basin, and Afrishore was proud to play a notable role in its delivery. Building on the momentum of the basin's recent discoveries, the programme called for shore base logistics running simultaneously out of Walvis Bay and Lüderitz, paired with crewing capability that could match the pace, scale and technical complexity of a frontier deepwater operation. From day one we mobilised an integrated package of shore base logistics, materials handling and the deployment of specialist offshore personnel, engineered to keep the rig supplied, the schedule intact and the operation moving without compromise.
+
+What set Tamboti-1X apart was the rare combination of operational ambition and disciplined execution. The campaign was completed on schedule and within budget, underpinned by a safety record that speaks to the team's unwavering commitment to QHSE: zero recordable incidents across the entire duration of our scope in both locations. Behind those numbers stands a workforce we are particularly proud of: a high proportion of Namibian shore base personnel, developed through our local content and skills transfer programmes and now drawing on uninterrupted operational experience since 2022, working shoulder-to-shoulder with international specialists. It is tangible proof that world-class deepwater exploration and meaningful local participation are not competing objectives; they reinforce each other.
+
+For Afrishore, Tamboti-1X was more than a successful campaign, it was a proof point for the integrated logistics and crewing model we have built specifically for Namibia's offshore sector. As the Orange Basin continues to attract some of the most ambitious exploration activity in the world, we stand ready to support the next campaign, and the one after that, with the same standards of safety, reliability and Namibian capability.`,
     featured: false,
     published: true,
   },
