@@ -107,7 +107,7 @@ export const ports: PortPage[] = [
       "Riser joints laid down with a mobile crane on the port apron at the Port of Walvis Bay, Namibia — Afrishore offshore supply base and vessel & rig agency",
     secondaryImage: {
       src: "/images/ports/walvis-bay-base.jpg",
-      alt: "Afrishore's Walvis Bay logistics base — mobile crane and rigging spread handling rig tubulars on the Port of Walvis Bay apron, Namibia",
+      alt: "Afrishore's Walvis Bay logistics base – mobile crane and rigging spread handling rig tubulars on the Port of Walvis Bay apron, Namibia",
       caption:
         "Afrishore's Walvis Bay logistics base in operation – crane and rigging spread handling rig tubulars on the port apron, the commercial quay beyond. Turnkey shore-side support embedded in the Port of Walvis Bay's Oil & Gas Section.",
       portrait: true,
@@ -313,6 +313,9 @@ export const ports: PortPage[] = [
       "Mobilisation / demobilisation",
     ],
     vesselTypes: VESSEL_TYPES,
+    heroImage: "/images/ports/durban-hero.jpg",
+    heroAlt:
+      "The offshore support vessel Pacific Gosling alongside the quay at the Port of Durban, South Africa: Afrishore vessel and rig agency on the east coast",
     office: {
       businessName: "Afrishore",
       localBusinessId: "#durban",
