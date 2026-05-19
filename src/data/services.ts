@@ -55,6 +55,7 @@ export const servicePages: ServicePage[] = [
       "Procurement & technical support network",
       "Husbandry & owner's representation",
       "Medivac & emergency coordination",
+      "Off Port Limits (OPL) logistics",
       "Full mobilisation / demobilisation",
     ],
     vesselTypes: [
