@@ -120,13 +120,23 @@ real GBP pin, `sameAs` points at the GBP, and the port page shows a
    support · Dry docking & repairs coordination ·
    Mobilisation/demobilisation · OPL (Off Port Limits) logistics ·
    Procurement · Technical support.
-10. **"More" attributes — skip almost all.** Accessibility, Amenities,
-   Parking, Place-page attributes, Service options and Planning are
-   consumer-venue attributes — N/A to a B2B port agency inside a
-   secured port (no walk-in public) and zero ranking value; forcing
-   them looks odd. "From the business" only if a genuine ownership-
-   identity tag genuinely applies. Put the effort into
-   Description + Services + Photos + Reviews instead.
+   - **Where/how:** Edit profile → **Services** tab. Services sit
+     **under your categories** (not a separate list). Add each as a
+     **custom service** (no maritime presets exist) under the most
+     fitting category — most under `Shipping service`; customs under
+     `Customs broker`; freight under `Freight forwarding service`.
+     Exact mapping isn't critical; being listed is.
+   - Give **each custom service a ~1-line description** (real relevance
+     lever the category can't provide), e.g. *OPL logistics* → "Crew
+     changes, spares and supply delivered to vessels at anchorage off
+     port limits." Same set on all four GBPs.
+10. **"More" attributes — skip ALL of them.** Accessibility,
+   **Amenities**, Parking, **Place-page attributes**, Service options
+   and Planning are consumer-venue attributes — N/A to a B2B port
+   agency inside a secured port (no walk-in public) and zero ranking
+   value; forcing them looks odd. "From the business" only if a
+   genuine ownership-identity tag genuinely applies. Put the effort
+   into Category + Services + Description + Photos + Reviews instead.
 
 ---
 
