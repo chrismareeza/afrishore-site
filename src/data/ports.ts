@@ -157,12 +157,9 @@ export const ports: PortPage[] = [
     vesselTypes: VESSEL_TYPES,
     phoneDisplay: "+264 81 767 3069",
     phoneE164: "+264817673069",
-    secondaryImage: {
-      src: "/images/ports/luderitz-fugro-supporter.jpg",
-      alt: "The survey vessel Fugro Supporter alongside the quay at the Port of Lüderitz, Namibia: Afrishore port agency and quayside support for an Orange Basin survey campaign",
-      caption:
-        "The survey vessel Fugro Supporter alongside at the Port of Lüderitz: Afrishore providing port agency and quayside support for an Orange Basin survey campaign, coordinated from the Walvis Bay base.",
-    },
+    heroImage: "/images/ports/luderitz-fugro-supporter.jpg",
+    heroAlt:
+      "The survey vessel Fugro Supporter alongside the quay at the Port of Lüderitz, Namibia: Afrishore port agency and quayside support for an Orange Basin survey campaign",
   },
   {
     slug: "cape-town",
