@@ -74,6 +74,10 @@ real GBP pin, `sameAs` points at the GBP, and the port page shows a
      + services**: explicitly state "ship, vessel & rig agency, port
      agency, port clearance, husbandry, offshore supply base, customs &
      freight forwarding" — Google reads these as relevance signals.
+   - **CONFIRMED APPLIED (Walvis Bay, 2026-05-19):** primary
+     `Shipping service`; secondaries `Logistics service`, `Customs
+     broker`, `Freight forwarding service`. Use this exact set on
+     Cape Town, Mossel Bay and Durban too.
 4. **Phone:** the site uses `+27 44 691 3218` everywhere. Decide whether
    Walvis Bay (Namibia) should instead list a **local Namibian number**
    — a local number is a stronger local-trust signal. Whatever you
@@ -87,6 +91,41 @@ real GBP pin, `sameAs` points at the GBP, and the port page shows a
    lean on this; it's open ground.
 7. **Photos:** add real photos to each profile (exterior/office, quay,
    operations, team). You have plenty from the case studies.
+8. **Business description** (≤750 chars; **no URLs, no phone, no
+   "best/#1" superlatives, no HTML** — Google rejects those). Same
+   text per branch, swapping only the location clause:
+   - **Walvis Bay:** *Afrishore is an integrated marine logistics
+     company and licensed ship, vessel and rig agent at the Port of
+     Walvis Bay, Namibia, embedded in the port's Oil & Gas Section.
+     Services include port agency and clearance, customs and
+     immigration, husbandry, crew changes and visa support, offshore
+     supply base operations, rigging, project and abnormal cargo,
+     bunkering, and freight forwarding for rigs, drillships, OSVs,
+     PSVs, AHTS, tankers and FPSOs. Operating across Namibia, South
+     Africa and Mozambique since 2010 and ISO 9001 certified,
+     Afrishore supports deepwater exploration in the Orange Basin and
+     the wider Sub-Saharan offshore sector — one accountable partner
+     from pre-arrival to demobilisation.*
+   - **Cape Town:** swap clause → "…at the Port of Cape Town, South
+     Africa, with an office in Woodstock…" and "across South Africa,
+     Namibia and Mozambique".
+   - **Mossel Bay:** "…at the Port of Mossel Bay, South Africa (head
+     office)…".
+   - **Durban:** "…at the Port of Durban, South Africa, with an office
+     in Yellowwood Park…".
+9. **Services field** (high value — carries the terms the category
+   cannot): Port agency · Port & customs clearance · Immigration &
+   crew change · Husbandry · Offshore supply base · Rigging, cranage &
+   project cargo · Bunkering · Freight forwarding · Visa & work-permit
+   support · Dry docking & repairs coordination ·
+   Mobilisation/demobilisation.
+10. **"More" attributes — skip almost all.** Accessibility, Amenities,
+   Parking, Place-page attributes, Service options and Planning are
+   consumer-venue attributes — N/A to a B2B port agency inside a
+   secured port (no walk-in public) and zero ranking value; forcing
+   them looks odd. "From the business" only if a genuine ownership-
+   identity tag genuinely applies. Put the effort into
+   Description + Services + Photos + Reviews instead.
 
 ---
 
