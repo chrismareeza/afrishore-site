@@ -192,6 +192,8 @@ export const ports: PortPage[] = [
       addressCountry: "ZA",
       geo: { lat: -33.9280523, lng: 18.4369372 },
       mapsUrl: "https://maps.app.goo.gl/4mbkkrdewg3erXhA7",
+      phoneDisplay: "+27 87 092 0949",
+      phoneE164: "+27870920949",
     },
   },
   {

@@ -23,7 +23,7 @@ lockstep.
 | Office | GBP exists? | Listed name now | Site-side binding done | Your actions |
 |---|---|---|---|---|
 | **Walvis Bay** | ✅ | "Afrishore Logistics Base" | geo ✅ · sameAs ✅ · Maps link ✅ | Rename → **"Afrishore"**, set website, confirm address/phone/categories |
-| **Cape Town** | ✅ | "Afrishore Cape Town" | geo ✅ · sameAs ✅ · Maps link ✅ | Rename → **"Afrishore"**, set website, confirm address/phone/categories |
+| **Cape Town** | ✅ | "Afrishore Cape Town" | geo ✅ · sameAs ✅ · Maps link ✅ · phone ✅ | **SPECCED 2026-05-19** — rename → "Afrishore", set website/categories/description/services; address confirmed, phone `+27 87 092 0949` (site matched) |
 | **Mossel Bay** | ✅ | "Afrishore Head Office" | geo ⚠ re-bind to new pin · sameAs ⚠ · Maps link ⚠ | Rename → **"Afrishore"**, **address → 58 Bland St NOW + re-verify**, set website, **send new Maps link** |
 | **Durban** | ❌ none | — | done when GBP exists | **Create from scratch**, then send me the Maps link |
 
@@ -165,11 +165,31 @@ real GBP pin, `sameAs` points at the GBP, and the port page shows a
 - **Name:** set to `Afrishore` (the trading name — drop "Cape Town"
   from the listing name; the address carries the city). Site already
   says "Afrishore".
-- **Address:** confirm GBP = site:
+- **Address — CONFIRMED (2026-05-19):** GBP = site, exact match:
   `Unit 213, Buchanan Square, Woodstock, Cape Town, Western Cape, South Africa`.
+  No change either side.
+- **Phone — RESOLVED (2026-05-19):** `+27 87 092 0949` (Cape Town
+  local number). Site updated to match — `ports.ts` Cape Town office
+  `phoneDisplay`/`phoneE164` and the `#cape-town` LocalBusiness
+  `telephone` in BaseLayout now carry this number. GBP and site
+  identical.
 - **Categories:** per rule 3 (primary `Shipping service`; no "Ship Agent" category exists).
 - **Website field:** `https://www.afrishore.co/ports/cape-town`
-- Site already bound (geo, `sameAs`, Maps link).
+- **Description — derived from canonical base (Cape Town clause,
+  Block 11B/12B sentence dropped; 666/750, ready to paste):**
+  > Afrishore is an integrated marine logistics company and licensed
+  > vessel and rig agent at the Port of Cape Town, South Africa, with
+  > an office in Woodstock. Services include port agency and
+  > clearance, customs and immigration, husbandry, crew changes and
+  > visa support, offshore supply base operations, rigging, project
+  > and abnormal cargo, bunkering, procurement, provisions supply and
+  > freight forwarding for rigs, drillships, OSVs, PSVs, AHTS and
+  > tankers. Operating across South Africa, Namibia and Mozambique
+  > since 2010 and ISO 9001 certified, Afrishore is one accountable
+  > partner from pre-arrival to demobilisation for project, transit
+  > and discharge vessels and rigs.
+- Site already bound (geo, `sameAs`, Maps link) — address unchanged,
+  so no re-bind needed.
 
 ## 3. Mossel Bay  *(existing GBP — edit; HQ)*
 
@@ -261,8 +281,12 @@ Create at business.google.com → "Add business". Enter:
    country/city (recommended for Walvis Bay at least). Tell me the final
    numbers per office and I'll match the site.
    - **Mossel Bay — RESOLVED (2026-05-19):** `+27 44 691 3218` (central
-     SA number, same as the site). Walvis Bay still uses its local
-     Namibian number; Cape Town / Durban still open.
+     SA number, same as the site).
+   - **Cape Town — RESOLVED (2026-05-19):** `+27 87 092 0949` (Cape
+     Town local number; site matched in ports.ts + #cape-town schema).
+   - **Walvis Bay:** local Namibian number `+264 81 767 3069`.
+   - **Durban:** still open (default `+27 44 691 3218` unless a local
+     Durban number is provided at GBP-creation time).
 3. **Exact street addresses & categories:** confirm each against the
    GBP/your records so site and GBP are identical.
 
