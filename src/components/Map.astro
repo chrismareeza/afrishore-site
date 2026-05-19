@@ -34,7 +34,7 @@ const ports: Pin[] = [
 
 <section id="map" class="relative bg-base py-24 lg:py-32 overflow-hidden">
   <div class="max-w-7xl mx-auto px-6 lg:px-12">
-    <div class="max-w-3xl mb-16 space-y-6">
+    <div id="map-banner" class="max-w-3xl mb-16 space-y-6">
       <div data-anim="map-eyebrow" class="opacity-0 -translate-y-2">
         <span class="text-xs lg:text-sm font-semibold uppercase tracking-[0.25em] text-gold">
           Footprint
@@ -264,9 +264,14 @@ const ports: Pin[] = [
 
   // Coastline animates like a lit fuse — spark travels from Namibian top
   // to Mozambican top while the stroke draws in behind it.
+  // Ignites only once the scroll has reached the BOTTOM of the header
+  // banner (so it plays as the map itself comes into view, not while
+  // the banner is still arriving). "bottom 70%" = banner's bottom edge
+  // at 70% viewport height — viewport-relative, identical on desktop
+  // and mobile.
   ScrollTrigger.create({
-    trigger: "#coastline-path",
-    start: "top 80%",
+    trigger: "#map-banner",
+    start: "bottom 70%",
     once: true,
     onEnter: () => {
       const path = document.querySelector<SVGPathElement>("#coastline-path");
