@@ -57,9 +57,23 @@ real GBP pin, `sameAs` points at the GBP, and the port page shows a
    - Cape Town → `https://www.afrishore.co/ports/cape-town`
    - Mossel Bay → `https://www.afrishore.co/ports/mossel-bay`
    - Durban → `https://www.afrishore.co/ports/durban`
-3. **Primary category:** `Ship Agent`. **Secondary categories:**
-   `Logistics Service`, `Freight Forwarding Service`, `Marine Services`
-   (add `Customs Broker` if offered locally).
+3. **Categories.** GBP has **no "Ship Agent / Ship's Agency"
+   category** (known gap for maritime port agencies). Use the closest
+   available:
+   - **Primary:** `Shipping service` (closest defensible fit; better
+     than "Logistics service" for ship/vessel-agent intent).
+   - **Secondary** (add all that exist): `Logistics service`,
+     `Freight forwarding service`, `Customs broker`, `Transportation
+     service`, `Marine services`.
+   - **Never** use `Vehicle shipping agent` — that's auto-transport,
+     not a maritime ship's agent.
+   - The category box is search-as-you-type; if anything more specific
+     than "Shipping service" surfaces for "marine"/"maritime", prefer
+     it. Same primary + secondaries on all four GBPs.
+   - Compensate for the missing category in the **business description
+     + services**: explicitly state "ship, vessel & rig agency, port
+     agency, port clearance, husbandry, offshore supply base, customs &
+     freight forwarding" — Google reads these as relevance signals.
 4. **Phone:** the site uses `+27 44 691 3218` everywhere. Decide whether
    Walvis Bay (Namibia) should instead list a **local Namibian number**
    — a local number is a stronger local-trust signal. Whatever you
@@ -87,7 +101,7 @@ real GBP pin, `sameAs` points at the GBP, and the port page shows a
   real address differs, send me the correct one (I'll update the site to
   match — do **not** leave them different).
 - **Phone:** see rule 4 (SA number vs local Namibian number — decide).
-- **Primary category:** Ship Agent. Secondaries per rule 3.
+- **Categories:** per rule 3 (primary `Shipping service`; no "Ship Agent" category exists).
 - **Website field:** `https://www.afrishore.co/ports/walvis-bay`
 - Site already bound (geo corrected to your pin, `sameAs`, Maps link).
 
@@ -98,7 +112,7 @@ real GBP pin, `sameAs` points at the GBP, and the port page shows a
   says "Afrishore".
 - **Address:** confirm GBP = site:
   `Unit 213, Buchanan Square, Woodstock, Cape Town, Western Cape, South Africa`.
-- **Primary category:** Ship Agent. Secondaries per rule 3.
+- **Categories:** per rule 3 (primary `Shipping service`; no "Ship Agent" category exists).
 - **Website field:** `https://www.afrishore.co/ports/cape-town`
 - Site already bound (geo, `sameAs`, Maps link).
 
@@ -114,7 +128,7 @@ real GBP pin, `sameAs` points at the GBP, and the port page shows a
   Google verification postcard there). Until then there is a deliberate,
   temporary GBP↔site address mismatch — that is acceptable short-term;
   do **not** change the site back.
-- **Primary category:** Ship Agent. Secondaries per rule 3.
+- **Categories:** per rule 3 (primary `Shipping service`; no "Ship Agent" category exists).
 - **Website field:** `https://www.afrishore.co/ports/mossel-bay`
 - Site already bound (geo, `sameAs`, Maps link).
 
@@ -126,8 +140,10 @@ Create at business.google.com → "Add business". Enter:
   city). Site already says "Afrishore".
 - **Address:** `33 Wagtail Walk, Yellowwood Park, Durban, KwaZulu-Natal, South Africa`
 - **Phone:** `+27 44 691 3218` (or a Durban local number if you have one)
-- **Primary category:** Ship Agent · **Secondaries:** Logistics Service,
-  Freight Forwarding Service, Marine Services
+- **Categories:** per rule 3 — primary `Shipping service`; secondaries
+  `Logistics service`, `Freight forwarding service`, `Customs broker`,
+  `Transportation service`, `Marine services`. (No "Ship Agent"
+  category exists in GBP.)
 - **Website:** `https://www.afrishore.co/ports/durban`
 - **Service area:** Port of Durban + KwaZulu-Natal coast
 - **Description:** licensed ship, vessel & rig agent at the Port of
