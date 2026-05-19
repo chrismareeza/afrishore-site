@@ -25,7 +25,7 @@ lockstep.
 | **Walvis Bay** | ✅ | "Afrishore Logistics Base" | geo ✅ · sameAs ✅ · Maps link ✅ | Rename → **"Afrishore"**, set website, confirm address/phone/categories |
 | **Cape Town** | ✅ | "Afrishore Cape Town" | geo ✅ · sameAs ✅ · Maps link ✅ · phone ✅ | **SPECCED 2026-05-19** — rename → "Afrishore", set website/categories/description/services; address confirmed, phone `+27 87 092 0949` (site matched) |
 | **Mossel Bay** | ✅ | "Afrishore Head Office" | geo ⚠ re-bind to new pin · sameAs ⚠ · Maps link ⚠ | Rename → **"Afrishore"**, **address → 58 Bland St NOW + re-verify**, set website, **send new Maps link** |
-| **Durban** | ❌ none | — | done when GBP exists | **Create from scratch**, then send me the Maps link |
+| **Durban** | ❌ none | — | NAP/schema ready · geo placeholder · no sameAs/Maps yet | **SPECCED 2026-05-19** — create from scratch (name/address/phone `+27 79 695 9816`/website/categories/description/services), verify, **then send me the Maps link** to bind geo+sameAs |
 
 "Site-side binding done" = the LocalBusiness schema geo now matches the
 real GBP pin, `sameAs` points at the GBP, and the port page shows a
@@ -248,17 +248,31 @@ Create at business.google.com → "Add business". Enter:
 - **Name:** `Afrishore` (same as every branch; the address gives the
   city). Site already says "Afrishore".
 - **Address:** `33 Wagtail Walk, Yellowwood Park, Durban, KwaZulu-Natal, South Africa`
-- **Phone:** `+27 44 691 3218` (or a Durban local number if you have one)
-- **Categories:** per rule 3 — primary `Shipping service`; secondaries
-  `Logistics service`, `Freight forwarding service`, `Customs broker`,
-  `Transportation service`, `Marine services`. (No "Ship Agent"
-  category exists in GBP.)
+- **Phone — RESOLVED (2026-05-19):** `+27 79 695 9816` (Durban local
+  number). Site matched — `ports.ts` #durban office
+  `phoneDisplay`/`phoneE164` and the `#durban` LocalBusiness
+  `telephone` in BaseLayout now carry this number.
+- **Categories:** per rule 3 **CONFIRMED SET** — primary
+  `Shipping service`; secondaries `Logistics service`,
+  `Customs broker`, `Freight Forwarding Service`, `Visa Agent`,
+  `Port operating company`. (Identical to the other 3 GBPs. No "Ship
+  Agent" category exists in GBP.)
 - **Website:** `https://www.afrishore.co/ports/durban`
 - **Service area:** Port of Durban + KwaZulu-Natal coast
-- **Description:** licensed vessel & rig agent at the Port of
-  Durban — port clearance, immigration, husbandry, dry docking, project
-  cargo. Part of the Afrishore licensed network across SA, Namibia &
-  Mozambique.
+- **Description — derived from canonical base (Durban clause, Block
+  11B/12B sentence dropped; 669/750, ready to paste):**
+  > Afrishore is an integrated marine logistics company and licensed
+  > vessel and rig agent at the Port of Durban, South Africa, with an
+  > office in Yellowwood Park. Services include port agency and
+  > clearance, customs and immigration, husbandry, crew changes and
+  > visa support, offshore supply base operations, rigging, project
+  > and abnormal cargo, bunkering, procurement, provisions supply and
+  > freight forwarding for rigs, drillships, OSVs, PSVs, AHTS and
+  > tankers. Operating across South Africa, Namibia and Mozambique
+  > since 2010 and ISO 9001 certified, Afrishore is one accountable
+  > partner from pre-arrival to demobilisation for project, transit
+  > and discharge vessels and rigs.
+- **Services:** the same 14-item set as the other 3 GBPs (rule 9).
 - **Photos & hours:** add on creation.
 - **Verify** (postcard/phone/video).
 - **Then send me the Maps short link** — I'll bind the site (correct
@@ -285,8 +299,10 @@ Create at business.google.com → "Add business". Enter:
    - **Cape Town — RESOLVED (2026-05-19):** `+27 87 092 0949` (Cape
      Town local number; site matched in ports.ts + #cape-town schema).
    - **Walvis Bay:** local Namibian number `+264 81 767 3069`.
-   - **Durban:** still open (default `+27 44 691 3218` unless a local
-     Durban number is provided at GBP-creation time).
+   - **Durban — RESOLVED (2026-05-19):** `+27 79 695 9816` (Durban
+     local number; site matched in ports.ts + #durban schema).
+   - **All four offices now resolved.** Central `+27 44 691 3218`
+     remains the site-wide default/fallback for any non-office page.
 3. **Exact street addresses & categories:** confirm each against the
    GBP/your records so site and GBP are identical.
 

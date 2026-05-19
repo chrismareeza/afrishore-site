@@ -314,6 +314,8 @@ export const ports: PortPage[] = [
       addressRegion: "KwaZulu-Natal",
       addressCountry: "ZA",
       geo: { lat: -29.9249, lng: 30.9389 },
+      phoneDisplay: "+27 79 695 9816",
+      phoneE164: "+27796959816",
     },
   },
 ];
