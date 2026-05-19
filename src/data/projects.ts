@@ -261,6 +261,12 @@ A first appointment is a test as much as a mandate. Afrishore operated the Mosse
     vessel: "Deepsea Mira",
     assetType: "rig",
     heroImage: "/images/projects/deepsea-mira-tamboti-1x.jpg",
+    secondaryImage: {
+      src: "/images/projects/deepsea-mira-tamboti-1x-luderitz.jpg",
+      alt: "Offshore containers, drill tubulars and project cargo loading aboard a vessel at the Port of Lüderitz, Namibia, for the TotalEnergies Tamboti-1X campaign — Afrishore shore base logistics",
+      caption:
+        "Offshore containers (CCUs), drill tubulars and project cargo loading aboard at the Port of Lüderitz for the TotalEnergies Tamboti-1X campaign — one of two shore bases Afrishore ran simultaneously with Walvis Bay to keep the Deepsea Mira supplied.",
+    },
     summary: "Continued Deepsea Mira drilling campaign on the Tamboti-1x well, with Afrishore providing full onshore logistics.",
     outcome: `The TotalEnergies Tamboti-1X campaign marked another defining chapter in the unfolding story of Namibia's Orange Basin and Afrishore was proud to play a notable role in its delivery. Building on the momentum of the basin's recent discoveries, the programme called for Deepsea Mira's shore base logistics to run simultaneously out of Walvis Bay and Lüderitz, paired with crewing capability that could match the pace, scale and technical complexity of a frontier deepwater operation. From day one we mobilised an integrated package of shore base logistics, materials handling and the deployment of specialist offshore personnel, engineered to keep the rig supplied, the schedule intact and the operation moving without compromise.
 
