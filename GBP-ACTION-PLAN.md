@@ -25,7 +25,7 @@ lockstep.
 | **Walvis Bay** | ✅ | → "Afrishore" | geo ✅ · sameAs ✅ · Maps link ✅ | **GBP DONE 2026-05-19.** Site bound; address unchanged — complete. |
 | **Cape Town** | ✅ | → "Afrishore" | geo ✅ · sameAs ✅ · Maps link ✅ · phone ✅ | **GBP DONE 2026-05-19.** Site bound; address unchanged; phone `+27 87 092 0949` matched — complete. |
 | **Mossel Bay** | ✅ | → "Afrishore" | ⚠ geo/sameAs/Maps need re-bind to NEW pin | **GBP DONE 2026-05-19** (address moved → 58 Bland St). **ACTION: send the new resolved Maps short link** so the site geo/sameAs/Maps link can be re-pointed to the new pin. |
-| **Durban** | ✅ created | "Afrishore" | ⚠ geo placeholder · no sameAs/Maps yet | **GBP DONE 2026-05-19** (created from scratch, `+27 79 695 9816`). **ACTION: send the resolved Maps short link** so the site geo/sameAs/Maps link can be bound. |
+| **Durban** | ✅ created | "Afrishore" | sameAs ✅ · Maps link ✅ · ⚠ geo still placeholder | **GBP LIVE 2026-05-19.** `sameAs` + port-page Maps link bound to `share.google/xVkGsN7QUKWdDGqFN`. **ACTION: send exact pin lat/lng** (share.google link is JS-only — can't auto-extract) to finish the geo. |
 
 > **GBP cards: ALL FOUR ACTIONED (2026-05-19)** — names → "Afrishore",
 > categories/description/services/website/phones set per this plan.
@@ -288,10 +288,19 @@ Create at business.google.com → "Add business". Enter:
   > and discharge vessels and rigs.
 - **Services:** the same 14-item set as the other 3 GBPs (rule 9).
 - **Photos & hours:** add on creation.
-- **Verify** (postcard/phone/video).
-- **Then send me the Maps short link** — I'll bind the site (correct
-  the geo to the real pin + add `sameAs` + the "View on Google Maps"
-  link) exactly as done for the other three.
+- **Verify** (postcard/phone/video). ✅ DONE.
+- **STATUS (2026-05-19): GBP LIVE, partially bound.** Client sent
+  `https://share.google/xVkGsN7QUKWdDGqFN`. Bound: `#durban`
+  `sameAs` + the Durban port-page "View on Google Maps" link
+  (`port.office.mapsUrl`) → that share link. **Still pending:** the
+  `#durban` schema `geo` is the old placeholder
+  (`-29.9249, 30.9389`). The share.google link is JS-rendered, so
+  the exact pin lat/lng can't be auto-extracted (curl/WebFetch fail;
+  browser ext was offline). **ACTION: client to send exact pin
+  coordinates** — open the listing in Google Maps, the address-bar
+  URL contains `@-29.xxxxxx,30.xxxxxx`, or right-click the pin →
+  the lat,lng appears at the top of the menu — then geo is corrected
+  and redeployed.
 
 ---
 
