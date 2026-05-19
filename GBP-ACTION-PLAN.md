@@ -212,6 +212,14 @@ real GBP pin, `sameAs` points at the GBP, and the port page shows a
   >
   > This is the new canonical description base — see rule 8 for the
   > per-branch clause swaps for Walvis Bay / Cape Town / Durban.
+- **Shore base = HISTORICAL (RESOLVED 2026-05-19):** the Block
+  11B/12B (Brulpadda/Luiperd) gas-play shore base is **no longer
+  operating**. GBP description already uses past tense ("has
+  hosted"); the **site** Mossel Bay copy (metaDescription, geoSub,
+  intro, photo alt/caption) has been aligned to past tense for the
+  shore base while keeping Afrishore's ongoing Mossel Bay agency,
+  licence and head-office presence in present tense. Site ↔ GBP now
+  tell the same (historical) shore-base story.
 
 ## 4. Durban  *(no GBP — create from scratch)*
 
