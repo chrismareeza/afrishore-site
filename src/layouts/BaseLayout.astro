@@ -59,6 +59,19 @@ const absoluteOgImage = new URL(ogImage, siteUrl).toString();
 // the crawler re-measure rather than declare wrong dimensions.
 const isDefaultOgImage = ogImage === "/og-image.jpg";
 
+// Concrete sub-services per vertical → OfferCatalog, so Google maps the
+// full capability breadth (GAC/Rennies/Woker expose only flat HTML
+// lists with no structured data). All entries are services Afrishore
+// genuinely performs (mirrors the port/service scopes + GBP services).
+const offerCatalog = (name: string, items: string[]) => ({
+  "@type": "OfferCatalog",
+  "name": name,
+  "itemListElement": items.map((s) => ({
+    "@type": "Offer",
+    "itemOffered": { "@type": "Service", "name": s },
+  })),
+});
+
 // Base @graph (Organization + 4 LocalBusiness + WebSite + 4 Service)
 const baseGraph: object[] = [
   {
@@ -89,13 +102,18 @@ const baseGraph: object[] = [
       { "@type": "Country", "name": "Mozambique" },
     ],
     "knowsAbout": [
-      "Vessel agency", "Rig agency", "Offshore supply base operations",
-      "Maritime customs clearance", "Project cargo handling",
-      "Subsea cable landing logistics", "Crew rotation logistics",
-      "Bunkering", "Heavy lift coordination", "Special Periodic Survey support",
-      "Blowout Preventer (BOP) transport", "Procurement",
-      "Marine surveying", "Husbandry services",
+      "Ship agency", "Port agency", "Vessel agency", "Rig agency",
+      "Drillship & semi-submersible agency", "Tanker & bulk carrier agency",
+      "Protective (owners') agency", "Husbandry services", "Hub agency",
+      "Offshore supply base operations", "FPSO & FSO support",
+      "Off Port Limits (OPL) logistics", "Dry docking & repairs coordination",
+      "Maritime customs clearance", "Freight forwarding",
+      "Project cargo handling", "Heavy lift coordination",
+      "Subsea cable landing logistics", "Special Periodic Survey support",
+      "Blowout Preventer (BOP) transport", "Bunkering coordination",
+      "Procurement", "Marine surveying", "Crew rotation logistics",
       "Visa & immigration coordination", "Medical evacuation coordination",
+      "Orange Basin offshore logistics",
     ],
     "sameAs": [
       "https://www.linkedin.com/company/afrishore-shipping",
@@ -195,7 +213,7 @@ const baseGraph: object[] = [
     },
     "telephone": "+27-79-695-9816",
     "email": "info@afrishore.co",
-    "geo": { "@type": "GeoCoordinates", "latitude": -29.9249, "longitude": 30.9389 },
+    "geo": { "@type": "GeoCoordinates", "latitude": -29.9181951, "longitude": 30.9365181 },
     "sameAs": ["https://share.google/xVkGsN7QUKWdDGqFN"],
   },
   // 4 core service verticals as discrete Service entries so Google can map
@@ -213,6 +231,17 @@ const baseGraph: object[] = [
     ],
     "description":
       "Systemic port agency services for rigs, drillships, OSVs, PSVs, liners, tankers and FPSOs — port clearance, berth scheduling, immigration, dry docking & repairs, procurement and husbandry.",
+    "hasOfferCatalog": offerCatalog("Vessel & Rig Agency services", [
+      "Port agency", "Port & customs clearance",
+      "Berth scheduling & port-authority liaison",
+      "Immigration & crew change",
+      "Husbandry & owners' protective agency",
+      "Hub agency (multi-port single point of accountability)",
+      "Dry docking & repairs coordination", "Bunkering coordination",
+      "Rigging, cranage & project cargo", "FPSO & FSO support",
+      "Off Port Limits (OPL) logistics", "Mobilisation / demobilisation",
+      "Procurement", "Technical support",
+    ]),
   },
   {
     "@type": "Service",
@@ -227,6 +256,14 @@ const baseGraph: object[] = [
     ],
     "description":
       "Turnkey base operator services for onshore and offshore projects — rigging, cranage, abnormal trucking, warehousing, project cargo, waste management, materials management and reporting.",
+    "hasOfferCatalog": offerCatalog("Offshore Supply Base services", [
+      "Shore base operations", "Rigging & cranage",
+      "Abnormal & heavy-lift trucking", "Warehousing & laydown",
+      "Temporary importation & customs clearance",
+      "Project cargo handling", "Waste management",
+      "Materials management & reporting",
+      "Mobilisation / demobilisation",
+    ]),
   },
   {
     "@type": "Service",
@@ -241,6 +278,12 @@ const baseGraph: object[] = [
     ],
     "description":
       "Freight forwarding, customs brokerage and materials management across sea, air and road — international freight, technical procurement, multidimensional procurement.",
+    "hasOfferCatalog": offerCatalog("Integrated Logistics services", [
+      "Freight forwarding (sea, air, road)", "Customs brokerage",
+      "Cross-border transport", "Technical procurement",
+      "Provisions supply", "Project & abnormal cargo",
+      "Materials management",
+    ]),
   },
   {
     "@type": "Service",
@@ -255,6 +298,11 @@ const baseGraph: object[] = [
     ],
     "description":
       "Crew rotations, medivacs, visa & immigration optimisation for offshore and onshore personnel and third-party technicians — flight coordination, accommodation, transport, medical evacuation coordination.",
+    "hasOfferCatalog": offerCatalog("Crew & Visa services", [
+      "Crew rotations", "Flight coordination",
+      "Accommodation & transport", "Visa & work-permit processing",
+      "Immigration compliance", "Medical evacuation coordination",
+    ]),
   },
 ];
 

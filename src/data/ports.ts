@@ -320,7 +320,7 @@ export const ports: PortPage[] = [
       addressLocality: "Durban",
       addressRegion: "KwaZulu-Natal",
       addressCountry: "ZA",
-      geo: { lat: -29.9249, lng: 30.9389 },
+      geo: { lat: -29.9181951, lng: 30.9365181 },
       mapsUrl: "https://share.google/xVkGsN7QUKWdDGqFN",
       phoneDisplay: "+27 79 695 9816",
       phoneE164: "+27796959816",

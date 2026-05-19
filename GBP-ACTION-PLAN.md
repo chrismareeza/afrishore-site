@@ -25,7 +25,7 @@ lockstep.
 | **Walvis Bay** | ✅ | → "Afrishore" | geo ✅ · sameAs ✅ · Maps link ✅ | **GBP DONE 2026-05-19.** Site bound; address unchanged — complete. |
 | **Cape Town** | ✅ | → "Afrishore" | geo ✅ · sameAs ✅ · Maps link ✅ · phone ✅ | **GBP DONE 2026-05-19.** Site bound; address unchanged; phone `+27 87 092 0949` matched — complete. |
 | **Mossel Bay** | ✅ | → "Afrishore" | ⚠ geo/sameAs/Maps need re-bind to NEW pin | **GBP DONE 2026-05-19** (address moved → 58 Bland St). **ACTION: send the new resolved Maps short link** so the site geo/sameAs/Maps link can be re-pointed to the new pin. |
-| **Durban** | ✅ created | "Afrishore" | sameAs ✅ · Maps link ✅ · ⚠ geo still placeholder | **GBP LIVE 2026-05-19.** `sameAs` + port-page Maps link bound to `share.google/xVkGsN7QUKWdDGqFN`. **ACTION: send exact pin lat/lng** (share.google link is JS-only — can't auto-extract) to finish the geo. |
+| **Durban** | ✅ created | "Afrishore" | geo ✅ · sameAs ✅ · Maps link ✅ | **GBP DONE 2026-05-19 — fully bound.** geo `-29.9181951, 30.9365181` (Plus Code 3WHP+RV Durban), sameAs + port-page Maps link → `share.google/xVkGsN7QUKWdDGqFN`. Complete. |
 
 > **GBP cards: ALL FOUR ACTIONED (2026-05-19)** — names → "Afrishore",
 > categories/description/services/website/phones set per this plan.
