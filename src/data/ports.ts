@@ -136,7 +136,7 @@ export const ports: PortPage[] = [
     metaDescription:
       "Afrishore is a licensed vessel and rig agent for the Port of Lüderitz, Namibia — port clearance, immigration, husbandry and offshore support for the Orange Basin exploration frontier. Run alongside our Walvis Bay base.",
     h1: "Vessel & Rig Agent – Port of Lüderitz",
-    geoSub: "Licensed agency for the Port of Lüderitz — gateway to the Orange Basin, Namibia",
+    geoSub: "Licensed agency for the Port of Lüderitz – gateway to the Orange Basin, Namibia",
     intro: [
       "Afrishore holds a port agency licence for Lüderitz, the southern Namibian port closest to the Orange Basin — the most active deep-water exploration frontier in the region. Afrishore acts as vessel and rig agent here for rigs, drillships, OSVs, PSVs and survey vessels supporting Orange Basin campaigns.",
       "Lüderitz is a small, weather-exposed port where margins are tight and local knowledge decides outcomes. Afrishore handles port clearance and port-authority liaison, immigration and crew rotation, husbandry, bunkering coordination and offshore logistics — co-ordinated with the Walvis Bay base so a single agent covers the whole Namibian coast.",
