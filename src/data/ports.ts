@@ -252,6 +252,12 @@ export const ports: PortPage[] = [
       "Mobilisation / demobilisation",
     ],
     vesselTypes: VESSEL_TYPES,
+    secondaryImage: {
+      src: "/images/ports/mossel-bay-port.jpg",
+      alt: "Aerial view of the Port of Mossel Bay, South Africa — breakwater, harbour basin and quay where Afrishore runs its offshore supply base and vessel & rig agency for the Block 11B/12B gas play",
+      caption:
+        "The Port of Mossel Bay from the air — breakwater, harbour basin and working quay. Afrishore's founding base and head office, and the shore base for South Africa's Block 11B/12B (Brulpadda and Luiperd) offshore gas play.",
+    },
     office: {
       businessName: "Afrishore",
       localBusinessId: "#mossel-bay",
