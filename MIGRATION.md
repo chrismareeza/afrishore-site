@@ -627,6 +627,45 @@ Notes:
 
 ---
 
+## 10 · Soft-404 fix — 2026-05-19
+
+**Found (via GSC):** the site had **no 404 page** (`src/pages/404.astro`
+absent → no `dist/404.html`). Cloudflare Pages was serving **HTTP 200 +
+the full homepage** for every unmatched URL — a site-wide *soft-404*.
+Risk: Google can index unlimited junk / stale-Wix / typo URLs as
+duplicate homepages (crawl-budget waste, "Soft 404" reports, duplicate
+content) — directly undermining the SEO work. Surfaced by a GSC
+"Blocked due to 4xx" item for `https://www.afrishore.co/*` (a phantom
+URL last crawled 2025-11-22, old-Wix era — itself harmless/stale).
+
+**Fix:** added a branded `src/pages/404.astro` (Navbar/Footer, helpful
+links, port nav; excluded from sitemap; no canonical). Astro emits
+`dist/404.html`.
+
+**Cloudflare Pages "Not Found handling" — requirement & finding:**
+Cloudflare Pages serves a present `/404.html` with a real **HTTP 404**
+for unmatched routes **by default**, *provided the project is not in
+"Single Page Application" not-found mode*. The earlier soft-404 existed
+**only because no `404.html` was in the build** — once it shipped, no
+dashboard change was needed. **Verified live 2026-05-19:**
+
+```
+/this-does-not-exist-xyz-123  → 404 + branded 404 page
+/projects/nope-not-real       → 404 + branded 404 page
+/old-wix-page                 → 404 + branded 404 page
+/%2A  (the GSC /* phantom)    → 404 + branded 404 page
+/ports/walvis-bay             → 308 → 200 (normal trailing-slash norm.)
+```
+
+**Ongoing rule:** keep `src/pages/404.astro` in the repo. If a future
+deploy ever soft-404s again (unmatched URL returns 200), the cause is
+the Pages project being switched to **"Single Page Application"**
+not-found handling — set it back to serve the 404 page. The 301 map in
+`public/_redirects` still handles the 18 known indexed Wix URLs; the
+404 page handles the long tail.
+
+---
+
 ### Why no schema/SEO rework is required at cutover
 
 Everything that encodes the domain was built for production from day one:
