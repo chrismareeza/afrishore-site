@@ -74,10 +74,16 @@ real GBP pin, `sameAs` points at the GBP, and the port page shows a
      + services**: explicitly state "ship, vessel & rig agency, port
      agency, port clearance, husbandry, offshore supply base, customs &
      freight forwarding" — Google reads these as relevance signals.
-   - **CONFIRMED APPLIED (Walvis Bay, 2026-05-19):** primary
-     `Shipping service`; secondaries `Logistics service`, `Customs
-     broker`, `Freight forwarding service`. Use this exact set on
-     Cape Town, Mossel Bay and Durban too.
+   - **CONFIRMED SET (2026-05-19) — apply identically to all 4 GBPs:**
+     primary `Shipping service`; secondaries `Logistics service`,
+     `Customs broker`, `Freight Forwarding Service`, `Visa Agent`,
+     `Port operating company` (the last as the only proxy for the
+     offshore supply-base / base-operator role).
+   - **Deliberately NOT used** (available but wrong-intent/inaccurate):
+     `Fuel supplier` (we arrange bunkering as agent, not a fuel
+     retailer), `Fixed-base operator` (aviation FBO term),
+     `Immigration & Naturalisation Service` (implies citizenship work
+     we don't do — `Visa Agent` covers crew visas accurately).
 4. **Phone:** the site uses `+27 44 691 3218` everywhere. Decide whether
    Walvis Bay (Namibia) should instead list a **local Namibian number**
    — a local number is a stronger local-trust signal. Whatever you
