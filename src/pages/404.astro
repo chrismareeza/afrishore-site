@@ -1,0 +1,81 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Navbar from "../components/Navbar.astro";
+import Footer from "../components/Footer.astro";
+
+// Astro emits this as /404.html. Cloudflare Pages serves it with an
+// HTTP 404 status for unmatched routes — PROVIDED the Pages project's
+// "Not Found handling" is NOT set to "Single page application"
+// (see MIGRATION.md / the deploy notes). No canonical (not indexable);
+// not in the sitemap (Astro excludes 404).
+---
+
+<BaseLayout
+  title="Page not found (404) — Afrishore"
+  description="The page you requested could not be found. Explore Afrishore's services, projects and port network across South Africa, Namibia and Mozambique."
+>
+  <Navbar />
+
+  <main id="main" class="relative min-h-[70vh] flex items-center px-6 lg:px-12 pt-32 pb-24">
+    <div class="max-w-3xl mx-auto text-center space-y-8">
+      <p class="text-xs uppercase tracking-[0.25em] text-gold font-semibold">
+        Error 404
+      </p>
+
+      <h1 class="text-5xl md:text-6xl lg:text-7xl text-cream leading-[1.05] tracking-tight">
+        This page has<br />
+        <span class="text-gold">slipped its moorings.</span>
+      </h1>
+
+      <p class="text-lg text-mute leading-relaxed max-w-xl mx-auto">
+        The link is broken or the page has moved. Let's get you back on
+        course — Afrishore operates across South Africa, Namibia and
+        Mozambique.
+      </p>
+
+      <div class="flex flex-wrap items-center justify-center gap-4 pt-2">
+        <a
+          href="/"
+          class="inline-flex items-center gap-2 bg-orange hover:bg-gold text-base px-6 py-3 text-sm font-semibold tracking-wide transition-colors duration-200 rounded-sm"
+        >
+          Home
+          <span aria-hidden="true">→</span>
+        </a>
+        <a
+          href="/#services"
+          class="inline-flex items-center gap-2 border border-cream/30 hover:border-cream/60 text-cream px-6 py-3 text-sm font-semibold tracking-wide transition-colors duration-200 rounded-sm"
+        >
+          Services
+        </a>
+        <a
+          href="/projects"
+          class="inline-flex items-center gap-2 border border-cream/30 hover:border-cream/60 text-cream px-6 py-3 text-sm font-semibold tracking-wide transition-colors duration-200 rounded-sm"
+        >
+          Projects
+        </a>
+        <a
+          href="/#contact"
+          class="inline-flex items-center gap-2 border border-cream/30 hover:border-cream/60 text-cream px-6 py-3 text-sm font-semibold tracking-wide transition-colors duration-200 rounded-sm"
+        >
+          Contact
+        </a>
+      </div>
+
+      <nav aria-label="Ports" class="pt-6 border-t border-line max-w-xl mx-auto">
+        <p class="text-xs uppercase tracking-[0.2em] text-faint mb-3">
+          Ship &amp; Rig Agent — Ports
+        </p>
+        <ul class="flex flex-wrap justify-center gap-x-5 gap-y-2 text-sm text-mute">
+          <li><a href="/ports/walvis-bay" class="hover:text-gold transition-colors">Walvis Bay</a></li>
+          <li><a href="/ports/luderitz" class="hover:text-gold transition-colors">Lüderitz</a></li>
+          <li><a href="/ports/cape-town" class="hover:text-gold transition-colors">Cape Town</a></li>
+          <li><a href="/ports/saldanha" class="hover:text-gold transition-colors">Saldanha Bay</a></li>
+          <li><a href="/ports/mossel-bay" class="hover:text-gold transition-colors">Mossel Bay</a></li>
+          <li><a href="/ports/durban" class="hover:text-gold transition-colors">Durban</a></li>
+        </ul>
+      </nav>
+    </div>
+  </main>
+
+  <Footer />
+</BaseLayout>
