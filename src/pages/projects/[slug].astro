@@ -54,6 +54,9 @@ const assetLabel =
 // Gradient placeholder for missing images
 const placeholderBg = "linear-gradient(135deg, #1a1410 0%, #ED7014 50%, #FDE64B 100%)";
 
+// Each optimised JPEG ships with a sibling .webp (image pipeline).
+const webp = (p: string) => p.replace(/\.jpe?g$/i, ".webp");
+
 // Derive a stable ISO date from the year field ("2024", "2024–2025", "2018–2019")
 // so Article schema gets datePublished/dateModified.
 const yearParts = project.year.split(/[–-]/).map((s) => s.trim());
@@ -235,6 +238,30 @@ const breadcrumb = [
               </>
             )
           }
+
+          {project.secondaryImage && (
+            <figure class={project.secondaryImage.portrait ? "space-y-3 max-w-md mx-auto pt-2" : "space-y-3 pt-2"}>
+              <div
+                class={`${project.secondaryImage.portrait ? "aspect-[3/4]" : "aspect-[3/2]"} w-full overflow-hidden rounded-sm border border-line relative`}
+                style={`background: ${placeholderBg};`}
+              >
+                <picture>
+                  <source srcset={webp(project.secondaryImage.src)} type="image/webp" />
+                  <img
+                    src={project.secondaryImage.src}
+                    alt={project.secondaryImage.alt}
+                    class="absolute inset-0 w-full h-full object-cover"
+                    loading="lazy"
+                    width={project.secondaryImage.portrait ? 1200 : 1920}
+                    height={project.secondaryImage.portrait ? 1600 : 1440}
+                  />
+                </picture>
+              </div>
+              <figcaption class="text-sm text-faint leading-relaxed">
+                {project.secondaryImage.caption}
+              </figcaption>
+            </figure>
+          )}
         </div>
 
         <!-- Side card: project facts + CTA -->

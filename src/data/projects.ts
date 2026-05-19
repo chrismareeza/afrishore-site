@@ -22,6 +22,14 @@ export interface Project {
   // Labels the asset precisely on the case-study page. Unset → the
   // generic "Vessel / Rig" hedge (unchanged behaviour).
   assetType?: "rig" | "vessel";
+  // Optional in-body captioned photo on the case-study page (same
+  // pattern as service/port pages). portrait → centred, capped width.
+  secondaryImage?: {
+    src: string;
+    alt: string;
+    caption: string;
+    portrait?: boolean;
+  };
 }
 
 export const projects: Project[] = [
