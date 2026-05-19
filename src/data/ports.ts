@@ -109,7 +109,7 @@ export const ports: PortPage[] = [
       src: "/images/ports/walvis-bay-base.jpg",
       alt: "Afrishore's Walvis Bay logistics base — mobile crane and rigging spread handling rig tubulars on the Port of Walvis Bay apron, Namibia",
       caption:
-        "Afrishore's Walvis Bay logistics base in operation — crane and rigging spread handling rig tubulars on the port apron, the commercial quay beyond. Turnkey shore-side support embedded in the Port of Walvis Bay's Oil & Gas Section.",
+        "Afrishore's Walvis Bay logistics base in operation – crane and rigging spread handling rig tubulars on the port apron, the commercial quay beyond. Turnkey shore-side support embedded in the Port of Walvis Bay's Oil & Gas Section.",
       portrait: true,
     },
     office: {
