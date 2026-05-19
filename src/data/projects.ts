@@ -15,7 +15,7 @@ export interface Project {
   heroImage?: string; // Path under /public; falls back to gradient placeholder
   featured: boolean;
   published: boolean;
-  // For end-customer references in copy (e.g. Galp, Meta)
+  // For end-customer references in copy (e.g. Galp)
   endCustomer?: string;
   // Optional operational details
   vessel?: string;
@@ -124,19 +124,19 @@ A Special Periodic Survey is rarely simple. With a BOP exchange layered in, it r
   },
   {
     slug: "facebook-2africa-cable-landing",
-    title: "Facebook 2Africa: Subsea Cable Landing",
+    title: "2Africa: Subsea Cable Landing",
     client: "LD TravOcean",
-    endCustomer: "Meta",
+    endCustomer: "2Africa consortium",
     year: "2022–2023",
     port: "Multiple SA coastal landings",
     serviceTypes: ["integrated-logistics", "crew-visa", "ship-rig-agency"],
     heroImage: "/images/projects/facebook-2africa.jpg",
-    summary: "Onshore logistics for the South African landing of Meta's 2Africa subsea cable — one of the largest telecoms infrastructure projects ever built.",
+    summary: "Onshore logistics for the South African landing of the 2Africa subsea cable — one of the largest telecoms infrastructure projects ever built.",
     outcome: `The 2Africa subsea cable system is one of the largest telecommunications infrastructure projects ever built: 45,000 km of cable connecting 33 countries across three continents, with a design capacity of 180 Tbps. Between 2022 and 2023, Afrishore supported the South African landing operations on behalf of LD TravOcean, the specialist subsea contractor responsible for the African shore-end works.
 
 The 2Africa project demanded a different operating model than offshore oil and gas. Afrishore coordinated onshore logistics across multiple South African landing points: customs clearance for specialist subsea equipment, temporary importation of cable-handling gear, storage and trucking arrangements, lifting and mobilisation/demobilisation, immigration for international cable specialists, accommodation and transport, crew change coordination, and cross-border freight on both sea and air. Every operation was time-bound to the cable lay sequence, work that ran 24/7 once vessels were on station and out of multiple South African ports.
 
-Trusted by Meta's subsea contractor for one of the most significant infrastructure projects of the decade.`,
+Trusted by LD TravOcean for one of the most significant infrastructure projects of the decade.`,
     featured: true,
     published: true,
   },

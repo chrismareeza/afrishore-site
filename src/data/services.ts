@@ -152,7 +152,7 @@ export const servicePages: ServicePage[] = [
     schemaServiceType: "Integrated Logistics",
     intro: [
       "Afrishore provides integrated marine and project logistics across South Africa, Namibia and Mozambique: freight forwarding, customs brokerage and port clearance, project and abnormal cargo, bunkering, chandling, technical procurement and provisions supply, moving freight into location and cross-border on sea, air and road.",
-      "Offshore and subsea campaigns rarely move in straight lines: equipment arrives by international freight, clears customs under bond or temporary importation, is staged and trucked and returns through the same chain in reverse, every leg time-bound to the operation. Afrishore has run exactly this for the Facebook/Meta 2Africa subsea cable landing, the Dock Titan heavy-lift to Réunion and continuous drilling-campaign supply across the Southern African coast.",
+      "Offshore and subsea campaigns rarely move in straight lines: equipment arrives by international freight, clears customs under bond or temporary importation, is staged and trucked and returns through the same chain in reverse, every leg time-bound to the operation. Afrishore has run exactly this for the 2Africa subsea cable landing, the Dock Titan heavy-lift to Réunion and continuous drilling-campaign supply across the Southern African coast.",
       "Delivered as one chain rather than disconnected steps, integrated logistics is what lets the supply base, rig agency and crew operations move on a single schedule.",
     ],
     scope: [
