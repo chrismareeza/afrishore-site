@@ -193,6 +193,9 @@ export const ports: PortPage[] = [
       "Mobilisation / demobilisation",
     ],
     vesselTypes: VESSEL_TYPES,
+    heroImage: "/images/ports/cape-town-hero.jpg",
+    heroAlt:
+      "Aerial view of the Port of Cape Town, South Africa with Table Mountain behind: the repair, project-cargo and offshore-support harbour where Afrishore acts as vessel and rig agent",
     office: {
       businessName: "Afrishore",
       localBusinessId: "#cape-town",
@@ -267,12 +270,9 @@ export const ports: PortPage[] = [
       "Mobilisation / demobilisation",
     ],
     vesselTypes: VESSEL_TYPES,
-    secondaryImage: {
-      src: "/images/ports/mossel-bay-port.jpg",
-      alt: "Aerial view of the Port of Mossel Bay, South Africa — breakwater, harbour basin and quay; Afrishore's founding base and head office, where it operated the Block 11B/12B (Brulpadda/Luiperd) offshore supply base and runs its vessel & rig agency",
-      caption:
-        "The Port of Mossel Bay from the air — breakwater, harbour basin and working quay. Afrishore's founding base and head office, and the shore base it operated for South Africa's Block 11B/12B (Brulpadda and Luiperd) offshore gas play.",
-    },
+    heroImage: "/images/ports/mossel-bay-port.jpg",
+    heroAlt:
+      "Aerial view of the Port of Mossel Bay, South Africa: breakwater, harbour basin and quay; Afrishore's founding base and head office, where it operated the Block 11B/12B (Brulpadda/Luiperd) offshore supply base and runs its vessel & rig agency",
     office: {
       businessName: "Afrishore",
       localBusinessId: "#mossel-bay",
