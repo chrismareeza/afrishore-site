@@ -45,6 +45,8 @@ export interface PortPage {
   scope: string[];
   vesselTypes: string[];
   office?: PortOffice;       // present when kind === "office"
+  phoneDisplay?: string;     // licence-only ports: direct line (else central)
+  phoneE164?: string;        // tel: form of the above
   heroImage?: string;        // optional; gradient fallback if absent
   heroAlt?: string;
   secondaryImage?: {         // optional in-body captioned photo
@@ -153,6 +155,8 @@ export const ports: PortPage[] = [
       "Mobilisation / demobilisation",
     ],
     vesselTypes: VESSEL_TYPES,
+    phoneDisplay: "+264 817673069",
+    phoneE164: "+264817673069",
   },
   {
     slug: "cape-town",

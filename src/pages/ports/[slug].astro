@@ -18,10 +18,11 @@ interface Props {
 
 const { port } = Astro.props;
 
-// Per-office phone overrides the central number (e.g. Walvis Bay's
-// local Namibian line); licence-only ports use the central number.
-const phoneE164 = port.office?.phoneE164 ?? portContact.phoneE164;
-const phoneDisplay = port.office?.phoneDisplay ?? portContact.phoneDisplay;
+// Phone precedence: per-office number (e.g. Walvis Bay's local
+// Namibian line) → port-level number (licence-only ports, e.g.
+// Lüderitz) → central switchboard.
+const phoneE164 = port.office?.phoneE164 ?? port.phoneE164 ?? portContact.phoneE164;
+const phoneDisplay = port.office?.phoneDisplay ?? port.phoneDisplay ?? portContact.phoneDisplay;
 
 const siteUrl = "https://www.afrishore.co";
 const pageUrl = `${siteUrl}/ports/${port.slug}`;
@@ -250,7 +251,7 @@ const breadcrumb = [
             ) : (
               <>
                 <h2 class="text-xs uppercase tracking-[0.2em] text-gold font-semibold">
-                  Agency licence — {port.portName}
+                  Agency licence – {port.portName}
                 </h2>
                 <p class="text-sm text-cream/90 leading-relaxed">
                   Afrishore holds its own port agency licence for the Port of
