@@ -277,8 +277,8 @@ export const ports: PortPage[] = [
       addressLocality: "Mossel Bay",
       addressRegion: "Western Cape",
       addressCountry: "ZA",
-      geo: { lat: -34.1841336, lng: 22.1474263 },
-      mapsUrl: "https://maps.app.goo.gl/oZZ7X5m96RPtTNUA6",
+      geo: { lat: -34.1818225, lng: 22.14746 },
+      mapsUrl: "https://maps.app.goo.gl/LDPwrZL4eLqARBwNA",
     },
   },
   {

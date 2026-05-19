@@ -24,7 +24,7 @@ lockstep.
 |---|---|---|---|---|
 | **Walvis Bay** | ✅ | → "Afrishore" | geo ✅ · sameAs ✅ · Maps link ✅ | **GBP DONE 2026-05-19.** Site bound; address unchanged — complete. |
 | **Cape Town** | ✅ | → "Afrishore" | geo ✅ · sameAs ✅ · Maps link ✅ · phone ✅ | **GBP DONE 2026-05-19.** Site bound; address unchanged; phone `+27 87 092 0949` matched — complete. |
-| **Mossel Bay** | ✅ | → "Afrishore" | ⚠ geo/sameAs/Maps need re-bind to NEW pin | **GBP DONE 2026-05-19** (address moved → 58 Bland St). **ACTION: send the new resolved Maps short link** so the site geo/sameAs/Maps link can be re-pointed to the new pin. |
+| **Mossel Bay** | ✅ | → "Afrishore" | geo ✅ · sameAs ✅ · Maps link ✅ | **GBP DONE & fully re-bound 2026-05-19.** Post-move pin `-34.1818225, 22.14746` (58 Bland St); sameAs/Maps → `maps.app.goo.gl/LDPwrZL4eLqARBwNA`. Complete. |
 | **Durban** | ✅ created | "Afrishore" | geo ✅ · sameAs ✅ · Maps link ✅ | **GBP DONE 2026-05-19 — fully bound.** geo `-29.9181951, 30.9365181` (Plus Code 3WHP+RV Durban), sameAs + port-page Maps link → `share.google/xVkGsN7QUKWdDGqFN`. Complete. |
 
 > **GBP cards: ALL FOUR ACTIONED (2026-05-19)** — names → "Afrishore",
@@ -219,14 +219,14 @@ real GBP pin, `sameAs` points at the GBP, and the port page shows a
   closed. Do **not** change the site.
 - **Phone — RESOLVED:** `+27 44 691 3218` (central number, same as the
   site). No change either side.
-- **⚠ Re-bind needed after re-verification:** changing the address
-  moves the GBP pin, so the site's on-file Mossel Bay geo
-  (`-34.1841336, 22.1474263`), `sameAs` and Maps link
-  (`maps.app.goo.gl/oZZ7X5m96RPtTNUA6`) were bound to the **old**
-  pin and are now stale. **After the GBP re-verifies at 58 Bland
-  Street, send the new resolved Maps short link** — the site geo +
-  `sameAs` + "View on Google Maps" link will be re-pointed to the new
-  verified pin and redeployed.
+- **✅ Re-bind COMPLETE (2026-05-19):** post-move pin resolved from
+  `maps.app.goo.gl/LDPwrZL4eLqARBwNA` →
+  **`-34.1818225, 22.14746`** (authoritative `!3d!4d` place coord;
+  the old `-34.1841336, 22.1474263` pin and old Maps link
+  `oZZ7X5m96RPtTNUA6` are retired). Site geo + `sameAs` + the
+  "View on Google Maps" link are now re-pointed to the new pin and
+  deployed. (Note: a first attempt sent `-34.0456,18.97` — that was
+  a zoomed-out viewport centre, not the pin; flagged and corrected.)
 - **Categories:** per rule 3 (primary `Shipping service`; no "Ship Agent" category exists).
 - **Website field:** `https://www.afrishore.co/ports/mossel-bay`
 - **Description — FINAL (RESOLVED 2026-05-19, 742/750 chars, verbatim):**
