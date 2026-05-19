@@ -265,7 +265,7 @@ A first appointment is a test as much as a mandate. Afrishore operated the Mosse
       src: "/images/projects/deepsea-mira-tamboti-1x-luderitz.jpg",
       alt: "Afrishore quayside logistics at the Port of Lüderitz — vessel deck-plan execution and cargo preparation for the TotalEnergies Tamboti-1X campaign, Namibia",
       caption:
-        "Afrishore's Lüderitz logistics in full flow for the TotalEnergies Tamboti-1X campaign: turnkey quayside management, vessel deck-plan execution and cargo preparation ahead of departure — one of two shore bases run simultaneously with Walvis Bay to keep the Deepsea Mira supplied.",
+        "Afrishore's Lüderitz logistics in full flow for the TotalEnergies Tamboti-1X campaign: turnkey quayside management, vessel deck-plan execution and cargo preparation ahead of departure: one of two shore bases run simultaneously with Walvis Bay to keep the Deepsea Mira supplied.",
     },
     summary: "Continued Deepsea Mira drilling campaign on the Tamboti-1x well, with Afrishore providing full onshore logistics.",
     outcome: `The TotalEnergies Tamboti-1X campaign marked another defining chapter in the unfolding story of Namibia's Orange Basin and Afrishore was proud to play a notable role in its delivery. Building on the momentum of the basin's recent discoveries, the programme called for Deepsea Mira's shore base logistics to run simultaneously out of Walvis Bay and Lüderitz, paired with crewing capability that could match the pace, scale and technical complexity of a frontier deepwater operation. From day one we mobilised an integrated package of shore base logistics, materials handling and the deployment of specialist offshore personnel, engineered to keep the rig supplied, the schedule intact and the operation moving without compromise.
@@ -286,6 +286,13 @@ For Afrishore, Tamboti-1X was more than a successful campaign, it was a proof po
     vessel: "Deepsea Mira",
     assetType: "rig",
     heroImage: "/images/projects/deepsea-mira-volans-kharas.jpg",
+    secondaryImage: {
+      src: "/images/projects/deepsea-mira-volans-kharas-riser-demob.jpg",
+      alt: "Deepsea Mira drilling riser joints on a PSV deck at Walvis Bay's Jetty 8 — post-campaign riser demobilisation to Afrishore's offshore supply base, Namibia",
+      caption:
+        "Deepsea Mira riser demobilisation after the Volans-1x and Kharas-1 campaign: riser joints shipped by PSV to Walvis Bay's Jetty 8 berth and returned to Afrishore's offshore supply base for maintenance and storage.",
+      portrait: true,
+    },
     summary: "Current two-well campaign on the Deepsea Mira covering Volans-1x and Kharas-1, supported from Walvis Bay.",
     featured: false,
     published: true,
