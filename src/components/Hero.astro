@@ -248,9 +248,9 @@
   // tint end-opacity = intensity; SUNRISE_DELAY = when; duration = pace.
   // Timing (from ready): start() @ +600 · line-1 @ +950 · "Clients."
   // base = 950 + 700 = 1650 · +STEP_DURATION×2 (700) ≈ ~2350 → ~2950
-  // absolute; +~300ms breath = 3250.
+  // absolute; +~300ms breath = 3250 → pulled 1s earlier = 2250.
   (function () {
-    const SUNRISE_DELAY = 3250;
+    const SUNRISE_DELAY = 2250;
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
       // Motion-sensitive users: present the brightened end-state from
       // the start — no delayed jump, no animation.
