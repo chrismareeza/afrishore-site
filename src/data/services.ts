@@ -66,7 +66,7 @@ export const servicePages: ServicePage[] = [
       "AHTS",
       "Tankers",
       "FPSOs",
-      "Passenger liners",
+      "Cargo ships",
     ],
     ports: [
       "Walvis Bay",
