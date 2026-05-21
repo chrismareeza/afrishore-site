@@ -37,6 +37,17 @@ const carbonBars = [
   { label: "Truck", t: 0.60 },
 ].map((b) => ({ ...b, pct: (b.t / carbonTotalT) * 100 }));
 
+// ── Pillar 3 · HSE live LTI-free-day counter ──────────────────────────
+// 869 lost-time-injury-free days as of 2026-05-21. The figure advances
+// daily: baked at build time, recomputed client-side on load so a stale
+// build self-corrects. RESET if an LTI occurs — update the two consts
+// here AND the matching constants in the <script> below.
+const LTI_REF_ISO = "2026-05-21";
+const LTI_REF_DAYS = 869;
+const ltiDaysNow =
+  LTI_REF_DAYS + Math.max(0, Math.floor((Date.now() - Date.parse(LTI_REF_ISO)) / 86400000));
+const hseManhours = 7347;
+
 // ── Pillar definitions ────────────────────────────────────────────────
 // span: 2 = top-row third (3×2 = 6 cols); 3 = bottom-row half (2×3 = 6).
 // chip values containing "{" are pending figures.
@@ -67,13 +78,11 @@ const pillars = [
   },
   {
     n: 3,
-    kind: "photo" as const,
+    kind: "hse" as const,
     span: 2,
     label: "HSE record",
     claim: "Hours worked, lessons learned, incidents avoided, counted and audited.",
-    chip: "{manhours} LTI-free manhours",
-    image: null as string | null, // → /images/built-local/hse.jpg
-    imageAlt: "Afrishore HSE briefing before a shift at the supply base",
+    chip: `${hseManhours.toLocaleString()} manhours worked on base, to May 2026`,
   },
   {
     n: 4,
@@ -186,6 +195,28 @@ const isPending = (s: string) => s.includes("{");
                   )}
                 </div>
               ))}
+            </div>
+          )}
+
+          {p.kind === "hse" && (
+            <div class="p-5 lg:p-6">
+              <div class="bg-base border border-line rounded-sm p-5 space-y-4">
+                <div>
+                  <p class="text-[0.65rem] uppercase tracking-[0.18em] text-gold font-semibold">
+                    Afrishore · HSE Record
+                  </p>
+                  <p class="text-xs text-faint mt-0.5">Walvis Bay Logistics Base</p>
+                </div>
+                <div>
+                  <p class="font-display text-5xl lg:text-6xl text-yellow leading-none">
+                    <span data-lti-counter>{ltiDaysNow.toLocaleString()}</span>
+                  </p>
+                  <p class="text-xs text-mute mt-1.5">days lost-time-injury-free</p>
+                </div>
+                <p class="text-[0.7rem] text-faint leading-relaxed border-t border-line pt-3">
+                  Days without a lost-time injury at the Walvis Bay Logistics Base. The counter advances automatically each day.
+                </p>
+              </div>
             </div>
           )}
 
@@ -340,9 +371,15 @@ const isPending = (s: string) => s.includes("{");
                 : "background:linear-gradient(135deg,#ED7014,#FDE64B);"}
               aria-hidden="true"
             ></span>
-            <span class:list={["text-xs lg:text-sm", isPending(p.chip) ? "text-faint italic" : "text-cream/85"]}>
-              {p.chip}
-            </span>
+            {p.n === 3 ? (
+              <span class="text-xs lg:text-sm text-cream/85">
+                <span data-lti-counter>{ltiDaysNow.toLocaleString()}</span> days LTI-free · Walvis Bay Logistics Base
+              </span>
+            ) : (
+              <span class:list={["text-xs lg:text-sm", isPending(p.chip) ? "text-faint italic" : "text-cream/85"]}>
+                {p.chip}
+              </span>
+            )}
           </li>
         ))}
       </ul>
@@ -355,6 +392,16 @@ const isPending = (s: string) => s.includes("{");
   import { ScrollTrigger } from "gsap/ScrollTrigger";
 
   gsap.registerPlugin(ScrollTrigger);
+
+  // HSE · LTI-free-day counter — recompute on load so a stale build
+  // self-corrects. Keep these two in sync with the frontmatter consts.
+  // RESET both (date + days) if a lost-time injury occurs.
+  const LTI_REF = Date.parse("2026-05-21");
+  const LTI_REF_DAYS = 869;
+  const ltiDays = LTI_REF_DAYS + Math.max(0, Math.floor((Date.now() - LTI_REF) / 86400000));
+  document.querySelectorAll("[data-lti-counter]").forEach((el) => {
+    el.textContent = ltiDays.toLocaleString();
+  });
 
   // Section header reveal
   gsap.timeline({
