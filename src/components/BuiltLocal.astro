@@ -266,9 +266,11 @@ const isPending = (s: string) => s.includes("{");
                         <stop offset="100%" stop-color="#FDE64B" />
                       </linearGradient>
                     </defs>
-                    {/* reference gridlines at 50% and 100% (unlabelled) */}
+                    {/* reference gridlines + axis labels at 50% and 100% */}
                     <line x1={GX0} y1={sy(50)} x2={GX1} y2={sy(50)} stroke="#1F1F1F" stroke-width="1" />
                     <line x1={GX0} y1={sy(100)} x2={GX1} y2={sy(100)} stroke="#1F1F1F" stroke-width="1" />
+                    <text x={GX0 - 6} y={sy(50) + 3} text-anchor="end" font-size="9" fill="#8C8980">50%</text>
+                    <text x={GX0 - 6} y={sy(100) + 3} text-anchor="end" font-size="9" fill="#8C8980">100%</text>
                     {/* trajectory */}
                     <polyline points={linePts} fill="none" stroke="url(#bl-line)" stroke-width="2.5"
                       stroke-linecap="round" stroke-linejoin="round" />
