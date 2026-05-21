@@ -75,7 +75,7 @@ const pillars = [
     span: 2,
     label: "Yards & equipment",
     claim: "Bonded laydown ready. Cranage and trucks on duty for every campaign.",
-    chip: "{laydown} m² bonded laydown · {cranes} mobile cranes on duty",
+    chip: "",
     images: [null, null] as (string | null)[], // [laydown, crane-on-duty]
     imageAlts: [
       "Afrishore laydown yard, rig tubulars racked and tagged by campaign",
@@ -347,7 +347,7 @@ const isPending = (s: string) => s.includes("{");
             <p class="text-base lg:text-lg text-cream leading-snug">
               {p.claim}
             </p>
-            {p.kind !== "hse" && (
+            {p.kind !== "hse" && p.chip && (
               <span
                 class:list={[
                   "mt-auto pt-3 inline-flex items-center gap-2 text-xs leading-snug",
@@ -375,7 +375,7 @@ const isPending = (s: string) => s.includes("{");
       class="opacity-0 translate-y-4 mt-12 lg:mt-14 pt-8 border-t border-line"
     >
       <ul class="flex flex-wrap items-center gap-x-8 gap-y-4">
-        {pillars.map((p) => (
+        {pillars.filter((p) => p.n === 3 || p.chip).map((p) => (
           <li class="flex items-center gap-2.5">
             <span
               class="w-1.5 h-1.5 rounded-full shrink-0"
