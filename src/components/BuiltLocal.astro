@@ -1,7 +1,7 @@
 ---
 // Section · Built local. Built to standard.
-// Five operating-standard pillars: 3-card top row + 2-card bottom row,
-// then a KPI summary strip. Replaces the former Timeline section.
+// Five operating-standard pillars: 3-card top row + 2-card bottom row.
+// Replaces the former Timeline section.
 //
 // BUILD STATE (2026-05-20): scaffold + the two data widgets (National
 // Content, Carbon) are content-complete. The three photo cards (Team,
@@ -33,8 +33,8 @@ const deltaPct = lastPt.pct - firstPt.pct;
 const carbonTotalT = 4.088;
 const carbonBars = [
   { label: "Cranes", t: 1.70 },
-  { label: "Forklift", t: 1.79 },
-  { label: "Truck", t: 0.60 },
+  { label: "Forklifts", t: 1.79 },
+  { label: "Trucks", t: 0.60 },
 ].map((b) => ({ ...b, pct: (b.t / carbonTotalT) * 100 }));
 
 // ── Pillar 3 · HSE live LTI-free-day counter ──────────────────────────
@@ -63,8 +63,8 @@ const pillars = [
     kind: "photo" as const,
     span: 2,
     label: "The team",
-    claim: "The specialists taking your call, on the quay, on the rig, at every port.",
-    chip: "{team size} specialists · {ports} ports · since 2010",
+    claim: "Specialists meeting your outcomes in port, on quayside and within your project.",
+    chip: "",
     image: null as string | null, // → /images/built-local/team.jpg
     imageAlt:
       "Afrishore team on site at the supply base, in PPE",
@@ -315,7 +315,7 @@ const isPending = (s: string) => s.includes("{");
                   <p class="text-xs text-mute mt-1.5">CO₂e for the month</p>
                 </div>
 
-                <p class="text-sm text-cream/80">103 hrs · 1,525 L diesel · 4,087 kg CO₂</p>
+                <p class="text-sm text-cream/80">103 hrs · 4,087 kg CO₂</p>
 
                 <div class="space-y-2">
                   <p class="text-[0.65rem] uppercase tracking-[0.18em] text-faint">Where it came from</p>
@@ -332,10 +332,6 @@ const isPending = (s: string) => s.includes("{");
                     </div>
                   ))}
                 </div>
-
-                <p class="text-[0.7rem] text-faint leading-relaxed border-t border-line pt-3">
-                  Methodology: recorded operating hours × fuel rate (L/hr) × 2.68 kg CO₂ per litre of diesel.
-                </p>
               </div>
             </div>
           )}
@@ -368,35 +364,6 @@ const isPending = (s: string) => s.includes("{");
           </div>
         </article>
       ))}
-    </div>
-
-    <!-- KPI summary strip -->
-    <div
-      data-anim="bl-strip"
-      class="opacity-0 translate-y-4 mt-12 lg:mt-14 pt-8 border-t border-line"
-    >
-      <ul class="flex flex-wrap items-center gap-x-8 gap-y-4">
-        {pillars.filter((p) => p.n === 3 || p.chip).map((p) => (
-          <li class="flex items-center gap-2.5">
-            <span
-              class="w-1.5 h-1.5 rounded-full shrink-0"
-              style={isPending(p.chip)
-                ? "background:#8C8980;"
-                : "background:linear-gradient(135deg,#ED7014,#FDE64B);"}
-              aria-hidden="true"
-            ></span>
-            {p.n === 3 ? (
-              <span class="text-xs lg:text-sm text-cream/85">
-                <span data-lti-counter>{ltiDaysNow.toLocaleString()}</span> days LTI-free · Walvis Bay Logistics Base
-              </span>
-            ) : (
-              <span class:list={["text-xs lg:text-sm", isPending(p.chip) ? "text-faint italic" : "text-cream/85"]}>
-                {p.chip}
-              </span>
-            )}
-          </li>
-        ))}
-      </ul>
     </div>
   </div>
 </section>
@@ -448,19 +415,6 @@ const isPending = (s: string) => s.includes("{");
     scrollTrigger: {
       trigger: "[data-anim='bl-card']",
       start: "top 82%",
-      toggleActions: "play none none none",
-    },
-  });
-
-  // KPI strip reveal
-  gsap.to("[data-anim='bl-strip']", {
-    opacity: 1,
-    y: 0,
-    duration: 0.9,
-    ease: "power3.out",
-    scrollTrigger: {
-      trigger: "[data-anim='bl-strip']",
-      start: "top 88%",
       toggleActions: "play none none none",
     },
   });
