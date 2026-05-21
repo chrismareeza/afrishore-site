@@ -1,0 +1,398 @@
+---
+// Section · Built local. Built to standard.
+// Five operating-standard pillars: 3-card top row + 2-card bottom row,
+// then a KPI summary strip. Replaces the former Timeline section.
+//
+// BUILD STATE (2026-05-20): scaffold + the two data widgets (National
+// Content, Carbon) are content-complete. The three photo cards (Team,
+// Yards, HSE) render an intentional placeholder until real photos are
+// processed into /images/built-local/. KPI chips that still contain a
+// {token} are pending figures — they render in a muted "pending" style.
+// This component is NOT yet wired into the homepage; Timeline stays live
+// until every slot is filled, then a single swap commit lands it.
+
+// ── Pillar 4 · localisation line-graph data ───────────────────────────
+// Namibian workforce content over time. Two anchor points confirmed
+// (2022 = 50%, 2026 = 91%); intermediate years can be added here later
+// and the SVG line extends automatically.
+const localisation = [
+  { year: 2022, pct: 50 },
+  { year: 2026, pct: 91 },
+];
+const Y_MIN = 2022, Y_MAX = 2026, P_MIN = 40, P_MAX = 100;
+const GX0 = 40, GX1 = 306, GY0 = 20, GY1 = 104;
+const sx = (yr: number) => GX0 + ((yr - Y_MIN) / (Y_MAX - Y_MIN)) * (GX1 - GX0);
+const sy = (p: number) => GY1 - ((p - P_MIN) / (P_MAX - P_MIN)) * (GY1 - GY0);
+const linePts = localisation.map((d) => `${sx(d.year).toFixed(1)},${sy(d.pct).toFixed(1)}`).join(" ");
+const axisYears = [2022, 2023, 2024, 2025, 2026];
+const firstPt = localisation[0];
+const lastPt = localisation[localisation.length - 1];
+const deltaPct = lastPt.pct - firstPt.pct;
+
+// ── Pillar 5 · carbon widget data (from GHG_Emissions_DMI_May_2026) ────
+const carbonTotalT = 4.088;
+const carbonBars = [
+  { label: "Cranes", t: 1.70 },
+  { label: "Forklift", t: 1.79 },
+  { label: "Truck", t: 0.60 },
+].map((b) => ({ ...b, pct: (b.t / carbonTotalT) * 100 }));
+
+// ── Pillar definitions ────────────────────────────────────────────────
+// span: 2 = top-row third (3×2 = 6 cols); 3 = bottom-row half (2×3 = 6).
+// chip values containing "{" are pending figures.
+const pillars = [
+  {
+    n: 1,
+    kind: "photo" as const,
+    span: 2,
+    label: "The team",
+    claim: "The specialists taking your call, on the quay, on the rig, at every port.",
+    chip: "{team size} specialists · {ports} ports · since 2010",
+    image: null as string | null, // → /images/built-local/team.jpg
+    imageAlt:
+      "Afrishore team on site at the supply base, in PPE",
+  },
+  {
+    n: 2,
+    kind: "split" as const,
+    span: 2,
+    label: "Yards & equipment",
+    claim: "Bonded laydown ready. Cranage and trucks on duty for every campaign.",
+    chip: "{laydown} m² bonded laydown · {cranes} mobile cranes on duty",
+    images: [null, null] as (string | null)[], // [laydown, crane-on-duty]
+    imageAlts: [
+      "Afrishore laydown yard, rig tubulars racked and tagged by campaign",
+      "Mobile crane on duty lifting riser joints at the Afrishore supply base",
+    ],
+  },
+  {
+    n: 3,
+    kind: "photo" as const,
+    span: 2,
+    label: "HSE record",
+    claim: "Hours worked, lessons learned, incidents avoided, counted and audited.",
+    chip: "{manhours} LTI-free manhours",
+    image: null as string | null, // → /images/built-local/hse.jpg
+    imageAlt: "Afrishore HSE briefing before a shift at the supply base",
+  },
+  {
+    n: 4,
+    kind: "national" as const,
+    span: 3,
+    label: "National content & skills transfer",
+    claim:
+      "Skills-transfer programmes, national-content alignment and active PDP development across both coasts.",
+    chip: "B-BBEE Level 1 · 91% Namibian workforce content",
+  },
+  {
+    n: 5,
+    kind: "carbon" as const,
+    span: 3,
+    label: "Carbon, tracked",
+    claim:
+      "Every call measured. Every project reported. Via the Afrishore Logistics app.",
+    chip: "100% calls carbon-tracked since May 2026",
+  },
+];
+
+const isPending = (s: string) => s.includes("{");
+---
+
+<section id="built-local" class="relative bg-base py-24 lg:py-32 overflow-hidden">
+  <div class="max-w-7xl mx-auto px-6 lg:px-12">
+    <!-- Section header -->
+    <div class="max-w-3xl mb-16 lg:mb-20 space-y-6">
+      <div data-anim="bl-eyebrow" class="opacity-0 -translate-y-2">
+        <span class="text-xs lg:text-sm font-semibold uppercase tracking-[0.25em] text-gold">
+          How we operate
+        </span>
+      </div>
+      <h2
+        data-anim="bl-headline"
+        class="opacity-0 translate-y-4 text-4xl md:text-5xl lg:text-6xl leading-[1.1] text-cream"
+      >
+        Built local.<br />
+        <span class="text-gold">Built to standard.</span>
+      </h2>
+      <p
+        data-anim="bl-sub"
+        class="opacity-0 translate-y-4 text-lg text-mute max-w-2xl"
+      >
+        Five things we run every project on.
+      </p>
+    </div>
+
+    <!-- 5-card grid · 3 top / 2 bottom -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-6 lg:gap-8">
+      {pillars.map((p) => (
+        <article
+          data-anim="bl-card"
+          class:list={[
+            "opacity-0 translate-y-8 group relative bg-surface border border-line hover:border-gold/40 transition-all duration-500 rounded-sm overflow-hidden flex flex-col",
+            p.span === 3 ? "lg:col-span-3" : "lg:col-span-2",
+          ]}
+        >
+          {/* ── Visual area ─────────────────────────────────────── */}
+          {p.kind === "photo" && (
+            <div class="relative aspect-[4/3] overflow-hidden bg-base">
+              {p.image ? (
+                <img
+                  src={p.image}
+                  alt={p.imageAlt}
+                  class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  loading="lazy"
+                  decoding="async"
+                  width="800"
+                  height="600"
+                />
+              ) : (
+                <div
+                  class="absolute inset-0 flex flex-col items-center justify-center gap-2 text-center px-6"
+                  style="background: linear-gradient(135deg, #141414 0%, #1F1F1F 100%);"
+                >
+                  <span class="text-[0.65rem] uppercase tracking-[0.2em] text-faint">
+                    {p.label}
+                  </span>
+                  <span class="text-xs text-faint/70">Photograph to follow</span>
+                </div>
+              )}
+            </div>
+          )}
+
+          {p.kind === "split" && (
+            <div class="relative aspect-[4/3] overflow-hidden bg-base flex">
+              {[0, 1].map((i) => (
+                <div class:list={["relative w-1/2 overflow-hidden", i === 0 ? "border-r-2 border-gold/60" : ""]}>
+                  {p.images[i] ? (
+                    <img
+                      src={p.images[i]!}
+                      alt={p.imageAlts[i]}
+                      class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                      loading="lazy"
+                      decoding="async"
+                      width="600"
+                      height="800"
+                    />
+                  ) : (
+                    <div
+                      class="absolute inset-0 flex flex-col items-center justify-center gap-1.5 text-center px-3"
+                      style="background: linear-gradient(135deg, #141414 0%, #1F1F1F 100%);"
+                    >
+                      <span class="text-[0.6rem] uppercase tracking-[0.18em] text-faint">
+                        {i === 0 ? "Laydown" : "Crane on duty"}
+                      </span>
+                      <span class="text-[0.65rem] text-faint/70">Photo to follow</span>
+                    </div>
+                  )}
+                </div>
+              ))}
+            </div>
+          )}
+
+          {p.kind === "national" && (
+            <div class="p-5 lg:p-6">
+              <div class="bg-base border border-line rounded-sm p-5 space-y-5">
+                <div>
+                  <p class="text-[0.65rem] uppercase tracking-[0.18em] text-gold font-semibold">
+                    Afrishore · National Content
+                  </p>
+                  <p class="text-xs text-faint mt-0.5">South Africa &amp; Namibia · 2026</p>
+                </div>
+
+                <div class="grid grid-cols-2 gap-4">
+                  <div class="space-y-1">
+                    <p class="text-[0.6rem] uppercase tracking-[0.14em] text-faint">South Africa</p>
+                    <p class="font-display text-3xl lg:text-4xl text-yellow leading-none">Level 1</p>
+                    <p class="text-xs text-mute leading-snug">B-BBEE, highest broad-based rating</p>
+                  </div>
+                  <div class="space-y-1">
+                    <p class="text-[0.6rem] uppercase tracking-[0.14em] text-faint">Namibia</p>
+                    <p class="font-display text-3xl lg:text-4xl text-yellow leading-none">51%</p>
+                    <p class="text-xs text-mute leading-snug">Namibian-owned · 34% PDP-owned</p>
+                  </div>
+                </div>
+
+                <div class="space-y-2">
+                  <p class="text-[0.65rem] uppercase tracking-[0.18em] text-faint">
+                    Namibian workforce content, 2022 → 2026
+                  </p>
+                  <svg viewBox="0 0 340 132" class="w-full h-auto" role="img"
+                    aria-label={`Namibian workforce content rose from ${firstPt.pct}% in ${firstPt.year} to ${lastPt.pct}% in ${lastPt.year}.`}>
+                    <defs>
+                      <linearGradient id="bl-line" x1="0" y1="0" x2="1" y2="0">
+                        <stop offset="0%" stop-color="#ED7014" />
+                        <stop offset="100%" stop-color="#FDE64B" />
+                      </linearGradient>
+                    </defs>
+                    {/* reference gridlines at 50% and 100% */}
+                    <line x1={GX0} y1={sy(50)} x2={GX1} y2={sy(50)} stroke="#1F1F1F" stroke-width="1" />
+                    <line x1={GX0} y1={sy(100)} x2={GX1} y2={sy(100)} stroke="#1F1F1F" stroke-width="1" />
+                    <text x={GX0 - 6} y={sy(50) + 3} text-anchor="end" font-size="9" fill="#8C8980">50%</text>
+                    <text x={GX0 - 6} y={sy(100) + 3} text-anchor="end" font-size="9" fill="#8C8980">100%</text>
+                    {/* trajectory */}
+                    <polyline points={linePts} fill="none" stroke="url(#bl-line)" stroke-width="2.5"
+                      stroke-linecap="round" stroke-linejoin="round" />
+                    {/* data points + value labels */}
+                    {localisation.map((d) => (
+                      <circle cx={sx(d.year)} cy={sy(d.pct)} r="4" fill="#FDE64B" stroke="#0A0A0A" stroke-width="1.5" />
+                    ))}
+                    <text x={sx(firstPt.year)} y={sy(firstPt.pct) + 16} text-anchor="start"
+                      font-size="11" font-weight="600" fill="#F5F2EB">{firstPt.pct}%</text>
+                    <text x={sx(lastPt.year)} y={sy(lastPt.pct) - 9} text-anchor="end"
+                      font-size="12" font-weight="700" fill="#F5F2EB">{lastPt.pct}%</text>
+                    {/* year axis */}
+                    {axisYears.map((yr) => (
+                      <text x={sx(yr)} y="124" text-anchor="middle" font-size="9" fill="#8C8980">
+                        {yr === 2022 || yr === 2026 ? yr : `'${String(yr).slice(2)}`}
+                      </text>
+                    ))}
+                  </svg>
+                  <p class="text-[0.7rem] text-faint leading-relaxed border-t border-line pt-3">
+                    +{deltaPct} percentage points since {firstPt.year}.
+                  </p>
+                </div>
+              </div>
+            </div>
+          )}
+
+          {p.kind === "carbon" && (
+            <div class="p-5 lg:p-6">
+              <div class="bg-base border border-line rounded-sm p-5 space-y-4">
+                <div>
+                  <p class="text-[0.65rem] uppercase tracking-[0.18em] text-gold font-semibold">
+                    Afrishore Logistics · GHG Report
+                  </p>
+                  <p class="text-xs text-faint mt-0.5">May 2026 · WVB Offshore Supply Base</p>
+                </div>
+
+                <div>
+                  <p class="font-display text-5xl lg:text-6xl text-yellow leading-none">
+                    {carbonTotalT.toFixed(3)}<span class="text-2xl lg:text-3xl"> t</span>
+                  </p>
+                  <p class="text-xs text-mute mt-1.5">CO₂e for the month</p>
+                </div>
+
+                <p class="text-sm text-cream/80">103 hrs · 1,525 L diesel · 4,087 kg CO₂</p>
+
+                <div class="space-y-2">
+                  <p class="text-[0.65rem] uppercase tracking-[0.18em] text-faint">Where it came from</p>
+                  {carbonBars.map((b) => (
+                    <div class="flex items-center gap-3 text-xs">
+                      <span class="w-14 shrink-0 text-mute">{b.label}</span>
+                      <span class="flex-1 h-2 bg-line rounded-full overflow-hidden">
+                        <span
+                          class="block h-full rounded-full"
+                          style={`width:${b.pct.toFixed(1)}%; background:linear-gradient(90deg,#ED7014,#FDE64B);`}
+                        ></span>
+                      </span>
+                      <span class="w-12 text-right text-cream tabular-nums">{b.t.toFixed(2)} t</span>
+                    </div>
+                  ))}
+                </div>
+
+                <p class="text-[0.7rem] text-faint leading-relaxed border-t border-line pt-3">
+                  Methodology: recorded operating hours × fuel rate (L/hr) × 2.68 kg CO₂ per litre of diesel.
+                </p>
+              </div>
+            </div>
+          )}
+
+          {/* ── Card body ───────────────────────────────────────── */}
+          <div class="p-6 lg:p-7 pt-5 flex flex-col gap-3 flex-1">
+            <span class="text-xs uppercase tracking-[0.18em] text-gold font-semibold">
+              {p.label}
+            </span>
+            <p class="text-base lg:text-lg text-cream leading-snug">
+              {p.claim}
+            </p>
+            <span
+              class:list={[
+                "mt-auto pt-3 inline-flex items-center gap-2 text-xs leading-snug",
+                isPending(p.chip) ? "text-faint italic" : "text-mute",
+              ]}
+            >
+              <span
+                class="w-1.5 h-1.5 rounded-full shrink-0"
+                style={isPending(p.chip)
+                  ? "background:#8C8980;"
+                  : "background:linear-gradient(135deg,#ED7014,#FDE64B);"}
+                aria-hidden="true"
+              ></span>
+              {p.chip}
+            </span>
+          </div>
+        </article>
+      ))}
+    </div>
+
+    <!-- KPI summary strip -->
+    <div
+      data-anim="bl-strip"
+      class="opacity-0 translate-y-4 mt-12 lg:mt-14 pt-8 border-t border-line"
+    >
+      <ul class="flex flex-wrap items-center gap-x-8 gap-y-4">
+        {pillars.map((p) => (
+          <li class="flex items-center gap-2.5">
+            <span
+              class="w-1.5 h-1.5 rounded-full shrink-0"
+              style={isPending(p.chip)
+                ? "background:#8C8980;"
+                : "background:linear-gradient(135deg,#ED7014,#FDE64B);"}
+              aria-hidden="true"
+            ></span>
+            <span class:list={["text-xs lg:text-sm", isPending(p.chip) ? "text-faint italic" : "text-cream/85"]}>
+              {p.chip}
+            </span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </div>
+</section>
+
+<script>
+  import { gsap } from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  // Section header reveal
+  gsap.timeline({
+    scrollTrigger: {
+      trigger: "#built-local",
+      start: "top 75%",
+      toggleActions: "play none none none",
+    },
+    defaults: { ease: "power3.out", duration: 0.9 },
+  })
+    .to("[data-anim='bl-eyebrow']", { opacity: 1, y: 0 }, 0)
+    .to("[data-anim='bl-headline']", { opacity: 1, y: 0, duration: 1.1 }, 0.15)
+    .to("[data-anim='bl-sub']", { opacity: 1, y: 0 }, 0.4);
+
+  // Staggered card reveal
+  gsap.to("[data-anim='bl-card']", {
+    opacity: 1,
+    y: 0,
+    duration: 0.9,
+    stagger: 0.1,
+    ease: "power3.out",
+    scrollTrigger: {
+      trigger: "[data-anim='bl-card']",
+      start: "top 82%",
+      toggleActions: "play none none none",
+    },
+  });
+
+  // KPI strip reveal
+  gsap.to("[data-anim='bl-strip']", {
+    opacity: 1,
+    y: 0,
+    duration: 0.9,
+    ease: "power3.out",
+    scrollTrigger: {
+      trigger: "[data-anim='bl-strip']",
+      start: "top 88%",
+      toggleActions: "play none none none",
+    },
+  });
+</script>
