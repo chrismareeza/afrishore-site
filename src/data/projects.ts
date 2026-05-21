@@ -368,6 +368,7 @@ Afrishore delivered the full consignment, manufactured to specification, certifi
     year: "2013",
     port: "Mossel Bay",
     serviceTypes: ["subsea-services", "integrated-logistics"],
+    heroImage: "/images/projects/sbm-subsea-pipelaying.jpg",
     summary: "Subsea pipeline installation campaign — one of Afrishore's earliest documented projects.",
     featured: false,
     published: true,
