@@ -209,18 +209,18 @@ const isPending = (s: string) => s.includes("{");
               <div class="bg-base border border-line rounded-sm p-5 space-y-4">
                 <div>
                   <p class="text-[0.65rem] uppercase tracking-[0.18em] text-gold font-semibold">
-                    Afrishore · HSE Record
+                    Afrishore HSE Data
                   </p>
                   <p class="text-xs text-faint mt-0.5">Walvis Bay Logistics Base</p>
                 </div>
-                <div class="grid grid-cols-2 gap-4">
+                <div class="space-y-4">
                   <div>
                     <p class="font-display text-4xl lg:text-5xl text-yellow leading-none">
                       <span data-lti-counter>{ltiDaysNow.toLocaleString()}</span>
                     </p>
                     <p class="text-xs text-mute mt-1.5 leading-snug">days lost-time-injury-free</p>
                   </div>
-                  <div>
+                  <div class="border-t border-line pt-4">
                     <p class="font-display text-4xl lg:text-5xl text-yellow leading-none">
                       <span data-manhours-counter>{manhoursNow.toLocaleString()}</span>
                     </p>
