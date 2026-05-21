@@ -46,7 +46,13 @@ const LTI_REF_ISO = "2026-05-21";
 const LTI_REF_DAYS = 869;
 const ltiDaysNow =
   LTI_REF_DAYS + Math.max(0, Math.floor((Date.now() - Date.parse(LTI_REF_ISO)) / 86400000));
-const hseManhours = 7347;
+
+// Manhours worked on base, year to date — modelled at 1,553 hrs/month
+// (calendar-month number × 1,553), so it steps up on the 1st of each
+// month and resets to January's 1,553 at the start of every year.
+// Baked at build time, recomputed client-side on load.
+const MANHOURS_PER_MONTH = 1553;
+const manhoursNow = (new Date().getMonth() + 1) * MANHOURS_PER_MONTH;
 
 // ── Pillar definitions ────────────────────────────────────────────────
 // span: 2 = top-row third (3×2 = 6 cols); 3 = bottom-row half (2×3 = 6).
@@ -82,7 +88,7 @@ const pillars = [
     span: 2,
     label: "HSE record",
     claim: "Hours worked, lessons learned, incidents avoided, counted and audited.",
-    chip: `${hseManhours.toLocaleString()} manhours worked on base, to May 2026`,
+    chip: "",
   },
   {
     n: 4,
@@ -207,15 +213,20 @@ const isPending = (s: string) => s.includes("{");
                   </p>
                   <p class="text-xs text-faint mt-0.5">Walvis Bay Logistics Base</p>
                 </div>
-                <div>
-                  <p class="font-display text-5xl lg:text-6xl text-yellow leading-none">
-                    <span data-lti-counter>{ltiDaysNow.toLocaleString()}</span>
-                  </p>
-                  <p class="text-xs text-mute mt-1.5">days lost-time-injury-free</p>
+                <div class="grid grid-cols-2 gap-4">
+                  <div>
+                    <p class="font-display text-4xl lg:text-5xl text-yellow leading-none">
+                      <span data-lti-counter>{ltiDaysNow.toLocaleString()}</span>
+                    </p>
+                    <p class="text-xs text-mute mt-1.5 leading-snug">days lost-time-injury-free</p>
+                  </div>
+                  <div>
+                    <p class="font-display text-4xl lg:text-5xl text-yellow leading-none">
+                      <span data-manhours-counter>{manhoursNow.toLocaleString()}</span>
+                    </p>
+                    <p class="text-xs text-mute mt-1.5 leading-snug">manhours, year to date</p>
+                  </div>
                 </div>
-                <p class="text-[0.7rem] text-faint leading-relaxed border-t border-line pt-3">
-                  Days without a lost-time injury at the Walvis Bay Logistics Base. The counter advances automatically each day.
-                </p>
               </div>
             </div>
           )}
@@ -336,21 +347,23 @@ const isPending = (s: string) => s.includes("{");
             <p class="text-base lg:text-lg text-cream leading-snug">
               {p.claim}
             </p>
-            <span
-              class:list={[
-                "mt-auto pt-3 inline-flex items-center gap-2 text-xs leading-snug",
-                isPending(p.chip) ? "text-faint italic" : "text-mute",
-              ]}
-            >
+            {p.kind !== "hse" && (
               <span
-                class="w-1.5 h-1.5 rounded-full shrink-0"
-                style={isPending(p.chip)
-                  ? "background:#8C8980;"
-                  : "background:linear-gradient(135deg,#ED7014,#FDE64B);"}
-                aria-hidden="true"
-              ></span>
-              {p.chip}
-            </span>
+                class:list={[
+                  "mt-auto pt-3 inline-flex items-center gap-2 text-xs leading-snug",
+                  isPending(p.chip) ? "text-faint italic" : "text-mute",
+                ]}
+              >
+                <span
+                  class="w-1.5 h-1.5 rounded-full shrink-0"
+                  style={isPending(p.chip)
+                    ? "background:#8C8980;"
+                    : "background:linear-gradient(135deg,#ED7014,#FDE64B);"}
+                  aria-hidden="true"
+                ></span>
+                {p.chip}
+              </span>
+            )}
           </div>
         </article>
       ))}
@@ -401,6 +414,14 @@ const isPending = (s: string) => s.includes("{");
   const ltiDays = LTI_REF_DAYS + Math.max(0, Math.floor((Date.now() - LTI_REF) / 86400000));
   document.querySelectorAll("[data-lti-counter]").forEach((el) => {
     el.textContent = ltiDays.toLocaleString();
+  });
+
+  // HSE · manhours counter — modelled at 1,553 hrs/month (calendar-month
+  // number × 1,553); steps up on the 1st of each month, resets each
+  // January. Recomputed on load.
+  const manhoursVal = (new Date().getMonth() + 1) * 1553;
+  document.querySelectorAll("[data-manhours-counter]").forEach((el) => {
+    el.textContent = manhoursVal.toLocaleString();
   });
 
   // Section header reveal
