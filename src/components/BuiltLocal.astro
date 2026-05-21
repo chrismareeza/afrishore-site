@@ -71,19 +71,14 @@ const pillars = [
   },
   {
     n: 2,
-    kind: "split" as const,
+    kind: "facilities" as const,
     span: 2,
     label: "Yards & equipment",
     claim: "Bonded laydown ready. Cranage and trucks on duty for every campaign.",
     chip: "",
-    images: [
-      "/images/built-local/yards-laydown.jpg",
-      "/images/built-local/yards-crane.jpg",
-    ] as (string | null)[], // [laydown, crane-on-duty]
-    imageAlts: [
-      "Afrishore laydown yard, rig tubulars racked and tagged by campaign",
-      "Mobile crane on duty lifting riser joints at the Afrishore supply base",
-    ],
+    image: "/images/built-local/yards-crane.jpg" as string | null,
+    imageAlt:
+      "Crane and rigging spread handling rig tubulars on the quay at the Afrishore Walvis Bay supply base",
   },
   {
     n: 3,
@@ -177,33 +172,27 @@ const isPending = (s: string) => s.includes("{");
             </div>
           )}
 
-          {p.kind === "split" && (
-            <div class="relative aspect-[4/3] overflow-hidden bg-base flex">
-              {[0, 1].map((i) => (
-                <div class:list={["relative w-1/2 overflow-hidden", i === 0 ? "border-r-2 border-gold/60" : ""]}>
-                  {p.images[i] ? (
-                    <img
-                      src={p.images[i]!}
-                      alt={p.imageAlts[i]}
-                      class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                      loading="lazy"
-                      decoding="async"
-                      width="600"
-                      height="800"
-                    />
-                  ) : (
-                    <div
-                      class="absolute inset-0 flex flex-col items-center justify-center gap-1.5 text-center px-3"
-                      style="background: linear-gradient(135deg, #141414 0%, #1F1F1F 100%);"
-                    >
-                      <span class="text-[0.6rem] uppercase tracking-[0.18em] text-faint">
-                        {i === 0 ? "Laydown" : "Crane on duty"}
-                      </span>
-                      <span class="text-[0.65rem] text-faint/70">Photo to follow</span>
-                    </div>
-                  )}
+          {p.kind === "facilities" && (
+            <div class="p-5 lg:p-6">
+              <div class="bg-base border border-line rounded-sm p-5 space-y-4">
+                <div>
+                  <p class="text-[0.65rem] uppercase tracking-[0.18em] text-gold font-semibold">
+                    Afrishore Facilities
+                  </p>
+                  <p class="text-xs text-faint mt-0.5">Walvis Bay Logistics Base</p>
                 </div>
-              ))}
+                <div class="aspect-[16/9] overflow-hidden rounded-sm">
+                  <img
+                    src={p.image}
+                    alt={p.imageAlt}
+                    class="w-full h-full object-cover"
+                    loading="lazy"
+                    decoding="async"
+                    width="1400"
+                    height="1050"
+                  />
+                </div>
+              </div>
             </div>
           )}
 
