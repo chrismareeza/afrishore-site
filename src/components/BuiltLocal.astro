@@ -139,6 +139,9 @@ const isPending = (s: string) => s.includes("{");
           class:list={[
             "opacity-0 translate-y-8 group relative bg-surface border border-line hover:border-gold/40 transition-all duration-500 rounded-sm overflow-hidden flex flex-col",
             p.span === 3 ? "lg:col-span-3" : "lg:col-span-2",
+            // Tablet (2-col): Carbon is the 5th card, so it spans the full
+            // row rather than orphaning half-width beside an empty column.
+            p.kind === "carbon" && "md:col-span-2",
           ]}
         >
           {/* ── Visual area ─────────────────────────────────────── */}
@@ -175,7 +178,7 @@ const isPending = (s: string) => s.includes("{");
                   </p>
                   <p class="text-xs text-faint mt-0.5">Walvis Bay Logistics Base</p>
                 </div>
-                <div class="space-y-4">
+                <div class="space-y-4 flex-1 flex flex-col justify-center">
                   <div>
                     <p class="font-display text-4xl lg:text-5xl text-yellow leading-none">
                       <span data-lti-counter>{ltiDaysNow.toLocaleString()}</span>
@@ -233,15 +236,18 @@ const isPending = (s: string) => s.includes("{");
                     <line x1={GX0} y1={sy(100)} x2={GX1} y2={sy(100)} stroke="#1F1F1F" stroke-width="1" />
                     <text x={GX0 - 6} y={sy(50) + 3} text-anchor="end" font-size="9" fill="#8C8980">50%</text>
                     <text x={GX0 - 6} y={sy(100) + 3} text-anchor="end" font-size="9" fill="#8C8980">100%</text>
-                    {/* trajectory */}
-                    <polyline points={linePts} fill="none" stroke="url(#bl-line)" stroke-width="2.5"
-                      stroke-linecap="round" stroke-linejoin="round" />
-                    {/* data points; only the latest value (91%) is labelled */}
-                    {localisation.map((d) => (
-                      <circle cx={sx(d.year)} cy={sy(d.pct)} r="4" fill="#FDE64B" stroke="#0A0A0A" stroke-width="1.5" />
-                    ))}
-                    <text x={sx(lastPt.year)} y={sy(lastPt.pct) - 9} text-anchor="end"
-                      font-size="12" font-weight="700" fill="#F5F2EB">{lastPt.pct}%</text>
+                    {/* trajectory — draws itself in on scroll (see <script>) */}
+                    <polyline id="bl-natline" points={linePts} fill="none" stroke="url(#bl-line)"
+                      stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
+                      pathLength="1" stroke-dasharray="1" stroke-dashoffset="1" />
+                    {/* data points + 91% label — fade in once the line is drawn */}
+                    <g data-bl-natpts style="opacity:0">
+                      {localisation.map((d) => (
+                        <circle cx={sx(d.year)} cy={sy(d.pct)} r="4" fill="#FDE64B" stroke="#0A0A0A" stroke-width="1.5" />
+                      ))}
+                      <text x={sx(lastPt.year)} y={sy(lastPt.pct) - 9} text-anchor="end"
+                        font-size="12" font-weight="700" fill="#F5F2EB">{lastPt.pct}%</text>
+                    </g>
                     {/* year axis */}
                     {axisYears.map((yr) => (
                       <text x={sx(yr)} y="124" text-anchor="middle" font-size="9" fill="#8C8980">
@@ -284,7 +290,9 @@ const isPending = (s: string) => s.includes("{");
                       <span class="flex-1 h-2 bg-line rounded-full overflow-hidden">
                         <span
                           class="block h-full rounded-full"
-                          style={`width:${b.pct.toFixed(1)}%; background:linear-gradient(90deg,#ED7014,#FDE64B);`}
+                          data-bl-bar
+                          data-pct={b.pct.toFixed(1)}
+                          style="width:0%; background:linear-gradient(90deg,#ED7014,#FDE64B);"
                         ></span>
                       </span>
                       <span class="w-12 text-right text-cream tabular-nums">{b.t.toFixed(2)} t</span>
@@ -377,4 +385,49 @@ const isPending = (s: string) => s.includes("{");
       toggleActions: "play none none none",
     },
   });
+
+  // ── Data-viz reveals · National Content line + Carbon bars ──────────
+  // Same scroll-triggered style as the footprint map: each graph plays
+  // once as it scrolls into view — the trajectory line draws itself in,
+  // the emission bars fill from zero.
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const natLine = document.querySelector<SVGPolylineElement>("#bl-natline");
+  const natPts = document.querySelector<SVGGElement>("[data-bl-natpts]");
+  const carbonBarEls = gsap.utils.toArray<HTMLElement>("[data-bl-bar]");
+
+  if (reduceMotion) {
+    // Honour the OS preference — show the final state with no motion.
+    if (natLine) natLine.style.strokeDashoffset = "0";
+    if (natPts) natPts.style.opacity = "1";
+    carbonBarEls.forEach((b) => { b.style.width = (b.dataset.pct ?? "0") + "%"; });
+  } else {
+    if (natLine && natPts) {
+      ScrollTrigger.create({
+        trigger: natLine.closest("article"),
+        start: "top 78%",
+        once: true,
+        onEnter: () => {
+          gsap.to(natLine, { strokeDashoffset: 0, duration: 1.2, ease: "power2.out" });
+          gsap.to(natPts, { opacity: 1, duration: 0.5, delay: 0.75, ease: "power2.out" });
+        },
+      });
+    }
+    if (carbonBarEls.length) {
+      ScrollTrigger.create({
+        trigger: carbonBarEls[0].closest("article"),
+        start: "top 78%",
+        once: true,
+        onEnter: () => {
+          carbonBarEls.forEach((bar, i) => {
+            gsap.to(bar, {
+              width: (bar.dataset.pct ?? "0") + "%",
+              duration: 1,
+              delay: 0.15 + i * 0.12,
+              ease: "power2.out",
+            });
+          });
+        },
+      });
+    }
+  }
 </script>
