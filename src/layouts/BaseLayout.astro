@@ -337,6 +337,22 @@ const finalGraph = [
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
+    <!-- Canonical-host guard: bounce the raw Cloudflare Pages domain to the
+         live site so afrishore-site.pages.dev is not crawled or visited as
+         duplicate content. Production host only — *.pages.dev preview
+         deploys are left alone so the deploy-preview workflow still works.
+         Runs before analytics so nothing fires on the wrong host. -->
+    <script is:inline>
+      (function () {
+        var h = location.hostname;
+        if (h === "afrishore-site.pages.dev" || h === "www.afrishore-site.pages.dev") {
+          location.replace(
+            "https://www.afrishore.co" + location.pathname + location.search + location.hash
+          );
+        }
+      })();
+    </script>
+
     <!-- Google Analytics 4 (G-E28C5EH0TG) with Consent Mode v2.
          analytics_storage defaults to DENIED (POPIA/GDPR); the consent
          banner flips it to 'granted' on Accept and the choice is
