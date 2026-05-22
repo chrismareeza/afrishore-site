@@ -15,11 +15,21 @@ const Y_MIN = 2022, Y_MAX = 2026, P_MIN = 40, P_MAX = 100;
 const GX0 = 40, GX1 = 306, GY0 = 20, GY1 = 104;
 const sx = (yr: number) => GX0 + ((yr - Y_MIN) / (Y_MAX - Y_MIN)) * (GX1 - GX0);
 const sy = (p: number) => GY1 - ((p - P_MIN) / (P_MAX - P_MIN)) * (GY1 - GY0);
-const linePts = localisation.map((d) => `${sx(d.year).toFixed(1)},${sy(d.pct).toFixed(1)}`).join(" ");
 const axisYears = [2022, 2023, 2024, 2025, 2026];
 const firstPt = localisation[0];
 const lastPt = localisation[localisation.length - 1];
 const deltaPct = lastPt.pct - firstPt.pct;
+
+// Trajectory drawn as a parabolic arc rather than a straight chord: a
+// quadratic Bézier whose control point sits level with the first data
+// point produces a parabola with a horizontal tangent at the start that
+// sweeps upward to the latest value.
+const arcCtrlX = (sx(firstPt.year) + sx(lastPt.year)) / 2;
+const arcCtrlY = sy(firstPt.pct);
+const linePath =
+  `M ${sx(firstPt.year).toFixed(1)},${sy(firstPt.pct).toFixed(1)}` +
+  ` Q ${arcCtrlX.toFixed(1)},${arcCtrlY.toFixed(1)}` +
+  ` ${sx(lastPt.year).toFixed(1)},${sy(lastPt.pct).toFixed(1)}`;
 
 // ── Pillar 5 · carbon widget data (from GHG_Emissions_DMI_May_2026) ────
 const carbonTotalT = 4.088;
@@ -236,8 +246,8 @@ const isPending = (s: string) => s.includes("{");
                     <line x1={GX0} y1={sy(100)} x2={GX1} y2={sy(100)} stroke="#1F1F1F" stroke-width="1" />
                     <text x={GX0 - 6} y={sy(50) + 3} text-anchor="end" font-size="9" fill="#8C8980">50%</text>
                     <text x={GX0 - 6} y={sy(100) + 3} text-anchor="end" font-size="9" fill="#8C8980">100%</text>
-                    {/* trajectory — draws itself in on scroll (see <script>) */}
-                    <polyline id="bl-natline" points={linePts} fill="none" stroke="url(#bl-line)"
+                    {/* trajectory — parabolic arc, draws itself in on scroll (see <script>) */}
+                    <path id="bl-natline" d={linePath} fill="none" stroke="url(#bl-line)"
                       stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
                       pathLength="1" stroke-dasharray="1" stroke-dashoffset="1" />
                     {/* data points + 91% label — fade in once the line is drawn */}
@@ -391,7 +401,7 @@ const isPending = (s: string) => s.includes("{");
   // once as it scrolls into view — the trajectory line draws itself in,
   // the emission bars fill from zero.
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  const natLine = document.querySelector<SVGPolylineElement>("#bl-natline");
+  const natLine = document.querySelector<SVGPathElement>("#bl-natline");
   const natPts = document.querySelector<SVGGElement>("[data-bl-natpts]");
   const carbonBarEls = gsap.utils.toArray<HTMLElement>("[data-bl-bar]");
 
@@ -407,8 +417,9 @@ const isPending = (s: string) => s.includes("{");
         start: "top 78%",
         once: true,
         onEnter: () => {
-          gsap.to(natLine, { strokeDashoffset: 0, duration: 1.2, ease: "power2.out" });
-          gsap.to(natPts, { opacity: 1, duration: 0.5, delay: 0.75, ease: "power2.out" });
+          // Hold 1s after the graph scrolls in, then draw the line + points.
+          gsap.to(natLine, { strokeDashoffset: 0, delay: 1, duration: 1.2, ease: "power2.out" });
+          gsap.to(natPts, { opacity: 1, duration: 0.5, delay: 1.75, ease: "power2.out" });
         },
       });
     }
@@ -422,7 +433,8 @@ const isPending = (s: string) => s.includes("{");
             gsap.to(bar, {
               width: (bar.dataset.pct ?? "0") + "%",
               duration: 1,
-              delay: 0.15 + i * 0.12,
+              // Hold 1s after the graph scrolls in, then fill the bars.
+              delay: 1.15 + i * 0.12,
               ease: "power2.out",
             });
           });
