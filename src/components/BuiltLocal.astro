@@ -60,14 +60,16 @@ const manhoursNow = (new Date().getMonth() + 1) * MANHOURS_PER_MONTH;
 const pillars = [
   {
     n: 1,
-    kind: "photo" as const,
+    kind: "facilities" as const,
     span: 2,
     label: "The team",
     claim: "Specialists meeting your outcomes in port, on quayside and within your project.",
     chip: "",
-    image: null as string | null, // → /images/built-local/team.jpg
+    boxTitle: "Afrishore Team",
+    boxSub: "Across South Africa & Namibia",
+    image: "/images/built-local/team.jpg" as string | null,
     imageAlt:
-      "Afrishore team on site at the supply base, in PPE",
+      "The Afrishore team in PPE on the quayside at the Walvis Bay supply base, working a rig mooring-anchor spread",
   },
   {
     n: 2,
@@ -76,6 +78,8 @@ const pillars = [
     label: "Yards & equipment",
     claim: "Bonded laydown ready. Cranage, forklifts and trucks on duty for every campaign.",
     chip: "",
+    boxTitle: "Afrishore Facilities",
+    boxSub: "Walvis Bay Logistics Base",
     image: "/images/built-local/yards-crane.jpg" as string | null,
     imageAlt:
       "Crane and rigging spread handling rig tubulars on the quay at the Afrishore Walvis Bay supply base",
@@ -146,40 +150,14 @@ const isPending = (s: string) => s.includes("{");
           ]}
         >
           {/* ── Visual area ─────────────────────────────────────── */}
-          {p.kind === "photo" && (
-            <div class="relative aspect-[4/3] overflow-hidden bg-base">
-              {p.image ? (
-                <img
-                  src={p.image}
-                  alt={p.imageAlt}
-                  class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                  loading="lazy"
-                  decoding="async"
-                  width="800"
-                  height="600"
-                />
-              ) : (
-                <div
-                  class="absolute inset-0 flex flex-col items-center justify-center gap-2 text-center px-6"
-                  style="background: linear-gradient(135deg, #141414 0%, #1F1F1F 100%);"
-                >
-                  <span class="text-[0.65rem] uppercase tracking-[0.2em] text-faint">
-                    {p.label}
-                  </span>
-                  <span class="text-xs text-faint/70">Photograph to follow</span>
-                </div>
-              )}
-            </div>
-          )}
-
           {p.kind === "facilities" && (
             <div class="p-5 lg:p-6 flex-1 flex flex-col">
               <div class="bg-base border border-line rounded-sm p-5 space-y-4 flex-1 flex flex-col">
                 <div>
                   <p class="text-[0.65rem] uppercase tracking-[0.18em] text-gold font-semibold">
-                    Afrishore Facilities
+                    {p.boxTitle}
                   </p>
-                  <p class="text-xs text-faint mt-0.5">Walvis Bay Logistics Base</p>
+                  <p class="text-xs text-faint mt-0.5">{p.boxSub}</p>
                 </div>
                 <div class="flex-1 min-h-[10rem] overflow-hidden rounded-sm">
                   <img
