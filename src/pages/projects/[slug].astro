@@ -72,6 +72,42 @@ const heroAbsolute = project.heroImage
   ? new URL(project.heroImage, siteUrl).toString()
   : new URL("/og-image.jpg", siteUrl).toString();
 
+// ── Entity strengthening ──────────────────────────────────────────────
+// Every case study that features the same vessel emits the same stable
+// @id, so Google merges the references and Afrishore becomes the
+// consistent provider in the rig's knowledge-graph neighbourhood.
+const vesselSlug = (s: string) =>
+  s.toLowerCase().normalize("NFKD").replace(/[^\w]+/g, "-").replace(/^-|-$/g, "");
+const vesselId = project.vessel ? `${siteUrl}/#vessel-${vesselSlug(project.vessel)}` : null;
+
+// Port → Place. When the port matches one of the four LocalBusiness
+// offices declared in BaseLayout, reference the LocalBusiness @id;
+// otherwise emit a plain Place.
+const officeIdMap: Record<string, string> = {
+  "Walvis Bay": `${siteUrl}/#walvis-bay`,
+  "Cape Town": `${siteUrl}/#cape-town`,
+  "Mossel Bay": `${siteUrl}/#mossel-bay`,
+  "Durban": `${siteUrl}/#durban`,
+};
+const portList = project.port.split(/\s*\/\s*/).map((p) => p.trim()).filter(Boolean);
+const portPlaces = portList.map((p) =>
+  officeIdMap[p] ? { "@id": officeIdMap[p] } : { "@type": "Place", "name": `Port of ${p}` }
+);
+const contentLocation = portPlaces.length === 1 ? portPlaces[0] : portPlaces;
+
+// Service category — link the case study to the abstract Service node
+// already declared in BaseLayout's @graph (when one matches).
+const serviceCategoryIdMap: Record<string, string> = {
+  "ship-rig-agency": `${siteUrl}/#service-ship-rig-agency`,
+  "supply-base": `${siteUrl}/#service-supply-base`,
+  "integrated-logistics": `${siteUrl}/#service-integrated-logistics`,
+  "crew-visa": `${siteUrl}/#service-crew-visa`,
+};
+const primaryServiceTypeKey = project.serviceTypes[0];
+const primaryServiceCategoryId = serviceCategoryIdMap[primaryServiceTypeKey] || null;
+
+const temporalCoverage = `${startYear}-01-01/${endYear}-12-31`;
+
 const articleSchema = {
   "@type": "Article",
   "@id": `${projectUrl}#article`,
@@ -81,19 +117,24 @@ const articleSchema = {
   "image": [heroAbsolute],
   "datePublished": publishedTime,
   "dateModified": modifiedTime,
+  "temporalCoverage": temporalCoverage,
   "author": { "@id": `${siteUrl}/#organization` },
   "publisher": { "@id": `${siteUrl}/#organization` },
   "mainEntityOfPage": { "@type": "WebPage", "@id": projectUrl },
   "articleSection": "Case Study",
+  "contentLocation": contentLocation,
   "about": [
     { "@type": "Organization", "name": project.client },
     ...(project.endCustomer ? [{ "@type": "Organization", "name": project.endCustomer }] : []),
     // Use Thing (not Vehicle) for the vessel/rig — Vehicle is a subtype of
     // Product in schema.org, which triggers the Rich Results Test to demand
     // offers/review/aggregateRating fields that don't apply to a chartered
-    // marine asset. additionalType keeps the maritime semantic.
+    // marine asset. additionalType keeps the maritime semantic. The
+    // stable @id is sitewide, so every case study that mentions the same
+    // vessel ties back to the same entity node.
     ...(project.vessel ? [{
       "@type": "Thing",
+      "@id": vesselId,
       "name": project.vessel,
       "additionalType": "https://en.wikipedia.org/wiki/Watercraft",
     }] : []),
@@ -107,6 +148,27 @@ const articleSchema = {
     "marine logistics", "offshore", "Afrishore",
   ].join(", "),
   "isPartOf": { "@id": `${siteUrl}/#website` },
+};
+
+// Explicit Service entity — a direct structured claim that Afrishore
+// provided this service, for this client, on this vessel, at this
+// port, during this date range. Strongest possible schema-level
+// assertion of who actually delivered the campaign.
+const serviceSchema = {
+  "@type": "Service",
+  "@id": `${projectUrl}#service-delivery`,
+  "name": `Marine logistics — ${project.title}`,
+  "description": project.summary,
+  "provider": { "@id": `${siteUrl}/#organization` },
+  "serviceType": serviceLabels[primaryServiceTypeKey] || primaryServiceTypeKey,
+  ...(primaryServiceCategoryId ? { "category": { "@id": primaryServiceCategoryId } } : {}),
+  ...(project.vessel ? { "about": { "@id": vesselId } } : {}),
+  "recipient": { "@type": "Organization", "name": project.client },
+  ...(project.endCustomer ? { "audience": { "@type": "Organization", "name": project.endCustomer } } : {}),
+  "areaServed": contentLocation,
+  "temporalCoverage": temporalCoverage,
+  "mainEntityOfPage": { "@type": "WebPage", "@id": projectUrl },
+  "isPartOf": { "@id": `${projectUrl}#article` },
 };
 
 const breadcrumb = [
@@ -123,7 +185,7 @@ const breadcrumb = [
   ogType="article"
   canonical={projectUrl}
   breadcrumb={breadcrumb}
-  pageSchema={[articleSchema]}
+  pageSchema={[articleSchema, serviceSchema]}
   articleMeta={{
     publishedTime,
     modifiedTime,
