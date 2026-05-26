@@ -8,6 +8,9 @@ export interface Project {
   client: string;
   year: string;
   port: string;
+  // Override the "Port" label shown on the case-study metadata block —
+  // e.g. "Airport" for an air-charter project. Falls back to "Port".
+  locationLabel?: string;
   serviceTypes: string[];
   summary: string;
   tagline?: string; // Optional gold sub-headline under the H1 (case-study page)
@@ -379,7 +382,8 @@ Afrishore delivered the full consignment, manufactured to specification, certifi
     client: "Baker Hughes",
     endCustomer: "Pan African Energy Tanzania",
     year: "2024",
-    port: "Dar es Salaam",
+    port: "Dar es Salaam via Johannesburg",
+    locationLabel: "Airport",
     serviceTypes: ["integrated-logistics"],
     heroImage: "/images/projects/baker-hughes-tanzania-explosives-charter.jpg",
     summary: "Urgent multi-class explosives air charter from O.R. Tambo to Dar es Salaam, supporting Baker Hughes' gas-well intervention contract for Pan African Energy at Songo Songo Island.",

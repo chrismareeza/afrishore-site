@@ -89,9 +89,14 @@ const officeIdMap: Record<string, string> = {
   "Mossel Bay": `${siteUrl}/#mossel-bay`,
   "Durban": `${siteUrl}/#durban`,
 };
-const portList = project.port.split(/\s*\/\s*/).map((p) => p.trim()).filter(Boolean);
+// Split on "/" or " via " so an air route ("Dar es Salaam via Johannesburg")
+// resolves to its component places for schema purposes.
+const portList = project.port.split(/\s*(?:\/|via)\s+/i).map((p) => p.trim()).filter(Boolean);
+// Bare place names for non-port projects (e.g. air-charter); the seaport
+// prefix is only added when this case study is in fact at a seaport.
+const isSeaPort = !project.locationLabel || project.locationLabel === "Port";
 const portPlaces = portList.map((p) =>
-  officeIdMap[p] ? { "@id": officeIdMap[p] } : { "@type": "Place", "name": `Port of ${p}` }
+  officeIdMap[p] ? { "@id": officeIdMap[p] } : { "@type": "Place", "name": isSeaPort ? `Port of ${p}` : p }
 );
 const contentLocation = portPlaces.length === 1 ? portPlaces[0] : portPlaces;
 
@@ -239,7 +244,7 @@ const breadcrumb = [
             <span class="text-cream">{project.year}</span>
           </span>
           <span class="flex items-center gap-2">
-            <span class="text-faint text-xs uppercase tracking-[0.15em]">Port</span>
+            <span class="text-faint text-xs uppercase tracking-[0.15em]">{project.locationLabel || "Port"}</span>
             <span class="text-cream">{project.port}</span>
           </span>
           {project.vessel && (
@@ -349,7 +354,7 @@ const breadcrumb = [
                 <dd class="text-cream">{project.year}</dd>
               </div>
               <div>
-                <dt class="text-xs uppercase tracking-[0.15em] text-faint mb-1">Port</dt>
+                <dt class="text-xs uppercase tracking-[0.15em] text-faint mb-1">{project.locationLabel || "Port"}</dt>
                 <dd class="text-cream">{project.port}</dd>
               </div>
               {project.vessel && (
