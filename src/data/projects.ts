@@ -52,7 +52,7 @@ export const projects: Project[] = [
 Brulpadda-1AX sits in Block 11B/12B, roughly 175 km off South Africa's southern coast: an ultra-deepwater well drilled in some of the most challenging current and weather conditions in the world (the Agulhas Current is one of the strongest western boundary currents on the planet). Afrishore handled all the onshore supply base operations: temporary importation and customs clearance, warehousing and project cargo handling, rigging and waste management, crew logistics including immigration support for international specialists, vessel agency and port management, and full mobilisation/demobilisation coordination. The above forming the baseline for additional project integrations related to the rig agency of Deepsea Stavanger for Odfjell Drilling, vessel agency for project PSVs from Bourbon and Farstad, mud plant labour and logistics for Halliburton and onshore procurement, logistics and crew movement for Oceaneering. Drilling a frontier well in 1,400 m of water demanded a shore-side operation with zero margin for error.
 
 The Brulpadda discovery reopened South Africa's upstream story. Afrishore was the partner on the ground.`,
-    featured: true,
+    featured: false,
     published: true,
   },
   {
@@ -371,6 +371,26 @@ Afrishore delivered the full consignment, manufactured to specification, certifi
     heroImage: "/images/projects/sbm-subsea-pipelaying.jpg",
     summary: "Subsea pipeline installation campaign — one of Afrishore's earliest documented projects.",
     featured: false,
+    published: true,
+  },
+  {
+    slug: "baker-hughes-tanzania-explosives-charter",
+    title: "Baker Hughes: Tanzania Explosives Air Charter",
+    client: "Baker Hughes",
+    endCustomer: "Pan African Energy Tanzania",
+    year: "2024",
+    port: "Dar es Salaam",
+    serviceTypes: ["integrated-logistics"],
+    heroImage: "/images/projects/baker-hughes-tanzania-explosives-charter.jpg",
+    summary: "Urgent multi-class explosives air charter from O.R. Tambo to Dar es Salaam, supporting Baker Hughes' gas-well intervention contract for Pan African Energy at Songo Songo Island.",
+    outcome: `In October 2024 Afrishore was engaged by Baker Hughes Oil Services South Africa to plan, permit and execute the urgent air movement of a 588 kg multi-class explosives consignment from Houston, Texas to Dar es Salaam, in support of gas-well intervention operations for Pan African Energy Tanzania at the Songo Songo Island gas field in Kilwa District. The original Houston–Luxembourg–Nairobi–Dar es Salaam routing through Kenya was abandoned mid-cycle when the Tanzanian import permit lapsed and the Kenyan transit permit could not be secured in time. Baker Hughes' end-client pivoted to terminate the inbound leg in Johannesburg and complete the final sector on a dedicated South African charter.
+
+Within a fifteen-day re-plan from the route change, Afrishore renewed the Tanzanian import permit, replaced a charter aircraft that suffered an unscheduled technical failure, drafted and reissued the master air waybill twice to satisfy in-transit clearance requirements, obtained four regional overflight and landing permits across Zimbabwe, Mozambique, Malawi and Tanzania, and prepared the South African Police Service dangerous-goods documentation. The four UN-classified Hazard Class 1 articles – 53 pieces of electric detonators, shaped charges, detonating cord and boosters – were palletised and loaded under SAPS supervision at the Bidair dangerous-goods warehouse at O.R. Tambo.
+
+Charter flight BRH355, a Comair B737F (ZS-TGX), departed O.R. Tambo at 12:00 UTC on 11 October 2024 and landed in Dar es Salaam at 17:00 local the same afternoon. The shipment was delivered to the consignee in full and on time, with no claims and no compliance findings against any party. Two weeks later Afrishore processed a follow-on detonator shipment for Baker Hughes under SAPS Transit Permit TRP 3111/2024, against the same project file.
+
+Five separate regulators converged into a single documentary chain: the South African Police Service Explosives Section, the Tanzanian Ministry of Minerals, the Tanzania Civil Aviation Authority, and the civil aviation authorities of Zimbabwe, Mozambique and Malawi. Delivered as one project file rather than five parallel workstreams, it became a repeatable framework for the urgent movement of dangerous goods across the Southern African region.`,
+    featured: true,
     published: true,
   },
 ];
