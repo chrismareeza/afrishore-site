@@ -51,6 +51,9 @@ const serviceSchema = {
   "@type": "Service",
   "@id": `${pageUrl}#service`,
   "name": service.name,
+  ...(service.alternateNames && service.alternateNames.length
+    ? { "alternateName": service.alternateNames }
+    : {}),
   "serviceType": service.schemaServiceType,
   "description": service.metaDescription,
   "url": pageUrl,

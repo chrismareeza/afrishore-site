@@ -334,13 +334,17 @@ For Afrishore, the Deepsea Mira programmes demonstrate what Namibia's offshore s
   },
   {
     slug: "sbm-subsea-concrete-mattress",
-    title: "SBM Offshore: Subsea Concrete Mattress",
+    title: "SBM Offshore: Subsea Concrete Mattress Installation",
     client: "SBM Offshore",
     year: "2015",
     port: "Mossel Bay",
     serviceTypes: ["subsea-services", "integrated-logistics"],
     heroImage: "/images/projects/sbm-subsea-concrete-mattress.jpg",
-    summary: "Subsea protection works using concrete mattress installation for pipeline crossings.",
+    tagline: "Concrete mattress installation · Mossel Bay, South Africa · 2015",
+    summary: "Concrete mattress installation for subsea pipeline protection — SBM Offshore's pipeline crossing campaign supported by Afrishore at the Port of Mossel Bay, South Africa.",
+    outcome: `Afrishore supported SBM Offshore on a 2015 concrete mattress installation campaign for subsea pipeline crossing protection, working out of the Port of Mossel Bay on the South African south coast. Concrete mattresses are pre-cast articulated concrete blocks linked by polypropylene rope, lowered onto the seabed to protect submarine pipelines, umbilicals and subsea structures from anchor strikes, fishing gear, seabed scour and dropped objects. In South African waters the technique is the standard method for hardening pipeline crossings and seabed infrastructure against the mechanical risks of the offshore environment.
+
+Afrishore handled the integrated-logistics scope on the South African side of the campaign: project cargo handling for the inbound concrete mattress consignment, customs clearance, port agency at Mossel Bay and quayside coordination from arrival through to vessel mobilisation alongside SBM Offshore's marine spread. The campaign sits alongside Afrishore's wider subsea installation track record in South Africa and Namibia, which spans concrete mattress installation, subsea pipelaying, grout-bag protection and subsea cable landing operations.`,
     featured: false,
     published: true,
   },
@@ -352,11 +356,13 @@ For Afrishore, the Deepsea Mira programmes demonstrate what Namibia's offshore s
     port: "Cape Town",
     serviceTypes: ["subsea-services", "integrated-logistics"],
     heroImage: "/images/projects/oceaneering-subsea-grout-bags.jpg",
-    summary: "200 subsea grout bags manufactured, certified, secured and exported from Cape Town to Angola: a single coordinated consignment.",
-    tagline: "Subsea pipeline stabilisation with Afrishore's grout bag solution",
-    outcome: `Oceaneering required 200 subsea grout bags for the stabilisation of subsea infrastructure offshore Angola. Each bag had to be manufactured to subsea specification, filled, certified, secured for sea freight, and exported as a single coordinated consignment.
+    summary: "200 subsea grout bags manufactured, certified, secured and exported from Cape Town, South Africa to Angola — a single coordinated consignment for the stabilisation of subsea infrastructure offshore.",
+    tagline: "Subsea grout bag installation · Cape Town, South Africa · 2018",
+    outcome: `Oceaneering required 200 subsea grout bags for the stabilisation of subsea infrastructure offshore Angola. Each bag had to be manufactured to subsea specification, filled, certified, secured for sea freight, and exported as a single coordinated consignment out of South Africa.
 
-Afrishore managed the scope end to end. Each unit was manufactured in polypropylene, subsea rated and certified, packed with 25kg grout charges and fitted with certified lifting slings. All 200 units were then individually secured and wrapped for sea freight transport. The consignment was loaded out of A-Berth at the Port of Cape Town onto a coastal liner for carriage to Angola.
+Subsea grout bags are flexible polypropylene fabric units, charged with high-strength grout and lowered onto the seabed to stabilise pipelines, free spans, manifolds, jumpers and other subsea structures. In service they conform to the contours of the seabed and harden into a load-bearing support — the standard solution where rigid mattresses cannot follow the topography.
+
+Afrishore managed the scope end to end. Each unit was manufactured in polypropylene, subsea rated and certified, packed with 25kg grout charges and fitted with certified lifting slings. All 200 units were then individually secured and wrapped for sea freight transport. The consignment was loaded out of A-Berth at the Port of Cape Town, South Africa onto a coastal liner for carriage to Angola.
 
 Subsea grout bags are a stabilisation product where the integrity of every unit matters. The certification, the rated material and the lifting slings are not finishing touches. They are what allows a bag to be lifted, placed and to perform on the seabed. A single compromised unit is one that cannot do its job. The securing and wrapping of each of the 200 bags was therefore not incidental to the work. It was the work.
 

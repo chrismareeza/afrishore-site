@@ -15,6 +15,10 @@ export interface ServicePage {
   h1: string;                     // keyword-led page H1
   geoSub: string;                 // geo-targeted subheading under H1
   schemaServiceType: string;      // schema.org Service.serviceType
+  alternateNames?: string[];      // schema.org alternateName — emitted as a
+                                  // search-query disambiguation signal (e.g.
+                                  // "Ship Agent", "Vessel Agent" alongside
+                                  // the canonical "Vessel & Rig Agency").
   intro: string[];                // body paragraphs (semantic, keyword-rich)
   scope: string[];                // "What we handle" detailed list
   vesselTypes?: string[];         // vessel & rig agency only
@@ -35,12 +39,16 @@ export const servicePages: ServicePage[] = [
     serviceType: "ship-rig-agency",
     name: "Vessel & Rig Agency",
     metaTitle:
-      "Vessel & Rig Agency | Namibia, South Africa & Mozambique | Afrishore",
+      "Vessel & Rig Agency | Ships Agent · Vessel Agent · Namibia, South Africa & Mozambique | Afrishore",
     metaDescription:
-      "Afrishore is a licensed vessel and rig agency in South Africa, Namibia and Mozambique — port clearance, berth scheduling, immigration, husbandry and crew rotation for rigs, drillships, OSVs, PSVs, tankers and FPSOs at Walvis Bay, Cape Town, Durban, Mossel Bay, Saldanha and Lüderitz.",
+      "Afrishore is the appointed ships agent and vessel agent for rigs, drillships, OSVs, PSVs, AHTS, tankers and FPSOs across our licensed port network in South Africa, Namibia and Mozambique — full ships agency and vessel agency services covering port clearance, berth scheduling, immigration, husbandry, dry docking and crew rotation at Walvis Bay, Cape Town, Durban, Mossel Bay, Saldanha and Lüderitz.",
     h1: "Vessel & Rig Agency",
-    geoSub: "Maritime agency covering Namibia, South Africa & Mozambique",
+    geoSub: "Ships agent · vessel agent · ships agency · vessel agency across Namibia, South Africa & Mozambique",
     schemaServiceType: "Vessel & Rig Agency",
+    // Canonical search-query variants for this service.
+    alternateNames: [
+      "Ships Agency", "Ships Agent", "Vessel Agent", "Vessel Agency",
+    ],
     intro: [
       "Afrishore acts as appointed local representative for owners, managers and charterers of vessels, rigs and marine assets transiting territorial waters or working at anchorage. Full agency scope: port and customs clearance, berth scheduling and port-authority liaison, immigration and crew changes, husbandry and owners' protective agency, bunkering, dry docking and repairs, procurement, and full mobilisation and demobilisation. We agent rigs, drillships, semi-submersibles, OSVs, PSVs, AHTS, tankers and FPSOs across our licensed port network.",
       "Vessel and rig agency in this region is unforgiving – tight berthing windows, complex immigration for international crews, customs and classification-society deadlines, weather that does not wait. Embedded teams permanently on-call across the Southern African coast mean the master, vessel and rig management and the operator deal with one agent rather than a chain of subcontractors.",

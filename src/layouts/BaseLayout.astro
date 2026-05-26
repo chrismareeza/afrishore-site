@@ -102,7 +102,12 @@ const baseGraph: object[] = [
       { "@type": "Country", "name": "Mozambique" },
     ],
     "knowsAbout": [
-      "Ship agency", "Port agency", "Vessel agency", "Rig agency",
+      // Canonical agent + agency forms so queries for either map to the
+      // same knowledge-graph entity for Afrishore.
+      "Ships agent", "Vessel agent", "Ships agency", "Vessel agency",
+      "Port agency", "Rig agency",
+      "Concrete mattress installation", "Subsea pipeline protection",
+      "Subsea grout bag installation", "Subsea structure stabilisation",
       "Drillship & semi-submersible agency", "Tanker & bulk carrier agency",
       "Protective (owners') agency", "Charterers' agency",
       "Liner & cargo vessel agency", "Husbandry services", "Hub agency",
@@ -225,6 +230,13 @@ const baseGraph: object[] = [
     "@id": `${siteUrl}/#service-ship-rig-agency`,
     "serviceType": "Vessel & Rig Agency",
     "name": "Vessel & Rig Agency",
+    // Canonical search-query variants for this service.
+    "alternateName": [
+      "Ships Agency", "Ships Agent", "Vessel Agent", "Vessel Agency",
+    ],
+    // Anchor to the Wikipedia entity for shipping agency so Google's
+    // entity disambiguator places this Service in the right cluster.
+    "additionalType": "https://en.wikipedia.org/wiki/Shipping_agency",
     "provider": { "@id": `${siteUrl}/#organization` },
     "areaServed": [
       { "@type": "Country", "name": "South Africa" },
@@ -232,7 +244,7 @@ const baseGraph: object[] = [
       { "@type": "Country", "name": "Mozambique" },
     ],
     "description":
-      "Systemic port agency services for rigs, drillships, OSVs, PSVs, liners, tankers and FPSOs — port clearance, berth scheduling, immigration, dry docking & repairs, procurement and husbandry.",
+      "Afrishore acts as ships agent and vessel agent across South Africa, Namibia and Mozambique — systemic ships agency and vessel agency services for rigs, drillships, OSVs, PSVs, liners, tankers and FPSOs covering port clearance, berth scheduling, immigration, husbandry, dry docking & repairs and procurement.",
     "hasOfferCatalog": offerCatalog("Vessel & Rig Agency services", [
       "Port agency", "Port & customs clearance",
       "Berth scheduling & port-authority liaison",
