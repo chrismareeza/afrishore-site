@@ -37,6 +37,16 @@ export interface Project {
     caption: string;
     portrait?: boolean;
   };
+  // Optional in-body MP4 — self-hosted via /public/videos/. Rendered with
+  // an HTML5 <video> tag, lazy poster, and a VideoObject schema node.
+  videoEmbed?: {
+    src: string;            // path under /public, e.g. /videos/foo.mp4
+    posterSrc?: string;     // poster image path; falls back to heroImage
+    caption: string;        // captioned below the video
+    durationISO: string;    // ISO 8601 duration for schema, e.g. "PT27S"
+    width?: number;         // intrinsic pixel width (default 1280)
+    height?: number;        // intrinsic pixel height (default 720)
+  };
 }
 
 export const projects: Project[] = [
@@ -326,13 +336,30 @@ For Afrishore, the Deepsea Mira programmes demonstrate what Namibia's offshore s
   },
   {
     slug: "petrosa-orca-remobilisation",
-    title: "PetroSA: ORCA Remobilisation Tow",
-    client: "PetroSA",
+    title: "Logistica: Orca Single-Voyage Tow to Alang",
+    client: "Logistica Inc.",
     year: "2022",
     port: "Mossel Bay",
     serviceTypes: ["ship-rig-agency", "integrated-logistics"],
+    vessel: "Orca",
+    assetType: "rig",
     heroImage: "/images/projects/petrosa-orca-remobilisation.jpg",
-    summary: "Vessel remobilisation and ocean tow operations for PetroSA, coordinated from Mossel Bay.",
+    tagline: "Single-voyage delivery tow · Mossel Bay → Alang · February 2022",
+    summary: "Five parallel regulatory workstreams cleared inside a 23-day window for the semi-submersible Orca's single-voyage delivery tow from Mossel Bay to Alang, India.",
+    videoEmbed: {
+      src: "/videos/orca-mossel-bay-alang-2022.mp4",
+      caption: "The Orca semi-submersible under tow by AHTS Hulk II out of Mossel Bay anchorage, February 2022 — start of the single-voyage delivery to Alang, India.",
+      durationISO: "PT30S",
+      width: 1280,
+      height: 720,
+    },
+    outcome: `In early 2022 Afrishore was engaged by Logistica Inc. to coordinate and secure the full regulatory clearance chain required to extract the semi-submersible Mobile Offshore Unit Orca (IMO 8755015) from anchorage off Mossel Bay and dispatch her on a single-voyage delivery tow to Alang, India for recycling. Ownership had just transferred to Logistica from the previous custodian; the contracted towing vessel AHTS Hulk II was already en route at significant daily cost; and a 23-day operational window had been imposed on the rig's continued anchorage. Every outstanding approval, sub-sea preparation and tow handover had to fit inside that envelope.
+
+Within the window Afrishore took ownership of five parallel regulatory workstreams: South African maritime authority clearances culminating in the Certificate of Inspection for tow; coastal-environmental endorsement of the underwater cleaning methodology – a scope with no recent precedent in Mossel Bay waters for an operation of this scale; Class and Flag re-issuance under a new Palau Certificate of Registry following the ownership transfer; appointment and approval of an experienced Marine Warranty Surveyor; and the full pre-tow document chain – towage manual, stability calculations, 49.6-day passage plan via Port Louis, bollard-pull and tow-wire records, magnetic-particle inspection of the tow-point welds, and Hull, P&I, Wreck Removal and Bunker Pollution insurance certificates. Most of these items had to be built from scratch in days rather than weeks, and several called for novel positioning where the regulator had no recent precedent of comparable scale to reference.
+
+Every approval landed inside window. The coastal-environmental endorsement was secured on the day of the ownership transfer itself – a direct function of pre-positioning the technical case with the regulator weeks before handover. Class and tow certificates followed within days. The Marine Warranty Surveyor's Certificate of Approval and the maritime authority Certificate of Inspection were both issued on the same morning the tow departed – twelve days inside the SAMSA deadline. AHTS Hulk II picked up the tow that afternoon, with daily progress reporting maintained until the unit was clear of 200 nautical miles of the South African coast.
+
+Compressed-timeline rig extractions from South African waters remain achievable where the contracting agent holds standing relationships with the maritime, coastal-environmental, class and warranty bodies involved, and where the underwater preparation scope can be defensibly limited to the minimum needed for safe towage. The Orca campaign was carried by the depth of those relationships and by the pre-positioning of the technical package weeks before the formal ownership transfer.`,
     featured: false,
     published: true,
   },
