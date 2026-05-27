@@ -16,6 +16,10 @@ export interface Project {
   tagline?: string; // Optional gold sub-headline under the H1 (case-study page)
   outcome?: string; // Full case study body, only for featured
   heroImage?: string; // Path under /public; falls back to gradient placeholder
+  // Optional hand-written alt for the hero image; falls back to a
+  // string generated from title/vessel/port/year. Used both as the
+  // page-level <img alt> and as og:image:alt for social shares.
+  heroAlt?: string;
   featured: boolean;
   published: boolean;
   // For end-customer references in copy (e.g. Galp)
@@ -391,6 +395,8 @@ Afrishore delivered the full consignment, manufactured to specification, certifi
     locationLabel: "Airport",
     serviceTypes: ["integrated-logistics"],
     heroImage: "/images/projects/baker-hughes-tanzania-explosives-charter.jpg",
+    heroAlt:
+      "Multi-class explosives charter consignment on the cargo loader at Dar es Salaam, late afternoon 11 October 2024 — minutes after off-load from the Afrishore-arranged South African charter; urgent air movement of Hazard Class 1 articles from O.R. Tambo to Tanzania for Baker Hughes.",
     summary: "Urgent multi-class explosives air charter from Houston, via O.R. Tambo to Dar es Salaam, supporting Baker Hughes' gas-well intervention contract.",
     outcome: `In October 2024 Afrishore was engaged by Baker Hughes Oil Services to plan, permit and execute the urgent air movement of a 588 kg multi-class explosives consignment from Houston, Texas to Dar es Salaam, in support of gas-well intervention operations at the Songo Songo Island gas field in Kilwa District. The original Houston–Luxembourg–Nairobi–Dar es Salaam routing through Kenya was abandoned mid-cycle when the Tanzanian import permit lapsed and the Kenyan transit permit could not be secured in time. Baker Hughes' end-client pivoted to terminate the inbound leg in Johannesburg and complete the final sector on a dedicated South African charter.
 

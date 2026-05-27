@@ -5,6 +5,7 @@ import Footer from "../../components/Footer.astro";
 import { servicePages, type ServicePage } from "../../data/services";
 import { projects } from "../../data/projects";
 import { ports } from "../../data/ports";
+import { linkifyPorts } from "../../lib/portLinks";
 
 // Map a port display name → its landing-page slug (only the 6 licence
 // ports have a page; project-only ports stay plain text).
@@ -78,6 +79,7 @@ const breadcrumb = [
   title={service.metaTitle}
   description={service.metaDescription}
   ogImage={service.heroImage || "/og-image.jpg"}
+  ogImageAlt={service.heroAlt}
   canonical={pageUrl}
   breadcrumb={breadcrumb}
   pageSchema={[serviceSchema]}
@@ -137,7 +139,11 @@ const breadcrumb = [
           <div class="space-y-6">
             {service.intro.map((p) => (
               <p class="text-lg lg:text-xl leading-relaxed" style="color: rgba(245,242,235,0.88);">
-                {p}
+                {linkifyPorts(p).map((seg) =>
+                  seg.type === "link"
+                    ? <a href={seg.href} class="text-cream hover:text-gold transition-colors underline decoration-faint/30 underline-offset-4 hover:decoration-gold/60">{seg.text}</a>
+                    : seg.value
+                )}
               </p>
             ))}
           </div>

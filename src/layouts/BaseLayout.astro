@@ -24,6 +24,9 @@ interface Props {
   title?: string;
   description?: string;
   ogImage?: string;
+  /** Page-specific alt text for the OG image. Falls back to a generic
+   *  brand description on pages that don't supply one. */
+  ogImageAlt?: string;
   ogType?: "website" | "article";
   canonical?: string;
   /** Optional ordered breadcrumb trail rendered as BreadcrumbList JSON-LD. Omit on the homepage. */
@@ -43,6 +46,7 @@ const {
   title = "Afrishore | Port Agency and Marine Logistics, Southern Africa",
   description = "Integrated marine logistics agency operating across South Africa, Namibia and Mozambique since 2010. Vessel & rig agency, offshore supply base, integrated logistics, crew & visa. ISO 9001 certified. Trusted by TotalEnergies, Odfjell Drilling, Baker Hughes, Halliburton, Tidewater and 15 more operators.",
   ogImage = "/og-image.jpg",
+  ogImageAlt,
   ogType = "website",
   canonical,
   breadcrumb,
@@ -406,7 +410,7 @@ const finalGraph = [
     <meta property="og:image" content={absoluteOgImage} />
     {isDefaultOgImage && <meta property="og:image:width" content="1200" />}
     {isDefaultOgImage && <meta property="og:image:height" content="630" />}
-    <meta property="og:image:alt" content="Afrishore — integrated marine logistics across South Africa, Namibia and Mozambique" />
+    <meta property="og:image:alt" content={ogImageAlt || "Afrishore — integrated marine logistics across South Africa, Namibia and Mozambique"} />
     <meta property="og:site_name" content="Afrishore" />
     <meta property="og:locale" content="en_ZA" />
 

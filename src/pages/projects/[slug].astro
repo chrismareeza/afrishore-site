@@ -3,6 +3,7 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 import Navbar from "../../components/Navbar.astro";
 import Footer from "../../components/Footer.astro";
 import { projects, allProjects, type Project } from "../../data/projects";
+import { linkifyPorts } from "../../lib/portLinks";
 
 export function getStaticPaths() {
   return projects
@@ -71,6 +72,13 @@ const modifiedTime = `${endYear}-12-31T23:59:59+02:00`;
 const heroAbsolute = project.heroImage
   ? new URL(project.heroImage, siteUrl).toString()
   : new URL("/og-image.jpg", siteUrl).toString();
+
+// Hero image alt: prefer a hand-written one when supplied, otherwise
+// generate from title/vessel/port/year. Reused for og:image:alt so
+// social-share previews describe the actual image.
+const heroAlt =
+  project.heroAlt ||
+  `${project.title}${project.vessel ? ` — ${project.vessel}` : ""} at ${project.port} (${project.year})`;
 
 // ── Entity strengthening ──────────────────────────────────────────────
 // Every case study that features the same vessel emits the same stable
@@ -212,6 +220,7 @@ const breadcrumb = [
   title={metaTitle}
   description={metaDescription}
   ogImage={project.heroImage || "/og-image.jpg"}
+  ogImageAlt={heroAlt}
   ogType="article"
   canonical={projectUrl}
   breadcrumb={breadcrumb}
@@ -304,7 +313,7 @@ const breadcrumb = [
           {project.heroImage && (
             <img
               src={project.heroImage}
-              alt={`${project.title}${project.vessel ? ` — ${project.vessel}` : ""} at ${project.port} (${project.year})`}
+              alt={heroAlt}
               class="absolute inset-0 w-full h-full object-cover"
               loading="eager"
               width="1920"
@@ -323,7 +332,11 @@ const breadcrumb = [
           {outcomeParagraphs.length > 0
             ? outcomeParagraphs.map((p) => (
                 <p class="text-lg lg:text-xl leading-relaxed" style="color: rgba(245,242,235,0.88);">
-                  {p}
+                  {linkifyPorts(p).map((seg) =>
+                    seg.type === "link"
+                      ? <a href={seg.href} class="text-cream hover:text-gold transition-colors underline decoration-faint/30 underline-offset-4 hover:decoration-gold/60">{seg.text}</a>
+                      : seg.value
+                  )}
                 </p>
               ))
             : (
