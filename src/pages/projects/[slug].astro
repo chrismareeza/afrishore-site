@@ -321,22 +321,27 @@ const breadcrumb = [
           ))}
         </div>
 
-        <!-- Hero image -->
-        <div
-          class="aspect-[16/9] w-full overflow-hidden rounded-sm border border-line relative"
-          style={`background: ${placeholderBg};`}
-        >
-          {project.heroImage && (
-            <img
-              src={project.heroImage}
-              alt={heroAlt}
-              class="absolute inset-0 w-full h-full object-cover"
-              loading="eager"
-              width="1920"
-              height="1080"
-            />
-          )}
-        </div>
+        <!-- Hero image — suppressed when the case study has an in-body
+             video, so the page leads straight to the video rather than
+             showing a static hero above it. heroImage is still used for
+             og:image, VideoObject.thumbnailUrl and the video poster. -->
+        {!project.videoEmbed && (
+          <div
+            class="aspect-[16/9] w-full overflow-hidden rounded-sm border border-line relative"
+            style={`background: ${placeholderBg};`}
+          >
+            {project.heroImage && (
+              <img
+                src={project.heroImage}
+                alt={heroAlt}
+                class="absolute inset-0 w-full h-full object-cover"
+                loading="eager"
+                width="1920"
+                height="1080"
+              />
+            )}
+          </div>
+        )}
       </div>
     </section>
 
