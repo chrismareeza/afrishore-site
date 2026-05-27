@@ -100,6 +100,31 @@ const portPlaces = portList.map((p) =>
 );
 const contentLocation = portPlaces.length === 1 ? portPlaces[0] : portPlaces;
 
+// Port-hub linking — turn the port label on the case study into a link to the
+// matching /ports/<slug> hub so every project mentioning a port passes equity
+// to that hub page. Segments that don't match a known port (e.g. "Port of
+// Réunion" or air-charter routes) render as plain text.
+const PORT_HUB_SLUGS: Record<string, string> = {
+  "walvis bay": "walvis-bay",
+  "lüderitz": "luderitz",
+  "luderitz": "luderitz",
+  "cape town": "cape-town",
+  "saldanha": "saldanha",
+  "saldanha bay": "saldanha",
+  "mossel bay": "mossel-bay",
+  "durban": "durban",
+};
+const portSegments = isSeaPort
+  ? project.port.split(/\s*[\/·]\s*/).map((seg) => {
+      const cleaned = seg
+        .toLowerCase()
+        .replace(/^port of\s+/, "")
+        .replace(/,.*$/, "")
+        .trim();
+      return { text: seg, slug: PORT_HUB_SLUGS[cleaned] || null };
+    })
+  : [{ text: project.port, slug: null as string | null }];
+
 // Service category — link the case study to the abstract Service node
 // already declared in BaseLayout's @graph (when one matches).
 const serviceCategoryIdMap: Record<string, string> = {
@@ -245,7 +270,14 @@ const breadcrumb = [
           </span>
           <span class="flex items-center gap-2">
             <span class="text-faint text-xs uppercase tracking-[0.15em]">{project.locationLabel || "Port"}</span>
-            <span class="text-cream">{project.port}</span>
+            <span class="text-cream">
+              {portSegments.map((s, i) => [
+                i > 0 ? <span class="text-faint"> · </span> : null,
+                s.slug
+                  ? <a href={`/ports/${s.slug}`} class="hover:text-gold transition-colors">{s.text}</a>
+                  : s.text,
+              ])}
+            </span>
           </span>
           {project.vessel && (
             <span class="flex items-center gap-2">
@@ -355,7 +387,14 @@ const breadcrumb = [
               </div>
               <div>
                 <dt class="text-xs uppercase tracking-[0.15em] text-faint mb-1">{project.locationLabel || "Port"}</dt>
-                <dd class="text-cream">{project.port}</dd>
+                <dd class="text-cream">
+                  {portSegments.map((s, i) => [
+                    i > 0 ? <span class="text-faint"> · </span> : null,
+                    s.slug
+                      ? <a href={`/ports/${s.slug}`} class="hover:text-gold transition-colors">{s.text}</a>
+                      : s.text,
+                  ])}
+                </dd>
               </div>
               {project.vessel && (
                 <div>
