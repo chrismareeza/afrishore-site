@@ -287,8 +287,14 @@ const breadcrumb = [
   <Navbar />
 
   <main id="main">
-    <!-- Project hero -->
-    <section class="relative pt-32 lg:pt-40 pb-12 px-6 lg:px-12">
+    <!-- Project hero — drop the bottom padding entirely on video-led
+         case studies. The hero image is suppressed there, so the
+         `pb-12` is purely empty space between the service tags and
+         the body grid's `pt-12`. -->
+    <section class:list={[
+      "relative pt-32 lg:pt-40 px-6 lg:px-12",
+      project.videoEmbed ? "pb-0" : "pb-12",
+    ]}>
       <div class="max-w-5xl mx-auto">
         <!-- Back link -->
         <a
@@ -348,8 +354,13 @@ const breadcrumb = [
           )}
         </div>
 
-        <!-- Service tags -->
-        <div class="flex flex-wrap gap-2 mb-12">
+        <!-- Service tags. Drop the bottom margin on video-led case
+             studies — it was originally separating the tags from the
+             hero image, which doesn't render when there's a video. -->
+        <div class:list={[
+          "flex flex-wrap gap-2",
+          project.videoEmbed ? "mb-0" : "mb-12",
+        ]}>
           {project.serviceTypes.map((s) => (
             <span class="text-xs uppercase tracking-[0.15em] text-mute border border-line px-3 py-1.5 rounded-sm">
               {serviceLabels[s] || s}
