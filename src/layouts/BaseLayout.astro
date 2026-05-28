@@ -40,6 +40,15 @@ interface Props {
     section?: string;
     tags?: string[];
   };
+  /** Optional in-body video metadata. When provided, the layout emits
+   *  og:video* tags so Facebook / LinkedIn shares preview the actual
+   *  video, not just the poster image. */
+  videoMeta?: {
+    url: string;              // absolute https URL to the MP4
+    type?: string;            // MIME, defaults to video/mp4
+    width?: number;           // intrinsic pixel width
+    height?: number;          // intrinsic pixel height
+  };
 }
 
 const {
@@ -52,6 +61,7 @@ const {
   breadcrumb,
   pageSchema = [],
   articleMeta,
+  videoMeta,
 } = Astro.props;
 
 const siteUrl = "https://www.afrishore.co";
@@ -402,6 +412,12 @@ const finalGraph = [
     <meta name="description" content={description} />
     <link rel="canonical" href={fullCanonical} />
 
+    <!-- Default index/follow + grant Google maximal preview rights. The two
+         `max-*-preview` directives unlock large image previews and full
+         video previews in SERPs (per Google's docs); without them the
+         preview defaults can clip rich-media features. -->
+    <meta name="robots" content="index, follow, max-image-preview:large, max-video-preview:-1, max-snippet:-1" />
+
     <!-- Open Graph -->
     <meta property="og:type" content={ogType} />
     <meta property="og:title" content={title} />
@@ -426,6 +442,20 @@ const finalGraph = [
     {ogType === "article" && articleMeta?.tags?.map((tag) => (
       <meta property="article:tag" content={tag} />
     ))}
+
+    {/* og:video — emitted when the page hosts an MP4 the layout wants to
+        offer as a social-preview asset. Both `og:video` and the
+        `og:video:secure_url` alias are required by the spec; the type +
+        dimensions help Facebook/LinkedIn render the correct player size. */}
+    {videoMeta && (
+      <>
+        <meta property="og:video" content={videoMeta.url} />
+        <meta property="og:video:secure_url" content={videoMeta.url} />
+        <meta property="og:video:type" content={videoMeta.type || "video/mp4"} />
+        {videoMeta.width && <meta property="og:video:width" content={String(videoMeta.width)} />}
+        {videoMeta.height && <meta property="og:video:height" content={String(videoMeta.height)} />}
+      </>
+    )}
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />

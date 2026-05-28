@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
+  <url>
+    <loc>https://www.afrishore.co/projects/petrosa-orca-remobilisation</loc>
+    <video:video>
+      <video:thumbnail_loc>https://www.afrishore.co/images/projects/petrosa-orca-remobilisation.jpg</video:thumbnail_loc>
+      <video:title>Logistica: Orca Single-Voyage Tow to Alang</video:title>
+      <video:description>The Orca semi-submersible under tow by AHTS Hulk II out of Mossel Bay anchorage, February 2022 — start of the single-voyage delivery to Alang, India.</video:description>
+      <video:content_loc>https://www.afrishore.co/videos/orca-mossel-bay-alang-2022.mp4</video:content_loc>
+      <video:duration>30</video:duration>
+      <video:publication_date>2022-02-15T00:00:00+02:00</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+      <video:requires_subscription>no</video:requires_subscription>
+      <video:live>no</video:live>
+      <video:tag>Orca</video:tag>
+      <video:tag>Logistica Inc.</video:tag>
+      <video:tag>Mossel Bay</video:tag>
+      <video:tag>Alang</video:tag>
+      <video:tag>semi-submersible</video:tag>
+      <video:tag>rig tow</video:tag>
+      <video:tag>marine logistics</video:tag>
+      <video:tag>vessel agency</video:tag>
+      <video:tag>Afrishore</video:tag>
+      <video:uploader info="https://www.afrishore.co">Afrishore</video:uploader>
+    </video:video>
+  </url>
+</urlset>

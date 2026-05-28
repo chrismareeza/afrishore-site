@@ -211,18 +211,48 @@ const serviceSchema = {
 
 // Optional VideoObject — only emitted when the case study has a videoEmbed.
 // Lets Google index the video as a discrete entity, surface it in video
-// search and enrich the page's overall content signal.
+// search and enrich the page's overall content signal. We supply the full
+// rich-results recommended payload: thumbnail as ImageObject (alongside
+// thumbnailUrl for legacy parsers), inLanguage, keywords derived from the
+// case-study metadata, isFamilyFriendly, and an `about` link back to the
+// Article so the two entities stay tied together in Google's KG.
+const videoContentUrl = project.videoEmbed
+  ? new URL(project.videoEmbed.src, siteUrl).toString()
+  : "";
+const videoKeywords = project.videoEmbed
+  ? [
+      project.vessel,
+      project.client,
+      project.port,
+      "marine logistics",
+      "vessel agency",
+      "Southern Africa",
+    ].filter(Boolean).join(", ")
+  : "";
 const videoSchema = project.videoEmbed ? {
   "@type": "VideoObject",
   "@id": `${projectUrl}#video`,
   "name": project.title,
   "description": project.videoEmbed.caption,
   "thumbnailUrl": heroAbsolute,
+  "thumbnail": {
+    "@type": "ImageObject",
+    "url": heroAbsolute,
+    "width": 1920,
+    "height": 1080,
+  },
   "uploadDate": modifiedTime,
   "duration": project.videoEmbed.durationISO,
-  "contentUrl": new URL(project.videoEmbed.src, siteUrl).toString(),
+  "contentUrl": videoContentUrl,
+  "width": project.videoEmbed.width || 1280,
+  "height": project.videoEmbed.height || 720,
+  "encodingFormat": "video/mp4",
+  "inLanguage": "en",
+  "isFamilyFriendly": true,
+  "keywords": videoKeywords,
   "publisher": { "@id": `${siteUrl}/#organization` },
   "isPartOf": { "@id": `${projectUrl}#article` },
+  "about": { "@id": `${projectUrl}#article` },
 } : null;
 
 const breadcrumb = [
@@ -247,6 +277,12 @@ const breadcrumb = [
     section: "Case Study",
     tags: [project.client, project.port, ...(project.vessel ? [project.vessel] : [])],
   }}
+  videoMeta={project.videoEmbed ? {
+    url: videoContentUrl,
+    type: "video/mp4",
+    width: project.videoEmbed.width || 1280,
+    height: project.videoEmbed.height || 720,
+  } : undefined}
 >
   <Navbar />
 
