@@ -25,4 +25,29 @@
       <video:uploader info="https://www.afrishore.co">Afrishore</video:uploader>
     </video:video>
   </url>
+  <url>
+    <loc>https://www.afrishore.co/projects/dock-titan-cape-town-reunion</loc>
+    <video:video>
+      <video:thumbnail_loc>https://www.afrishore.co/images/projects/dock-titan-cape-town-reunion.jpg</video:thumbnail_loc>
+      <video:title>Dock Titan: Heavy Lift to Réunion</video:title>
+      <video:description>The Titan Floating Dock being uplifted by Boskalis's semi-submersible heavy-lift vessel MV Transshelf at the Port of Cape Town, 2025 — onshore coordination by Afrishore for Piriou Naval Services and the Port of Réunion.</video:description>
+      <video:content_loc>https://www.afrishore.co/videos/dock-titan-cape-town-reunion.mp4</video:content_loc>
+      <video:duration>52</video:duration>
+      <video:publication_date>2025-06-15T00:00:00+02:00</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+      <video:requires_subscription>no</video:requires_subscription>
+      <video:live>no</video:live>
+      <video:tag>Titan Floating Dock</video:tag>
+      <video:tag>MV Transshelf</video:tag>
+      <video:tag>Boskalis</video:tag>
+      <video:tag>Piriou Naval Services</video:tag>
+      <video:tag>Port of Cape Town</video:tag>
+      <video:tag>Port of Réunion</video:tag>
+      <video:tag>semi-submersible heavy lift</video:tag>
+      <video:tag>floating dock</video:tag>
+      <video:tag>marine logistics</video:tag>
+      <video:tag>Afrishore</video:tag>
+      <video:uploader info="https://www.afrishore.co">Afrishore</video:uploader>
+    </video:video>
+  </url>
 </urlset>

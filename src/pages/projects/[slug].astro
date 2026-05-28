@@ -233,7 +233,7 @@ const videoSchema = project.videoEmbed ? {
   "@type": "VideoObject",
   "@id": `${projectUrl}#video`,
   "name": project.title,
-  "description": project.videoEmbed.caption,
+  "description": project.videoEmbed.description,
   "thumbnailUrl": heroAbsolute,
   "thumbnail": {
     "@type": "ImageObject",
@@ -387,25 +387,21 @@ const breadcrumb = [
         <!-- Long-form outcome -->
         <div class="lg:col-span-8 space-y-6">
           {project.videoEmbed && (
-            <figure class="space-y-3">
-              <div class="w-full overflow-hidden rounded-sm border border-line bg-base">
-                <video
-                  controls
-                  playsinline
-                  preload="metadata"
-                  poster={project.videoEmbed.posterSrc || project.heroImage}
-                  width={project.videoEmbed.width || 1280}
-                  height={project.videoEmbed.height || 720}
-                  class="w-full h-auto block"
-                >
-                  <source src={project.videoEmbed.src} type="video/mp4" />
-                  Your browser does not support inline video playback.
-                </video>
-              </div>
-              <figcaption class="text-sm text-faint leading-snug px-1">
-                {project.videoEmbed.caption}
-              </figcaption>
-            </figure>
+            <div class="w-full overflow-hidden rounded-sm border border-line bg-base">
+              <video
+                controls
+                playsinline
+                preload="metadata"
+                poster={project.videoEmbed.posterSrc || project.heroImage}
+                width={project.videoEmbed.width || 1280}
+                height={project.videoEmbed.height || 720}
+                class="w-full h-auto block"
+                aria-label={project.videoEmbed.description}
+              >
+                <source src={project.videoEmbed.src} type="video/mp4" />
+                Your browser does not support inline video playback.
+              </video>
+            </div>
           )}
           {outcomeParagraphs.length > 0
             ? outcomeParagraphs.map((p) => (

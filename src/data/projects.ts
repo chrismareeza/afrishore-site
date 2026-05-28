@@ -42,8 +42,10 @@ export interface Project {
   videoEmbed?: {
     src: string;            // path under /public, e.g. /videos/foo.mp4
     posterSrc?: string;     // poster image path; falls back to heroImage
-    caption: string;        // captioned below the video
-    durationISO: string;    // ISO 8601 duration for schema, e.g. "PT27S"
+    description: string;    // schema/SEO description (VideoObject.description,
+                            //  alt-equivalent for the player). Not rendered
+                            //  on the page — kept invisible to readers.
+    durationISO: string;    // ISO 8601 duration for schema, e.g. "PT30S"
     width?: number;         // intrinsic pixel width (default 1280)
     height?: number;        // intrinsic pixel height (default 720)
   };
@@ -168,6 +170,13 @@ Trusted by LD TravOcean for one of the most significant infrastructure projects 
     assetType: "vessel",
     heroImage: "/images/projects/dock-titan-cape-town-reunion.jpg",
     summary: "Onshore coordination of one of the largest semi-submersible heavy lift operations ever staged through the Port of Cape Town.",
+    videoEmbed: {
+      src: "/videos/dock-titan-cape-town-reunion.mp4",
+      description: "The Titan Floating Dock being uplifted by Boskalis's semi-submersible heavy-lift vessel MV Transshelf at the Port of Cape Town, 2025 — onshore coordination by Afrishore for Piriou Naval Services and the Port of Réunion.",
+      durationISO: "PT52S",
+      width: 1280,
+      height: 720,
+    },
     outcome: `In 2025, Afrishore coordinated the upliftment and ocean transfer of the Titan Floating Dock from the Port of Cape Town to the Port of Réunion on behalf of Piriou Naval Services and the Port of Réunion. The dock was carried aboard the heavy lift vessel MV Transshelf, operated by Boskalis, and was one of the largest semi-submersible heavy lift operations ever staged in the Port of Cape Town through a very tight upliftment window in the Ben Schoeman dock.
 
 This project actually commenced in 2024 when the Titan Dock arrived under tow in Cape Town for multiple dry docking periods. Upon completion of the yard stays the operation then required moving a piece of port infrastructure typically considered immovable. Afrishore delivered this port coordination end-to-end: dry dock bookings, berth allocation and port authority liaison, customs clearance for the export of an entire floating dock, immigration and accommodation for all technical teams and the precise load-out sequencing required when the carrier vessel ballasted down to uplift the dock. The operation crossed two jurisdictions, three government departments and the schedule of one of the world's most specialised vessel operators.
@@ -348,12 +357,12 @@ For Afrishore, the Deepsea Mira programmes demonstrate what Namibia's offshore s
     summary: "Five parallel regulatory workstreams cleared inside a 23-day window for the semi-submersible Orca's single-voyage delivery tow from Mossel Bay to Alang, India.",
     videoEmbed: {
       src: "/videos/orca-mossel-bay-alang-2022.mp4",
-      caption: "The Orca semi-submersible under tow by AHTS Hulk II out of Mossel Bay anchorage, February 2022 — start of the single-voyage delivery to Alang, India.",
+      description: "The Orca semi-submersible under tow by AHTS Hulk II out of Mossel Bay anchorage, February 2022 — start of the single-voyage delivery to Alang, India.",
       durationISO: "PT30S",
       width: 1280,
       height: 720,
     },
-    outcome: `In early 2022 Afrishore was engaged by Logistica Inc. to coordinate and secure the full regulatory clearance chain required to extract the semi-submersible Mobile Offshore Unit Orca (IMO 8755015) from anchorage off Mossel Bay and dispatch her on a single-voyage delivery tow to Alang, India for recycling. Ownership had just transferred to Logistica from the previous custodian; the contracted towing vessel AHTS Hulk II was already en route at significant daily cost; and a 23-day operational window had been imposed on the rig's continued anchorage. Every outstanding approval, sub-sea preparation and tow handover had to fit inside that envelope.
+    outcome: `In early 2022 Afrishore was engaged by Logistica Inc. to coordinate and secure the full regulatory clearance chain required to extract the semi-submersible Mobile Offshore Unit Orca from anchorage off Mossel Bay and dispatch her on a single-voyage delivery tow to Alang, India for recycling. Ownership had just transferred to Logistica from the previous custodian; the contracted towing vessel AHTS Hulk II was already en route at significant daily cost; and a 23-day operational window had been imposed on the rig's continued anchorage. Every outstanding approval, sub-sea preparation and tow handover had to fit inside that envelope.
 
 Within the window Afrishore took ownership of five parallel regulatory workstreams: South African maritime authority clearances culminating in the Certificate of Inspection for tow; coastal-environmental endorsement of the underwater cleaning methodology – a scope with no recent precedent in Mossel Bay waters for an operation of this scale; Class and Flag re-issuance under a new Palau Certificate of Registry following the ownership transfer; appointment and approval of an experienced Marine Warranty Surveyor; and the full pre-tow document chain – towage manual, stability calculations, 49.6-day passage plan via Port Louis, bollard-pull and tow-wire records, magnetic-particle inspection of the tow-point welds, and Hull, P&I, Wreck Removal and Bunker Pollution insurance certificates. Most of these items had to be built from scratch in days rather than weeks, and several called for novel positioning where the regulator had no recent precedent of comparable scale to reference.
 
