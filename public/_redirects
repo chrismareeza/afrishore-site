@@ -37,3 +37,11 @@
 /services                           /#services                                    301
 /contact                            /#contact                                     301
 /home                               /                                             301
+
+# ── Wix-era media bucket → home (defensive) ───────────────────────
+# Wix served uploaded PDFs/images from /_files/ugd/<hash>.<ext>.
+# At least one such PDF is sitting in GSC as "Crawled — not indexed"
+# because Google's last successful fetch was from the Wix era. Match
+# the whole /_files/ tree so any external backlink to a legacy Wix
+# asset 301s to home instead of 404'ing.
+/_files/*                           /                                             301
