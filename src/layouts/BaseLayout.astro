@@ -15,6 +15,15 @@ import "@fontsource/inter/latin-600.css";
 import "@fontsource/inter/latin-700.css";
 import ConsentBanner from "../components/ConsentBanner.astro";
 
+// Resolve the build-time hashed URLs for the two most-critical font
+// weights — Barlow 700 powers every above-the-fold display headline and
+// Inter 400 carries most body copy. Preloading both in the document head
+// lets the browser start the fetch in parallel with the CSS parse rather
+// than waiting for the @font-face rule to be matched, which collapses
+// the font-display:swap FOUT window that was driving CLS tail outliers.
+import barlow700Url from "@fontsource/barlow/files/barlow-latin-700-normal.woff2?url";
+import inter400Url from "@fontsource/inter/files/inter-latin-400-normal.woff2?url";
+
 interface BreadcrumbStep {
   name: string;
   item: string; // absolute URL or path
@@ -505,7 +514,15 @@ const finalGraph = [
 
     <!-- Fonts: Barlow (display) + Inter (body) are self-hosted via
          Fontsource (imported in the frontmatter → bundled, fingerprinted,
-         long-cached from our origin). No external font request. -->
+         long-cached from our origin). No external font request.
+
+         Preload the two most-critical weights so the browser starts the
+         woff2 fetch in parallel with CSS parse — collapses the FOUT
+         window that was driving CLS tail outliers (0.215 / 0.377 in
+         Cloudflare RUM). crossorigin attribute is required even for
+         same-origin fonts per the preload spec. -->
+    <link rel="preload" as="font" type="font/woff2" href={barlow700Url} crossorigin />
+    <link rel="preload" as="font" type="font/woff2" href={inter400Url} crossorigin />
 
 
     <!-- JSON-LD: Organization + WebSite + LocalBusiness × 4 + Service × 4
