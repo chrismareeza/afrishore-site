@@ -283,6 +283,9 @@ const breadcrumb = [
     width: project.videoEmbed.width || 1280,
     height: project.videoEmbed.height || 720,
   } : undefined}
+  preloadImage={project.videoEmbed
+    ? (project.videoEmbed.posterSrc || project.heroImage)
+    : undefined}
 >
   <Navbar />
 

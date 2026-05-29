@@ -58,6 +58,12 @@ interface Props {
     width?: number;           // intrinsic pixel width
     height?: number;          // intrinsic pixel height
   };
+  /** Optional image URL to preload at high priority. Use this on pages
+   *  whose LCP element is deep enough in the DOM that the browser would
+   *  not discover it until late in the parse — e.g. a <video> poster
+   *  inside the article body of a case-study page. Mirrors the same
+   *  pattern the homepage uses for its hero. */
+  preloadImage?: string;
 }
 
 const {
@@ -71,6 +77,7 @@ const {
   pageSchema = [],
   articleMeta,
   videoMeta,
+  preloadImage,
 } = Astro.props;
 
 const siteUrl = "https://www.afrishore.co";
@@ -510,6 +517,21 @@ const finalGraph = [
           fetchpriority="high"
         />
       </>
+    )}
+
+    <!-- Page-supplied preload (case-study video posters etc.). LCP
+         elements that sit deep in the article body — the <video>
+         poster on Orca / Dock Titan, for example — would otherwise
+         only be discovered after the browser parses the section
+         containing the <video>. Preloading here cuts the discovery
+         delay and pulls the poster into the critical path. -->
+    {preloadImage && (
+      <link
+        rel="preload"
+        as="image"
+        href={preloadImage}
+        fetchpriority="high"
+      />
     )}
 
     <!-- Fonts: Barlow (display) + Inter (body) are self-hosted via

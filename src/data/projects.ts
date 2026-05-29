@@ -172,6 +172,8 @@ Trusted by LD TravOcean for one of the most significant infrastructure projects 
     summary: "Onshore coordination of one of the largest semi-submersible heavy lift operations ever staged through the Port of Cape Town.",
     videoEmbed: {
       src: "/videos/dock-titan-cape-town-reunion.mp4",
+      // Optimised WebP poster — see Orca entry for rationale.
+      posterSrc: "/images/projects/dock-titan-cape-town-reunion.webp",
       description: "The Titan Floating Dock being uplifted by Boskalis's semi-submersible heavy-lift vessel MV Transshelf at the Port of Cape Town, 2025 — onshore coordination by Afrishore for Piriou Naval Services and the Port of Réunion.",
       durationISO: "PT52S",
       width: 1280,
@@ -357,6 +359,11 @@ For Afrishore, the Deepsea Mira programmes demonstrate what Namibia's offshore s
     summary: "Five parallel regulatory workstreams cleared inside a 23-day window for the semi-submersible Orca's single-voyage delivery tow from Mossel Bay to Alang, India.",
     videoEmbed: {
       src: "/videos/orca-mossel-bay-alang-2022.mp4",
+      // Use the optimised WebP poster (16% lighter than the JPG hero
+      // and explicitly preloaded in <head> via BaseLayout — closes the
+      // LCP discovery delay that otherwise had this poster firing at
+      // ~3.5 s in Cloudflare RUM).
+      posterSrc: "/images/projects/petrosa-orca-remobilisation.webp",
       description: "The Orca semi-submersible under tow by AHTS Hulk II out of Mossel Bay anchorage, February 2022 — start of the single-voyage delivery to Alang, India.",
       durationISO: "PT30S",
       width: 1280,
