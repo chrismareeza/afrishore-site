@@ -403,7 +403,7 @@ Afrishore handled the integrated-logistics scope on the South African side of th
     port: "Cape Town",
     serviceTypes: ["subsea-services", "integrated-logistics"],
     heroImage: "/images/projects/oceaneering-subsea-grout-bags.jpg",
-    summary: "200 subsea grout bags manufactured, certified, secured and exported from Cape Town, South Africa to Angola — a single coordinated consignment for the stabilisation of subsea infrastructure offshore.",
+    summary: "Subsea grout bag installation logistics: 200 subsea grout bags manufactured, certified, secured and exported by Afrishore from Cape Town, South Africa to offshore Angola for Oceaneering — single coordinated consignment for subsea infrastructure stabilisation.",
     tagline: "Subsea grout bag installation · Cape Town, South Africa · 2018",
     outcome: `Oceaneering required 200 subsea grout bags for the stabilisation of subsea infrastructure offshore Angola. Each bag had to be manufactured to subsea specification, filled, certified, secured for sea freight, and exported as a single coordinated consignment out of South Africa.
 

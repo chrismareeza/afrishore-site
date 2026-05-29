@@ -168,14 +168,15 @@ export const ports: PortPage[] = [
     kind: "office",
     matchPort: ["Cape Town"],
     metaTitle:
-      "Vessel & Rig Agent – Port of Cape Town, South Africa | Afrishore",
+      "Cape Town Shipping & Logistics Company | Vessel Agent | Afrishore",
     metaDescription:
-      "Afrishore is a licensed vessel and rig agent in the Port of Cape Town, South Africa, with an office in Woodstock. Port clearance, immigration, husbandry, dry docking, project cargo and heavy-lift coordination for rigs, OSVs, tankers and liners.",
+      "Afrishore is a Cape Town shipping company, freight forwarder and licensed vessel & rig agent — Woodstock office, Port of Cape Town. Customs clearance, freight forwarding, immigration, husbandry, dry docking, project cargo and heavy-lift coordination for rigs, OSVs, tankers and liners.",
     h1: "Vessel & Rig Agent – Port of Cape Town",
     geoSub: "Licensed agency with a Cape Town office — repair, project-cargo and offshore hub",
     intro: [
       "Afrishore holds its own port agency licence at Cape Town and operates from its office in Woodstock. The Port of Cape Town is South Africa's premier repair, project-cargo and offshore-support port, and Afrishore acts as full vessel and rig agent here for rigs, drillships, OSVs, PSVs, AHTS, tankers, FPSOs and cargo ships. As a major international sea-freight gateway with Cape Town International Airport close by, it offers a strong value proposition for project custodians, operators and vessels in transit alike.",
       "Cape Town agency spans tight repair-quay and dry-dock windows, complex immigration, heavy-lift project cargo and bunkering, all against a port that does not wait. Afrishore handles port clearance and port-authority liaison, immigration and crew changes, dry docking and repairs coordination, husbandry, bunkering, project and abnormal cargo and full mobilisation/demobilisation.",
+      "Beyond vessel agency, Afrishore operates as a Cape Town logistics company and freight forwarder for the offshore and project-cargo sector — sea, air and road freight, customs clearance, bonded warehousing, cross-border transport and technical procurement, all routed through the Port of Cape Town and Cape Town International Airport. Operators and rig owners use the same accountable team for ships agent, logistics company and freight forwarder at Cape Town, which removes the hand-off seams that normally cost time on a fast schedule.",
       "From Cape Town Afrishore delivered the Dock Titan heavy-lift to Réunion and handled rig anchorage, PSV and OSV calls, the 2Africa subsea cable-landing staging and the Oceaneering subsea grout-bag export. Integrated agency, logistics and crew from one point of accountability is what holds those schedules together.",
     ],
     scope: [
@@ -245,9 +246,9 @@ export const ports: PortPage[] = [
     kind: "office",
     matchPort: ["Mossel Bay"],
     metaTitle:
-      "Vessel & Rig Agent – Port of Mossel Bay, South Africa | Afrishore",
+      "Afrishore Mossel Bay HQ — Vessel & Rig Agency, Offshore Supply Base",
     metaDescription:
-      "Afrishore is a licensed vessel and rig agent in the Port of Mossel Bay, South Africa — its founding base and head office at 58 Bland Street. Port clearance, immigration, husbandry and offshore logistics; operated the supply base for the historic Block 11B/12B (Brulpadda / Luiperd) gas play.",
+      "Afrishore head office, Mossel Bay — 58 Bland Street. Vessel & rig agency, customs, immigration, husbandry, offshore supply base operations. Operated the Brulpadda & Luiperd supply base for TotalEnergies on Block 11B/12B since 2010.",
     h1: "Vessel & Rig Agent – Port of Mossel Bay",
     geoSub: "Afrishore's founding base & head office — operated the Brulpadda & Luiperd supply base",
     intro: [

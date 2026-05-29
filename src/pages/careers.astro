@@ -1,0 +1,178 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Navbar from "../components/Navbar.astro";
+import Footer from "../components/Footer.astro";
+
+// Lightweight careers landing page. Captures the "afrishore vacancies"
+// branded query (13 imps, pos 8.92 in GSC — clear demand, no page to
+// rank). Static content; no JobPosting schema since we don't carry an
+// open-roles feed yet. Page is indexable, added to the sitemap by
+// @astrojs/sitemap automatically, and surfaced in the footer nav.
+
+const siteUrl = "https://www.afrishore.co";
+const canonical = `${siteUrl}/careers`;
+
+const metaTitle = "Careers at Afrishore — Vacancies & Talent Pool | Afrishore";
+const metaDescription =
+  "Careers at Afrishore. Vessel agency, offshore supply base, integrated logistics, customs and crew & visa roles across South Africa, Namibia and Mozambique. Submit a CV for upcoming vacancies — Mossel Bay, Cape Town, Walvis Bay, Durban.";
+
+// Categories of roles Afrishore typically hires for — broad enough to
+// surface in branded job-search queries without committing to specific
+// openings.
+const roleAreas = [
+  {
+    title: "Vessel & Rig Agency",
+    detail: "Port agents, boarding agents and operations coordinators handling rig, drillship, OSV, tanker and liner calls.",
+  },
+  {
+    title: "Offshore Supply Base",
+    detail: "Base operations, rigging and cranage supervisors, project cargo and warehouse leads.",
+  },
+  {
+    title: "Integrated Logistics",
+    detail: "Freight-forwarding desks, customs brokers, materials managers and cross-border transport coordinators.",
+  },
+  {
+    title: "Crew & Visa Services",
+    detail: "Immigration and crew rotation specialists, travel coordinators and medical-evacuation desk officers.",
+  },
+  {
+    title: "Finance & Administration",
+    detail: "Accounting, port disbursement reconciliation, payroll and office administration.",
+  },
+  {
+    title: "HSEQ & Compliance",
+    detail: "ISO 9001 / HSE auditors, environmental and quality systems officers.",
+  },
+];
+
+const breadcrumb = [
+  { name: "Home", item: "/" },
+  { name: "Careers", item: "/careers" },
+];
+
+// Simple WebPage schema so Google understands the page's role.
+const pageSchema = [
+  {
+    "@type": "WebPage",
+    "@id": `${canonical}#webpage`,
+    "url": canonical,
+    "name": metaTitle,
+    "description": metaDescription,
+    "isPartOf": { "@id": `${siteUrl}/#website` },
+    "about": { "@id": `${siteUrl}/#organization` },
+    "inLanguage": "en-ZA",
+  },
+];
+---
+
+<BaseLayout
+  title={metaTitle}
+  description={metaDescription}
+  canonical={canonical}
+  breadcrumb={breadcrumb}
+  pageSchema={pageSchema}
+>
+  <Navbar />
+
+  <main id="main">
+    <!-- Hero -->
+    <section class="relative pt-32 lg:pt-40 pb-12 px-6 lg:px-12">
+      <div class="max-w-5xl mx-auto">
+        <div class="flex items-center gap-3 text-xs uppercase tracking-[0.2em] text-gold font-semibold mb-6">
+          <span>Careers</span>
+          <span class="text-faint">·</span>
+          <span class="text-faint normal-case tracking-normal">South Africa · Namibia · Mozambique</span>
+        </div>
+
+        <h1 class="text-4xl md:text-5xl lg:text-6xl text-cream leading-[1.1] tracking-tight mb-6">
+          Careers &amp; vacancies<br />
+          <span class="text-gold">at Afrishore.</span>
+        </h1>
+
+        <p class="text-lg lg:text-xl text-mute max-w-2xl leading-relaxed">
+          Afrishore is an integrated marine logistics agency — vessel and
+          rig agency, offshore supply base operations, freight forwarding,
+          customs, and crew &amp; visa services — operating across South
+          Africa, Namibia and Mozambique since 2010. We're always
+          interested in people who want to build a career in offshore
+          logistics, shipping or port operations.
+        </p>
+      </div>
+    </section>
+
+    <!-- Areas we hire for -->
+    <section class="px-6 lg:px-12 pb-16 lg:pb-20">
+      <div class="max-w-5xl mx-auto">
+        <h2 class="text-2xl md:text-3xl text-cream tracking-tight mb-2">
+          Areas we hire for
+        </h2>
+        <p class="text-sm text-faint mb-10">
+          Specific vacancies vary by branch and project pipeline. The role
+          areas below describe the disciplines we recruit into.
+        </p>
+
+        <ul class="grid grid-cols-1 md:grid-cols-2 gap-px bg-line/40 border border-line/40 rounded-sm overflow-hidden">
+          {roleAreas.map((r) => (
+            <li class="bg-base p-6 lg:p-7 flex flex-col gap-2">
+              <span class="text-xs uppercase tracking-[0.18em] text-gold font-semibold">
+                {r.title}
+              </span>
+              <p class="text-cream/85 leading-snug">{r.detail}</p>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
+
+    <!-- Submitting a CV -->
+    <section class="px-6 lg:px-12 pb-24 lg:pb-32">
+      <div class="max-w-5xl mx-auto">
+        <div class="bg-surface border border-line rounded-sm p-8 lg:p-10 space-y-6">
+          <h2 class="text-2xl md:text-3xl text-cream tracking-tight">
+            Submitting a CV
+          </h2>
+
+          <p class="text-cream/85 leading-relaxed max-w-3xl">
+            We don't run an open vacancies feed on this page. Afrishore
+            recruits when projects, campaigns and branches require it, and
+            applicants in the right discipline are contacted from a
+            standing talent pool. To register interest, send your CV to
+            <a
+              href="mailto:info@afrishore.co?subject=Afrishore%20Careers%20-%20CV%20Submission"
+              class="text-gold hover:text-yellow underline underline-offset-4"
+            >info@afrishore.co</a>
+            with the role area and the branch / port you would prefer to
+            be based out of (Mossel Bay, Cape Town, Walvis Bay or Durban).
+          </p>
+
+          <p class="text-cream/85 leading-relaxed max-w-3xl">
+            Afrishore is a B-BBEE Level 1 employer in South Africa with
+            an active national-content programme in Namibia. We
+            prioritise Namibian nationals for Namibia-based roles and
+            Previously Disadvantaged candidates for South African roles
+            where the qualifications match.
+          </p>
+
+          <div class="flex flex-wrap gap-3 pt-2">
+            <a
+              href="mailto:info@afrishore.co?subject=Afrishore%20Careers%20-%20CV%20Submission"
+              class="inline-flex items-center gap-2 bg-orange hover:bg-gold text-base px-6 py-3 text-sm font-semibold tracking-wide transition-colors duration-200 rounded-sm"
+            >
+              Email a CV
+              <span aria-hidden="true">→</span>
+            </a>
+            <a
+              href="/#about"
+              class="inline-flex items-center gap-2 border border-cream/30 hover:border-cream/60 text-cream px-6 py-3 text-sm font-semibold tracking-wide transition-colors duration-200 rounded-sm"
+            >
+              About Afrishore
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</BaseLayout>
