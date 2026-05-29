@@ -25,7 +25,11 @@ const phoneE164 = port.office?.phoneE164 ?? port.phoneE164 ?? portContact.phoneE
 const phoneDisplay = port.office?.phoneDisplay ?? port.phoneDisplay ?? portContact.phoneDisplay;
 
 const siteUrl = "https://www.afrishore.co";
-const pageUrl = `${siteUrl}/ports/${port.slug}`;
+// Trailing slash matches the URL Cloudflare Pages actually serves
+// (/ports/foo 308s to /ports/foo/). Aligning canonical with the served
+// URL avoids the canonical-loop that pushes pages into "Crawled —
+// currently not indexed".
+const pageUrl = `${siteUrl}/ports/${port.slug}/`;
 
 // Related case studies — published projects whose `port` string contains
 // one of this port's match tokens (case-insensitive).

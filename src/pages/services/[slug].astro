@@ -25,7 +25,11 @@ interface Props {
 const { service } = Astro.props;
 
 const siteUrl = "https://www.afrishore.co";
-const pageUrl = `${siteUrl}/services/${service.slug}`;
+// Trailing slash matches the URL Cloudflare Pages actually serves
+// (/services/foo 308s to /services/foo/). Aligning canonical with the
+// served URL avoids the canonical-loop that pushes pages into "Crawled
+// — currently not indexed".
+const pageUrl = `${siteUrl}/services/${service.slug}/`;
 
 // Related case studies — published projects tagged with this serviceType.
 const related = projects

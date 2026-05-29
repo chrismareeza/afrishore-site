@@ -21,7 +21,12 @@ interface Props {
 const { project } = Astro.props;
 
 const siteUrl = "https://www.afrishore.co";
-const projectUrl = `${siteUrl}/projects/${project.slug}`;
+// Trailing slash matches the URL Cloudflare Pages actually serves
+// (/projects/foo 308s to /projects/foo/). Without it, Google sees the
+// canonical pointing at a redirect target, gets confused about which
+// variant to index, and the page can end up in "Crawled — currently
+// not indexed". Match the served URL → clean indexing signal.
+const projectUrl = `${siteUrl}/projects/${project.slug}/`;
 
 // SEO
 const metaTitle = `${project.title} · Afrishore Maritime Logistics`;
