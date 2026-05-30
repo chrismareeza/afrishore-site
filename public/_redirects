@@ -45,3 +45,12 @@
 # the whole /_files/ tree so any external backlink to a legacy Wix
 # asset 301s to home instead of 404'ing.
 /_files/*                           /                                             301
+
+# ── Bot/crawler conventions surfaced from Cloudflare 4xx report ───
+# Old crawlers and feedfetchers expect /sitemap.xml; Astro emits
+# sitemap-index.xml. iOS Safari requests apple-touch-icon-
+# precomposed.png as a fallback when apple-touch-icon.png isn't
+# explicitly the precomposed variant. Both were generating consistent
+# 404s (~10-12/day) before these aliases.
+/sitemap.xml                        /sitemap-index.xml                            301
+/apple-touch-icon-precomposed.png   /apple-touch-icon.png                         301
