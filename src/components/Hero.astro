@@ -37,17 +37,22 @@
     style="background: radial-gradient(ellipse at center, transparent 20%, rgba(10,10,10,0.7) 100%);"
   ></div>
 
-  <!-- Foreground "dawn light" — a warm radial wash positioned over the
-       rig that uses mix-blend-mode:screen to *add* brightness rather
-       than just remove darkness. Screen blend lifts dark pixels (the
-       silhouetted rig) toward the overlay colour and leaves already-
-       bright pixels (sky / city lights) effectively unchanged. Starts
-       at opacity 0 and fades IN during sunrise so the rig appears to
-       catch the dawn light reaching across the bay. -->
+  <!-- Sunlit-rig layer. A second copy of the same hero photo positioned
+       identically (so it stays pixel-aligned with #hero-bg), with a
+       brightness + saturation filter applied, then masked to a tight
+       ellipse over the rig's sunlit edge only. Fades in during sunrise.
+       Browsers cache the duplicate image (same URL), so no extra bytes
+       on the wire — just an extra paint layer for the masked region. -->
   <div
-    id="hero-tint-foreground"
-    class="absolute inset-0 pointer-events-none opacity-0"
-    style="mix-blend-mode: screen; background: radial-gradient(ellipse 45% 55% at 12% 75%, rgba(255,190,120,0.75) 0%, rgba(255,170,100,0.45) 35%, rgba(255,150,90,0.18) 65%, transparent 90%);"
+    id="hero-bg-rig-lit"
+    class="hero-bg-img absolute inset-0 pointer-events-none opacity-0"
+    style="
+      background-size: cover;
+      background-position: center 55%;
+      filter: brightness(1.55) saturate(1.08);
+      -webkit-mask-image: radial-gradient(ellipse 16% 32% at 53% 62%, black 35%, transparent 85%);
+      mask-image: radial-gradient(ellipse 16% 32% at 53% 62%, black 35%, transparent 85%);
+    "
   ></div>
 
   <!-- Subtle film grain (low opacity) — adds texture, hides JPEG banding -->
@@ -275,21 +280,20 @@
       // Motion-sensitive users: present the brightened end-state from
       // the start — no delayed jump, no animation.
       gsap.set("#hero-tint", { opacity: 0 });
-      // Warm dawn-light overlay sits at its end-state opacity (visible)
-      // for reduced-motion users — same final scene, no transition.
-      gsap.set("#hero-tint-foreground", { opacity: 1 });
+      gsap.set("#hero-bg-rig-lit", { opacity: 1 });
       gsap.set("#hero-bg", { filter: "brightness(1.18)" });
       return;
     }
     const sunrise = () => {
       gsap.to("#hero-tint", { opacity: 0, duration: 2.6, ease: "power2.inOut" });
-      // Warm dawn-light overlay fades IN over the rig on the same
-      // beat as the skyline vignette fades out — same duration/ease so
-      // both lifts read as one dawn moment. Screen blend mode means
-      // the warm wash only brightens dark pixels (the rig), leaving
-      // the already-bright sky and water unchanged.
+      // Sunlit-rig layer fades in over the rig on the same beat as the
+      // skyline vignette fades out — same duration/ease so both lifts
+      // read as one dawn moment. The masked + brightness-filtered
+      // duplicate replaces the rig's pixels with a +55% brightness
+      // version of themselves, so it brightens what's already there
+      // rather than washing colour across the scene.
       gsap.fromTo(
-        "#hero-tint-foreground",
+        "#hero-bg-rig-lit",
         { opacity: 0 },
         { opacity: 1, duration: 2.6, ease: "power2.inOut" }
       );
