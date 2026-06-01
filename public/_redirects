@@ -7,29 +7,29 @@
 # Homepage (/) is unchanged — same URL, no rule needed.
 
 # ── Project case studies ──────────────────────────────────────────
-/deepsea-bollsta-sps-wvb            /projects/deepsea-bollsta-sps-walvis-bay      301
-/deepsea-mira-venus-1x              /projects/deepsea-mira-venus-1x               301
-/deepsea-mira-volans-1x-kharas-1    /projects/deepsea-mira-volans-kharas          301
-/docktitancapetown                  /projects/dock-titan-cape-town-reunion        301
-/facebook2africa                    /projects/facebook-2africa-cable-landing      301
-/gazania1westcoast                  /projects/eco-atlantic-gazania-1              301
-/hercules-mopane1x-exploration      /projects/galp-hercules-mopane-1x             301
-/jonker-1xdeepseabollsta            /projects/deepsea-bollsta-jonker-1            301
-/orca-remobilisation-tow            /projects/petrosa-orca-remobilisation         301
-/subsea-concrete-mattress-2015      /projects/sbm-subsea-concrete-mattress        301
-/subsea-groutbags                   /projects/oceaneering-subsea-grout-bags       301
-/subsea-pipelaying-2013             /projects/sbm-subsea-pipelaying               301
-/total-anchor-2016                  /projects/totalenergies-anchor-testing        301
-/total-brulpadda-2014               /projects/totalenergies-brulpadda-2014        301
-/total-brulpadda1718-campaign       /projects/totalenergies-brulpadda-discovery   301
-/total-luiperd-exploration          /projects/totalenergies-luiperd-supply-base   301
+/deepsea-bollsta-sps-wvb            /projects/deepsea-bollsta-sps-walvis-bay/      301
+/deepsea-mira-venus-1x              /projects/deepsea-mira-venus-1x/               301
+/deepsea-mira-volans-1x-kharas-1    /projects/deepsea-mira-volans-kharas/          301
+/docktitancapetown                  /projects/dock-titan-cape-town-reunion/        301
+/facebook2africa                    /projects/facebook-2africa-cable-landing/      301
+/gazania1westcoast                  /projects/eco-atlantic-gazania-1/              301
+/hercules-mopane1x-exploration      /projects/galp-hercules-mopane-1x/             301
+/jonker-1xdeepseabollsta            /projects/deepsea-bollsta-jonker-1/            301
+/orca-remobilisation-tow            /projects/petrosa-orca-remobilisation/         301
+/subsea-concrete-mattress-2015      /projects/sbm-subsea-concrete-mattress/        301
+/subsea-groutbags                   /projects/oceaneering-subsea-grout-bags/       301
+/subsea-pipelaying-2013             /projects/sbm-subsea-pipelaying/               301
+/total-anchor-2016                  /projects/totalenergies-anchor-testing/        301
+/total-brulpadda-2014               /projects/totalenergies-brulpadda-2014/        301
+/total-brulpadda1718-campaign       /projects/totalenergies-brulpadda-discovery/   301
+/total-luiperd-exploration          /projects/totalenergies-luiperd-supply-base/   301
 
 # ── Wix mis-named page (CONFIRMED) ────────────────────────────────
 # "/copy-of-deepsea-mira-venus-1x" was created via Wix "duplicate
 # page" — the URL kept the venus-1x stub but the content is the
 # DEEPSEA MIRA TAMBOTI-1x CAMPAIGN 2024-2025. Confirmed from the
 # live page export. Redirect to the Tamboti-1x case study.
-/copy-of-deepsea-mira-venus-1x      /projects/deepsea-mira-tamboti-1x             301
+/copy-of-deepsea-mira-venus-1x      /projects/deepsea-mira-tamboti-1x/             301
 
 # ── Common Wix system / legacy paths → home (defensive) ───────────
 # Old multi-page nav collapses into the single-scroll homepage.
