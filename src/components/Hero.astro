@@ -37,6 +37,20 @@
     style="background: radial-gradient(ellipse at center, transparent 20%, rgba(10,10,10,0.7) 100%);"
   ></div>
 
+  <!-- Foreground "shadow lift" — a second darkness layer focused on
+       the lower-left where the rig sits silhouetted against the bay.
+       The photograph has the rig in directional shadow (sun is behind
+       Table Mountain at this hour) so the existing radial vignette
+       alone only lifts ~half the perceived darkness there. This
+       targeted ellipse stacks additional darkness over the rig at
+       rest, then fades to 0 in sync with #hero-tint — the rig "wakes
+       up" in the same beat as the skyline. -->
+  <div
+    id="hero-tint-foreground"
+    class="absolute inset-0 pointer-events-none"
+    style="background: radial-gradient(ellipse 38% 45% at 15% 78%, rgba(10,10,10,0.55) 0%, rgba(10,10,10,0.32) 45%, transparent 85%);"
+  ></div>
+
   <!-- Subtle film grain (low opacity) — adds texture, hides JPEG banding -->
   <div
     class="absolute inset-0 pointer-events-none opacity-[0.04] mix-blend-overlay"
@@ -262,11 +276,16 @@
       // Motion-sensitive users: present the brightened end-state from
       // the start — no delayed jump, no animation.
       gsap.set("#hero-tint", { opacity: 0 });
+      gsap.set("#hero-tint-foreground", { opacity: 0 });
       gsap.set("#hero-bg", { filter: "brightness(1.18)" });
       return;
     }
     const sunrise = () => {
       gsap.to("#hero-tint", { opacity: 0, duration: 2.6, ease: "power2.inOut" });
+      // Foreground shadow over the rig lifts on the same beat as the
+      // skyline vignette — same duration/ease so both feel like one
+      // dawn moment, not two separate fades.
+      gsap.to("#hero-tint-foreground", { opacity: 0, duration: 2.6, ease: "power2.inOut" });
       gsap.fromTo(
         "#hero-bg",
         { filter: "brightness(1)" },
