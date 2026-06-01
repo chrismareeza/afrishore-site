@@ -37,23 +37,6 @@
     style="background: radial-gradient(ellipse at center, transparent 20%, rgba(10,10,10,0.7) 100%);"
   ></div>
 
-  <!-- Sunlit-rig layer. A second copy of the same hero photo positioned
-       identically (so it stays pixel-aligned with #hero-bg), with a
-       brightness + saturation filter applied, then masked to a tight
-       ellipse over the rig's sunlit edge only. Fades in during sunrise.
-       Browsers cache the duplicate image (same URL), so no extra bytes
-       on the wire — just an extra paint layer for the masked region. -->
-  <div
-    id="hero-bg-rig-lit"
-    class="hero-bg-img absolute inset-0 pointer-events-none opacity-0"
-    style="
-      background-size: cover;
-      background-position: center 55%;
-      filter: brightness(1.55) saturate(1.08);
-      -webkit-mask-image: radial-gradient(ellipse 16% 32% at 53% 62%, black 35%, transparent 85%);
-      mask-image: radial-gradient(ellipse 16% 32% at 53% 62%, black 35%, transparent 85%);
-    "
-  ></div>
 
   <!-- Subtle film grain (low opacity) — adds texture, hides JPEG banding -->
   <div
@@ -280,23 +263,11 @@
       // Motion-sensitive users: present the brightened end-state from
       // the start — no delayed jump, no animation.
       gsap.set("#hero-tint", { opacity: 0 });
-      gsap.set("#hero-bg-rig-lit", { opacity: 1 });
       gsap.set("#hero-bg", { filter: "brightness(1.18)" });
       return;
     }
     const sunrise = () => {
       gsap.to("#hero-tint", { opacity: 0, duration: 2.6, ease: "power2.inOut" });
-      // Sunlit-rig layer fades in over the rig on the same beat as the
-      // skyline vignette fades out — same duration/ease so both lifts
-      // read as one dawn moment. The masked + brightness-filtered
-      // duplicate replaces the rig's pixels with a +55% brightness
-      // version of themselves, so it brightens what's already there
-      // rather than washing colour across the scene.
-      gsap.fromTo(
-        "#hero-bg-rig-lit",
-        { opacity: 0 },
-        { opacity: 1, duration: 2.6, ease: "power2.inOut" }
-      );
       gsap.fromTo(
         "#hero-bg",
         { filter: "brightness(1)" },
