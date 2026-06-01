@@ -37,18 +37,17 @@
     style="background: radial-gradient(ellipse at center, transparent 20%, rgba(10,10,10,0.7) 100%);"
   ></div>
 
-  <!-- Foreground "shadow lift" — a second darkness layer focused on
-       the lower-left where the rig sits silhouetted against the bay.
-       The photograph has the rig in directional shadow (sun is behind
-       Table Mountain at this hour) so the existing radial vignette
-       alone only lifts ~half the perceived darkness there. This
-       targeted ellipse stacks additional darkness over the rig at
-       rest, then fades to 0 in sync with #hero-tint — the rig "wakes
-       up" in the same beat as the skyline. -->
+  <!-- Foreground "dawn light" — a warm radial wash positioned over the
+       rig that uses mix-blend-mode:screen to *add* brightness rather
+       than just remove darkness. Screen blend lifts dark pixels (the
+       silhouetted rig) toward the overlay colour and leaves already-
+       bright pixels (sky / city lights) effectively unchanged. Starts
+       at opacity 0 and fades IN during sunrise so the rig appears to
+       catch the dawn light reaching across the bay. -->
   <div
     id="hero-tint-foreground"
-    class="absolute inset-0 pointer-events-none"
-    style="background: radial-gradient(ellipse 38% 45% at 15% 78%, rgba(10,10,10,0.55) 0%, rgba(10,10,10,0.32) 45%, transparent 85%);"
+    class="absolute inset-0 pointer-events-none opacity-0"
+    style="mix-blend-mode: screen; background: radial-gradient(ellipse 45% 55% at 12% 75%, rgba(255,190,120,0.75) 0%, rgba(255,170,100,0.45) 35%, rgba(255,150,90,0.18) 65%, transparent 90%);"
   ></div>
 
   <!-- Subtle film grain (low opacity) — adds texture, hides JPEG banding -->
@@ -276,16 +275,24 @@
       // Motion-sensitive users: present the brightened end-state from
       // the start — no delayed jump, no animation.
       gsap.set("#hero-tint", { opacity: 0 });
-      gsap.set("#hero-tint-foreground", { opacity: 0 });
+      // Warm dawn-light overlay sits at its end-state opacity (visible)
+      // for reduced-motion users — same final scene, no transition.
+      gsap.set("#hero-tint-foreground", { opacity: 1 });
       gsap.set("#hero-bg", { filter: "brightness(1.18)" });
       return;
     }
     const sunrise = () => {
       gsap.to("#hero-tint", { opacity: 0, duration: 2.6, ease: "power2.inOut" });
-      // Foreground shadow over the rig lifts on the same beat as the
-      // skyline vignette — same duration/ease so both feel like one
-      // dawn moment, not two separate fades.
-      gsap.to("#hero-tint-foreground", { opacity: 0, duration: 2.6, ease: "power2.inOut" });
+      // Warm dawn-light overlay fades IN over the rig on the same
+      // beat as the skyline vignette fades out — same duration/ease so
+      // both lifts read as one dawn moment. Screen blend mode means
+      // the warm wash only brightens dark pixels (the rig), leaving
+      // the already-bright sky and water unchanged.
+      gsap.fromTo(
+        "#hero-tint-foreground",
+        { opacity: 0 },
+        { opacity: 1, duration: 2.6, ease: "power2.inOut" }
+      );
       gsap.fromTo(
         "#hero-bg",
         { filter: "brightness(1)" },
