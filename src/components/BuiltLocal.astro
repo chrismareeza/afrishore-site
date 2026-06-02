@@ -32,11 +32,11 @@ const linePath =
   ` ${sx(lastPt.year).toFixed(1)},${sy(lastPt.pct).toFixed(1)}`;
 
 // ── Pillar 5 · carbon widget data (from GHG_Emissions_DMI_May_2026) ────
-const carbonTotalT = 4.088;
+const carbonTotalT = 5.342;
 const carbonBars = [
-  { label: "Cranes", t: 1.70 },
-  { label: "Forklifts", t: 1.79 },
-  { label: "Trucks", t: 0.60 },
+  { label: "Cranes", t: 2.182 },
+  { label: "Forklifts", t: 2.557 },
+  { label: "Trucks", t: 0.603 },
 ].map((b) => ({ ...b, pct: (b.t / carbonTotalT) * 100 }));
 
 // ── Pillar 3 · HSE live LTI-free-day counter ──────────────────────────
@@ -290,7 +290,7 @@ const isPending = (s: string) => s.includes("{");
                   <p class="text-xs text-mute mt-1.5">CO₂e for the month</p>
                 </div>
 
-                <p class="text-sm text-cream/80">103 hrs · 4,087 kg CO₂</p>
+                <p class="text-sm text-cream/80">144 hrs · 5,341 kg CO₂</p>
 
                 <div class="space-y-2">
                   <p class="text-[0.65rem] uppercase tracking-[0.18em] text-faint">Where it came from</p>
