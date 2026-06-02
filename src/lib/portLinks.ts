@@ -1,4 +1,4 @@
-// Port-hub linking utilities — shared between project case-study pages
+// Port-hub linking utilities – shared between project case-study pages
 // and service pages, so any place that mentions a port name in body
 // text can pass equity to the matching /ports/<slug> hub.
 

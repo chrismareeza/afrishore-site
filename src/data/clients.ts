@@ -1,4 +1,4 @@
-// Client roster — direct clients (some with logos, some pending)
+// Client roster – direct clients (some with logos, some pending)
 // Logo field: relative path under /public, null if pending
 // displayBoost: optional size multiplier for visually small logos (1.2 = 20% bigger)
 
@@ -11,7 +11,7 @@ export interface Client {
 }
 
 export const clients: Client[] = [
-  // Tier 1 — global household names
+  // Tier 1 – global household names
   { name: "TotalEnergies", slug: "totalenergies", sector: "oil-gas-major", logo: "/client-logos/totalenergies.png" },
   { name: "Odfjell Drilling", slug: "odfjell-drilling", sector: "drilling-contractor", logo: "/client-logos/odfjell-drilling.png" },
   { name: "Baker Hughes", slug: "baker-hughes", sector: "service-contractor", logo: "/client-logos/baker-hughes.png", displayBoost: 1.75 },
@@ -21,7 +21,7 @@ export const clients: Client[] = [
   { name: "Bourbon", slug: "bourbon", sector: "vessel-operator", logo: "/client-logos/bourbon.png" },
   { name: "Island Drilling", slug: "island-drilling", sector: "drilling-contractor", logo: "/client-logos/island-drilling.png", displayBoost: 1.2 },
 
-  // Tier 2 — specialists, very strong recognition in sector
+  // Tier 2 – specialists, very strong recognition in sector
   { name: "Oceaneering", slug: "oceaneering", sector: "subsea-services", logo: "/client-logos/oceaneering.png" },
   { name: "United Offshore Support", slug: "uos", sector: "service-contractor", logo: "/client-logos/uos.png", displayBoost: 2.5 },
   { name: "Fugro", slug: "fugro", sector: "subsea-services", logo: "/client-logos/fugro.png" },

@@ -27,11 +27,11 @@ const phoneDisplay = port.office?.phoneDisplay ?? port.phoneDisplay ?? portConta
 const siteUrl = "https://www.afrishore.co";
 // Trailing slash matches the URL Cloudflare Pages actually serves
 // (/ports/foo 308s to /ports/foo/). Aligning canonical with the served
-// URL avoids the canonical-loop that pushes pages into "Crawled —
+// URL avoids the canonical-loop that pushes pages into "Crawled –
 // currently not indexed".
 const pageUrl = `${siteUrl}/ports/${port.slug}/`;
 
-// Related case studies — published projects whose `port` string contains
+// Related case studies – published projects whose `port` string contains
 // one of this port's match tokens (case-insensitive).
 const related = projects
   .filter(
@@ -50,13 +50,13 @@ const webp = (p: string) => p.replace(/\.jpe?g$/i, ".webp");
 
 const heroAltText =
   port.heroAlt ||
-  `Afrishore vessel and rig agent — Port of ${port.portName}, ${port.country}`;
+  `Afrishore vessel and rig agent – Port of ${port.portName}, ${port.country}`;
 
 const heroAbsolute = port.heroImage
   ? new URL(port.heroImage, siteUrl).toString()
   : new URL("/og-image.jpg", siteUrl).toString();
 
-// Service JSON-LD — clean (no Offer/price). provider/isPartOf link into
+// Service JSON-LD – clean (no Offer/price). provider/isPartOf link into
 // the global @graph; areaServed pins the specific port + country. For
 // office ports, `about` ties the page to the LocalBusiness already
 // emitted globally in BaseLayout (no duplicate entity).
@@ -68,7 +68,7 @@ const serviceSchema: Record<string, unknown> = {
   "description": port.metaDescription,
   "url": pageUrl,
   "provider": { "@id": `${siteUrl}/#organization` },
-  // Port pages are spokes of the Vessel & Rig Agency pillar —
+  // Port pages are spokes of the Vessel & Rig Agency pillar –
   // isPartOf ties each to that vertical's Service node in the global
   // @graph (topical cluster signal; the page is agency-optimised).
   "isPartOf": { "@id": `${siteUrl}/#service-ship-rig-agency` },
@@ -231,7 +231,7 @@ const breadcrumb = [
             {port.office ? (
               <>
                 <h2 class="text-xs uppercase tracking-[0.2em] text-gold font-semibold">
-                  {port.office.businessName || `Afrishore — ${port.portName}`}
+                  {port.office.businessName || `Afrishore – ${port.portName}`}
                 </h2>
                 <address class="not-italic text-sm text-cream/90 leading-relaxed">
                   {port.office.streetAddress}<br />
@@ -274,7 +274,7 @@ const breadcrumb = [
                 {phoneDisplay}
               </a>
               <a
-                href={`mailto:${portContact.email}?subject=${encodeURIComponent(`Afrishore — ${port.portName} enquiry`)}`}
+                href={`mailto:${portContact.email}?subject=${encodeURIComponent(`Afrishore – ${port.portName} enquiry`)}`}
                 class="block text-gold hover:text-yellow transition-colors break-words"
               >
                 {portContact.email}
@@ -310,7 +310,7 @@ const breadcrumb = [
                   {p.heroImage && (
                     <img
                       src={p.heroImage}
-                      alt={`${p.title} — ${p.client} project at ${p.port}`}
+                      alt={`${p.title} – ${p.client} project at ${p.port}`}
                       class="absolute inset-0 w-full h-full object-cover"
                       loading="lazy"
                       width="800"

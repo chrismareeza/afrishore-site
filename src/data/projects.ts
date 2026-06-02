@@ -8,7 +8,7 @@ export interface Project {
   client: string;
   year: string;
   port: string;
-  // Override the "Port" label shown on the case-study metadata block —
+  // Override the "Port" label shown on the case-study metadata block –
   // e.g. "Airport" for an air-charter project. Falls back to "Port".
   locationLabel?: string;
   serviceTypes: string[];
@@ -37,14 +37,14 @@ export interface Project {
     caption: string;
     portrait?: boolean;
   };
-  // Optional in-body MP4 — self-hosted via /public/videos/. Rendered with
+  // Optional in-body MP4 – self-hosted via /public/videos/. Rendered with
   // an HTML5 <video> tag, lazy poster, and a VideoObject schema node.
   videoEmbed?: {
     src: string;            // path under /public, e.g. /videos/foo.mp4
     posterSrc?: string;     // poster image path; falls back to heroImage
     description: string;    // schema/SEO description (VideoObject.description,
                             //  alt-equivalent for the player). Not rendered
-                            //  on the page — kept invisible to readers.
+                            //  on the page – kept invisible to readers.
     durationISO: string;    // ISO 8601 duration for schema, e.g. "PT30S"
     width?: number;         // intrinsic pixel width (default 1280)
     height?: number;        // intrinsic pixel height (default 720)
@@ -65,7 +65,7 @@ export const projects: Project[] = [
     vessel: "Deepsea Stavanger",
     assetType: "rig",
     heroImage: "/images/projects/totalenergies-brulpadda-discovery.jpg",
-    summary: "Integrated onshore logistics for the Brulpadda discovery campaign — the largest gas-condensate find in South African waters in a decade.",
+    summary: "Integrated onshore logistics for the Brulpadda discovery campaign – the largest gas-condensate find in South African waters in a decade.",
     outcome: `In February 2019, TotalEnergies announced the Brulpadda gas-condensate discovery, the largest hydrocarbon find in South African waters in over a decade, with estimates around one billion barrels of oil equivalent. Afrishore supported the Brulpadda Discovery Campaign (2018–2019) as the integrated onshore logistics partner, operating the offshore supply base for TotalEnergies as well as supplying turnkey support to the Deepsea Stavanger drilling unit throughout the campaign.
 
 Brulpadda-1AX sits in Block 11B/12B, roughly 175 km off South Africa's southern coast: an ultra-deepwater well drilled in some of the most challenging current and weather conditions in the world (the Agulhas Current is one of the strongest western boundary currents on the planet). Afrishore handled all the onshore supply base operations: temporary importation and customs clearance, warehousing and project cargo handling, rigging and waste management, crew logistics including immigration support for international specialists, vessel agency and port management, and full mobilisation/demobilisation coordination. The above forming the baseline for additional project integrations related to the rig agency of Deepsea Stavanger for Odfjell Drilling, vessel agency for project PSVs from Bourbon and Farstad, mud plant labour and logistics for Halliburton and onshore procurement, logistics and crew movement for Oceaneering. Drilling a frontier well in 1,400 m of water demanded a shore-side operation with zero margin for error.
@@ -124,9 +124,9 @@ The Bollsta returned to operations on schedule, recertified for another operatio
     heroImage: "/images/projects/deepsea-mira-sps-walvis-bay.jpg",
     secondaryImage: {
       src: "/images/projects/deepsea-mira-sps-bop-trailer.jpg",
-      alt: "Decommissioned Deepsea Mira blowout preventer (BOP), 130+ tonnes, on a multi-axle heavy-lift low-bed trailer at the Port of Walvis Bay for breakbulk export — Afrishore heavy-lift logistics",
+      alt: "Decommissioned Deepsea Mira blowout preventer (BOP), 130+ tonnes, on a multi-axle heavy-lift low-bed trailer at the Port of Walvis Bay for breakbulk export – Afrishore heavy-lift logistics",
       caption:
-        "The decommissioned Deepsea Mira BOP — 130+ tonnes — on a multi-axle heavy-lift low-bed trailer at the Port of Walvis Bay, prepared for its return-to-origin sailing on a breakbulk liner: the outbound leg of a BOP exchange Afrishore coordinated end-to-end.",
+        "The decommissioned Deepsea Mira BOP – 130+ tonnes – on a multi-axle heavy-lift low-bed trailer at the Port of Walvis Bay, prepared for its return-to-origin sailing on a breakbulk liner: the outbound leg of a BOP exchange Afrishore coordinated end-to-end.",
     },
     summary: "Special Periodic Survey of the Deepsea Mira at Walvis Bay, scoped with a Blowout Preventer (BOP) exchange and multiple heavy lift logistics movements.",
     outcome: `The Deepsea Mira has operated continuously in Namibian waters since 2023 under Afrishore's onshore supply base support, across sequential drilling campaigns at Venus-1x, Tamboti-1x, Volans-1x, and Kharas-1.
@@ -150,7 +150,7 @@ A Special Periodic Survey is rarely simple. With a BOP exchange layered in, it r
     port: "Multiple SA coastal landings",
     serviceTypes: ["integrated-logistics", "crew-visa", "ship-rig-agency"],
     heroImage: "/images/projects/facebook-2africa.jpg",
-    summary: "Onshore logistics for the South African landing of the 2Africa subsea cable — one of the largest telecoms infrastructure projects ever built.",
+    summary: "Onshore logistics for the South African landing of the 2Africa subsea cable – one of the largest telecoms infrastructure projects ever built.",
     outcome: `The 2Africa subsea cable system is one of the largest telecommunications infrastructure projects ever built: 45,000 km of cable connecting 33 countries across three continents, with a design capacity of 180 Tbps. Between 2022 and 2023, Afrishore supported the South African landing operations on behalf of LD TravOcean, the specialist subsea contractor responsible for the African shore-end works.
 
 The 2Africa project demanded a different operating model than offshore oil and gas. Afrishore coordinated onshore logistics across multiple South African landing points: customs clearance for specialist subsea equipment, temporary importation of cable-handling gear, storage and trucking arrangements, lifting and mobilisation/demobilisation, immigration for international cable specialists, accommodation and transport, crew change coordination, and cross-border freight on both sea and air. Every operation was time-bound to the cable lay sequence, work that ran 24/7 once vessels were on station and out of multiple South African ports.
@@ -172,9 +172,9 @@ Trusted by LD TravOcean for one of the most significant infrastructure projects 
     summary: "Onshore coordination of one of the largest semi-submersible heavy lift operations ever staged through the Port of Cape Town.",
     videoEmbed: {
       src: "/videos/dock-titan-cape-town-reunion.mp4",
-      // Optimised WebP poster — see Orca entry for rationale.
+      // Optimised WebP poster – see Orca entry for rationale.
       posterSrc: "/images/projects/dock-titan-cape-town-reunion.webp",
-      description: "The Titan Floating Dock being uplifted by Boskalis's semi-submersible heavy-lift vessel MV Transshelf at the Port of Cape Town, 2025 — onshore coordination by Afrishore for Piriou Naval Services and the Port of Réunion.",
+      description: "The Titan Floating Dock being uplifted by Boskalis's semi-submersible heavy-lift vessel MV Transshelf at the Port of Cape Town, 2025 – onshore coordination by Afrishore for Piriou Naval Services and the Port of Réunion.",
       durationISO: "PT52S",
       width: 1280,
       height: 720,
@@ -201,7 +201,7 @@ A semi-submersible heavy lift is the kind of operation where every element must 
     vessel: "Eirik Raude",
     assetType: "rig",
     heroImage: "/images/projects/totalenergies-brulpadda-2014.jpg",
-    summary: "First drilling attempt at Brulpadda on the Eirik Raude rig — a campaign that laid the groundwork for the 2018–19 discovery.",
+    summary: "First drilling attempt at Brulpadda on the Eirik Raude rig – a campaign that laid the groundwork for the 2018–19 discovery.",
     outcome: `The Brulpadda campaign marked Afrishore's first appointment as offshore supply base operator, under the direction of TotalEnergies.
 
 The mandate covered operation of the Mossel Bay offshore supply base in support of the initial Brulpadda drilling campaign. TotalEnergies' operational standards, logistical methodologies and supply base disciplines were transferred to Afrishore over the course of the campaign and applied directly in the running of the base.
@@ -284,7 +284,7 @@ For Afrishore, the Deepsea Hercules campaign for Galp is a representative exampl
     vessel: "Deepsea Mira",
     assetType: "rig",
     heroImage: "/images/projects/deepsea-mira-venus-1x.jpg",
-    summary: "Drilling on the Venus-1x well — first in the multi-year Deepsea Mira deployment in Namibian waters.",
+    summary: "Drilling on the Venus-1x well – first in the multi-year Deepsea Mira deployment in Namibian waters.",
     featured: false,
     published: true,
   },
@@ -300,7 +300,7 @@ For Afrishore, the Deepsea Hercules campaign for Galp is a representative exampl
     heroImage: "/images/projects/deepsea-mira-tamboti-1x.jpg",
     secondaryImage: {
       src: "/images/projects/deepsea-mira-tamboti-1x-luderitz.jpg",
-      alt: "Afrishore quayside logistics at the Port of Lüderitz — vessel deck-plan execution and cargo preparation for the TotalEnergies Tamboti-1X campaign, Namibia",
+      alt: "Afrishore quayside logistics at the Port of Lüderitz – vessel deck-plan execution and cargo preparation for the TotalEnergies Tamboti-1X campaign, Namibia",
       caption:
         "Afrishore's Lüderitz logistics in full flow: turnkey quayside management, vessel deck-plan execution and cargo preparation ahead of departure: one of two shore bases run simultaneously with Walvis Bay.",
     },
@@ -325,7 +325,7 @@ For Afrishore, Tamboti-1X was more than a successful campaign, it was a proof po
     heroImage: "/images/projects/deepsea-mira-volans-kharas.jpg",
     secondaryImage: {
       src: "/images/projects/deepsea-mira-volans-kharas-riser-demob.jpg",
-      alt: "Deepsea Mira drilling riser joints on a PSV deck at Walvis Bay's Jetty 8 — post-campaign riser demobilisation to Afrishore's offshore supply base, Namibia",
+      alt: "Deepsea Mira drilling riser joints on a PSV deck at Walvis Bay's Jetty 8 – post-campaign riser demobilisation to Afrishore's offshore supply base, Namibia",
       caption:
         "Deepsea Mira riser demobilisation after the Volans-1x and Kharas-1 campaign: riser joints shipped by PSV to Walvis Bay's Jetty 8 berth and returned to Afrishore's offshore supply base for maintenance and storage.",
       portrait: true,
@@ -360,11 +360,11 @@ For Afrishore, the Deepsea Mira programmes demonstrate what Namibia's offshore s
     videoEmbed: {
       src: "/videos/orca-mossel-bay-alang-2022.mp4",
       // Use the optimised WebP poster (16% lighter than the JPG hero
-      // and explicitly preloaded in <head> via BaseLayout — closes the
+      // and explicitly preloaded in <head> via BaseLayout – closes the
       // LCP discovery delay that otherwise had this poster firing at
       // ~3.5 s in Cloudflare RUM).
       posterSrc: "/images/projects/petrosa-orca-remobilisation.webp",
-      description: "The Orca semi-submersible under tow by AHTS Hulk II out of Mossel Bay anchorage, February 2022 — start of the single-voyage delivery to Alang, India.",
+      description: "The Orca semi-submersible under tow by AHTS Hulk II out of Mossel Bay anchorage, February 2022 – start of the single-voyage delivery to Alang, India.",
       durationISO: "PT30S",
       width: 1280,
       height: 720,
@@ -388,14 +388,14 @@ Compressed-timeline rig extractions from South African waters remain achievable 
     serviceTypes: ["subsea-services", "integrated-logistics"],
     heroImage: "/images/projects/sbm-subsea-concrete-mattress.jpg",
     tagline: "Concrete mattress installation · Mossel Bay, South Africa · 2015",
-    summary: "Concrete mattress installation for subsea pipeline protection — SBM Offshore's pipeline crossing campaign supported by Afrishore at the Port of Mossel Bay, South Africa.",
+    summary: "Concrete mattress installation for subsea pipeline protection – SBM Offshore's pipeline crossing campaign supported by Afrishore at the Port of Mossel Bay, South Africa.",
     outcome: `Afrishore supported SBM Offshore on a 2015 concrete mattress installation campaign for subsea pipeline crossing protection, working out of the Port of Mossel Bay on the South African south coast. Concrete mattresses are pre-cast articulated concrete blocks linked by polypropylene rope, lowered onto the seabed to protect submarine pipelines, umbilicals and subsea structures from anchor strikes, fishing gear, seabed scour and dropped objects. In South African waters the technique is the standard method for hardening pipeline crossings and seabed infrastructure against the mechanical risks of the offshore environment.
 
-The Mossel Bay scope brought a mix of project cargo, customs and quayside coordination challenges into a single window. Concrete mattress consignments are heavy, dimensionally awkward and time-critical: each mattress weighs in the order of three tonnes, requires specialised lifting and slinging, and has to arrive cleared, surveyed and pre-rigged for the installation window agreed with the contracting vessel. Mossel Bay is not a project port by default, which makes pre-positioning of cranage, laydown and stevedoring decisive — delays at the quay translate directly into vessel standby cost offshore.
+The Mossel Bay scope brought a mix of project cargo, customs and quayside coordination challenges into a single window. Concrete mattress consignments are heavy, dimensionally awkward and time-critical: each mattress weighs in the order of three tonnes, requires specialised lifting and slinging, and has to arrive cleared, surveyed and pre-rigged for the installation window agreed with the contracting vessel. Mossel Bay is not a project port by default, which makes pre-positioning of cranage, laydown and stevedoring decisive – delays at the quay translate directly into vessel standby cost offshore.
 
 Afrishore handled the integrated-logistics scope on the South African side of the campaign: project cargo handling and abnormal-load coordination for the inbound concrete mattress consignment, customs clearance and temporary importation documentation, port agency at Mossel Bay covering berth scheduling and port-authority liaison, immigration and crew change for the technical team accompanying the spread, and quayside coordination from arrival through to vessel mobilisation alongside SBM Offshore's marine spread. The campaign also drew on the established Mossel Bay supply-base relationships Afrishore had built operating the TotalEnergies Brulpadda and Luiperd campaigns out of the same port.
 
-The campaign sits alongside Afrishore's wider subsea installation track record in South Africa and Namibia, which spans concrete mattress installation, subsea pipelaying, grout-bag protection and subsea cable landing operations. Operators contracting subsea protection work into South African waters use Afrishore as the integrated logistics, customs and port-agency point of accountability — the seam between the inbound consignment, the contracting vessel and the SAMSA-regulated South African port system.`,
+The campaign sits alongside Afrishore's wider subsea installation track record in South Africa and Namibia, which spans concrete mattress installation, subsea pipelaying, grout-bag protection and subsea cable landing operations. Operators contracting subsea protection work into South African waters use Afrishore as the integrated logistics, customs and port-agency point of accountability – the seam between the inbound consignment, the contracting vessel and the SAMSA-regulated South African port system.`,
     featured: false,
     published: true,
   },
@@ -407,11 +407,11 @@ The campaign sits alongside Afrishore's wider subsea installation track record i
     port: "Cape Town",
     serviceTypes: ["subsea-services", "integrated-logistics"],
     heroImage: "/images/projects/oceaneering-subsea-grout-bags.jpg",
-    summary: "Subsea grout bag installation logistics: 200 subsea grout bags manufactured, certified, secured and exported by Afrishore from Cape Town, South Africa to offshore Angola for Oceaneering — single coordinated consignment for subsea infrastructure stabilisation.",
+    summary: "Subsea grout bag installation logistics: 200 subsea grout bags manufactured, certified, secured and exported by Afrishore from Cape Town, South Africa to offshore Angola for Oceaneering – single coordinated consignment for subsea infrastructure stabilisation.",
     tagline: "Subsea grout bag installation · Cape Town, South Africa · 2018",
     outcome: `Oceaneering required 200 subsea grout bags for the stabilisation of subsea infrastructure offshore Angola. Each bag had to be manufactured to subsea specification, filled, certified, secured for sea freight, and exported as a single coordinated consignment out of South Africa.
 
-Subsea grout bags are flexible polypropylene fabric units, charged with high-strength grout and lowered onto the seabed to stabilise pipelines, free spans, manifolds, jumpers and other subsea structures. In service they conform to the contours of the seabed and harden into a load-bearing support — the standard solution where rigid mattresses cannot follow the topography.
+Subsea grout bags are flexible polypropylene fabric units, charged with high-strength grout and lowered onto the seabed to stabilise pipelines, free spans, manifolds, jumpers and other subsea structures. In service they conform to the contours of the seabed and harden into a load-bearing support – the standard solution where rigid mattresses cannot follow the topography.
 
 Afrishore managed the scope end to end. Each unit was manufactured in polypropylene, subsea rated and certified, packed with 25kg grout charges and fitted with certified lifting slings. All 200 units were then individually secured and wrapped for sea freight transport. The consignment was loaded out of A-Berth at the Port of Cape Town, South Africa onto a coastal liner for carriage to Angola.
 
@@ -429,7 +429,7 @@ Afrishore delivered the full consignment, manufactured to specification, certifi
     port: "Mossel Bay",
     serviceTypes: ["subsea-services", "integrated-logistics"],
     heroImage: "/images/projects/sbm-subsea-pipelaying.jpg",
-    summary: "Subsea pipeline installation campaign — one of Afrishore's earliest documented projects.",
+    summary: "Subsea pipeline installation campaign – one of Afrishore's earliest documented projects.",
     featured: false,
     published: true,
   },
@@ -443,7 +443,7 @@ Afrishore delivered the full consignment, manufactured to specification, certifi
     serviceTypes: ["integrated-logistics"],
     heroImage: "/images/projects/baker-hughes-tanzania-explosives-charter.jpg",
     heroAlt:
-      "Multi-class explosives charter consignment on the cargo loader at Dar es Salaam, late afternoon 11 October 2024 — minutes after off-load from the Afrishore-arranged South African charter; urgent air movement of Hazard Class 1 articles from O.R. Tambo to Tanzania for Baker Hughes.",
+      "Multi-class explosives charter consignment on the cargo loader at Dar es Salaam, late afternoon 11 October 2024 – minutes after off-load from the Afrishore-arranged South African charter; urgent air movement of Hazard Class 1 articles from O.R. Tambo to Tanzania for Baker Hughes.",
     summary: "Urgent multi-class explosives air charter from Houston, via O.R. Tambo to Dar es Salaam, supporting Baker Hughes' gas-well intervention contract.",
     outcome: `In October 2024 Afrishore was engaged by Baker Hughes Oil Services to plan, permit and execute the urgent air movement of a 588 kg multi-class explosives consignment from Houston, Texas to Dar es Salaam, in support of gas-well intervention operations at the Songo Songo Island gas field in Kilwa District. The original Houston–Luxembourg–Nairobi–Dar es Salaam routing through Kenya was abandoned mid-cycle when the Tanzanian import permit lapsed and the Kenyan transit permit could not be secured in time. Baker Hughes' end-client pivoted to terminate the inbound leg in Johannesburg and complete the final sector on a dedicated South African charter.
 

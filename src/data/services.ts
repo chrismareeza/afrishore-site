@@ -1,4 +1,4 @@
-// Service landing pages — SEO-optimised for "ship / vessel / rig agency",
+// Service landing pages – SEO-optimised for "ship / vessel / rig agency",
 // "offshore supply base", "freight forwarding / customs", "crew & visa"
 // across South Africa, Namibia & Mozambique.
 //
@@ -15,7 +15,7 @@ export interface ServicePage {
   h1: string;                     // keyword-led page H1
   geoSub: string;                 // geo-targeted subheading under H1
   schemaServiceType: string;      // schema.org Service.serviceType
-  alternateNames?: string[];      // schema.org alternateName — emitted as a
+  alternateNames?: string[];      // schema.org alternateName – emitted as a
                                   // search-query disambiguation signal (e.g.
                                   // "Ship Agent", "Vessel Agent" alongside
                                   // the canonical "Vessel & Rig Agency").
@@ -41,7 +41,7 @@ export const servicePages: ServicePage[] = [
     metaTitle:
       "Vessel & Rig Agency | Ships Agent · Vessel Agent · Namibia, South Africa & Mozambique | Afrishore",
     metaDescription:
-      "Afrishore is the appointed ships agent and vessel agent for rigs, drillships, OSVs, PSVs, AHTS, tankers and FPSOs across our licensed port network in South Africa, Namibia and Mozambique — full ships agency and vessel agency services covering port clearance, berth scheduling, immigration, husbandry, dry docking and crew rotation at Walvis Bay, Cape Town, Durban, Mossel Bay, Saldanha and Lüderitz.",
+      "Afrishore is the appointed ships agent and vessel agent for rigs, drillships, OSVs, PSVs, AHTS, tankers and FPSOs across our licensed port network in South Africa, Namibia and Mozambique – full ships agency and vessel agency services covering port clearance, berth scheduling, immigration, husbandry, dry docking and crew rotation at Walvis Bay, Cape Town, Durban, Mossel Bay, Saldanha and Lüderitz.",
     h1: "Vessel & Rig Agency",
     geoSub: "Ships agent · vessel agent · ships agency · vessel agency across Namibia, South Africa & Mozambique",
     schemaServiceType: "Vessel & Rig Agency",
@@ -90,10 +90,10 @@ export const servicePages: ServicePage[] = [
     ],
     heroImage: "/images/services/ship-rig-agency-hero.jpg",
     heroAlt:
-      "Aerial view of the Port of Mossel Bay, South Africa — offshore supply vessels alongside the breakwater quay where Afrishore provides vessel and rig agency services",
+      "Aerial view of the Port of Mossel Bay, South Africa – offshore supply vessels alongside the breakwater quay where Afrishore provides vessel and rig agency services",
     secondaryImage: {
       src: "/images/services/ship-rig-agency-vessel.jpg",
-      alt: "Pacific Greylag offshore supply vessel alongside in the Port of Cape Town with Table Mountain behind — Afrishore vessel and rig agency, South Africa",
+      alt: "Pacific Greylag offshore supply vessel alongside in the Port of Cape Town with Table Mountain behind – Afrishore vessel and rig agency, South Africa",
       caption:
         "Pacific Greylag alongside in the Port of Cape Town. Vessel and rig agency, port clearance, immigration and husbandry handled end-to-end across South Africa, Namibia and Mozambique.",
     },
@@ -105,7 +105,7 @@ export const servicePages: ServicePage[] = [
     metaTitle:
       "Offshore Supply Base Operator | Namibia, South Africa & Mozambique | Afrishore",
     metaDescription:
-      "Turnkey offshore supply base operator for drilling, renewable and subsea campaigns across Namibia, South Africa and Mozambique — rigging, cranage, abnormal trucking, warehousing, project cargo, QHSE, waste and materials management. Permanently embedded in the Port of Walvis Bay's Oil & Gas Section.",
+      "Turnkey offshore supply base operator for drilling, renewable and subsea campaigns across Namibia, South Africa and Mozambique – rigging, cranage, abnormal trucking, warehousing, project cargo, QHSE, waste and materials management. Permanently embedded in the Port of Walvis Bay's Oil & Gas Section.",
     h1: "Offshore Supply Base Operations",
     geoSub: "Turnkey base operator: Walvis Bay, Cape Town, Mossel Bay, Pemba & beyond.",
     schemaServiceType: "Offshore Supply Base Operations",
@@ -154,7 +154,7 @@ export const servicePages: ServicePage[] = [
     metaTitle:
       "Freight Forwarding & Customs Clearance | Marine Logistics, Southern Africa | Afrishore",
     metaDescription:
-      "Freight forwarding, customs brokerage, project cargo, bunkering, chandling and technical procurement across South Africa, Namibia and Mozambique — cross-border on sea, air and road for oil & gas, subsea, telecoms and heavy lift.",
+      "Freight forwarding, customs brokerage, project cargo, bunkering, chandling and technical procurement across South Africa, Namibia and Mozambique – cross-border on sea, air and road for oil & gas, subsea, telecoms and heavy lift.",
     h1: "Integrated Logistics",
     geoSub: "Freight forwarding, customs & project cargo via sea, air & road.",
     schemaServiceType: "Integrated Logistics",
@@ -165,7 +165,7 @@ export const servicePages: ServicePage[] = [
     ],
     scope: [
       "Customs brokerage & management",
-      "International freight — sea, air & road",
+      "International freight – sea, air & road",
       "Project & abnormal cargo",
       "Bunkering & chandling",
       "Technical procurement & provisions supply",
@@ -186,10 +186,10 @@ export const servicePages: ServicePage[] = [
     ],
     heroImage: "/images/services/integrated-logistics-hero.jpg",
     heroAlt:
-      "Subsea cable reel on a tensioning spread at the quayside in the Port of Cape Town, an offshore supply vessel alongside — Afrishore integrated logistics and project cargo, South Africa",
+      "Subsea cable reel on a tensioning spread at the quayside in the Port of Cape Town, an offshore supply vessel alongside – Afrishore integrated logistics and project cargo, South Africa",
     secondaryImage: {
       src: "/images/services/integrated-logistics-cargo.jpg",
-      alt: "Abnormal project cargo — a large riser section on a multi-axle low-bed trailer at the quayside, Afrishore integrated logistics, Southern Africa",
+      alt: "Abnormal project cargo – a large riser section on a multi-axle low-bed trailer at the quayside, Afrishore integrated logistics, Southern Africa",
       caption:
         "Abnormal project cargo under tow at the quayside: international freight, customs clearance and heavy-lift trucking moved as one chain across South Africa, Namibia and Mozambique.",
       portrait: true,
@@ -202,7 +202,7 @@ export const servicePages: ServicePage[] = [
     metaTitle:
       "Expat Crew Logistics, Visa & Immigration Support | NAM, SA & MOZ | Afrishore",
     metaDescription:
-      "Offshore and onshore crew logistics, visa and work-permit processing, immigration optimisation and medical evacuation coordination across South Africa, Namibia and Mozambique — for crews and third-party technicians.",
+      "Offshore and onshore crew logistics, visa and work-permit processing, immigration optimisation and medical evacuation coordination across South Africa, Namibia and Mozambique – for crews and third-party technicians.",
     h1: "Crew & Visa Services",
     geoSub: "Crew rotations, visas, immigration & medivac across three countries",
     schemaServiceType: "Crew & Visa Services",
@@ -230,6 +230,6 @@ export const servicePages: ServicePage[] = [
     ],
     heroImage: "/images/services/crew-visa-services-hero.jpg",
     heroAlt:
-      "South African and German passports — Afrishore crew visa, work-permit and immigration processing across South Africa, Namibia and Mozambique",
+      "South African and German passports – Afrishore crew visa, work-permit and immigration processing across South Africa, Namibia and Mozambique",
   },
 ];

@@ -14,7 +14,7 @@
   /* Text */
   --color-cream: #F5F2EB;
   --color-mute: #A39E94;
-  /* Bumped from #6B6862 to #8C8980 — old value scored 3.58 on bg-base,
+  /* Bumped from #6B6862 to #8C8980 – old value scored 3.58 on bg-base,
      failing WCAG AA (4.5) for normal text. New value scores ~5.0. */
   --color-faint: #8C8980;
 
@@ -54,7 +54,7 @@ html {
 }
 
 /* A11y: visible keyboard-focus ring (WCAG 2.4.7/2.4.11). Keyboard
-   users only (:focus-visible) — mouse clicks stay clean. High-contrast
+   users only (:focus-visible) – mouse clicks stay clean. High-contrast
    gold against the dark theme, with offset so it never clips glyphs. */
 :focus-visible {
   outline: 2px solid #F5AB2F;
@@ -80,7 +80,7 @@ html {
   left: 0;
 }
 
-/* Respect reduced-motion preference — disable smooth scroll + animations */
+/* Respect reduced-motion preference – disable smooth scroll + animations */
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *,
@@ -105,7 +105,7 @@ body {
   overflow-x: hidden;
 }
 
-/* Heading defaults — Barlow (matches hero text treatment) */
+/* Heading defaults – Barlow (matches hero text treatment) */
 h1, h2, h3, h4, h5, h6 {
   font-family: "Barlow", system-ui, sans-serif;
   font-weight: 400;
@@ -124,7 +124,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* ──────────────────────────────────────────────
-   Hero title — Barlow + per-line gradient + BlurText
+   Hero title – Barlow + per-line gradient + BlurText
    (Spec from Claude Design)
    ────────────────────────────────────────────── */
 
@@ -140,10 +140,10 @@ h1, h2, h3, h4, h5, h6 {
   display: block;
   /* Stops are % of the full line box; the text fills ~0–72% of it, so
      these map onto the words as: white holds through the first word +
-     start of the second ("Local Sol…" / "Global Cli…"), then ramps —
+     start of the second ("Local Sol…" / "Global Cli…"), then ramps –
      deep gold #DFC281 by ~mid second word, antique gold #BFA372 by the
      end of the text. (Golds lightened toward white from brand #C99A2E /
-     #946614 — 25% then a further 20%; positions unchanged.) */
+     #946614 – 25% then a further 20%; positions unchanged.) */
   background-image: linear-gradient(
     90deg,
     #ffffff 0%,
@@ -169,7 +169,7 @@ h1, h2, h3, h4, h5, h6 {
   background-clip: text;
   color: transparent;
   -webkit-text-fill-color: transparent;
-  /* Initial state — JS sets to step 0 explicitly anyway */
+  /* Initial state – JS sets to step 0 explicitly anyway */
   will-change: filter, opacity, transform;
 }
 

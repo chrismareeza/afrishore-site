@@ -16,7 +16,7 @@ import "@fontsource/inter/latin-700.css";
 import ConsentBanner from "../components/ConsentBanner.astro";
 
 // Resolve the build-time hashed URLs for the two most-critical font
-// weights — Barlow 700 powers every above-the-fold display headline and
+// weights – Barlow 700 powers every above-the-fold display headline and
 // Inter 400 carries most body copy. Preloading both in the document head
 // lets the browser start the fetch in parallel with the CSS parse rather
 // than waiting for the @font-face rule to be matched, which collapses
@@ -60,7 +60,7 @@ interface Props {
   };
   /** Optional image URL to preload at high priority. Use this on pages
    *  whose LCP element is deep enough in the DOM that the browser would
-   *  not discover it until late in the parse — e.g. a <video> poster
+   *  not discover it until late in the parse – e.g. a <video> poster
    *  inside the article body of a case-study page. Mirrors the same
    *  pattern the homepage uses for its hero. */
   preloadImage?: string;
@@ -120,21 +120,21 @@ const baseGraph: object[] = [
     "description":
       "Integrated marine logistics agency operating across South Africa, Namibia, and Mozambique since 2010. Vessel agency, customs, offshore supply base operations, project cargo, crew logistics, bunkering, and procurement.",
     // Disambiguation: Google's AI Overview was conflating Afrishore
-    // (this entity — maritime / port agency / Mossel Bay) with
+    // (this entity – maritime / port agency / Mossel Bay) with
     // Afrishore BPO (a different, unrelated company in Bryanston,
     // Johannesburg that provides business process outsourcing for
     // finance/insurance/gaming). The two share only a partial name.
     // disambiguatingDescription is the schema.org field designed
-    // specifically for this — Google reads it for entity resolution
+    // specifically for this – Google reads it for entity resolution
     // and prefers it over its own inference.
     "disambiguatingDescription":
       "Afrishore is a maritime logistics agency, ships agent and rig agent operating across South Africa, Namibia and Mozambique since 2010, with its head office in Mossel Bay. Afrishore is unrelated to Afrishore BPO (a separate Johannesburg-based business process outsourcing company at afrishorebpo.com); the two organisations have no shared ownership, leadership, premises or operations.",
     // Anchors the entity to a specific industry that the BPO company
-    // does not occupy — gives Google's entity graph a hard separator.
+    // does not occupy – gives Google's entity graph a hard separator.
     "naics": "488510",
     "isicV4": "5229",
     // Founding location anchors us to Mossel Bay; the BPO is in
-    // Bryanston, Johannesburg — different city, different province.
+    // Bryanston, Johannesburg – different city, different province.
     "foundingLocation": {
       "@type": "Place",
       "name": "Mossel Bay, South Africa",
@@ -198,7 +198,7 @@ const baseGraph: object[] = [
     "url": siteUrl,
     "name": "Afrishore Maritime Logistics",
     "description":
-      "Integrated marine logistics agency — South Africa, Namibia, Mozambique. ISO 9001 certified since 2010.",
+      "Integrated marine logistics agency – South Africa, Namibia, Mozambique. ISO 9001 certified since 2010.",
     "publisher": { "@id": `${siteUrl}/#organization` },
     "inLanguage": "en-ZA",
   },
@@ -243,7 +243,7 @@ const baseGraph: object[] = [
     "@id": `${siteUrl}/#walvis-bay`,
     "parentOrganization": { "@id": `${siteUrl}/#organization` },
     "image": `${siteUrl}/og-image.jpg`,
-    // All branches (SA + Namibia) trade as "Afrishore" — same brand
+    // All branches (SA + Namibia) trade as "Afrishore" – same brand
     // name on every location, distinguished by address (Google-
     // compliant multi-location pattern; no location/keyword stuffing).
     // legalName = the Namibian registration entity (not the public
@@ -300,7 +300,7 @@ const baseGraph: object[] = [
       { "@type": "Country", "name": "Mozambique" },
     ],
     "description":
-      "Afrishore acts as ships agent and vessel agent across South Africa, Namibia and Mozambique — systemic ships agency and vessel agency services for rigs, drillships, OSVs, PSVs, liners, tankers and FPSOs covering port clearance, berth scheduling, immigration, husbandry, dry docking & repairs and procurement.",
+      "Afrishore acts as ships agent and vessel agent across South Africa, Namibia and Mozambique – systemic ships agency and vessel agency services for rigs, drillships, OSVs, PSVs, liners, tankers and FPSOs covering port clearance, berth scheduling, immigration, husbandry, dry docking & repairs and procurement.",
     "hasOfferCatalog": offerCatalog("Vessel & Rig Agency services", [
       "Port agency", "Port & customs clearance",
       "Berth scheduling & port-authority liaison",
@@ -325,7 +325,7 @@ const baseGraph: object[] = [
       { "@type": "Country", "name": "Mozambique" },
     ],
     "description":
-      "Turnkey base operator services for onshore and offshore projects — rigging, cranage, abnormal trucking, warehousing, project cargo, waste management, materials management and reporting.",
+      "Turnkey base operator services for onshore and offshore projects – rigging, cranage, abnormal trucking, warehousing, project cargo, waste management, materials management and reporting.",
     "hasOfferCatalog": offerCatalog("Offshore Supply Base services", [
       "Shore base operations", "Rigging & cranage",
       "Abnormal & heavy-lift trucking",
@@ -348,7 +348,7 @@ const baseGraph: object[] = [
       { "@type": "Country", "name": "Mozambique" },
     ],
     "description":
-      "Freight forwarding, customs brokerage and materials management across sea, air and road — international freight, technical procurement, multidimensional procurement.",
+      "Freight forwarding, customs brokerage and materials management across sea, air and road – international freight, technical procurement, multidimensional procurement.",
     "hasOfferCatalog": offerCatalog("Integrated Logistics services", [
       "Freight forwarding (sea, air, road)", "Customs brokerage",
       "Cross-border transport", "Technical procurement",
@@ -369,7 +369,7 @@ const baseGraph: object[] = [
       { "@type": "Country", "name": "Mozambique" },
     ],
     "description":
-      "Crew rotations, medivacs, visa & immigration optimisation for offshore and onshore personnel and third-party technicians — flight coordination, accommodation, transport, medical evacuation coordination.",
+      "Crew rotations, medivacs, visa & immigration optimisation for offshore and onshore personnel and third-party technicians – flight coordination, accommodation, transport, medical evacuation coordination.",
     "hasOfferCatalog": offerCatalog("Crew & Visa services", [
       "Crew rotations", "Flight coordination",
       "Accommodation & transport", "Visa & work-permit processing",
@@ -378,7 +378,7 @@ const baseGraph: object[] = [
   },
 ];
 
-// Optional BreadcrumbList — only render when caller supplied a trail.
+// Optional BreadcrumbList – only render when caller supplied a trail.
 const breadcrumbSchema = breadcrumb && breadcrumb.length > 0
   ? [{
       "@type": "BreadcrumbList",
@@ -407,7 +407,7 @@ const finalGraph = [
 
     <!-- Canonical-host guard: bounce the raw Cloudflare Pages domain to the
          live site so afrishore-site.pages.dev is not crawled or visited as
-         duplicate content. Production host only — *.pages.dev preview
+         duplicate content. Production host only – *.pages.dev preview
          deploys are left alone so the deploy-preview workflow still works.
          Runs before analytics so nothing fires on the wrong host. -->
     <script is:inline>
@@ -468,7 +468,7 @@ const finalGraph = [
     <meta property="og:image" content={absoluteOgImage} />
     {isDefaultOgImage && <meta property="og:image:width" content="1200" />}
     {isDefaultOgImage && <meta property="og:image:height" content="630" />}
-    <meta property="og:image:alt" content={ogImageAlt || "Afrishore — integrated marine logistics across South Africa, Namibia and Mozambique"} />
+    <meta property="og:image:alt" content={ogImageAlt || "Afrishore – integrated marine logistics across South Africa, Namibia and Mozambique"} />
     <meta property="og:site_name" content="Afrishore" />
     <meta property="og:locale" content="en_ZA" />
 
@@ -485,7 +485,7 @@ const finalGraph = [
       <meta property="article:tag" content={tag} />
     ))}
 
-    {/* og:video — emitted when the page hosts an MP4 the layout wants to
+    {/* og:video – emitted when the page hosts an MP4 the layout wants to
         offer as a social-preview asset. Both `og:video` and the
         `og:video:secure_url` alias are required by the spec; the type +
         dimensions help Facebook/LinkedIn render the correct player size. */}
@@ -504,9 +504,9 @@ const finalGraph = [
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={absoluteOgImage} />
-    <meta name="twitter:image:alt" content="Afrishore — integrated marine logistics across South Africa, Namibia and Mozambique" />
+    <meta name="twitter:image:alt" content="Afrishore – integrated marine logistics across South Africa, Namibia and Mozambique" />
 
-    <!-- Favicon — square Africa mark (favicon.svg / .ico share one 1:1 canvas) -->
+    <!-- Favicon – square Africa mark (favicon.svg / .ico share one 1:1 canvas) -->
     <link rel="icon" href="/favicon.ico" sizes="any" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
@@ -522,7 +522,7 @@ const finalGraph = [
          fetch in parallel with the CSS/JS parse instead of waiting for the
          CSS rule to be matched (~250 ms LCP win). media= matches the
          responsive hero exactly: phones preload the 1280w (~74 KB),
-         desktop the 1920w — never both, no wasted bytes. WebP only
+         desktop the 1920w – never both, no wasted bytes. WebP only
          (universal support; the JPEG stays as the CSS image-set fallback). -->
     {Astro.url.pathname === "/" && (
       <>
@@ -546,8 +546,8 @@ const finalGraph = [
     )}
 
     <!-- Page-supplied preload (case-study video posters etc.). LCP
-         elements that sit deep in the article body — the <video>
-         poster on Orca / Dock Titan, for example — would otherwise
+         elements that sit deep in the article body – the <video>
+         poster on Orca / Dock Titan, for example – would otherwise
          only be discovered after the browser parses the section
          containing the <video>. Preloading here cuts the discovery
          delay and pulls the poster into the critical path. -->
@@ -565,7 +565,7 @@ const finalGraph = [
          long-cached from our origin). No external font request.
 
          Preload the two most-critical weights so the browser starts the
-         woff2 fetch in parallel with CSS parse — collapses the FOUT
+         woff2 fetch in parallel with CSS parse – collapses the FOUT
          window that was driving CLS tail outliers (0.215 / 0.377 in
          Cloudflare RUM). crossorigin attribute is required even for
          same-origin fonts per the preload spec. -->
@@ -587,7 +587,7 @@ const finalGraph = [
     <ConsentBanner />
 
     <!-- Page-engagement conversions: fired on load of the destination
-         (reliable — no click/unload race; also counts organic/direct
+         (reliable – no click/unload race; also counts organic/direct
          arrivals). Service landing pages → `view_service`; individual
          case studies → `view_case_study` (the /projects listing index
          is excluded). Respects Consent Mode (gtag is consent-gated). -->

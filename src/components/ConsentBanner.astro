@@ -1,6 +1,6 @@
 ---
 // POPIA / GDPR cookie-consent banner.
-// Gates Google Analytics only (Consent Mode v2 — analytics_storage
+// Gates Google Analytics only (Consent Mode v2 – analytics_storage
 // defaults to 'denied' in BaseLayout; Accept flips it to 'granted'
 // and the choice is stored in localStorage). Cloudflare Web Analytics
 // is cookieless and runs regardless, so basic traffic is never lost.
@@ -19,7 +19,7 @@
     <p class="text-sm text-mute leading-relaxed max-w-3xl">
       We use Google Analytics cookies to understand how this site is used.
       Decline and only privacy-friendly, <span class="text-cream">cookieless</span>
-      traffic measurement runs — your choice is remembered.
+      traffic measurement runs – your choice is remembered.
     </p>
     <div class="flex items-center gap-3 flex-shrink-0">
       <button
@@ -50,13 +50,13 @@
     if (choice === "granted" || choice === "denied") return; // already decided
     el.hidden = false;
     function decide(value) {
-      // Persist the choice + hide the banner synchronously — both are
+      // Persist the choice + hide the banner synchronously – both are
       // sub-millisecond and need to happen on the click critical path
       // (banner-hide is visible feedback; localStorage write protects
       // the choice if the user navigates away before idle callbacks
       // fire). Cloudflare RUM was reporting this click at 272 ms INP
       // ("Needs Improvement") because gtag("consent","update") was
-      // running synchronously below — it triggers GTM to process
+      // running synchronously below – it triggers GTM to process
       // buffered events + flush pending analytics hits, all on the
       // main thread before the browser can paint the banner-gone
       // state.

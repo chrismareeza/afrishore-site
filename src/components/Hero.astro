@@ -1,5 +1,5 @@
 ---
-// Hero — full-bleed cinematic intro
+// Hero – full-bleed cinematic intro
 // Background: rig + Table Mountain image with dark vignette
 // Content: eyebrow → H1 → subhead → CTAs, anchored bottom-left
 // Animation: GSAP-driven fade-up cascade on load + subtle scroll parallax
@@ -22,7 +22,7 @@
     "
   ></div>
 
-  <!-- Text-legibility gradient — CONSTANT. Keeps the headline / subhead
+  <!-- Text-legibility gradient – CONSTANT. Keeps the headline / subhead
        / CTAs readable over the photo; never animated. -->
   <div
     class="absolute inset-0 pointer-events-none"
@@ -30,7 +30,7 @@
   ></div>
 
   <!-- Ambient scene tint (radial vignette). Starts at full strength,
-       then lifts ~50% after the headline ("sunrise") — see hero script. -->
+       then lifts ~50% after the headline ("sunrise") – see hero script. -->
   <div
     id="hero-tint"
     class="absolute inset-0 pointer-events-none"
@@ -38,7 +38,7 @@
   ></div>
 
 
-  <!-- Subtle film grain (low opacity) — adds texture, hides JPEG banding -->
+  <!-- Subtle film grain (low opacity) – adds texture, hides JPEG banding -->
   <div
     class="absolute inset-0 pointer-events-none opacity-[0.04] mix-blend-overlay"
     style="
@@ -46,7 +46,7 @@
     "
   ></div>
 
-  <!-- Content stack — anchored bottom-left -->
+  <!-- Content stack – anchored bottom-left -->
   <div class="relative z-10 h-full max-w-7xl mx-auto px-6 lg:px-12 flex flex-col justify-end pb-24 lg:pb-32">
     <div class="max-w-3xl space-y-7">
       <!-- Eyebrow -->
@@ -56,7 +56,7 @@
         </span>
       </div>
 
-      <!-- H1 — Barlow + per-line gradient + per-word BlurText reveal.
+      <!-- H1 – Barlow + per-line gradient + per-word BlurText reveal.
            Mobile cap at text-5xl so 'Local Solutions.' / 'Global Clients.'
            fit cleanly on 375px viewports without horizontal overflow. -->
       <h1 class="hero-title text-5xl sm:text-6xl md:text-7xl lg:text-[5.5rem]">
@@ -64,7 +64,7 @@
         <span class="block line" data-blurtext="Global Clients." data-delay="700">Global Clients.</span>
       </h1>
 
-      <!-- Subhead — high contrast against bright imagery. Hard-line-
+      <!-- Subhead – high contrast against bright imagery. Hard-line-
            broken via <span class="block"> at desktop reading widths so
            the four-line cadence matches the H1's two-line cadence
            (Local Solutions. / Global Clients. → 4 subhead lines).
@@ -80,7 +80,7 @@
         <span class="lg:block">South Africa, Namibia and Mozambique.</span>
       </p>
 
-      <!-- CTAs — min-h-[48px] keeps tap targets comfortable on touch devices -->
+      <!-- CTAs – min-h-[48px] keeps tap targets comfortable on touch devices -->
       <div data-anim="hero-ctas" class="opacity-0 translate-y-4 flex flex-col sm:flex-row sm:flex-wrap sm:items-center gap-3 sm:gap-4 pt-2">
         <a
           href="#contact"
@@ -120,7 +120,7 @@
     100% { transform: translateY(200%); }
   }
 
-  /* Responsive hero background — identical crop, lower-res on phones.
+  /* Responsive hero background – identical crop, lower-res on phones.
      Desktop: 1920w; ≤768px viewport: 1280w (~half the bytes, LCP win).
      image-set() prefers WebP with a JPEG fallback. */
   .hero-bg-img {
@@ -231,7 +231,7 @@
       // Line 0 ("Local Solutions.") reveals first, unchanged. Line 1
       // ("Global Clients.") only begins once line 0 has fully resolved
       // (~2×STEP + last-word offset ≈ 800ms) so it reads as a distinct
-      // second beat — and its data-delay="700" then sequences "Clients"
+      // second beat – and its data-delay="700" then sequences "Clients"
       // to appear only after "Global" has finished.
       const lineStart = [0, 950];
       lines.forEach((line, i) => {
@@ -261,7 +261,7 @@
     const SUNRISE_DELAY = 2250;
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
       // Motion-sensitive users: present the brightened end-state from
-      // the start — no delayed jump, no animation.
+      // the start – no delayed jump, no animation.
       gsap.set("#hero-tint", { opacity: 0 });
       gsap.set("#hero-bg", { filter: "brightness(1.18)" });
       return;

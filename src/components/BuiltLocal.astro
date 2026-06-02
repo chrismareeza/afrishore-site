@@ -42,14 +42,14 @@ const carbonBars = [
 // ── Pillar 3 · HSE live LTI-free-day counter ──────────────────────────
 // 869 lost-time-injury-free days as of 2026-05-21. The figure advances
 // daily: baked at build time, recomputed client-side on load so a stale
-// build self-corrects. RESET if an LTI occurs — update the two consts
+// build self-corrects. RESET if an LTI occurs – update the two consts
 // here AND the matching constants in the <script> below.
 const LTI_REF_ISO = "2026-05-21";
 const LTI_REF_DAYS = 869;
 const ltiDaysNow =
   LTI_REF_DAYS + Math.max(0, Math.floor((Date.now() - Date.parse(LTI_REF_ISO)) / 86400000));
 
-// Manhours worked on base, year to date — modelled at 1,553 hrs/month
+// Manhours worked on base, year to date – modelled at 1,553 hrs/month
 // (calendar-month number × 1,553), so it steps up on the 1st of each
 // month and resets to January's 1,553 at the start of every year.
 // Baked at build time, recomputed client-side on load.
@@ -246,11 +246,11 @@ const isPending = (s: string) => s.includes("{");
                     <line x1={GX0} y1={sy(100)} x2={GX1} y2={sy(100)} stroke="#1F1F1F" stroke-width="1" />
                     <text x={GX0 - 6} y={sy(50) + 3} text-anchor="end" font-size="9" fill="#8C8980">50%</text>
                     <text x={GX0 - 6} y={sy(100) + 3} text-anchor="end" font-size="9" fill="#8C8980">100%</text>
-                    {/* trajectory — parabolic arc, draws itself in on scroll (see <script>) */}
+                    {/* trajectory – parabolic arc, draws itself in on scroll (see <script>) */}
                     <path id="bl-natline" d={linePath} fill="none" stroke="url(#bl-line)"
                       stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
                       pathLength="1" stroke-dasharray="1" stroke-dashoffset="1" />
-                    {/* data points + 91% label — fade in once the line is drawn */}
+                    {/* data points + 91% label – fade in once the line is drawn */}
                     <g data-bl-natpts style="opacity:0">
                       {localisation.map((d) => (
                         <circle cx={sx(d.year)} cy={sy(d.pct)} r="4" fill="#FDE64B" stroke="#0A0A0A" stroke-width="1.5" />
@@ -351,7 +351,7 @@ const isPending = (s: string) => s.includes("{");
 
   gsap.registerPlugin(ScrollTrigger);
 
-  // HSE · LTI-free-day counter — recompute on load so a stale build
+  // HSE · LTI-free-day counter – recompute on load so a stale build
   // self-corrects. Keep these two in sync with the frontmatter consts.
   // RESET both (date + days) if a lost-time injury occurs.
   const LTI_REF = Date.parse("2026-05-21");
@@ -361,7 +361,7 @@ const isPending = (s: string) => s.includes("{");
     el.textContent = ltiDays.toLocaleString();
   });
 
-  // HSE · manhours counter — modelled at 1,553 hrs/month (calendar-month
+  // HSE · manhours counter – modelled at 1,553 hrs/month (calendar-month
   // number × 1,553); steps up on the 1st of each month, resets each
   // January. Recomputed on load.
   const manhoursVal = (new Date().getMonth() + 1) * 1553;
@@ -398,7 +398,7 @@ const isPending = (s: string) => s.includes("{");
 
   // ── Data-viz reveals · National Content line + Carbon bars ──────────
   // Same scroll-triggered style as the footprint map: each graph plays
-  // once as it scrolls into view — the trajectory line draws itself in,
+  // once as it scrolls into view – the trajectory line draws itself in,
   // the emission bars fill from zero.
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   const natLine = document.querySelector<SVGPathElement>("#bl-natline");
@@ -406,7 +406,7 @@ const isPending = (s: string) => s.includes("{");
   const carbonBarEls = gsap.utils.toArray<HTMLElement>("[data-bl-bar]");
 
   if (reduceMotion) {
-    // Honour the OS preference — show the final state with no motion.
+    // Honour the OS preference – show the final state with no motion.
     if (natLine) natLine.style.strokeDashoffset = "0";
     if (natPts) natPts.style.opacity = "1";
     carbonBarEls.forEach((b) => { b.style.width = (b.dataset.pct ?? "0") + "%"; });

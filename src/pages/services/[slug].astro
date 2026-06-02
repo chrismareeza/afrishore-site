@@ -28,10 +28,10 @@ const siteUrl = "https://www.afrishore.co";
 // Trailing slash matches the URL Cloudflare Pages actually serves
 // (/services/foo 308s to /services/foo/). Aligning canonical with the
 // served URL avoids the canonical-loop that pushes pages into "Crawled
-// — currently not indexed".
+// – currently not indexed".
 const pageUrl = `${siteUrl}/services/${service.slug}/`;
 
-// Related case studies — published projects tagged with this serviceType.
+// Related case studies – published projects tagged with this serviceType.
 const related = projects
   .filter((p) => p.published && p.serviceTypes.includes(service.serviceType))
   .slice(0, 3);
@@ -44,13 +44,13 @@ const webp = (p: string) => p.replace(/\.jpe?g$/i, ".webp");
 
 const heroAltText =
   service.heroAlt ||
-  `Afrishore ${service.name} — South Africa, Namibia and Mozambique`;
+  `Afrishore ${service.name} – South Africa, Namibia and Mozambique`;
 
 const heroAbsolute = service.heroImage
   ? new URL(service.heroImage, siteUrl).toString()
   : new URL("/og-image.jpg", siteUrl).toString();
 
-// Service JSON-LD — kept clean (no Offer/price fields → no Rich Results
+// Service JSON-LD – kept clean (no Offer/price fields → no Rich Results
 // non-critical warnings). provider + isPartOf link into the global @graph.
 const serviceSchema = {
   "@type": "Service",
@@ -253,7 +253,7 @@ const breadcrumb = [
                   {p.heroImage && (
                     <img
                       src={p.heroImage}
-                      alt={`${p.title} — ${p.client} project at ${p.port}`}
+                      alt={`${p.title} – ${p.client} project at ${p.port}`}
                       class="absolute inset-0 w-full h-full object-cover"
                       loading="lazy"
                       width="800"

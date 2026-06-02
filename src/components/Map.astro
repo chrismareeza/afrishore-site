@@ -78,7 +78,7 @@ const ports: Pin[] = [
           </radialGradient>
         </defs>
 
-        <!-- Country labels — warm bronze background type, centred inland of each territory.
+        <!-- Country labels – warm bronze background type, centred inland of each territory.
              Larger font-size so labels stay legible when the SVG scales down on mobile. -->
         <!-- All three standardised to 18px / 0.12em. MOZAMBIQUE is a
              narrow NE–SW wedge, so it's placed in the widest upper
@@ -87,7 +87,7 @@ const ports: Pin[] = [
         <text x="450" y="510" text-anchor="middle" fill="#8A7551" font-family="Inter, sans-serif" font-size="18" letter-spacing="0.12em" font-weight="700">SOUTH AFRICA</text>
         <text x="690" y="180" text-anchor="middle" fill="#8A7551" font-family="Inter, sans-serif" font-size="18" letter-spacing="0.12em" font-weight="700">MOZAMBIQUE</text>
 
-        <!-- Country borders — thin faint gold dashed lines, geographically accurate.
+        <!-- Country borders – thin faint gold dashed lines, geographically accurate.
              5 countries (NA, SA, MZ, Bot, Zim) meeting at 6 tri-points:
              - NA-Bot-Zam (Caprivi) ≈ (360, 100)
              - Bot-Zim-Zam          ≈ (455, 105)
@@ -170,7 +170,7 @@ const ports: Pin[] = [
           stroke-dashoffset="1"
         />
 
-        <!-- Fuse spark — travels along the coastline as it draws -->
+        <!-- Fuse spark – travels along the coastline as it draws -->
         <circle
           id="coastline-spark"
           cx="200"
@@ -217,7 +217,7 @@ const ports: Pin[] = [
         ))}
       </svg>
 
-      <!-- Legend — overlaid bottom-right on desktop, but lifted below the
+      <!-- Legend – overlaid bottom-right on desktop, but lifted below the
            map on mobile where the small viewport would have the chip
            overlap the Durban / East London / Mossel Bay pin cluster. -->
       <div class="hidden md:flex absolute bottom-6 right-6 items-center gap-6 text-xs text-mute bg-base/60 backdrop-blur-sm px-4 py-2 rounded-sm">
@@ -262,12 +262,12 @@ const ports: Pin[] = [
     .to("[data-anim='map-sub']", { opacity: 1, y: 0 }, 0.4)
     .to("[data-anim='map-svg']", { opacity: 1, duration: 0.8 }, 0.6);
 
-  // Coastline animates like a lit fuse — spark travels from Namibian top
+  // Coastline animates like a lit fuse – spark travels from Namibian top
   // to Mozambican top while the stroke draws in behind it.
   // Ignites only once the scroll has reached the BOTTOM of the header
   // banner (so it plays as the map itself comes into view, not while
   // the banner is still arriving). "bottom 70%" = banner's bottom edge
-  // at 70% viewport height — viewport-relative, identical on desktop
+  // at 70% viewport height – viewport-relative, identical on desktop
   // and mobile.
   ScrollTrigger.create({
     trigger: "#map-banner",
@@ -296,7 +296,7 @@ const ports: Pin[] = [
           path.style.strokeDashoffset = String(1 - progress.p);
         },
         onComplete: () => {
-          // Fuse reaches Mozambican end — spark fades out
+          // Fuse reaches Mozambican end – spark fades out
           gsap.to(spark, { opacity: 0, duration: 0.4, ease: "power2.out" });
 
           // Borders fade in subtly after coast

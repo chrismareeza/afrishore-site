@@ -24,7 +24,7 @@ const siteUrl = "https://www.afrishore.co";
 // Trailing slash matches the URL Cloudflare Pages actually serves
 // (/projects/foo 308s to /projects/foo/). Without it, Google sees the
 // canonical pointing at a redirect target, gets confused about which
-// variant to index, and the page can end up in "Crawled — currently
+// variant to index, and the page can end up in "Crawled – currently
 // not indexed". Match the served URL → clean indexing signal.
 const projectUrl = `${siteUrl}/projects/${project.slug}/`;
 
@@ -68,7 +68,7 @@ const webp = (p: string) => p.replace(/\.jpe?g$/i, ".webp");
 const yearParts = project.year.split(/[–-]/).map((s) => s.trim());
 const startYear = yearParts[0] || "2010";
 const endYear = yearParts[yearParts.length - 1] || startYear;
-// Full ISO 8601 with SAST (UTC+02:00) timezone — Google Rich Results
+// Full ISO 8601 with SAST (UTC+02:00) timezone – Google Rich Results
 // flags bare dates as "missing timezone / invalid datetime" (non-critical).
 const publishedTime = `${startYear}-01-01T00:00:00+02:00`;
 const modifiedTime = `${endYear}-12-31T23:59:59+02:00`;
@@ -83,7 +83,7 @@ const heroAbsolute = project.heroImage
 // social-share previews describe the actual image.
 const heroAlt =
   project.heroAlt ||
-  `${project.title}${project.vessel ? ` — ${project.vessel}` : ""} at ${project.port} (${project.year})`;
+  `${project.title}${project.vessel ? ` – ${project.vessel}` : ""} at ${project.port} (${project.year})`;
 
 // ── Entity strengthening ──────────────────────────────────────────────
 // Every case study that features the same vessel emits the same stable
@@ -113,7 +113,7 @@ const portPlaces = portList.map((p) =>
 );
 const contentLocation = portPlaces.length === 1 ? portPlaces[0] : portPlaces;
 
-// Port-hub linking — turn the port label on the case study into a link to the
+// Port-hub linking – turn the port label on the case study into a link to the
 // matching /ports/<slug> hub so every project mentioning a port passes equity
 // to that hub page. Segments that don't match a known port (e.g. "Port of
 // Réunion" or air-charter routes) render as plain text.
@@ -138,7 +138,7 @@ const portSegments = isSeaPort
     })
   : [{ text: project.port, slug: null as string | null }];
 
-// Service category — link the case study to the abstract Service node
+// Service category – link the case study to the abstract Service node
 // already declared in BaseLayout's @graph (when one matches).
 const serviceCategoryIdMap: Record<string, string> = {
   "ship-rig-agency": `${siteUrl}/#service-ship-rig-agency`,
@@ -169,7 +169,7 @@ const articleSchema = {
   "about": [
     { "@type": "Organization", "name": project.client },
     ...(project.endCustomer ? [{ "@type": "Organization", "name": project.endCustomer }] : []),
-    // Use Thing (not Vehicle) for the vessel/rig — Vehicle is a subtype of
+    // Use Thing (not Vehicle) for the vessel/rig – Vehicle is a subtype of
     // Product in schema.org, which triggers the Rich Results Test to demand
     // offers/review/aggregateRating fields that don't apply to a chartered
     // marine asset. additionalType keeps the maritime semantic. The
@@ -193,14 +193,14 @@ const articleSchema = {
   "isPartOf": { "@id": `${siteUrl}/#website` },
 };
 
-// Explicit Service entity — a direct structured claim that Afrishore
+// Explicit Service entity – a direct structured claim that Afrishore
 // provided this service, for this client, on this vessel, at this
 // port, during this date range. Strongest possible schema-level
 // assertion of who actually delivered the campaign.
 const serviceSchema = {
   "@type": "Service",
   "@id": `${projectUrl}#service-delivery`,
-  "name": `Marine logistics — ${project.title}`,
+  "name": `Marine logistics – ${project.title}`,
   "description": project.summary,
   "provider": { "@id": `${siteUrl}/#organization` },
   "serviceType": serviceLabels[primaryServiceTypeKey] || primaryServiceTypeKey,
@@ -214,7 +214,7 @@ const serviceSchema = {
   "isPartOf": { "@id": `${projectUrl}#article` },
 };
 
-// Optional VideoObject — only emitted when the case study has a videoEmbed.
+// Optional VideoObject – only emitted when the case study has a videoEmbed.
 // Lets Google index the video as a discrete entity, surface it in video
 // search and enrich the page's overall content signal. We supply the full
 // rich-results recommended payload: thumbnail as ImageObject (alongside
@@ -295,7 +295,7 @@ const breadcrumb = [
   <Navbar />
 
   <main id="main">
-    <!-- Project hero — drop the bottom padding entirely on video-led
+    <!-- Project hero – drop the bottom padding entirely on video-led
          case studies. The hero image is suppressed there, so the
          `pb-12` is purely empty space between the service tags and
          the body grid's `pt-12`. -->
@@ -363,7 +363,7 @@ const breadcrumb = [
         </div>
 
         <!-- Service tags. Drop the bottom margin on video-led case
-             studies — it was originally separating the tags from the
+             studies – it was originally separating the tags from the
              hero image, which doesn't render when there's a video. -->
         <div class:list={[
           "flex flex-wrap gap-2",
@@ -376,7 +376,7 @@ const breadcrumb = [
           ))}
         </div>
 
-        <!-- Hero image — suppressed when the case study has an in-body
+        <!-- Hero image – suppressed when the case study has an in-body
              video, so the page leads straight to the video rather than
              showing a static hero above it. heroImage is still used for
              og:image, VideoObject.thumbnailUrl and the video poster. -->
@@ -548,7 +548,7 @@ const breadcrumb = [
                 {p.heroImage && (
                   <img
                     src={p.heroImage}
-                    alt={`${p.title} — ${p.client} project at ${p.port}`}
+                    alt={`${p.title} – ${p.client} project at ${p.port}`}
                     class="absolute inset-0 w-full h-full object-cover"
                     loading="lazy"
                     width="800"

@@ -1,20 +1,20 @@
 ---
 // Section 11 · Contact
-// Form-free design — primary email + international switchboard CTAs, then 4
+// Form-free design – primary email + international switchboard CTAs, then 4
 // office cards, each with its own direct local line (identical to that
-// office's Google Business Profile — NAP lockstep).
+// office's Google Business Profile – NAP lockstep).
 
 interface Office {
   city: string;
   street: string;
   region: string;
   country: string;
-  phone: string;     // direct local line — identical to this office's GBP
+  phone: string;     // direct local line – identical to this office's GBP
   phoneRaw: string;  // tel: form
 }
 
 // Phone numbers mirror src/data/ports.ts (per-office) and each office's
-// Google Business Profile exactly — keep all three in lockstep.
+// Google Business Profile exactly – keep all three in lockstep.
 const offices: Office[] = [
   {
     city: "Mossel Bay",
