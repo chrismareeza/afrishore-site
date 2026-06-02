@@ -108,8 +108,8 @@ const baseGraph: object[] = [
     "@type": "Organization",
     "@id": `${siteUrl}/#organization`,
     "name": "Afrishore",
-    "legalName": "Afrishore Pty Ltd",
-    "alternateName": ["Afrishore Maritime Logistics", "Afrishore Shipping"],
+    "legalName": "Afrishore Shipping (Pty) Ltd",
+    "alternateName": ["Afrishore Maritime Logistics", "Afrishore Shipping", "Afrishore Port Agency & Marine Logistics"],
     "url": siteUrl,
     "logo": {
       "@type": "ImageObject",
@@ -119,6 +119,32 @@ const baseGraph: object[] = [
     "image": absoluteOgImage,
     "description":
       "Integrated marine logistics agency operating across South Africa, Namibia, and Mozambique since 2010. Vessel agency, customs, offshore supply base operations, project cargo, crew logistics, bunkering, and procurement.",
+    // Disambiguation: Google's AI Overview was conflating Afrishore
+    // (this entity — maritime / port agency / Mossel Bay) with
+    // Afrishore BPO (a different, unrelated company in Bryanston,
+    // Johannesburg that provides business process outsourcing for
+    // finance/insurance/gaming). The two share only a partial name.
+    // disambiguatingDescription is the schema.org field designed
+    // specifically for this — Google reads it for entity resolution
+    // and prefers it over its own inference.
+    "disambiguatingDescription":
+      "Afrishore is a maritime logistics agency, ships agent and rig agent operating across South Africa, Namibia and Mozambique since 2010, with its head office in Mossel Bay. Afrishore is unrelated to Afrishore BPO (a separate Johannesburg-based business process outsourcing company at afrishorebpo.com); the two organisations have no shared ownership, leadership, premises or operations.",
+    // Anchors the entity to a specific industry that the BPO company
+    // does not occupy — gives Google's entity graph a hard separator.
+    "naics": "488510",
+    "isicV4": "5229",
+    // Founding location anchors us to Mossel Bay; the BPO is in
+    // Bryanston, Johannesburg — different city, different province.
+    "foundingLocation": {
+      "@type": "Place",
+      "name": "Mossel Bay, South Africa",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Mossel Bay",
+        "addressRegion": "Western Cape",
+        "addressCountry": "ZA",
+      },
+    },
     "foundingDate": "2010",
     "slogan": "Local Solutions for Global Clients",
     "hasCredential": {
