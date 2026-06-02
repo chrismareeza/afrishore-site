@@ -50,11 +50,33 @@
     if (choice === "granted" || choice === "denied") return; // already decided
     el.hidden = false;
     function decide(value) {
+      // Persist the choice + hide the banner synchronously — both are
+      // sub-millisecond and need to happen on the click critical path
+      // (banner-hide is visible feedback; localStorage write protects
+      // the choice if the user navigates away before idle callbacks
+      // fire). Cloudflare RUM was reporting this click at 272 ms INP
+      // ("Needs Improvement") because gtag("consent","update") was
+      // running synchronously below — it triggers GTM to process
+      // buffered events + flush pending analytics hits, all on the
+      // main thread before the browser can paint the banner-gone
+      // state.
       try { localStorage.setItem(KEY, value); } catch (e) {}
-      if (value === "granted" && typeof window.gtag === "function") {
-        window.gtag("consent", "update", { analytics_storage: "granted" });
-      }
       el.hidden = true;
+      // Defer the gtag consent flip off the click handler so the
+      // browser can paint first. requestIdleCallback runs it during
+      // the next idle frame; setTimeout fallback for browsers that
+      // lack it (Safari < 17). Net: click registers as instant
+      // (<50 ms INP) and analytics updates a beat later.
+      if (value === "granted" && typeof window.gtag === "function") {
+        var flip = function () {
+          window.gtag("consent", "update", { analytics_storage: "granted" });
+        };
+        if (typeof window.requestIdleCallback === "function") {
+          window.requestIdleCallback(flip, { timeout: 1000 });
+        } else {
+          setTimeout(flip, 0);
+        }
+      }
     }
     var a = document.getElementById("consent-accept");
     var d = document.getElementById("consent-decline");
