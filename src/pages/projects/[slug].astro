@@ -3,7 +3,16 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 import Navbar from "../../components/Navbar.astro";
 import Footer from "../../components/Footer.astro";
 import { projects, allProjects, type Project } from "../../data/projects";
+import { servicePages } from "../../data/services";
 import { linkifyPorts } from "../../lib/portLinks";
+
+// Project.serviceTypes key → /services/<slug>. Single source of truth
+// (derived from services.ts) so any new service automatically becomes a
+// contextual deep-link target. Keys without a matching service page
+// (e.g. "subsea-services") fall back to rendering as plain text.
+const serviceSlugByType = new Map(
+  servicePages.map((s) => [s.serviceType, s.slug])
+);
 
 export function getStaticPaths() {
   return projects
@@ -369,11 +378,22 @@ const breadcrumb = [
           "flex flex-wrap gap-2",
           project.videoEmbed ? "mb-0" : "mb-12",
         ]}>
-          {project.serviceTypes.map((s) => (
-            <span class="text-xs uppercase tracking-[0.15em] text-mute border border-line px-3 py-1.5 rounded-sm">
-              {serviceLabels[s] || s}
-            </span>
-          ))}
+          {project.serviceTypes.map((s) => {
+            const slug = serviceSlugByType.get(s);
+            const label = serviceLabels[s] || s;
+            return slug ? (
+              <a
+                href={`/services/${slug}`}
+                class="text-xs uppercase tracking-[0.15em] text-mute hover:text-gold border border-line hover:border-gold/40 px-3 py-1.5 rounded-sm transition-colors"
+              >
+                {label}
+              </a>
+            ) : (
+              <span class="text-xs uppercase tracking-[0.15em] text-mute border border-line px-3 py-1.5 rounded-sm">
+                {label}
+              </span>
+            );
+          })}
         </div>
 
         <!-- Hero image – suppressed when the case study has an in-body
@@ -511,7 +531,16 @@ const breadcrumb = [
               <div>
                 <dt class="text-xs uppercase tracking-[0.15em] text-faint mb-1">Services</dt>
                 <dd class="text-cream leading-relaxed">
-                  {project.serviceTypes.map((s) => serviceLabels[s] || s).join(" · ")}
+                  {project.serviceTypes.map((s, i) => {
+                    const slug = serviceSlugByType.get(s);
+                    const label = serviceLabels[s] || s;
+                    return [
+                      i > 0 ? <span class="text-faint"> · </span> : null,
+                      slug
+                        ? <a href={`/services/${slug}`} class="hover:text-gold transition-colors">{label}</a>
+                        : label,
+                    ];
+                  })}
                 </dd>
               </div>
             </dl>

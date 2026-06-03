@@ -1,6 +1,7 @@
 ---
 // Section 10 · FAQ
 // Accordion + FAQPage schema.org markup injected for AI search engines
+import { linkifyEntities } from "../lib/portLinks";
 
 interface FAQItem {
   q: string;
@@ -80,7 +81,11 @@ const faqs: FAQItem[] = [
             >+</span>
           </summary>
           <div class="px-6 pb-6 lg:px-8 lg:pb-7 text-mute text-base leading-relaxed">
-            {faq.a}
+            {linkifyEntities(faq.a).map((seg) =>
+              seg.type === "link"
+                ? <a href={seg.href} class="text-cream hover:text-gold transition-colors underline decoration-faint/30 underline-offset-4 hover:decoration-gold/60">{seg.text}</a>
+                : seg.value
+            )}
           </div>
         </details>
       ))}

@@ -18,6 +18,13 @@ interface Props {
 
 const { port } = Astro.props;
 
+// Sibling ports – every other licensed port in Afrishore's network.
+// Surfacing these as inline links spreads link equity across the port
+// cluster, gives Google a stronger topical signal, and makes Mossel
+// Bay / Cape Town (which already index well) link directly to the
+// ports still stuck in "Discovered – currently not indexed".
+const siblingPorts = ports.filter((p) => p.slug !== port.slug);
+
 // Phone precedence: per-office number (e.g. Walvis Bay's local
 // Namibian line) → port-level number (licence-only ports, e.g.
 // Lüderitz) → central switchboard.
@@ -207,6 +214,25 @@ const breadcrumb = [
                 </span>
               ))}
             </div>
+          </div>
+
+          <div class="border-t border-line pt-8">
+            <h2 class="text-xs uppercase tracking-[0.2em] text-gold font-semibold mb-3">
+              Vessel & rig agency at other ports
+            </h2>
+            <p class="text-sm text-mute leading-relaxed mb-4 max-w-2xl">
+              Afrishore agents vessels and rigs at every licensed port in our
+              Southern African network – {port.portName} is one of {ports.length}:
+            </p>
+            <ul class="flex flex-wrap gap-x-6 gap-y-2 text-sm">
+              {siblingPorts.map((p) => (
+                <li>
+                  <a href={`/ports/${p.slug}`} class="text-gold hover:text-yellow transition-colors">
+                    {p.portName} →
+                  </a>
+                </li>
+              ))}
+            </ul>
           </div>
 
           <div class="border-t border-line pt-8">

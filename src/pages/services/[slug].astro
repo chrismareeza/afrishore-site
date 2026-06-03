@@ -36,6 +36,11 @@ const related = projects
   .filter((p) => p.published && p.serviceTypes.includes(service.serviceType))
   .slice(0, 3);
 
+// Sibling services – the other 3 capabilities Afrishore offers. Surfaces
+// them as inline links from every service page so each gets +3 inbound
+// contextual links (with service-name anchor text) from the others.
+const siblingServices = servicePages.filter((s) => s.slug !== service.slug);
+
 const placeholderBg =
   "linear-gradient(135deg, #1a1410 0%, #ED7014 50%, #FDE64B 100%)";
 
@@ -204,6 +209,25 @@ const breadcrumb = [
               </div>
             </div>
           )}
+
+          <div class="border-t border-line pt-8">
+            <h2 class="text-xs uppercase tracking-[0.2em] text-gold font-semibold mb-3">
+              Other Afrishore capabilities
+            </h2>
+            <p class="text-sm text-mute leading-relaxed mb-4 max-w-2xl">
+              {service.name} runs alongside the other shore-side capabilities
+              under a single point of accountability:
+            </p>
+            <ul class="flex flex-wrap gap-x-6 gap-y-2 text-sm">
+              {siblingServices.map((s) => (
+                <li>
+                  <a href={`/services/${s.slug}`} class="text-gold hover:text-yellow transition-colors">
+                    {s.name} →
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
 
         <aside class="lg:col-span-4">
