@@ -55,12 +55,14 @@ const placeholderBg =
 
 const webp = (p: string) => p.replace(/\.jpe?g$/i, ".webp");
 
-// Keep each "number + unit" token on one line (so "360 m" never breaks
-// the number onto one line and the "m" onto the next), while still
-// letting a long multi-part value like the syncrolift repair-lane list
-// wrap at its " · " separators.
-const tightenUnits = (v: string) =>
-  v.split("·").map((part) => part.trim().replace(/ /g, String.fromCharCode(160))).join(" · ");
+// Split a spec value into its tokens. Spaces inside a token become
+// non-breaking ( ) so "360 m" never breaks the number onto one line
+// and the "m" onto the next. A value with several "·"-separated tokens
+// (e.g. the syncrolift repair lanes) becomes a multi-element array that
+// the template stacks as a right-aligned list instead of an inline,
+// dangling-separator wrap.
+const unitTokens = (v: string) =>
+  v.split("·").map((part) => part.trim().replace(/ /g, String.fromCharCode(160)));
 
 // Progressive disclosure: a punchy lead stays visible, the detailed
 // prose moves into a "More about" accordion below. A port can supply a
@@ -267,12 +269,19 @@ const breadcrumb = [
                       {dock.name}
                     </h3>
                     <dl class="space-y-2.5">
-                      {dock.specs.map((s) => (
-                        <div class="flex items-baseline justify-between gap-4 text-sm">
-                          <dt class="text-mute leading-snug">{s.label}</dt>
-                          <dd class="text-cream font-medium text-right">{tightenUnits(s.value)}</dd>
-                        </div>
-                      ))}
+                      {dock.specs.map((s) => {
+                        const tokens = unitTokens(s.value);
+                        return (
+                          <div class="flex items-baseline justify-between gap-4 text-sm">
+                            <dt class="text-mute leading-snug">{s.label}</dt>
+                            <dd class="text-cream font-medium text-right">
+                              {tokens.length > 1
+                                ? tokens.map((t) => <span class="block">{t}</span>)
+                                : tokens[0]}
+                            </dd>
+                          </div>
+                        );
+                      })}
                     </dl>
                   </div>
                 ))}
