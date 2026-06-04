@@ -191,7 +191,7 @@ export const ports: PortPage[] = [
     metaDescription:
       "Afrishore is a Cape Town shipping company, freight forwarder and licensed vessel & rig agent – Woodstock office, Port of Cape Town. Customs clearance, freight forwarding, immigration, husbandry, dry docking, project cargo and heavy-lift coordination for rigs, OSVs, tankers and liners.",
     h1: "Vessel & Rig Agent: Port of Cape Town",
-    geoSub: "Licensed agency with a Cape Town office – repair, project-cargo and offshore hub",
+    geoSub: "Multipurpose port focussed on repair, cargo, projects and transit stops",
     lead: "Afrishore is the licensed vessel and rig agent at the Port of Cape Town – South Africa's premier ship-repair, project-cargo and offshore-support harbour – working from its own office in Woodstock under a single point of accountability.",
     intro: [
       "Afrishore holds its own port agency licence at Cape Town and operates from its office in Woodstock. The Port of Cape Town is South Africa's premier repair, project-cargo and offshore-support port, and Afrishore acts as full vessel and rig agent here for rigs, drillships, OSVs, PSVs, AHTS, tankers, FPSOs (in transit) and cargo ships. As a major international sea-freight gateway with Cape Town International Airport close by, it offers a strong value proposition for project custodians, operators and vessels in transit alike.",
