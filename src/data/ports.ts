@@ -158,7 +158,7 @@ export const ports: PortPage[] = [
       "Afrishore is a licensed vessel and rig agent for the Port of Lüderitz, Namibia – port clearance, immigration, husbandry and offshore support for the Orange Basin exploration frontier. Run alongside our Walvis Bay base.",
     h1: "Vessel & Rig Agent: Port of Lüderitz",
     geoSub: "Multipurpose port handling oil & gas, general cargo, fishing and ore",
-    lead: "Afrishore holds an active vessel and rig agency licence for the Port of Lüderitz, Namibia's southernmost commercial port and the closest harbour to the offshore Orange Basin.",
+    lead: "Afrishore holds an active port agency licence for the Port of Lüderitz, Namibia's southernmost commercial port and the closest harbour to the offshore Orange Basin.",
     intro: [
       "From Lüderitz, Afrishore acts as full vessel and rig agent for the rigs, drillships, OSVs, PSVs and survey vessels working the Orange Basin, alongside the general-cargo, fishing and ore traffic the port itself handles. The port works two commercial berths to a maximum draft of 8.75 m, with a maximum quayside lift of 28 mt, and Afrishore plans every call and cargo operation around those parameters so vessels berth, work and sail without surprises.",
       "Lüderitz sits on an exposed stretch of the southern Namibian coast and is subject to the prevailing winds, so vessel movements there are occasionally weather-restricted. Afrishore's local team schedules berthing and cargo work around the available weather windows and keeps owners, masters and operators informed throughout – turning a well-known regional factor into a managed part of the plan rather than a disruption.",
@@ -208,7 +208,7 @@ export const ports: PortPage[] = [
       "Afrishore is a Cape Town shipping company, freight forwarder and licensed vessel & rig agent – Woodstock office, Port of Cape Town. Customs clearance, freight forwarding, immigration, husbandry, dry docking, project cargo and heavy-lift coordination for rigs, OSVs, tankers and liners.",
     h1: "Vessel & Rig Agent: Port of Cape Town",
     geoSub: "Multipurpose port focussed on repair, cargo, projects and transit stops",
-    lead: "Afrishore holds an active vessel and rig agency licence for the Port of Cape Town, which remains a premier option for transiting vessels, ship-repair, project-cargo and offshore project support.",
+    lead: "Afrishore holds an active port agency licence for the Port of Cape Town, which remains a premier option for transiting vessels, ship-repair, project-cargo and offshore project support.",
     intro: [
       "Afrishore holds its own port agency licence at Cape Town and operates from its office in Woodstock. The Port of Cape Town is South Africa's premier repair, project-cargo and offshore-support port, and Afrishore acts as full vessel and rig agent here for rigs, drillships, OSVs, PSVs, AHTS, tankers, FPSOs (in transit) and cargo ships. As a major international sea-freight gateway with Cape Town International Airport close by, it offers a strong value proposition for project custodians, operators and vessels in transit alike.",
       "Cape Town agency spans tight repair-quay and dry-dock windows, complex immigration, heavy-lift project cargo and bunkering, all against a port that does not wait. Afrishore handles port clearance and port-authority liaison, immigration and crew changes, dry docking and repairs coordination, husbandry, bunkering, project and abnormal cargo and full mobilisation/demobilisation.",
