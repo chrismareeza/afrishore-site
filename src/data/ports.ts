@@ -299,11 +299,12 @@ export const ports: PortPage[] = [
     metaDescription:
       "Afrishore is a licensed vessel and rig agent for the Port of Saldanha Bay, South Africa – the country's deepest natural port. Port clearance, immigration, husbandry, bulk, project cargo and offshore/rig support.",
     h1: "Vessel & Rig Agent: Port of Saldanha Bay",
-    geoSub: "Licensed agency for Saldanha Bay – South Africa's deepest natural port",
+    geoSub: "South Africa's largest natural deep-water port – iron ore, oil & gas, projects and fisheries",
+    lead: "Afrishore holds an active port agency licence for the Port of Saldanha, South Africa's largest natural deep-water port and the country's primary iron-ore export terminal.",
     intro: [
-      "Afrishore holds its own port agency licence at Saldanha Bay, South Africa's deepest natural harbour and a designated oil & gas and bulk port. Afrishore acts as vessel and rig agent here for rigs, drillships, OSVs, PSVs, AHTS, barges, tankers and bulk carriers.",
-      "Saldanha's scale; deep draught, iron-ore and crude handling and a growing offshore-support mandate, demands an agent who can move between bulk, tanker and rig disciplines. Afrishore handles port clearance and port-authority liaison, immigration and crew changes, husbandry, bunkering coordination, project and abnormal cargo and offshore mobilisation.",
-      "Run alongside Afrishore's Cape Town office and the wider licensed network, Saldanha coverage gives operators one accountable agent across the entire South African west coast with an effective West Coast deepwater option in close proximity to Cape Town.",
+      "Saldanha Bay is South Africa's largest natural deep-water harbour, built around the iron-ore export terminal that handles ore railed in from the Northern Cape. Afrishore acts as full vessel and rig agent here for bulk carriers, tankers, rigs, OSVs, PSVs and AHTS, handling port clearance and port-authority liaison, immigration and crew changes, husbandry and bunkering coordination across the bulk, tanker and offshore disciplines the port works across.",
+      "Beyond iron ore, Saldanha holds oil & gas and project-cargo facilities that remain underutilised – spare deep-water capacity that makes the port a strong, uncongested option for offshore mobilisations, heavy-lift and project work. Quayside ship repair can be actioned alongside, and the bay supports an extensive fishing industry, so a single port call can combine bulk, project, repair and crew scopes under one accountable agent.",
+      "Run alongside Afrishore's Cape Town office and the wider licensed network, Saldanha coverage gives operators an effective West Coast deep-water option in close proximity to Cape Town, with one accountable agent across the entire South African west coast.",
     ],
     scope: [
       "Port clearance & customs formalities",
@@ -312,10 +313,27 @@ export const ports: PortPage[] = [
       "Husbandry & owner's representation",
       "Bunkering coordination",
       "Project & abnormal cargo",
+      "Quayside ship-repair coordination",
       "Off Port Limits (OPL) logistics",
       "Offshore mobilisation / demobilisation",
     ],
     vesselTypes: VESSEL_TYPES,
+    facilities: {
+      heading: "The Port of Saldanha at a glance",
+      intro:
+        "What the port offers, and where Afrishore sees spare capacity:",
+      docks: [
+        {
+          name: "Port of Saldanha",
+          specs: [
+            { label: "Port type", value: "Natural deep-water" },
+            { label: "Primary trade", value: "Iron-ore export" },
+            { label: "Also handles", value: "Oil & gas · Project cargo · Fisheries" },
+            { label: "Ship repair", value: "Quayside" },
+          ],
+        },
+      ],
+    },
     heroImage: "/images/ports/saldanha-port.jpg",
     heroAlt:
       "Operations vantage over Saldanha Bay, South Africa at last light: vessel-tracking and electronic-chart monitors with the bay, moored craft and headland beyond, where Afrishore coordinates west-coast port calls",
