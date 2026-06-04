@@ -157,11 +157,12 @@ export const ports: PortPage[] = [
     metaDescription:
       "Afrishore is a licensed vessel and rig agent for the Port of Lüderitz, Namibia – port clearance, immigration, husbandry and offshore support for the Orange Basin exploration frontier. Run alongside our Walvis Bay base.",
     h1: "Vessel & Rig Agent: Port of Lüderitz",
-    geoSub: "Licensed agency for the Port of Lüderitz – gateway to the Orange Basin, Namibia",
+    geoSub: "Multipurpose port handling oil & gas, general cargo, fishing and ore",
+    lead: "Afrishore holds an active vessel and rig agency licence for the Port of Lüderitz, Namibia's southernmost commercial port and the closest harbour to the offshore Orange Basin.",
     intro: [
-      "Afrishore holds a port agency licence for Lüderitz, the southern Namibian port closest to the Orange Basin: the most active deep-water exploration frontier in the region. Afrishore acts as vessel and rig agent here for rigs, drillships, OSVs, PSVs and survey vessels supporting Orange Basin campaigns.",
-      "Lüderitz is a small, weather-exposed port where margins are tight and local knowledge decides outcomes. Afrishore handles port clearance and port-authority liaison, immigration and crew rotation, husbandry, provisions supply, technical support and offshore logistics, co-ordinated with the Walvis Bay base so a single agent covers the whole Namibian coast.",
-      "Run alongside Afrishore's Walvis Bay agency, supply-base and crew operations, Lüderitz coverage closes the loop on a fully integrated Namibian shore-side operation.",
+      "From Lüderitz, Afrishore acts as full vessel and rig agent for the rigs, drillships, OSVs, PSVs and survey vessels working the Orange Basin, alongside the general-cargo, fishing and ore traffic the port itself handles. The port works two commercial berths to a maximum draft of 8.75 m, with a maximum quayside lift of 28 mt, and Afrishore plans every call and cargo operation around those parameters so vessels berth, work and sail without surprises.",
+      "Lüderitz sits on an exposed stretch of the southern Namibian coast and is subject to the prevailing winds, so vessel movements there are occasionally weather-restricted. Afrishore's local team schedules berthing and cargo work around the available weather windows and keeps owners, masters and operators informed throughout – turning a well-known regional factor into a managed part of the plan rather than a disruption.",
+      "Co-ordinated with Afrishore's Walvis Bay base and the wider licensed network, Lüderitz coverage gives operators one accountable agent across the whole Namibian coast: port clearance and port-authority liaison, immigration and crew rotation, husbandry and provisions, bunkering coordination and offshore logistics, all from a single point of accountability.",
     ],
     scope: [
       "Port clearance & customs formalities",
@@ -174,6 +175,21 @@ export const ports: PortPage[] = [
       "Mobilisation / demobilisation",
     ],
     vesselTypes: VESSEL_TYPES,
+    facilities: {
+      heading: "Berths & handling at Lüderitz",
+      intro:
+        "Key parameters for planning a commercial call at the Port of Lüderitz:",
+      docks: [
+        {
+          name: "Commercial quay",
+          specs: [
+            { label: "Commercial berths", value: "2" },
+            { label: "Maximum draft", value: "8.75 m" },
+            { label: "Maximum lift (load-bearing)", value: "28 mt" },
+          ],
+        },
+      ],
+    },
     phoneDisplay: "+264 81 767 3069",
     phoneE164: "+264817673069",
     heroImage: "/images/ports/luderitz-fugro-supporter.jpg",
