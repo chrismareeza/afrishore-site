@@ -99,10 +99,10 @@ export const ports: PortPage[] = [
     kind: "office",
     matchPort: ["Walvis Bay"],
     metaTitle:
-      "Vessel & Rig Agent – Port of Walvis Bay, Namibia | Afrishore",
+      "Vessel & Rig Agent: Port of Walvis Bay, Namibia | Afrishore",
     metaDescription:
       "Afrishore is a licensed vessel and rig agent in the Port of Walvis Bay, Namibia – permanently embedded in the Oil & Gas Section. Port clearance, immigration, husbandry, supply base and offshore logistics for rigs, drillships, OSVs and tankers.",
-    h1: "Vessel & Rig Agent – Port of Walvis Bay",
+    h1: "Vessel & Rig Agent: Port of Walvis Bay",
     geoSub: "Licensed agency embedded in the Port of Walvis Bay's Oil & Gas Section, Namibia",
     intro: [
       "Afrishore holds its own port agency licence at Walvis Bay and is permanently embedded inside the Port of Walvis Bay's Oil & Gas Section, the only deep-water commercial port in Namibia and the primary shore base for the country's offshore exploration boom. From here Afrishore acts as full vessel and rig agent for rigs, drillships, semi-submersibles, OSVs, PSVs, AHTS, tankers and FPSOs.",
@@ -153,10 +153,10 @@ export const ports: PortPage[] = [
     kind: "licence",
     matchPort: ["Lüderitz", "Luderitz"],
     metaTitle:
-      "Vessel & Rig Agent – Port of Lüderitz, Namibia | Afrishore",
+      "Vessel & Rig Agent: Port of Lüderitz, Namibia | Afrishore",
     metaDescription:
       "Afrishore is a licensed vessel and rig agent for the Port of Lüderitz, Namibia – port clearance, immigration, husbandry and offshore support for the Orange Basin exploration frontier. Run alongside our Walvis Bay base.",
-    h1: "Vessel & Rig Agent – Port of Lüderitz",
+    h1: "Vessel & Rig Agent: Port of Lüderitz",
     geoSub: "Licensed agency for the Port of Lüderitz – gateway to the Orange Basin, Namibia",
     intro: [
       "Afrishore holds a port agency licence for Lüderitz, the southern Namibian port closest to the Orange Basin: the most active deep-water exploration frontier in the region. Afrishore acts as vessel and rig agent here for rigs, drillships, OSVs, PSVs and survey vessels supporting Orange Basin campaigns.",
@@ -190,7 +190,7 @@ export const ports: PortPage[] = [
       "Cape Town Shipping & Logistics Company | Vessel Agent | Afrishore",
     metaDescription:
       "Afrishore is a Cape Town shipping company, freight forwarder and licensed vessel & rig agent – Woodstock office, Port of Cape Town. Customs clearance, freight forwarding, immigration, husbandry, dry docking, project cargo and heavy-lift coordination for rigs, OSVs, tankers and liners.",
-    h1: "Vessel & Rig Agent – Port of Cape Town",
+    h1: "Vessel & Rig Agent: Port of Cape Town",
     geoSub: "Licensed agency with a Cape Town office – repair, project-cargo and offshore hub",
     lead: "Afrishore is the licensed vessel and rig agent at the Port of Cape Town – South Africa's premier ship-repair, project-cargo and offshore-support harbour – working from its own office in Woodstock under a single point of accountability.",
     intro: [
@@ -279,10 +279,10 @@ export const ports: PortPage[] = [
     kind: "licence",
     matchPort: ["Saldanha"],
     metaTitle:
-      "Vessel & Rig Agent – Port of Saldanha Bay, South Africa | Afrishore",
+      "Vessel & Rig Agent: Port of Saldanha Bay, South Africa | Afrishore",
     metaDescription:
       "Afrishore is a licensed vessel and rig agent for the Port of Saldanha Bay, South Africa – the country's deepest natural port. Port clearance, immigration, husbandry, bulk, project cargo and offshore/rig support.",
-    h1: "Vessel & Rig Agent – Port of Saldanha Bay",
+    h1: "Vessel & Rig Agent: Port of Saldanha Bay",
     geoSub: "Licensed agency for Saldanha Bay – South Africa's deepest natural port",
     intro: [
       "Afrishore holds its own port agency licence at Saldanha Bay, South Africa's deepest natural harbour and a designated oil & gas and bulk port. Afrishore acts as vessel and rig agent here for rigs, drillships, OSVs, PSVs, AHTS, barges, tankers and bulk carriers.",
@@ -314,7 +314,7 @@ export const ports: PortPage[] = [
       "Afrishore Mossel Bay HQ – Vessel & Rig Agency, Offshore Supply Base",
     metaDescription:
       "Afrishore head office, Mossel Bay – 58 Bland Street. Vessel & rig agency, customs, immigration, husbandry, offshore supply base operations. Operated the Brulpadda & Luiperd supply base for TotalEnergies on Block 11B/12B since 2010.",
-    h1: "Vessel & Rig Agent – Port of Mossel Bay",
+    h1: "Vessel & Rig Agent: Port of Mossel Bay",
     geoSub: "Afrishore's founding base & head office – operated the Brulpadda & Luiperd supply base",
     intro: [
       "Afrishore was founded in Mossel Bay and holds its own port agency licence here, with its head office at 58 Bland Street. Mossel Bay hosted the shore base for South Africa's most significant offshore gas play to date, Block 11B/12B (Brulpadda and Luiperd), and Afrishore acts as full vessel and rig agent here for rigs, drillships, OSVs, PSVs, AHTS and tankers, on the owners and charterers side.",
@@ -354,10 +354,10 @@ export const ports: PortPage[] = [
     kind: "office",
     matchPort: ["Durban"],
     metaTitle:
-      "Vessel & Rig Agent – Port of Durban, South Africa | Afrishore",
+      "Vessel & Rig Agent: Port of Durban, South Africa | Afrishore",
     metaDescription:
       "Afrishore is a licensed vessel and rig agent in the Port of Durban, South Africa, with an office in Yellowwood Park. Port clearance, immigration, husbandry, dry docking and project cargo for rigs, OSVs, tankers and liners on the east coast.",
-    h1: "Vessel & Rig Agent – Port of Durban",
+    h1: "Vessel & Rig Agent: Port of Durban",
     geoSub: "Licensed agency with a Durban office – Africa's busiest port, east-coast hub",
     intro: [
       "Afrishore holds its own port agency licence at Durban and operates from an office in Yellowwood Park. The Port of Durban is the busiest container and multi-purpose port in sub-Saharan Africa and Afrishore's east-coast hub, acting as full vessel and rig agent for rigs, drillships, OSVs, PSVs, AHTS, tankers, FPSOs and cargo ships.",
