@@ -55,6 +55,21 @@ export interface PortPage {
     caption: string;
     portrait?: boolean;
   };
+  // Optional port-facilities block – e.g. the graving / dry docks a
+  // vessel owner weighs when planning a repair call. Rendered as a
+  // titled section with one scannable spec card per facility. Distil
+  // each facility to the decision-critical dimensions only.
+  facilities?: {
+    heading: string;        // e.g. "Ship repair & dry docking"
+    intro?: string;         // optional lead-in sentence above the cards
+    docks: {
+      name: string;         // e.g. "Sturrock Dry Dock"
+      specs: { label: string; value: string }[];
+    }[];
+    // Optional external write-up corroborating the work (e.g. a LinkedIn
+    // post). Rendered as a quiet reference link, not a CTA.
+    source?: { url: string; label: string };
+  };
 }
 
 const PHONE_DISPLAY = "+27 44 691 3218";
@@ -176,6 +191,7 @@ export const ports: PortPage[] = [
     intro: [
       "Afrishore holds its own port agency licence at Cape Town and operates from its office in Woodstock. The Port of Cape Town is South Africa's premier repair, project-cargo and offshore-support port, and Afrishore acts as full vessel and rig agent here for rigs, drillships, OSVs, PSVs, AHTS, tankers, FPSOs and cargo ships. As a major international sea-freight gateway with Cape Town International Airport close by, it offers a strong value proposition for project custodians, operators and vessels in transit alike.",
       "Cape Town agency spans tight repair-quay and dry-dock windows, complex immigration, heavy-lift project cargo and bunkering, all against a port that does not wait. Afrishore handles port clearance and port-authority liaison, immigration and crew changes, dry docking and repairs coordination, husbandry, bunkering, project and abnormal cargo and full mobilisation/demobilisation.",
+      "Cape Town is also one of the southern hemisphere's major ship-repair ports, with two graving docks and a syncrolift shiplift that vessel owners weigh when planning a docking. The Sturrock Dry Dock takes vessels up to 360 m through a 45.1 m entrance with 13.7 m of water over the sill at high water, large enough for drillships, semi-submersibles and the biggest tankers and bulk carriers working the coast; the smaller Robinson Dry Dock handles vessels to 161.2 m, and the syncrolift lifts vessels up to 80 m onto dedicated repair lanes. Afrishore has coordinated dry dockings here before – including the simultaneous docking of the Titan floating dock for the Port of Réunion, GH Discovery for United Offshore Support and Normand Energy for Solstad – managing the port-authority, ship-repair yard, classification-society survey and crew interfaces around the docking window so each vessel clears the dock on schedule.",
       "Beyond vessel agency, Afrishore operates as a Cape Town logistics company and freight forwarder for the offshore and project-cargo sector – sea, air and road freight, customs clearance, bonded warehousing, cross-border transport and technical procurement, all routed through the Port of Cape Town and Cape Town International Airport. Operators and rig owners use the same accountable team for ships agent, logistics company and freight forwarder at Cape Town, which removes the hand-off seams that normally cost time on a fast schedule.",
       "From Cape Town Afrishore delivered the Dock Titan heavy-lift to Réunion and handled rig anchorage, PSV and OSV calls, the 2Africa subsea cable-landing staging and the Oceaneering subsea grout-bag export. Integrated agency, logistics and crew from one point of accountability is what holds those schedules together.",
     ],
@@ -191,6 +207,50 @@ export const ports: PortPage[] = [
       "Mobilisation / demobilisation",
     ],
     vesselTypes: VESSEL_TYPES,
+    facilities: {
+      heading: "Ship repair & dry docking at Cape Town",
+      intro:
+        "The Port of Cape Town has two graving docks and a syncrolift shiplift. These are the gating dimensions a vessel owner uses to confirm a vessel will fit before planning a repair call:",
+      docks: [
+        {
+          name: "Sturrock Dry Dock",
+          specs: [
+            { label: "Overall docking length", value: "360 m" },
+            { label: "Width at entrance", value: "45.1 m" },
+            { label: "Width at coping (beam)", value: "47.5 m" },
+            { label: "Depth on entrance sill (HWOST)", value: "13.7 m" },
+          ],
+        },
+        {
+          name: "Robinson Dry Dock",
+          specs: [
+            { label: "Overall docking length", value: "161.2 m" },
+            { label: "Width at entrance", value: "20.7 m" },
+            { label: "Width at coping (beam)", value: "27.4 m" },
+            { label: "Depth on entrance sill (HWOST)", value: "8.3 m" },
+          ],
+        },
+        {
+          name: "Syncrolift Shiplift",
+          specs: [
+            { label: "Overall docking length", value: "80 m" },
+            { label: "Maximum beam", value: "14 m" },
+            { label: "Depth over entrance sill", value: "15.9 m" },
+            { label: "Repair lanes", value: "2 × 70 m · 1 × 55 m · 2 × 75 m" },
+          ],
+        },
+      ],
+      source: {
+        url: "https://www.linkedin.com/feed/update/urn:li:activity:7355516686390726656/",
+        label: "See the simultaneous docking on LinkedIn",
+      },
+    },
+    secondaryImage: {
+      src: "/images/ports/ship-repair-cape-town.jpg",
+      alt: "The Titan floating dock and offshore support vessels alongside the ship-repair quay at the Port of Cape Town at sunrise – a simultaneous dry docking coordinated by Afrishore",
+      caption:
+        "A simultaneous Cape Town dry docking coordinated by Afrishore: the Titan floating dock (Port of Réunion), GH Discovery (United Offshore Support) and Normand Energy (Solstad) at the ship-repair quay.",
+    },
     heroImage: "/images/ports/cape-town-hero.jpg",
     heroAlt:
       "Aerial view of the Port of Cape Town, South Africa with Table Mountain behind: the repair, project-cargo and offshore-support harbour where Afrishore acts as vessel and rig agent",

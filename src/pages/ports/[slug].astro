@@ -189,6 +189,49 @@ const breadcrumb = [
             </figure>
           )}
 
+          {port.facilities && (
+            <div>
+              <h2 class="text-xs uppercase tracking-[0.2em] text-gold font-semibold mb-5">
+                {port.facilities.heading}
+              </h2>
+              {port.facilities.intro && (
+                <p class="text-base text-mute leading-relaxed mb-6 max-w-2xl">
+                  {port.facilities.intro}
+                </p>
+              )}
+              <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                {port.facilities.docks.map((dock) => (
+                  <div class="bg-surface border border-line rounded-sm p-5 lg:p-6">
+                    <h3 class="text-cream font-medium mb-4 leading-snug">
+                      {dock.name}
+                    </h3>
+                    <dl class="space-y-2.5">
+                      {dock.specs.map((s) => (
+                        <div class="flex items-baseline justify-between gap-4 text-sm">
+                          <dt class="text-mute leading-snug">{s.label}</dt>
+                          <dd class="text-cream font-medium text-right">{s.value}</dd>
+                        </div>
+                      ))}
+                    </dl>
+                  </div>
+                ))}
+              </div>
+              {port.facilities.source && (
+                <p class="mt-5 text-sm">
+                  <a
+                    href={port.facilities.source.url}
+                    target="_blank"
+                    rel="noopener"
+                    class="inline-flex items-center gap-1 text-gold hover:text-yellow transition-colors"
+                  >
+                    {port.facilities.source.label}
+                    <span aria-hidden="true">↗</span>
+                  </a>
+                </p>
+              )}
+            </div>
+          )}
+
           <div>
             <h2 class="text-xs uppercase tracking-[0.2em] text-gold font-semibold mb-5">
               What we handle at {port.portName}
