@@ -392,10 +392,11 @@ export const ports: PortPage[] = [
     metaDescription:
       "Afrishore is a licensed vessel and rig agent in the Port of Durban, South Africa, with an office in Yellowwood Park. Port clearance, immigration, husbandry, dry docking and project cargo for rigs, OSVs, tankers and liners on the east coast.",
     h1: "Vessel & Rig Agent: Port of Durban",
-    geoSub: "Licensed agency with a Durban office – Africa's busiest port, east-coast hub",
+    geoSub: "South Africa's largest port – import/export hub for fruit, grain, sugar, fertiliser and chemicals",
+    lead: "Afrishore holds an active port agency licence for the Port of Durban, the largest and busiest port in South Africa and the country's principal import and export gateway.",
     intro: [
-      "Afrishore holds its own port agency licence at Durban and operates from an office in Yellowwood Park. The Port of Durban is the busiest container and multi-purpose port in sub-Saharan Africa and Afrishore's east-coast hub, acting as full vessel and rig agent for rigs, drillships, OSVs, PSVs, AHTS, tankers, FPSOs and cargo ships.",
-      "Durban agency means working one of Africa's most congested ports to schedule: port clearance and port-authority liaison, immigration and crew changes, dry docking and repairs coordination, husbandry, bunkering, project and abnormal cargo and full mobilisation/demobilisation.",
+      "The Port of Durban is the largest and busiest port in South Africa, a high-volume import and export gateway moving fruit, grain, sugar, fertiliser, chemicals and general cargo alongside its container and bulk traffic. From its Yellowwood Park office Afrishore acts as full vessel and rig agent here for tankers, bulk carriers, container ships, rigs, OSVs, PSVs and AHTS, handling port clearance and port-authority liaison, immigration and crew changes, husbandry, bunkering coordination and project and abnormal cargo.",
+      "Durban also carries one of the largest ship-repair capabilities on the coast. The Prince Edward Graving Dock takes vessels up to 352.04 m through a 33.52 m entrance with 12.56 m on the sill, and can be divided into two independent sections of 206.9 m and 138.68 m for simultaneous dockings, with a privately operated floating dock handling smaller tonnage alongside. Afrishore coordinates the port-authority, repair-yard, classification-society and crew interfaces around the docking window so each vessel clears the dock on schedule.",
       "Run alongside Afrishore's west- and south-coast licensed network and the Walvis Bay base, the Durban office extends the same single point of accountability across the East African seaboard, toward the Mozambique Channel.",
     ],
     scope: [
@@ -410,6 +411,22 @@ export const ports: PortPage[] = [
       "Mobilisation / demobilisation",
     ],
     vesselTypes: VESSEL_TYPES,
+    facilities: {
+      heading: "Ship repair & dry docking at Durban",
+      intro:
+        "Durban's Prince Edward Graving Dock is one of the largest dry docks on the South African coast, with a privately operated floating dock alongside for smaller tonnage:",
+      docks: [
+        {
+          name: "Prince Edward Graving Dock",
+          specs: [
+            { label: "Overall docking length", value: "352.04 m" },
+            { label: "Width at entrance", value: "33.52 m" },
+            { label: "Depth on entrance", value: "12.56 m" },
+            { label: "Divisible into", value: "206.9 m · 138.68 m" },
+          ],
+        },
+      ],
+    },
     heroImage: "/images/ports/durban-hero.jpg",
     heroAlt:
       "The offshore support vessel Pacific Gosling alongside the quay at the Port of Durban, South Africa: Afrishore vessel and rig agency on the east coast",
