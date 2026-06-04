@@ -41,6 +41,10 @@ export interface PortPage {
   metaDescription: string;
   h1: string;
   geoSub: string;
+  // Optional punchy one-line lead shown above the fold. When set, the
+  // full `intro` moves into the "More about" accordion. When absent,
+  // intro[0] leads and intro[1..] become the accordion detail.
+  lead?: string;
   intro: string[];
   scope: string[];
   vesselTypes: string[];
@@ -188,6 +192,7 @@ export const ports: PortPage[] = [
       "Afrishore is a Cape Town shipping company, freight forwarder and licensed vessel & rig agent – Woodstock office, Port of Cape Town. Customs clearance, freight forwarding, immigration, husbandry, dry docking, project cargo and heavy-lift coordination for rigs, OSVs, tankers and liners.",
     h1: "Vessel & Rig Agent – Port of Cape Town",
     geoSub: "Licensed agency with a Cape Town office – repair, project-cargo and offshore hub",
+    lead: "Afrishore is the licensed vessel and rig agent at the Port of Cape Town – South Africa's premier ship-repair, project-cargo and offshore-support harbour – working from its own office in Woodstock under a single point of accountability.",
     intro: [
       "Afrishore holds its own port agency licence at Cape Town and operates from its office in Woodstock. The Port of Cape Town is South Africa's premier repair, project-cargo and offshore-support port, and Afrishore acts as full vessel and rig agent here for rigs, drillships, OSVs, PSVs, AHTS, tankers, FPSOs (in transit) and cargo ships. As a major international sea-freight gateway with Cape Town International Airport close by, it offers a strong value proposition for project custodians, operators and vessels in transit alike.",
       "Cape Town agency spans tight repair-quay and dry-dock windows, complex immigration, heavy-lift project cargo and bunkering, all against a port that does not wait. Afrishore handles port clearance and port-authority liaison, immigration and crew changes, dry docking and repairs coordination, husbandry, bunkering, project and abnormal cargo and full mobilisation/demobilisation.",
