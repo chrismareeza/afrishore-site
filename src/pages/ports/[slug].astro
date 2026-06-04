@@ -55,6 +55,13 @@ const placeholderBg =
 
 const webp = (p: string) => p.replace(/\.jpe?g$/i, ".webp");
 
+// Keep each "number + unit" token on one line (so "360 m" never breaks
+// the number onto one line and the "m" onto the next), while still
+// letting a long multi-part value like the syncrolift repair-lane list
+// wrap at its " · " separators.
+const tightenUnits = (v: string) =>
+  v.split("·").map((part) => part.trim().replace(/ /g, String.fromCharCode(160))).join(" · ");
+
 const heroAltText =
   port.heroAlt ||
   `Afrishore vessel and rig agent – Port of ${port.portName}, ${port.country}`;
@@ -236,7 +243,7 @@ const breadcrumb = [
                       {dock.specs.map((s) => (
                         <div class="flex items-baseline justify-between gap-4 text-sm">
                           <dt class="text-mute leading-snug">{s.label}</dt>
-                          <dd class="text-cream font-medium text-right">{s.value}</dd>
+                          <dd class="text-cream font-medium text-right">{tightenUnits(s.value)}</dd>
                         </div>
                       ))}
                     </dl>
