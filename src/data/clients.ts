@@ -32,6 +32,6 @@ export const clients: Client[] = [
   { name: "Peschaud", slug: "peschaud", sector: "service-contractor", logo: "/client-logos/peschaud.png" },
   { name: "SBM Offshore", slug: "sbm-offshore", sector: "subsea-services", logo: "/client-logos/sbm-offshore.png", displayBoost: 1.25 },
   { name: "Piriou Naval Services", slug: "piriou", sector: "service-contractor", logo: "/client-logos/piriou.png", displayBoost: 1.75 },
-  { name: "AMSOL", slug: "amsol", sector: "service-contractor", logo: "/client-logos/amsol.png", displayBoost: 1.4 },
+  { name: "AMSOL", slug: "amsol", sector: "service-contractor", logo: "/client-logos/amsol.png", displayBoost: 1.12 },
   { name: "Vantris Energy", slug: "vantris-energy", sector: "oil-gas-major", logo: "/client-logos/vantris-energy.png", displayBoost: 2.0 },
 ];
