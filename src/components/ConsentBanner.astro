@@ -40,6 +40,20 @@
   </div>
 </div>
 
+<style is:global>
+  /* While the consent banner is visible, give the homepage hero's
+     anchored-bottom content enough clearance on mobile that the primary
+     CTA never sits behind the fixed banner. Uses the live banner height
+     (--consent-h, set in the script) + a small gap. Reverts instantly
+     when a choice is made (the class is removed). Only the homepage has
+     #hero-content, so this is a no-op elsewhere. */
+  @media (max-width: 640px) {
+    html.consent-open #hero-content {
+      padding-bottom: calc(var(--consent-h, 12rem) + 1.5rem);
+    }
+  }
+</style>
+
 <script is:inline>
   (function () {
     var KEY = "afrishore-consent";
@@ -49,6 +63,13 @@
     try { choice = localStorage.getItem(KEY); } catch (e) {}
     if (choice === "granted" || choice === "denied") return; // already decided
     el.hidden = false;
+    // While the banner is up, lift the homepage hero's anchored-bottom
+    // content on mobile so the primary CTA never sits behind the fixed
+    // banner. Measure the live banner height so the clearance is exact.
+    try {
+      document.documentElement.style.setProperty("--consent-h", el.offsetHeight + "px");
+      document.documentElement.classList.add("consent-open");
+    } catch (e) {}
     function decide(value) {
       // Persist the choice + hide the banner synchronously – both are
       // sub-millisecond and need to happen on the click critical path
@@ -62,6 +83,7 @@
       // state.
       try { localStorage.setItem(KEY, value); } catch (e) {}
       el.hidden = true;
+      document.documentElement.classList.remove("consent-open");
       // Defer the gtag consent flip off the click handler so the
       // browser can paint first. requestIdleCallback runs it during
       // the next idle frame; setTimeout fallback for browsers that
