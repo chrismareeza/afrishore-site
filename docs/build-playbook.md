@@ -121,3 +121,35 @@ Progressive disclosure, not walls of text:
 - For local services (lifting/rigging): build service-area / location pages,
   optimise the Google Business Profile, and lead with decision-useful equipment
   spec content.
+
+## AEO — winning AI-Overview citations (informational pages only)
+
+AI Overviews appear almost entirely on INFORMATIONAL queries (~99.9%);
+local/navigational/transactional queries are nearly AIO-free. So apply this to
+guides, FAQs and informational / case-study pages — NOT to commercial money
+pages (a "vessel agent {city}" page targets a navigational query and rarely
+triggers an AIO; an answer block there is wasted effort).
+
+On an informational page:
+
+- **Answer block** — open with a 100–150 word, self-contained, direct answer to
+  the page's ONE core question. No intro, no fluff. This is the text AI Overviews
+  lift more or less verbatim.
+- **PAA-mapped H2s** — search the keyword, read the "People Also Ask" box, make
+  each question an H2. Each section must answer on its own: AI extracts sections
+  independently, so a section that leans on earlier context won't get cited.
+- **One cited data point per section** — a concrete number, named example or
+  quote per section. First-party data is best — it's your edge.
+- **The edge** — every page should do something the top 5 results don't: original
+  data, a named framework, a specific ICP, or a deeper subtopic.
+- **Anti-commoditisation check** — if an AI summary fully replaces your page, no
+  one clicks. Give humans something the summary can't carry: proof, photos,
+  specific contacts, depth.
+
+Pre-publish check (all YES, or fix first): (1) does the first ~150 words answer
+the core question directly? (2) does every H2 map to a real PAA question? (3)
+does every section stand alone? (4) one cited data point per section? (5) does a
+human get something the AI summary doesn't?
+
+Ground the questions in real demand: pull them from the site's own GSC queries
+(informational terms sitting at position 4–20) rather than inventing them.
