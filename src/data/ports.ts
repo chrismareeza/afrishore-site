@@ -347,12 +347,12 @@ export const ports: PortPage[] = [
     metaTitle:
       "Vessel & Rig Agent: Port of Mossel Bay | Afrishore HQ",
     metaDescription:
-      "Afrishore is the vessel and rig agent at the Port of Mossel Bay (HQ, 58 Bland Street) – agency for ships, oil rigs, drillships and supply vessels, plus the offshore supply base behind the Brulpadda and Luiperd campaigns on Block 11B/12B since 2010.",
+      "Afrishore is the vessel and rig agent at the Port of Mossel Bay (HQ, 60 Bland Street) – agency for ships, oil rigs, drillships and supply vessels, plus the offshore supply base behind the Brulpadda and Luiperd campaigns on Block 11B/12B since 2010.",
     h1: "Vessel & Rig Agent: Port of Mossel Bay",
     geoSub: "Afrishore's founding base and head office – vessel & rig agency for the Brulpadda & Luiperd gas fields",
     lead: "Afrishore holds an active port agency licence for the Port of Mossel Bay, its founding base and head office, and acts as vessel and rig agent for the ships, oil rigs and supply vessels working South Africa's Block 11B/12B gas fields offshore.",
     intro: [
-      "Afrishore was founded in Mossel Bay and holds its own port agency licence here, with its head office at 58 Bland Street. Mossel Bay hosted the shore base for South Africa's most significant offshore gas play to date, Block 11B/12B (Brulpadda and Luiperd), and Afrishore acts as full vessel and rig agent at the port for oil rigs, drillships, OSVs, PSVs, AHTS, tankers and supply vessels, on the owners' and charterers' side.",
+      "Afrishore was founded in Mossel Bay and holds its own port agency licence here, with its head office at 60 Bland Street. Mossel Bay hosted the shore base for South Africa's most significant offshore gas play to date, Block 11B/12B (Brulpadda and Luiperd), and Afrishore acts as full vessel and rig agent at the port for oil rigs, drillships, OSVs, PSVs, AHTS, tankers and supply vessels, on the owners' and charterers' side.",
       "Mossel Bay agency means running an offshore supply base to the rhythm of a deep-water drilling campaign: port clearance and port-authority liaison, immigration and crew changes, husbandry, rigging and project cargo, bunkering and full mobilisation/demobilisation with zero margin for error 175 km offshore.",
       "From Mossel Bay Afrishore operated the supply base and rig agency for the TotalEnergies Brulpadda discovery and Luiperd campaigns – supporting the Deepsea Stavanger drilling rig offshore – and the earlier Eirik Raude campaign, closing out cleanly through Cape Town. It is where Afrishore's integration-as-design model was proven, and is applied to anything from tanker calls and transit stops to medivacs and project scopes.",
     ],
@@ -374,7 +374,7 @@ export const ports: PortPage[] = [
     office: {
       businessName: "Afrishore",
       localBusinessId: "#mossel-bay",
-      streetAddress: "58 Bland Street",
+      streetAddress: "60 Bland Street",
       addressLocality: "Mossel Bay",
       addressRegion: "Western Cape",
       addressCountry: "ZA",
