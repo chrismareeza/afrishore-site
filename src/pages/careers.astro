@@ -1,0 +1,128 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Navbar from "../components/Navbar.astro";
+import Footer from "../components/Footer.astro";
+
+const siteUrl = "https://www.afrishore.co";
+// Trailing slash matches the URL Cloudflare Pages actually serves.
+const pageUrl = `${siteUrl}/careers/`;
+const linkedinUrl = "https://www.linkedin.com/company/afrishore-shipping";
+
+const metaTitle =
+  "Careers at Afrishore | Marine Logistics Jobs, Southern Africa";
+const metaDescription =
+  "How to apply for jobs at Afrishore: we advertise every open role on LinkedIn — follow us there to see and apply for vacancies. Afrishore is committed to local content and to developing young talent across the ports and communities where we operate.";
+
+const breadcrumb = [
+  { name: "Home", item: "/" },
+  { name: "Careers", item: "/careers" },
+];
+---
+
+<BaseLayout
+  title={metaTitle}
+  description={metaDescription}
+  canonical={pageUrl}
+  breadcrumb={breadcrumb}
+>
+  <Navbar />
+
+  <main id="main">
+    <!-- Hero -->
+    <section class="relative pt-32 lg:pt-40 pb-12 px-6 lg:px-12">
+      <div class="max-w-3xl mx-auto">
+        <div class="text-base uppercase tracking-[0.2em] text-gold font-bold mb-6">
+          Careers
+        </div>
+        <h1 class="text-4xl md:text-5xl lg:text-6xl text-cream leading-[1.1] tracking-tight mb-5">
+          Careers at Afrishore
+        </h1>
+        <p class="text-lg lg:text-xl text-gold/90 mb-10 max-w-2xl leading-snug">
+          Building marine logistics careers across Southern Africa.
+        </p>
+        <p class="text-xl lg:text-2xl leading-relaxed text-cream/90">
+          Afrishore is built on local talent. Across our offices and licensed
+          ports in South Africa and Namibia, our teams are drawn from the
+          communities we operate in — and we are committed to keeping it that way.
+        </p>
+      </div>
+    </section>
+
+    <!-- Body -->
+    <section class="px-6 lg:px-12 pb-24 lg:pb-32">
+      <div class="max-w-3xl mx-auto space-y-12">
+        <!-- How we hire -->
+        <div>
+          <h2 class="text-base uppercase tracking-[0.2em] text-gold font-bold mb-5">
+            How we hire
+          </h2>
+          <div class="space-y-5 text-lg leading-relaxed" style="color: rgba(245,242,235,0.88);">
+            <p>
+              Afrishore advertises every open role on our LinkedIn page.
+              Following us on LinkedIn is the best way to see new opportunities
+              the moment they're posted, and to apply directly through the
+              platform — where your application reaches the right people.
+            </p>
+            <p>
+              We don't run a general applications inbox. To keep every
+              application visible and fairly considered, we ask that you apply
+              through the relevant LinkedIn posting rather than by email or phone.
+            </p>
+          </div>
+
+          <a
+            href={linkedinUrl}
+            target="_blank"
+            rel="noopener"
+            class="inline-flex items-center justify-center gap-2 mt-7 bg-orange hover:bg-gold text-base px-6 py-3.5 text-sm font-semibold tracking-wide transition-colors duration-200 rounded-sm"
+          >
+            Follow Afrishore on LinkedIn
+            <span aria-hidden="true">↗</span>
+          </a>
+        </div>
+
+        <!-- Local content & youth development -->
+        <div class="border-t border-line pt-10">
+          <h2 class="text-base uppercase tracking-[0.2em] text-gold font-bold mb-5">
+            Local talent, local commitment
+          </h2>
+          <div class="space-y-5 text-lg leading-relaxed" style="color: rgba(245,242,235,0.88);">
+            <p>
+              Afrishore takes local-content commitments in the marine and oil &amp;
+              gas sectors seriously. We prioritise local employment and skills
+              development in the ports and communities where we work — Mossel Bay,
+              Cape Town, Saldanha, Walvis Bay, Lüderitz and Durban — so the value
+              our operations create stays in the region.
+            </p>
+            <p>
+              We are equally committed to developing the youth of those
+              communities: giving emerging talent the training, exposure and
+              opportunity to build a career in marine logistics, and to grow with
+              us as the industry grows along the Southern African coast.
+            </p>
+          </div>
+        </div>
+
+        <!-- Closing -->
+        <div class="border-t border-line pt-10">
+          <p class="text-lg leading-relaxed text-mute">
+            Open roles are posted on LinkedIn as they arise. Follow Afrishore
+            there to be first to see them — it's the only place we advertise, and
+            the only way to apply.
+          </p>
+          <a
+            href={linkedinUrl}
+            target="_blank"
+            rel="noopener"
+            class="inline-flex items-center gap-1 mt-4 text-gold hover:text-yellow transition-colors text-sm uppercase tracking-[0.15em] font-semibold"
+          >
+            View Afrishore on LinkedIn
+            <span aria-hidden="true">↗</span>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</BaseLayout>
