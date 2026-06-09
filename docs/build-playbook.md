@@ -72,6 +72,35 @@ fonts · Cloudflare Pages, auto-deployed from GitHub `main`.
   `requestIdleCallback` — a synchronous flip on click caused a 272 ms INP spike.
   After deferring: 0% "Poor" INP in the field.
 
+## Video encoding — mobile-safe (learned the hard way)
+
+Self-hosted MP4s must be encoded for **mobile hardware decoders**, not just
+"plays on my laptop". A clip can play perfectly on desktop and **fail to load at
+all on phones** — the giveaway symptom of a too-high H.264 Level.
+
+Rules for every video before it goes in `/public/videos/`:
+
+- **H.264 (`libx264`), `profile high`, `pix_fmt yuv420p`, AAC audio.** Anything
+  exotic (HEVC, non-AAC audio) risks silent mobile rejection.
+- **H.264 Level ≤ 4.2** — ideally **3.1 for 720p**. Mobile hardware decoders cap
+  around Level 4.2–5.1 and *refuse* (not just slow) anything higher. A bad export
+  once shipped Orca at **Level 6.2** (8K-class) → it never loaded on any phone
+  while the larger Titan clip (Level 3.1) played instantly. Always check the
+  level: `ffprobe -v error -show_entries stream=level -of csv=p=0 file.mp4`.
+- **`-movflags +faststart`** — moves the `moov` index to the front so playback
+  starts before the whole file downloads.
+- **Stay under Cloudflare Pages' 25 MB per-file limit** (re-encode if over).
+
+Safe one-liner for any new clip:
+
+```
+ffmpeg -i in.mp4 -c:v libx264 -profile:v high -level 4.0 -pix_fmt yuv420p \
+  -crf 21 -movflags +faststart -c:a aac out.mp4
+```
+
+The `<video>` tag itself needs `playsinline` (so iOS plays inline, not
+fullscreen) and `preload="metadata"` with a poster image.
+
 ## Content / UX pattern (resolves "SEO depth vs. scannability")
 
 Progressive disclosure, not walls of text:
