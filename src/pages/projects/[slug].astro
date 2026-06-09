@@ -310,7 +310,7 @@ const breadcrumb = [
          the body grid's `pt-12`. -->
     <section class:list={[
       "relative pt-32 lg:pt-40 px-6 lg:px-12",
-      project.videoEmbed ? "pb-0" : "pb-12",
+      project.videoEmbed ? "pb-0" : "pb-6 lg:pb-12",
     ]}>
       <div class="max-w-5xl mx-auto">
         <!-- Back link -->
@@ -422,7 +422,7 @@ const breadcrumb = [
 
     <!-- Body + side card -->
     <section class="px-6 lg:px-12 pb-24 lg:pb-32">
-      <div class="max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 pt-12">
+      <div class="max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 pt-4 lg:pt-12">
         <!-- Long-form outcome -->
         <div class="lg:col-span-8 space-y-6">
           {project.videoEmbed && (
