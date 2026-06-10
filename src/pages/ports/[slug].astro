@@ -128,8 +128,8 @@ if (port.office) {
 
 const breadcrumb = [
   { name: "Home", item: "/" },
-  { name: "Vessel & Rig Agency", item: "/services/ship-rig-agency" },
-  { name: `Port of ${port.portName}`, item: `/ports/${port.slug}` },
+  { name: "Vessel & Rig Agency", item: "/services/ship-rig-agency/" },
+  { name: `Port of ${port.portName}`, item: `/ports/${port.slug}/` },
 ];
 ---
 
@@ -149,7 +149,7 @@ const breadcrumb = [
     <section class="relative pt-32 lg:pt-40 pb-6 lg:pb-12 px-6 lg:px-12">
       <div class="max-w-5xl mx-auto">
         <a
-          href="/services/ship-rig-agency"
+          href="/services/ship-rig-agency/"
           class="inline-flex items-center gap-2 text-sm text-mute hover:text-gold transition-colors mb-10"
         >
           <span aria-hidden="true">←</span>
@@ -370,7 +370,7 @@ const breadcrumb = [
             <ul class="flex flex-wrap gap-x-6 gap-y-2 text-sm">
               {siblingPorts.map((p) => (
                 <li>
-                  <a href={`/ports/${p.slug}`} class="text-gold hover:text-yellow transition-colors">
+                  <a href={`/ports/${p.slug}/`} class="text-gold hover:text-yellow transition-colors">
                     {p.portName} →
                   </a>
                 </li>
@@ -388,9 +388,9 @@ const breadcrumb = [
               accountability:
             </p>
             <ul class="flex flex-wrap gap-x-6 gap-y-2 text-sm">
-              <li><a href="/services/offshore-supply-base" class="text-gold hover:text-yellow transition-colors">Offshore Supply Base →</a></li>
-              <li><a href="/services/integrated-logistics" class="text-gold hover:text-yellow transition-colors">Integrated Logistics →</a></li>
-              <li><a href="/services/crew-visa-services" class="text-gold hover:text-yellow transition-colors">Crew &amp; Visa Services →</a></li>
+              <li><a href="/services/offshore-supply-base/" class="text-gold hover:text-yellow transition-colors">Offshore Supply Base →</a></li>
+              <li><a href="/services/integrated-logistics/" class="text-gold hover:text-yellow transition-colors">Integrated Logistics →</a></li>
+              <li><a href="/services/crew-visa-services/" class="text-gold hover:text-yellow transition-colors">Crew &amp; Visa Services →</a></li>
             </ul>
           </div>
         </div>
@@ -472,7 +472,7 @@ const breadcrumb = [
           <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
             {related.map((p) => (
               <a
-                href={`/projects/${p.slug}`}
+                href={`/projects/${p.slug}/`}
                 class="group block bg-surface border border-line hover:border-gold/40 transition-all duration-300 rounded-sm overflow-hidden"
               >
                 <div class="aspect-[4/3] relative" style={`background: ${placeholderBg};`}>
@@ -505,7 +505,7 @@ const breadcrumb = [
 
           <div class="mt-12 text-center">
             <a
-              href="/projects"
+              href="/projects/"
               class="inline-flex items-center gap-2 text-gold hover:text-yellow transition-colors text-sm uppercase tracking-[0.15em] font-semibold"
             >
               View all projects

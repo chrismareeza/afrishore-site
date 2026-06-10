@@ -31,7 +31,7 @@ const collectionSchema = {
     "itemListElement": allProjects.map((p, idx) => ({
       "@type": "ListItem",
       "position": idx + 1,
-      "url": `${siteUrl}/projects/${p.slug}`,
+      "url": `${siteUrl}/projects/${p.slug}/`,
       "name": p.title,
     })),
   },
@@ -83,7 +83,7 @@ const breadcrumb = [
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
         {allProjects.map((p, idx) => (
           <a
-            href={`/projects/${p.slug}`}
+            href={`/projects/${p.slug}/`}
             class="group block bg-surface border border-line hover:border-gold/40 transition-all duration-400 rounded-sm overflow-hidden"
           >
             <div

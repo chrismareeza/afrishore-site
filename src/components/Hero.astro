@@ -152,11 +152,20 @@
     defaults: { ease: "power3.out", duration: 1.0 },
   });
 
+  // On phones, hold the subhead + CTAs (and scroll cue) back an extra ~1s so
+  // the rig photo reads on its own for longer before the lower content fades
+  // in. Desktop timing is unchanged; motion-reduced users get no extra hold.
+  const mobileHold =
+    window.matchMedia("(max-width: 768px)").matches &&
+    !window.matchMedia("(prefers-reduced-motion: reduce)").matches
+      ? 1.0
+      : 0;
+
   tl.to("#hero-bg", { scale: 1.0, duration: 1.8, ease: "power2.out" }, 0)
     .to("[data-anim='hero-eyebrow']", { opacity: 1, y: 0 }, 0.3)
-    .to("[data-anim='hero-subhead']", { opacity: 1, y: 0 }, 1.1)
-    .to("[data-anim='hero-ctas']", { opacity: 1, y: 0 }, 1.3)
-    .to("[data-anim='hero-scroll']", { opacity: 1, duration: 0.8 }, 1.5);
+    .to("[data-anim='hero-subhead']", { opacity: 1, y: 0 }, 1.1 + mobileHold)
+    .to("[data-anim='hero-ctas']", { opacity: 1, y: 0 }, 1.3 + mobileHold)
+    .to("[data-anim='hero-scroll']", { opacity: 1, duration: 0.8 }, 1.5 + mobileHold);
 
   // ── Scroll parallax ──
   // Background moves slower than content as user scrolls

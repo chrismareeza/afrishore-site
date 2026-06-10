@@ -80,7 +80,7 @@ const serviceSchema = {
 const breadcrumb = [
   { name: "Home", item: "/" },
   { name: "Services", item: "/#services" },
-  { name: service.name, item: `/services/${service.slug}` },
+  { name: service.name, item: `/services/${service.slug}/` },
 ];
 ---
 
@@ -221,7 +221,7 @@ const breadcrumb = [
             <ul class="flex flex-wrap gap-x-6 gap-y-2 text-sm">
               {siblingServices.map((s) => (
                 <li>
-                  <a href={`/services/${s.slug}`} class="text-gold hover:text-yellow transition-colors">
+                  <a href={`/services/${s.slug}/`} class="text-gold hover:text-yellow transition-colors">
                     {s.name} →
                   </a>
                 </li>
@@ -240,7 +240,7 @@ const breadcrumb = [
                 <li class="flex items-center gap-2">
                   <span class="w-1.5 h-1.5 rounded-full bg-gold flex-shrink-0" aria-hidden="true"></span>
                   {portSlug.has(port)
-                    ? <a href={`/ports/${portSlug.get(port)}`} class="hover:text-gold transition-colors">{port}</a>
+                    ? <a href={`/ports/${portSlug.get(port)}/`} class="hover:text-gold transition-colors">{port}</a>
                     : <span>{port}</span>}
                 </li>
               ))}
@@ -270,7 +270,7 @@ const breadcrumb = [
           <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
             {related.map((p) => (
               <a
-                href={`/projects/${p.slug}`}
+                href={`/projects/${p.slug}/`}
                 class="group block bg-surface border border-line hover:border-gold/40 transition-all duration-300 rounded-sm overflow-hidden"
               >
                 <div class="aspect-[4/3] relative" style={`background: ${placeholderBg};`}>
@@ -303,7 +303,7 @@ const breadcrumb = [
 
           <div class="mt-12 text-center">
             <a
-              href="/projects"
+              href="/projects/"
               class="inline-flex items-center gap-2 text-gold hover:text-yellow transition-colors text-sm uppercase tracking-[0.15em] font-semibold"
             >
               View all projects

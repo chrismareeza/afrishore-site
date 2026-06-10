@@ -13,6 +13,12 @@ export interface Project {
   locationLabel?: string;
   serviceTypes: string[];
   summary: string;
+  // SEO overrides for high-intent pages. metaTitle replaces the <title>
+  // (lead with the SEARCH TERM, not the client, when they differ);
+  // metaDescription replaces summary as the meta description. Both fall
+  // back gracefully when unset — display title / H1 are unaffected.
+  metaTitle?: string;
+  metaDescription?: string;
   tagline?: string; // Optional gold sub-headline under the H1 (case-study page)
   outcome?: string; // Full case study body, only for featured
   heroImage?: string; // Path under /public; falls back to gradient placeholder
@@ -151,6 +157,8 @@ A Special Periodic Survey is rarely simple. With a BOP exchange layered in, it r
     serviceTypes: ["integrated-logistics", "crew-visa", "ship-rig-agency"],
     heroImage: "/images/projects/facebook-2africa.jpg",
     summary: "Onshore logistics for the South African landing of the 2Africa subsea cable – one of the largest telecoms infrastructure projects ever built.",
+    metaTitle: "2Africa Subsea Cable Landing: South Africa | Afrishore",
+    metaDescription: "Onshore logistics for the South African landing of the 2Africa subsea cable – 45,000 km / 180 Tbps across 33 countries. Customs, lifting, crew and cross-border freight by Afrishore.",
     outcome: `The 2Africa subsea cable system is one of the largest telecommunications infrastructure projects ever built: 45,000 km of cable connecting 33 countries across three continents, with a design capacity of 180 Tbps. Between 2022 and 2023, Afrishore supported the South African landing operations on behalf of LD TravOcean, the specialist subsea contractor responsible for the African shore-end works.
 
 The 2Africa project demanded a different operating model than offshore oil and gas. Afrishore coordinated onshore logistics across multiple South African landing points: customs clearance for specialist subsea equipment, temporary importation of cable-handling gear, storage and trucking arrangements, lifting and mobilisation/demobilisation, immigration for international cable specialists, accommodation and transport, crew change coordination, and cross-border freight on both sea and air. Every operation was time-bound to the cable lay sequence, work that ran 24/7 once vessels were on station and out of multiple South African ports.
@@ -389,6 +397,8 @@ Compressed-timeline rig extractions from South African waters remain achievable 
     heroImage: "/images/projects/sbm-subsea-concrete-mattress.jpg",
     tagline: "Concrete mattress installation · Mossel Bay, South Africa · 2015",
     summary: "Concrete mattress installation for subsea pipeline protection – SBM Offshore's pipeline crossing campaign supported by Afrishore at the Port of Mossel Bay, South Africa.",
+    metaTitle: "Subsea Concrete Mattress Installation | Afrishore",
+    metaDescription: "Concrete mattress installation for subsea pipeline and cable protection – pre-cast articulated blocks lowered to the seabed. SBM Offshore campaign, Port of Mossel Bay.",
     outcome: `Afrishore supported SBM Offshore on a 2015 concrete mattress installation campaign for subsea pipeline crossing protection, working out of the Port of Mossel Bay on the South African south coast. Concrete mattresses are pre-cast articulated concrete blocks linked by polypropylene rope, lowered onto the seabed to protect submarine pipelines, umbilicals and subsea structures from anchor strikes, fishing gear, seabed scour and dropped objects. In South African waters the technique is the standard method for hardening pipeline crossings and seabed infrastructure against the mechanical risks of the offshore environment.
 
 The Mossel Bay scope brought a mix of project cargo, customs and quayside coordination challenges into a single window. Concrete mattress consignments are heavy, dimensionally awkward and time-critical: each mattress weighs in the order of three tonnes, requires specialised lifting and slinging, and has to arrive cleared, surveyed and pre-rigged for the installation window agreed with the contracting vessel. Mossel Bay is not a project port by default, which makes pre-positioning of cranage, laydown and stevedoring decisive – delays at the quay translate directly into vessel standby cost offshore.
@@ -408,6 +418,8 @@ The campaign sits alongside Afrishore's wider subsea installation track record i
     serviceTypes: ["subsea-services", "integrated-logistics"],
     heroImage: "/images/projects/oceaneering-subsea-grout-bags.jpg",
     summary: "Subsea grout bag installation logistics: 200 subsea grout bags manufactured, certified, secured and exported by Afrishore from Cape Town, South Africa to offshore Angola for Oceaneering – single coordinated consignment for subsea infrastructure stabilisation.",
+    metaTitle: "Subsea Grout Bags – Certified Manufacture & Supply | Afrishore",
+    metaDescription: "Subsea grout bags for pipeline, free-span and subsea-structure stabilisation – manufactured, certified, sling-rigged and exported from Cape Town. 200-unit Oceaneering campaign.",
     tagline: "Subsea grout bag installation · Cape Town, South Africa · 2018",
     outcome: `Oceaneering required 200 subsea grout bags for the stabilisation of subsea infrastructure offshore Angola. Each bag had to be manufactured to subsea specification, filled, certified, secured for sea freight, and exported as a single coordinated consignment out of South Africa.
 

@@ -70,33 +70,33 @@ function linkifyGeneric(text: string, matchers: Matcher[]): LinkifySegment[] {
 }
 
 const PORT_MATCHERS: Matcher[] = [
-  { re: /\bWalvis Bay\b/g, href: "/ports/walvis-bay" },
-  { re: /\bLüderitz\b/g, href: "/ports/luderitz" },
-  { re: /\bLuderitz\b/g, href: "/ports/luderitz" },
-  { re: /\bCape Town\b/g, href: "/ports/cape-town" },
-  { re: /\bSaldanha(?:\s+Bay)?\b/g, href: "/ports/saldanha" },
-  { re: /\bMossel Bay\b/g, href: "/ports/mossel-bay" },
-  { re: /\bDurban\b/g, href: "/ports/durban" },
+  { re: /\bWalvis Bay\b/g, href: "/ports/walvis-bay/" },
+  { re: /\bLüderitz\b/g, href: "/ports/luderitz/" },
+  { re: /\bLuderitz\b/g, href: "/ports/luderitz/" },
+  { re: /\bCape Town\b/g, href: "/ports/cape-town/" },
+  { re: /\bSaldanha(?:\s+Bay)?\b/g, href: "/ports/saldanha/" },
+  { re: /\bMossel Bay\b/g, href: "/ports/mossel-bay/" },
+  { re: /\bDurban\b/g, href: "/ports/durban/" },
 ];
 
 // Service-phrase matchers for prose contexts where the phrase identifies
 // one of the four service pages. Ordered most-specific first so the
 // generic-prose dedup catches the right anchor for each href.
 const SERVICE_MATCHERS: Matcher[] = [
-  { re: /\bvessel and rig agent\b/gi, href: "/services/ship-rig-agency" },
-  { re: /\bvessel and rig agency\b/gi, href: "/services/ship-rig-agency" },
-  { re: /\bowners' protective agent\b/gi, href: "/services/ship-rig-agency" },
-  { re: /\bowners' protective agency\b/gi, href: "/services/ship-rig-agency" },
-  { re: /\boffshore supply base\b/gi, href: "/services/offshore-supply-base" },
-  { re: /\bsupply base operations\b/gi, href: "/services/offshore-supply-base" },
-  { re: /\bintegrated logistics\b/gi, href: "/services/integrated-logistics" },
-  { re: /\bcustoms brokerage\b/gi, href: "/services/integrated-logistics" },
-  { re: /\bcustoms clearance\b/gi, href: "/services/integrated-logistics" },
-  { re: /\bproject cargo\b/gi, href: "/services/integrated-logistics" },
-  { re: /\bcrew logistics\b/gi, href: "/services/crew-visa-services" },
-  { re: /\bcrew rotations\b/gi, href: "/services/crew-visa-services" },
-  { re: /\bvisa and immigration processing\b/gi, href: "/services/crew-visa-services" },
-  { re: /\bvisa processing\b/gi, href: "/services/crew-visa-services" },
+  { re: /\bvessel and rig agent\b/gi, href: "/services/ship-rig-agency/" },
+  { re: /\bvessel and rig agency\b/gi, href: "/services/ship-rig-agency/" },
+  { re: /\bowners' protective agent\b/gi, href: "/services/ship-rig-agency/" },
+  { re: /\bowners' protective agency\b/gi, href: "/services/ship-rig-agency/" },
+  { re: /\boffshore supply base\b/gi, href: "/services/offshore-supply-base/" },
+  { re: /\bsupply base operations\b/gi, href: "/services/offshore-supply-base/" },
+  { re: /\bintegrated logistics\b/gi, href: "/services/integrated-logistics/" },
+  { re: /\bcustoms brokerage\b/gi, href: "/services/integrated-logistics/" },
+  { re: /\bcustoms clearance\b/gi, href: "/services/integrated-logistics/" },
+  { re: /\bproject cargo\b/gi, href: "/services/integrated-logistics/" },
+  { re: /\bcrew logistics\b/gi, href: "/services/crew-visa-services/" },
+  { re: /\bcrew rotations\b/gi, href: "/services/crew-visa-services/" },
+  { re: /\bvisa and immigration processing\b/gi, href: "/services/crew-visa-services/" },
+  { re: /\bvisa processing\b/gi, href: "/services/crew-visa-services/" },
 ];
 
 // Port-only linkifier – kept on its existing signature so project and
