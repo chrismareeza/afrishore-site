@@ -556,6 +556,7 @@ const finalGraph = [
         rel="preload"
         as="image"
         href={preloadImage}
+        type={preloadImage.endsWith(".webp") ? "image/webp" : undefined}
         fetchpriority="high"
       />
     )}

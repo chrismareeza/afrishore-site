@@ -300,7 +300,7 @@ const breadcrumb = [
   } : undefined}
   preloadImage={project.videoEmbed
     ? (project.videoEmbed.posterSrc || project.heroImage)
-    : undefined}
+    : (project.heroImage ? webp(project.heroImage) : undefined)}
 >
   <Navbar />
 
@@ -407,14 +407,19 @@ const breadcrumb = [
             style={`background: ${placeholderBg};`}
           >
             {project.heroImage && (
-              <img
-                src={project.heroImage}
-                alt={heroAlt}
-                class="absolute inset-0 w-full h-full object-cover"
-                loading="eager"
-                width="1920"
-                height="1080"
-              />
+              <picture>
+                <source srcset={webp(project.heroImage)} type="image/webp" />
+                <img
+                  src={project.heroImage}
+                  alt={heroAlt}
+                  class="absolute inset-0 w-full h-full object-cover"
+                  loading="eager"
+                  fetchpriority="high"
+                  decoding="async"
+                  width="1920"
+                  height="1080"
+                />
+              </picture>
             )}
           </div>
         )}
@@ -576,14 +581,18 @@ const breadcrumb = [
                 style={`background: ${placeholderBg};`}
               >
                 {p.heroImage && (
-                  <img
-                    src={p.heroImage}
-                    alt={`${p.title} – ${p.client} project at ${p.port}`}
-                    class="absolute inset-0 w-full h-full object-cover"
-                    loading="lazy"
-                    width="800"
-                    height="600"
-                  />
+                  <picture>
+                    <source srcset={webp(p.heroImage)} type="image/webp" />
+                    <img
+                      src={p.heroImage}
+                      alt={`${p.title} – ${p.client} project at ${p.port}`}
+                      class="absolute inset-0 w-full h-full object-cover"
+                      loading="lazy"
+                      decoding="async"
+                      width="800"
+                      height="600"
+                    />
+                  </picture>
                 )}
                 <div class="absolute top-3 right-3 bg-base/80 backdrop-blur-sm px-2.5 py-1 text-[10px] font-semibold tracking-wider text-cream group-hover:text-gold transition-colors duration-300">
                   {p.year}
