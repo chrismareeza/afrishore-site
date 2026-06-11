@@ -303,7 +303,7 @@ export const ports: PortPage[] = [
     lead: "Afrishore holds an active port agency licence for the Port of Saldanha, South Africa's largest natural deep-water port and the country's primary iron-ore export terminal.",
     intro: [
       "Saldanha Bay is South Africa's largest natural deep-water harbour, built around the iron-ore export terminal that handles ore railed in from the Northern Cape. Afrishore acts as full vessel and rig agent here for bulk carriers, tankers, rigs, OSVs, PSVs and AHTS, handling port clearance and port-authority liaison, immigration and crew changes, husbandry and bunkering coordination across the bulk, tanker and offshore disciplines the port works across.",
-      "Beyond iron ore, Saldanha holds oil & gas and project-cargo facilities that remain underutilised – spare deep-water capacity that makes the port a strong, uncongested option for offshore mobilisations, heavy-lift and project work. Quayside ship repair can be actioned alongside, and the bay supports an extensive fishing industry, so a single port call can combine bulk, project, repair and crew scopes under one accountable agent.",
+      "Beyond iron ore, Saldanha holds extensive oil & gas and project infrastructure that remains underutilised – including a dedicated Offshore Supply Base precinct and the Mossgas Quay, with quayside warehousing, workshops and cranage suited to offshore mobilisations, heavy-lift and project work. The spare deep-water capacity makes the port a strong, uncongested option for these scopes. Quayside ship repair can be actioned alongside, and the bay supports an extensive fishing industry, so a single port call can combine bulk, project, repair and crew scopes under one accountable agent.",
       "Run alongside Afrishore's Cape Town office and the wider licensed network, Saldanha coverage gives operators an effective West Coast deep-water option in close proximity to Cape Town, with one accountable agent across the entire South African west coast.",
     ],
     scope: [
@@ -319,20 +319,46 @@ export const ports: PortPage[] = [
     ],
     vesselTypes: VESSEL_TYPES,
     facilities: {
-      heading: "The Port of Saldanha at a glance",
+      heading: "Berths & facilities at the Port of Saldanha",
       intro:
-        "What the port offers, and where Afrishore sees spare capacity:",
+        "South Africa's deepest natural port: the entrance channel is dredged to 23 m at chart datum and the port accepts vessels to 20.5 m draught (21.5 m by arrangement). The gating berth and facility data:",
       docks: [
         {
-          name: "Port of Saldanha",
+          name: "Iron Ore Terminal",
           specs: [
-            { label: "Port type", value: "Natural deep-water" },
-            { label: "Primary trade", value: "Iron-ore export" },
-            { label: "Also handles", value: "Oil & gas · Project cargo · Fisheries" },
-            { label: "Ship repair", value: "Quayside" },
+            { label: "Berths", value: "2" },
+            { label: "Permitted draught", value: "21.25 m" },
+            { label: "Vessels", value: "Capesize / VLOC" },
+          ],
+        },
+        {
+          name: "Multi-Purpose Terminal",
+          specs: [
+            { label: "Berths", value: "201–203" },
+            { label: "Quay length", value: "874 m" },
+            { label: "Max draught", value: "12–13.4 m" },
+          ],
+        },
+        {
+          name: "Tanker Berth",
+          specs: [
+            { label: "Length", value: "365 m" },
+            { label: "Permitted draught", value: "21.25 m" },
+          ],
+        },
+        {
+          name: "Offshore Supply Base & Mossgas Quay",
+          specs: [
+            { label: "Mossgas Quay design depth", value: "7.9 m" },
+            { label: "Quayside", value: "Warehousing · workshops · cranage" },
+            { label: "Suited to", value: "Offshore supply base · project cargo · laydown" },
           ],
         },
       ],
+      source: {
+        url: "https://www.transnetnationalportsauthority.net/OurPorts/Saldanha/Pages/Overview.aspx",
+        label: "Berth data: Transnet National Ports Authority",
+      },
     },
     heroImage: "/images/ports/saldanha-port.jpg",
     heroAlt:
