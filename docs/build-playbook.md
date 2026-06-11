@@ -132,6 +132,39 @@ Progressive disclosure, not walls of text:
   unfinished site.
 - Consistent NAP and brand styling across both reinforces the shared entity.
 
+## Analytics setup
+
+- **Cloudflare Web Analytics: use the explicit JS snippet, never "Automatic
+  setup".** The zone-level automatic entry silently collected nothing on
+  afrishore.co; the manually embedded beacon is what works, is explicit in the
+  code, and survives proxy/zone changes:
+  `<script is:inline defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "<site-token>"}'></script>`
+- **One dashboard entry per site.** Each site has its OWN token — never reuse
+  another site's. Delete/disable any redundant "Automatic setup" entry or you
+  risk two beacons double-counting.
+- **Cloudflare WA is cookieless → load it unconditionally** (no consent
+  gating). It's also the source for Core Web Vitals RUM (LCP/INP/CLS field
+  data with the offending element identified — this is what caught the 8.5s
+  project-hero LCP).
+- **GA4 goes direct via gtag with Consent Mode v2** — denied-by-default,
+  flipped by the consent banner (defer the flip to requestIdleCallback, see
+  Performance). Wire lead-intent events (mailto/tel clicks, key page views)
+  as gtag events in the layout.
+- **Skip Google Tag Manager.** A dev-managed static site with its tags in
+  code doesn't need it — it's an extra render-blocking script, another
+  consent surface, and a layer of indirection with no payoff at this scale.
+
+## SERP CTR — title order matters
+
+- **Lead the <title> with the term people actually search, not the client or
+  brand.** "Oceaneering: Subsea Grout Bags" ranked top-5 with 0 clicks; the
+  searcher typed "subsea grout bags" and the title's first words didn't match.
+  Retitled to "Subsea Grout Bags – Certified Manufacture & Supply | Afrishore".
+  Keep the on-page H1 as the display/branded title — only override the SEO
+  title (optional metaTitle/metaDescription fields with fallback).
+- Symptom to watch in GSC: **position ≤8 with ~0% CTR** = title/snippet
+  problem, not a ranking problem. Highest-ROI fix there is.
+
 ## Stuff that wasted time — don't repeat
 
 - CSS can't selectively brighten luminance-based pixels (mix-blend-mode /

@@ -421,6 +421,26 @@ const finalGraph = [
       })();
     </script>
 
+    <!-- Pre-paint consent-banner clearance. If no consent choice is stored
+         the banner WILL show, so add .consent-open to <html> before first
+         paint — the mobile hero padding (see ConsentBanner.astro) is then
+         part of the initial layout instead of a post-load jump. Cloudflare
+         RUM measured that jump at CLS 0.58; with the class set pre-paint,
+         only the sub-pixel --consent-h refinement remains. Must share the
+         localStorage key with ConsentBanner.astro. -->
+    <script is:inline>
+      (function () {
+        try {
+          var c = localStorage.getItem("afrishore-consent");
+          if (c !== "granted" && c !== "denied")
+            document.documentElement.classList.add("consent-open");
+        } catch (e) {
+          // localStorage blocked → banner will show → clearance needed.
+          document.documentElement.classList.add("consent-open");
+        }
+      })();
+    </script>
+
     <!-- Google Analytics 4 (G-E5TS8D8VNX) with Consent Mode v2.
          analytics_storage defaults to DENIED (POPIA/GDPR); the consent
          banner flips it to 'granted' on Accept and the choice is
