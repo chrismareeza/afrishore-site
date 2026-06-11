@@ -294,13 +294,22 @@ For Afrishore, the Deepsea Hercules campaign for Galp is a representative exampl
     slug: "deepsea-mira-venus-1x",
     title: "Deepsea Mira: Venus-1x Drilling",
     client: "Odfjell Drilling / Northern Ocean LTD",
+    endCustomer: "TotalEnergies",
     year: "2023–2024",
     port: "Walvis Bay / Lüderitz",
-    serviceTypes: ["ship-rig-agency", "supply-base"],
+    serviceTypes: ["ship-rig-agency", "supply-base", "crew-visa"],
     vessel: "Deepsea Mira",
     assetType: "rig",
     heroImage: "/images/projects/deepsea-mira-venus-1x.jpg",
-    summary: "Drilling on the Venus-1x well – first in the multi-year Deepsea Mira deployment in Namibian waters.",
+    tagline: "Venus-1X re-entry, side-track & DST · Dual-base support · Walvis Bay & Lüderitz",
+    summary: "Shore base logistics for the Deepsea Mira's re-entry, side-track and drill stem test of TotalEnergies' Venus-1X well in Namibia's Orange Basin – run on a dual-base model out of Walvis Bay and a dedicated Lüderitz satellite base.",
+    outcome: `Venus-1x opened the Deepsea Mira's multi-year Namibian deployment – and established the dual-base shore operation Afrishore has run for the rig ever since. The primary offshore supply base at Walvis Bay supported the campaign while simultaneously servicing the Deepsea Bollsta, two rigs supplied concurrently from a single base, while a dedicated satellite offshore supply base at Lüderitz, operated by Afrishore exclusively for the Deepsea Mira, put quayside support closer to the well. All cargo moving between the two ports, and on and offshore, ran under full chain-of-custody compliance.
+
+The well operation itself was a milestone in the appraisal of TotalEnergies' landmark Venus discovery. The Deepsea Mira re-entered the Venus-1X well, side-tracked it and conducted a crucial drill stem test (DST) – the flow test that converts a discovery into measured reservoir performance – which yielded highly positive flow results. Throughout, Afrishore's shore base logistics kept the rig supplied across both ports.
+
+Crew rotation ran as its own coordinated chain. Afrishore consolidated crews in Windhoek and flew them south by fixed-wing charter to the helicopter base at Oranjemund for offshore crew changes – the full movement, from arrival in Namibia to handover at the heliport, managed end to end.
+
+The dual-base model proven on Venus-1x carried directly into the Deepsea Mira's subsequent campaigns at Tamboti-1x, Volans-1x and Kharas-1 – the start of an unbroken run of Afrishore shore base support behind the rig's Namibian programme.`,
     featured: false,
     published: true,
   },
