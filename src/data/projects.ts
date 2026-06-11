@@ -307,7 +307,7 @@ For Afrishore, the Deepsea Hercules campaign for Galp is a representative exampl
 
 The well operation itself was a milestone in the appraisal of TotalEnergies' landmark Venus discovery. The Deepsea Mira re-entered the Venus-1X well, side-tracked it and conducted a crucial drill stem test (DST) – the flow test that converts a discovery into measured reservoir performance – which yielded highly positive flow results. Throughout, Afrishore's shore base logistics kept the rig supplied across both ports.
 
-Crew rotation ran as its own coordinated chain. Afrishore consolidated crews in Windhoek and flew them south by fixed-wing charter to the helicopter base at Oranjemund for offshore crew changes – the full movement, from arrival in Namibia to handover at the heliport, managed end to end.
+Crew rotation ran as its own coordinated chain. Afrishore consolidated crews in Windhoek, wherefrom they subsequently flew south by fixed-wing charter to the helicopter base at Oranjemund for offshore crew changes. Full crew movement control, from arrival in Namibia to handover at the heliport, managed end to end.
 
 The dual-base model proven on Venus-1x carried directly into the Deepsea Mira's subsequent campaigns at Tamboti-1x, Volans-1x and Kharas-1 – the start of an unbroken run of Afrishore shore base support behind the rig's Namibian programme.`,
     featured: false,
