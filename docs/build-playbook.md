@@ -180,6 +180,15 @@ Progressive disclosure, not walls of text:
   impressions, then optimise the page that ranks (a section answering the query,
   the keyword in a heading, more depth, internal links, a tighter title, schema)
   and re-submit. Optimising existing pages beats publishing new ones.
+- **IndexNow — justified by Copilot, not Bing blue links.** Bing's index lags
+  site migrations by months (afrishore.co: Bing was still crawling Wix-era
+  URLs eight months after cutover) and **Copilot's AI citations ride on Bing's
+  index** — stale index = AI answers citing your old content. Bing Webmaster
+  Tools' AI Performance report counts those citations (~1–2/day for
+  afrishore.co), the only hard AI-citation number any engine exposes. Setup:
+  host a key file in `/public/<key>.txt`, GitHub Action pings
+  api.indexnow.org with the sitemap URL list on each push to main. Google
+  ignores IndexNow — this is purely the Bing/Copilot lane.
 - For local services (lifting/rigging): build service-area / location pages,
   optimise the Google Business Profile, and lead with decision-useful equipment
   spec content.
