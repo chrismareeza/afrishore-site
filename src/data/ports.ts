@@ -162,7 +162,7 @@ export const ports: PortPage[] = [
     intro: [
       "From Lüderitz, Afrishore acts as full vessel and rig agent for the rigs, drillships, OSVs, PSVs and survey vessels working the Orange Basin, alongside the general-cargo, fishing and ore traffic the port itself handles. The port works two commercial berths to a maximum draft of 8.75 m, with a maximum quayside lift of 28 mt, and Afrishore plans every call and cargo operation around those parameters so vessels berth, work and sail without surprises.",
       "Lüderitz sits on an exposed stretch of the southern Namibian coast and is subject to the prevailing winds, so vessel movements there are occasionally weather-restricted. Afrishore's local team schedules berthing and cargo work around the available weather windows and keeps owners, masters and operators informed throughout – turning a well-known regional factor into a managed part of the plan rather than a disruption.",
-      "Co-ordinated with Afrishore's Walvis Bay base and the wider licensed network, Lüderitz coverage gives operators one accountable agent across the whole Namibian coast: port clearance and port-authority liaison, immigration and crew rotation, husbandry and provisions, bunkering coordination and offshore logistics, all from a single point of accountability.",
+      "Coordinated with Afrishore's Walvis Bay base and the wider licensed network, Lüderitz coverage gives operators one accountable agent across the whole Namibian coast: port clearance and port-authority liaison, immigration and crew rotation, husbandry and provisions, bunkering coordination and offshore logistics, all from a single point of accountability.",
     ],
     scope: [
       "Port clearance & customs formalities",
@@ -347,7 +347,7 @@ export const ports: PortPage[] = [
     metaTitle:
       "Vessel & Rig Agent: Port of Mossel Bay | Afrishore HQ",
     metaDescription:
-      "Afrishore is the vessel and rig agent at the Port of Mossel Bay (HQ, 60 Bland Street) – agency for ships, oil rigs, drillships and supply vessels, plus the offshore supply base behind the Brulpadda and Luiperd campaigns on Block 11B/12B since 2010.",
+      "Afrishore is the vessel and rig agent at the Port of Mossel Bay (HQ, 60 Bland Street), operating since 2010 – agency for ships, oil rigs, drillships and supply vessels, plus the offshore supply base behind the TotalEnergies Brulpadda and Luiperd campaigns on Block 11B/12B.",
     h1: "Vessel & Rig Agent: Port of Mossel Bay",
     geoSub: "Afrishore's founding base and head office – vessel & rig agency for the Brulpadda & Luiperd gas fields",
     lead: "Afrishore holds an active port agency licence for the Port of Mossel Bay, its founding base and head office, and acts as vessel and rig agent for the ships, oil rigs and supply vessels working South Africa's Block 11B/12B gas fields offshore.",

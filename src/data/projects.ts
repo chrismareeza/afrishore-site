@@ -112,7 +112,7 @@ Luiperd confirmed Block 11B/12B as one of Africa's most significant new gas play
     summary: "Integrated supply base operations for the 5-yearly recertification of the Deepsea Bollsta semi-submersible drilling unit.",
     outcome: `Mobile offshore drilling units must undergo comprehensive Special Periodic Surveys (SPS) which means a full hull, machinery and safety systems recertification required by classification societies. In 2024, the Deepsea Bollsta completed its SPS at the Port of Walvis Bay with Afrishore acting as the integrated onshore logistics partner throughout the survey period.
 
-For the duration of the SPS, Afrishore handled the full shore-side scope: temporary importation of spare parts and project equipment, customs clearance, warehousing of project cargo, abnormal trucking for oversized components, crane and rigging coordination, waste management and crew rotation logistics including visa and immigration for international specialist teams. The SPS scope brought multiple discipline crews to Walvis Bay simultaneously and every visa, every customs entry and every supply chain link was coordinated from the Port of Walvis Bay's Oil & Gas Section, where Afrishore is permanently embedded. A highlight of the project was being involved in the assembly and shipping out of 15T Stevshark MK5 Anchors in collaboration with Delmar Systems.
+For the duration of the SPS, Afrishore handled the full shore-side scope: temporary importation of spare parts and project equipment, customs clearance, warehousing of project cargo, abnormal trucking for oversized components, crane and rigging coordination, waste management and crew rotation logistics including visa and immigration for international specialist teams. The SPS scope brought multiple discipline crews to Walvis Bay simultaneously and every visa, every customs entry and every supply chain link was coordinated from the Port of Walvis Bay's Oil & Gas Section, where Afrishore is permanently embedded. A highlight of the project was being involved in the assembly and shipping out of 15-tonne Stevshark MK5 anchors in collaboration with Delmar Systems.
 
 The Bollsta returned to operations on schedule, recertified for another operational cycle.`,
     featured: true,
@@ -163,7 +163,7 @@ A Special Periodic Survey is rarely simple. With a BOP exchange layered in, it r
 
 The 2Africa project demanded a different operating model than offshore oil and gas. Afrishore coordinated onshore logistics across multiple South African landing points: customs clearance for specialist subsea equipment, temporary importation of cable-handling gear, storage and trucking arrangements, lifting and mobilisation/demobilisation, immigration for international cable specialists, accommodation and transport, crew change coordination, and cross-border freight on both sea and air. Every operation was time-bound to the cable lay sequence, work that ran 24/7 once vessels were on station and out of multiple South African ports.
 
-Trusted by LD TravOcean for one of the most significant infrastructure projects of the decade.`,
+Trusted by LD TravOcean across every South African landing of the 45,000 km system.`,
     featured: true,
     published: true,
   },
@@ -214,9 +214,9 @@ A semi-submersible heavy lift is the kind of operation where every element must 
 
 The mandate covered operation of the Mossel Bay offshore supply base in support of the initial Brulpadda drilling campaign. TotalEnergies' operational standards, logistical methodologies and supply base disciplines were transferred to Afrishore over the course of the campaign and applied directly in the running of the base.
 
-The measure of a skills transfer is not the training. It is what is delivered once the training is over. Afrishore performed a turnkey demobilisation of the campaign out of the Port of Cape Town, executed to the standards established during the operation with zero safety-related incidents during the project.
+The proof of that transfer came at close-out: Afrishore performed a turnkey demobilisation of the campaign out of the Port of Cape Town, executed to the standards established during the operation, with zero safety-related incidents across the project.
 
-A first appointment is a test as much as a mandate. Afrishore operated the Mossel Bay base to TotalEnergies' standard and closed the campaign out cleanly through Cape Town showcasing its multi-port capabilities.`,
+The disciplines established on that first appointment became the operating template for every Afrishore supply base since – including the base behind the 2018–2019 campaign that delivered the Brulpadda discovery.`,
     featured: false,
     published: true,
   },
@@ -236,11 +236,19 @@ A first appointment is a test as much as a mandate. Afrishore operated the Mosse
     slug: "eco-atlantic-gazania-1",
     title: "Eco Atlantic: Gazania-1 Drilling Campaign",
     client: "Eco Atlantic Oil & Gas",
-    year: "2023–2024",
-    port: "Cape Town / Saldanha",
-    serviceTypes: ["ship-rig-agency", "supply-base"],
+    year: "2022–2023",
+    port: "Cape Town",
+    serviceTypes: ["ship-rig-agency", "supply-base", "integrated-logistics"],
+    vessel: "Island Innovator",
+    assetType: "rig",
     heroImage: "/images/projects/eco-atlantic-gazania-1.jpg",
-    summary: "Vessel agency and offshore supply base operations for the Gazania-1 exploration well on the South African West Coast.",
+    tagline: "Turnkey campaign logistics · Block 2B, West Coast · Port of Cape Town",
+    summary: "Turnkey project logistics and exclusive offshore supply base management from the Port of Cape Town for Eco Atlantic's first South African drilling campaign – the Gazania-1 exploration well on Block 2B.",
+    outcome: `Gazania-1 was Eco Atlantic Oil & Gas's first South African drilling campaign: an exploration well on Block 2B, off the country's west coast. Afrishore was appointed to oversee turnkey project logistics for the campaign's stakeholders – Island Drilling's semi-submersible Island Innovator, AMSOL's support vessel Umkhuseli, Baker Hughes and NRG Group – one accountable logistics partner across the rig, marine and services contractors.
+
+The offshore supply base for the campaign was managed exclusively by Afrishore out of the Port of Cape Town for the three-month duration. The base ran the full quayside scope: quayside management and berth scheduling, anchor spooling, pipe storage, mobilisation and bunkering – every port-side movement sequenced to the offshore schedule. Alongside the port operation, Afrishore managed full customs compliance for all project cargo moved in and out of South Africa across the campaign.
+
+For a first-time operator in South African waters, Gazania-1 demonstrated the value of a single point of accountability: one base, one team and one coordination point between operator, rig and service contractors – the same integrated model Afrishore runs for drilling campaigns across the region.`,
     featured: false,
     published: true,
   },
@@ -300,6 +308,7 @@ For Afrishore, the Deepsea Hercules campaign for Galp is a representative exampl
     slug: "deepsea-mira-tamboti-1x",
     title: "Deepsea Mira: Tamboti-1x Drilling",
     client: "Odfjell Drilling / Northern Ocean LTD",
+    endCustomer: "TotalEnergies",
     year: "2024–2025",
     port: "Walvis Bay / Lüderitz",
     serviceTypes: ["ship-rig-agency", "supply-base"],
@@ -313,11 +322,11 @@ For Afrishore, the Deepsea Hercules campaign for Galp is a representative exampl
         "Afrishore's Lüderitz logistics in full flow: turnkey quayside management, vessel deck-plan execution and cargo preparation ahead of departure: one of two shore bases run simultaneously with Walvis Bay.",
     },
     summary: "Continued Deepsea Mira drilling campaign on the Tamboti-1x well, with Afrishore providing full onshore logistics.",
-    outcome: `The TotalEnergies Tamboti-1X campaign marked another defining chapter in the unfolding story of Namibia's Orange Basin and Afrishore was proud to play a notable role in its delivery. Building on the momentum of the basin's recent discoveries, the programme called for Deepsea Mira's shore base logistics to run simultaneously out of Walvis Bay and Lüderitz, paired with crewing capability that could match the pace, scale and technical complexity of a frontier deepwater operation. From day one we mobilised an integrated package of shore base logistics, materials handling and the deployment of specialist offshore personnel, engineered to keep the rig supplied, the schedule intact and the operation moving without compromise.
+    outcome: `The Tamboti-1X exploration well – drilled by the Deepsea Mira for TotalEnergies in Namibia's Orange Basin – required shore base logistics running simultaneously out of Walvis Bay and Lüderitz, paired with crewing capable of matching the pace and technical complexity of a frontier deepwater operation. Afrishore mobilised the integrated package from day one: shore base operations, materials handling and the deployment of specialist offshore personnel, sequenced to keep the rig supplied and the drilling schedule intact across both ports.
 
-What set Tamboti-1X apart was the rare combination of operational ambition and disciplined execution. The campaign was completed on schedule and within budget, underpinned by a safety record that speaks to the team's unwavering commitment to QHSE: zero recordable incidents across the entire duration of our scope in both locations. Behind those numbers stands a workforce we are particularly proud of: a high proportion of Namibian shore base personnel, developed through our local content and skills transfer programmes and now drawing on uninterrupted operational experience since 2022, working shoulder-to-shoulder with international specialists. It is tangible proof that world-class deepwater exploration and meaningful local participation are not competing objectives; they reinforce each other.
+The campaign completed on schedule and within budget, with zero recordable incidents across the full Afrishore scope in both locations. The shore base workforce was predominantly Namibian – personnel developed through Afrishore's local content and skills transfer programmes, carrying uninterrupted Orange Basin operational experience since 2022 – working alongside international specialists.
 
-For Afrishore, Tamboti-1X was more than a successful campaign, it was a proof point for the integrated logistics and crewing model we have built specifically for Namibia's offshore sector. As the Orange Basin continues to attract some of the most ambitious exploration activity in the world, we stand ready to support the next campaign, and the one after that, with the same standards of safety, reliability and Namibian capability.`,
+Tamboti-1X proved the dual-port logistics and crewing model Afrishore built for Namibia's offshore sector. The same team, systems and infrastructure carried directly into the Deepsea Mira's next campaigns at Volans-1x and Kharas-1.`,
     featured: false,
     published: true,
   },
@@ -347,7 +356,7 @@ The transition did not happen in isolation. It rested on the scope delivered thr
 
 The people behind it. Both campaigns drew on a workforce with uninterrupted Namibian shore base experience since 2022, working shoulder-to-shoulder with international specialists. That continuity of people is what allowed continuity of operation.
 
-Across the combined Volans-1x and Kharas-1 scope, both campaigns were delivered on schedule and within budget with zero recordable incidents.
+Both wells closed out to schedule and to budget, with the team's recordable-incident-free record – unbroken since Namibian operations began in 2022 – carried through both campaigns.
 
 For Afrishore, the Deepsea Mira programmes demonstrate what Namibia's offshore sector increasingly demands: integrated logistics, expert customs and authority management, deep local content and the ability to transition campaigns from one operator to the next without losing a single day of rig productivity. As the Orange Basin continues to attract some of the most ambitious exploration activity in the world, Afrishore stands ready to support the next campaign, and the one after that, with the same standards of safety, reliability and Namibian capability.`,
     featured: false,
@@ -425,7 +434,7 @@ The campaign sits alongside Afrishore's wider subsea installation track record i
 
 Subsea grout bags are flexible polypropylene fabric units, charged with high-strength grout and lowered onto the seabed to stabilise pipelines, free spans, manifolds, jumpers and other subsea structures. In service they conform to the contours of the seabed and harden into a load-bearing support – the standard solution where rigid mattresses cannot follow the topography.
 
-Afrishore managed the scope end to end. Each unit was manufactured in polypropylene, subsea rated and certified, packed with 25kg grout charges and fitted with certified lifting slings. All 200 units were then individually secured and wrapped for sea freight transport. The consignment was loaded out of A-Berth at the Port of Cape Town, South Africa onto a coastal liner for carriage to Angola.
+Afrishore managed the scope end to end. Each unit was manufactured in polypropylene, subsea rated and certified, packed with 25 kg grout charges and fitted with certified lifting slings. All 200 units were then individually secured and wrapped for sea freight transport. The consignment was loaded out of A-Berth at the Port of Cape Town, South Africa onto a coastal liner for carriage to Angola.
 
 Subsea grout bags are a stabilisation product where the integrity of every unit matters. The certification, the rated material and the lifting slings are not finishing touches. They are what allows a bag to be lifted, placed and to perform on the seabed. A single compromised unit is one that cannot do its job. The securing and wrapping of each of the 200 bags was therefore not incidental to the work. It was the work.
 
