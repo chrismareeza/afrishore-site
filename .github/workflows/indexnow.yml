@@ -23,8 +23,12 @@ jobs:
 
           KEY = "accec9b74cb0a9d99eb83c822a84a093"
           HOST = "www.afrishore.co"
+          UA = "AfrishoreIndexNow/1.0 (+https://www.afrishore.co)"
 
-          xml = urllib.request.urlopen(f"https://{HOST}/sitemap-0.xml", timeout=30).read().decode()
+          # A real User-Agent is required: Cloudflare 403s the default
+          # Python-urllib UA (looks like a scanner).
+          sm = urllib.request.Request(f"https://{HOST}/sitemap-0.xml", headers={"User-Agent": UA})
+          xml = urllib.request.urlopen(sm, timeout=30).read().decode()
           urls = re.findall(r"<loc>([^<]+)</loc>", xml)
           if not urls:
               sys.exit("No URLs found in sitemap")
@@ -38,7 +42,7 @@ jobs:
           req = urllib.request.Request(
               "https://api.indexnow.org/indexnow",
               data=json.dumps(payload).encode(),
-              headers={"Content-Type": "application/json; charset=utf-8"},
+              headers={"Content-Type": "application/json; charset=utf-8", "User-Agent": UA},
           )
           resp = urllib.request.urlopen(req, timeout=30)
           print(f"IndexNow: HTTP {resp.status} - submitted {len(urls)} URLs")
