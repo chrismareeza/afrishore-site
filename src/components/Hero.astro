@@ -248,11 +248,24 @@
       });
     }
 
-    // Run after the GSAP cascade hits the headline position (~600ms)
-    if (document.readyState === "loading") {
-      document.addEventListener("DOMContentLoaded", () => setTimeout(start, 600));
-    } else {
-      setTimeout(start, 600);
+    // On phones (and for reduced-motion users) skip the word-by-word blur
+    // reveal entirely. The H1 is server-rendered with its gradient already
+    // applied via `.hero-title .line`, so leaving it untouched lets it paint
+    // at FCP instead of being gated on JS. The H1 is the homepage's LCP
+    // element, so on Slow 4G this is the difference between ~4.9 s and ~2 s
+    // LCP. Desktop keeps the full cinematic reveal; the mobile sunrise and
+    // subhead/CTA cascade are unaffected (they animate independently).
+    const staticHeadline =
+      window.matchMedia("(max-width: 768px)").matches ||
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    if (!staticHeadline) {
+      // Run after the GSAP cascade hits the headline position (~600ms)
+      if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", () => setTimeout(start, 600));
+      } else {
+        setTimeout(start, 600);
+      }
     }
   })();
 
