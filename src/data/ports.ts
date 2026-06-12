@@ -54,6 +54,8 @@ export interface PortPage {
   phoneE164?: string;        // tel: form of the above
   heroImage?: string;        // optional; gradient fallback if absent
   heroAlt?: string;
+  heroCaption?: string;      // optional documentary caption overlaid on the hero
+  heroPosition?: string;     // optional object-position to control the letterbox crop focus
   secondaryImage?: {         // optional in-body captioned photo
     src: string;
     alt: string;
@@ -126,6 +128,8 @@ export const ports: PortPage[] = [
     heroImage: "/images/ports/walvis-bay-hero.jpg",
     heroAlt:
       "Riser joints laid down with a mobile crane on the port apron at the Port of Walvis Bay, Namibia – Afrishore offshore supply base and vessel & rig agency",
+    heroCaption: "Riser laydown · Afrishore offshore supply base · Port of Walvis Bay",
+    heroPosition: "center 72%",
     secondaryImage: {
       src: "/images/ports/walvis-bay-base.jpg",
       alt: "Afrishore's Walvis Bay logistics base – mobile crane and rigging spread handling rig tubulars on the Port of Walvis Bay apron, Namibia",
@@ -198,6 +202,8 @@ export const ports: PortPage[] = [
     heroImage: "/images/ports/luderitz-fugro-supporter.jpg",
     heroAlt:
       "The survey vessel Fugro Supporter alongside the quay at the Port of Lüderitz, Namibia: Afrishore port agency and quayside support for an Orange Basin survey campaign",
+    heroCaption: "Survey vessel alongside · Port of Lüderitz",
+    heroPosition: "center 35%",
   },
   {
     slug: "cape-town",
@@ -279,6 +285,8 @@ export const ports: PortPage[] = [
     heroImage: "/images/ports/cape-town-hero.jpg",
     heroAlt:
       "Aerial view of the Port of Cape Town, South Africa with Table Mountain behind: the repair, project-cargo and offshore-support harbour where Afrishore acts as vessel and rig agent",
+    heroCaption: "Heavy-lift discharge · Port of Cape Town · Table Mountain",
+    heroPosition: "center 28%",
     office: {
       businessName: "Afrishore",
       localBusinessId: "#cape-town",
@@ -368,6 +376,8 @@ export const ports: PortPage[] = [
     heroImage: "/images/ports/saldanha-port.jpg",
     heroAlt:
       "Operations vantage over Saldanha Bay, South Africa at last light: vessel-tracking and electronic-chart monitors with the bay, moored craft and headland beyond, where Afrishore coordinates west-coast port calls",
+    heroCaption: "Operations vantage · Saldanha Bay",
+    heroPosition: "center 40%",
   },
   {
     slug: "mossel-bay",
@@ -403,6 +413,8 @@ export const ports: PortPage[] = [
     heroImage: "/images/ports/mossel-bay-port.jpg",
     heroAlt:
       "Aerial view of the Port of Mossel Bay, South Africa: breakwater, harbour basin and quay; Afrishore's founding base and head office, where it operated the Block 11B/12B (Brulpadda/Luiperd) offshore supply base and runs its vessel & rig agency",
+    heroCaption: "Harbour & quayside · Port of Mossel Bay · Afrishore HQ",
+    heroPosition: "center 45%",
     office: {
       businessName: "Afrishore",
       localBusinessId: "#mossel-bay",
@@ -464,6 +476,8 @@ export const ports: PortPage[] = [
     heroImage: "/images/ports/durban-hero.jpg",
     heroAlt:
       "The offshore support vessel Pacific Gosling alongside the quay at the Port of Durban, South Africa: Afrishore vessel and rig agency on the east coast",
+    heroCaption: "OSV alongside · Port of Durban",
+    heroPosition: "center 65%",
     office: {
       businessName: "Afrishore",
       localBusinessId: "#durban",

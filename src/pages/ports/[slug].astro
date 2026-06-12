@@ -173,8 +173,12 @@ const breadcrumb = [
           {port.geoSub}
         </p>
 
-        <div
-          class="aspect-[16/9] w-full overflow-hidden rounded-sm border border-line relative"
+        <!-- Cinematic letterbox hero: 21:9 on desktop (kills empty sky),
+             unified warm grade + bottom melt into the page bg + film grain,
+             optional documentary caption. One treatment across all ports so
+             disparate photos read as a single art-directed series. -->
+        <figure
+          class="aspect-[16/9] md:aspect-[21/9] w-full overflow-hidden rounded-sm relative"
           style={`background: ${placeholderBg};`}
         >
           {port.heroImage && (
@@ -183,7 +187,8 @@ const breadcrumb = [
               <img
                 src={port.heroImage}
                 alt={heroAltText}
-                class="absolute inset-0 w-full h-full object-cover"
+                class="absolute inset-0 w-full h-full object-cover [filter:saturate(0.82)_contrast(1.06)_brightness(0.96)]"
+                style={port.heroPosition ? `object-position: ${port.heroPosition};` : undefined}
                 loading="eager"
                 fetchpriority="high"
                 width="1920"
@@ -191,7 +196,30 @@ const breadcrumb = [
               />
             </picture>
           )}
-        </div>
+          <!-- Warm amber grade – ties daylight photos into the brand palette -->
+          <div
+            class="absolute inset-0 pointer-events-none mix-blend-soft-light"
+            style="background: linear-gradient(180deg, rgba(237,112,20,0.28) 0%, rgba(201,154,46,0.18) 55%, rgba(10,10,10,0.35) 100%);"
+            aria-hidden="true"
+          ></div>
+          <!-- Bottom melt into the page background -->
+          <div
+            class="absolute inset-x-0 bottom-0 h-2/5 pointer-events-none"
+            style="background: linear-gradient(to top, rgba(10,10,10,0.82) 0%, rgba(10,10,10,0.35) 45%, transparent 100%);"
+            aria-hidden="true"
+          ></div>
+          <!-- Film grain – same texture as the homepage hero -->
+          <div
+            class="absolute inset-0 pointer-events-none opacity-[0.05] mix-blend-overlay"
+            style="background-image: url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22200%22 height=%22200%22><filter id=%22n%22><feTurbulence type=%22fractalNoise%22 baseFrequency=%220.9%22 numOctaves=%221%22/></filter><rect width=%22200%22 height=%22200%22 filter=%22url(%23n)%22/></svg>');"
+            aria-hidden="true"
+          ></div>
+          {port.heroCaption && (
+            <figcaption class="absolute bottom-3 left-4 lg:bottom-4 lg:left-5 text-[10px] lg:text-[11px] uppercase tracking-[0.18em] text-cream/85 [text-shadow:0_1px_8px_rgba(0,0,0,0.85)]">
+              {port.heroCaption}
+            </figcaption>
+          )}
+        </figure>
       </div>
     </section>
 
