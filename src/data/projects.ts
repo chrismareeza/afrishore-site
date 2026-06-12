@@ -226,7 +226,7 @@ The disciplines established on that first appointment became the operating templ
     client: "TotalEnergies",
     year: "2016",
     port: "Cape Town",
-    serviceTypes: ["supply-base", "integrated-logistics"],
+    serviceTypes: ["ship-rig-agency", "supply-base", "integrated-logistics"],
     heroImage: "/images/projects/totalenergies-anchor-testing.jpg",
     tagline: "Rig mooring & anchor proof-testing · Port of Cape Town · 2016",
     summary: "Comprehensive quayside support for an offshore rig mooring and anchor-testing campaign for TotalEnergies, staged from the Port of Cape Town – anchor handling, mooring-spread marshalling, laydown and AHTS load-out.",
