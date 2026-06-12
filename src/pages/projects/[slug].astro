@@ -95,6 +95,10 @@ const heroAlt =
   project.heroAlt ||
   `${project.title}${project.vessel ? ` – ${project.vessel}` : ""} at ${project.port} (${project.year})`;
 
+// Hero box aspect ratio — widescreen by default, overridable per project
+// for near-square source photos that would otherwise be over-cropped.
+const heroRatio = project.heroRatio || "16 / 9";
+
 // ── Entity strengthening ──────────────────────────────────────────────
 // Every case study that features the same vessel emits the same stable
 // @id, so Google merges the references and Afrishore becomes the
@@ -403,8 +407,8 @@ const breadcrumb = [
              og:image, VideoObject.thumbnailUrl and the video poster. -->
         {!project.videoEmbed && (
           <div
-            class="aspect-[16/9] w-full overflow-hidden rounded-sm border border-line relative"
-            style={`background: ${placeholderBg};`}
+            class="w-full overflow-hidden rounded-sm border border-line relative"
+            style={`aspect-ratio: ${heroRatio}; background: ${placeholderBg};`}
           >
             {project.heroImage && (
               <picture>

@@ -26,6 +26,10 @@ export interface Project {
   // string generated from title/vessel/port/year. Used both as the
   // page-level <img alt> and as og:image:alt for social shares.
   heroAlt?: string;
+  // Optional aspect ratio for the hero box (e.g. "4 / 3"). Defaults to
+  // "16 / 9". Use a taller ratio for near-square source photos that lose
+  // their top/bottom context when force-cropped into a widescreen frame.
+  heroRatio?: string;
   featured: boolean;
   published: boolean;
   // For end-customer references in copy (e.g. Galp)
@@ -228,6 +232,7 @@ The disciplines established on that first appointment became the operating templ
     port: "Cape Town",
     serviceTypes: ["ship-rig-agency", "supply-base", "integrated-logistics"],
     heroImage: "/images/projects/totalenergies-anchor-testing.jpg",
+    heroRatio: "4 / 3",
     tagline: "Rig mooring & anchor proof-testing · Port of Cape Town · 2016",
     summary: "Comprehensive quayside support for an offshore rig mooring and anchor-testing campaign for TotalEnergies, staged from the Port of Cape Town – anchor handling, mooring-spread marshalling, laydown and AHTS load-out.",
     outcome: `Afrishore provided comprehensive quayside support for an offshore rig mooring and anchor-testing campaign for TotalEnergies, staged from the Port of Cape Town. The scope covered coordination of the anchor-handling equipment, the staging and marshalling of mooring components, management of the quayside laydown areas, and logistical support for the anchor-handling tug supply (AHTS) vessel and the offshore personnel working the spread.
