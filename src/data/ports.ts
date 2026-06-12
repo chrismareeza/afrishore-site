@@ -355,8 +355,8 @@ export const ports: PortPage[] = [
           name: "Offshore Supply Base & Mossgas Quay",
           specs: [
             { label: "Mossgas Quay design depth", value: "7.9 m" },
-            { label: "Quayside", value: "Warehousing · workshops · cranage" },
-            { label: "Suited to", value: "Offshore supply base · project cargo · laydown" },
+            { label: "Quayside", value: "Warehousing & cranage" },
+            { label: "Suited to", value: "Project cargo & laydown" },
           ],
         },
       ],
