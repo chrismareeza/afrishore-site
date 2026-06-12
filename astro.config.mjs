@@ -45,6 +45,14 @@ export default defineConfig({
   // Canonical site URL — used for sitemap, canonical tags, OG meta
   site: 'https://www.afrishore.co',
 
+  // Inline the bundled CSS into every page's <head> instead of shipping it
+  // as a separate render-blocking <link rel="stylesheet">. At ~47 KiB
+  // (gzipped within the HTML response) the per-page overhead is small, and
+  // removing the blocking request shaves ~1 s off mobile LCP on Slow 4G.
+  build: {
+    inlineStylesheets: 'always',
+  },
+
   integrations: [
     sitemap({
       changefreq: 'weekly',

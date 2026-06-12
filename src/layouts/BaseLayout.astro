@@ -64,6 +64,11 @@ interface Props {
    *  inside the article body of a case-study page. Mirrors the same
    *  pattern the homepage uses for its hero. */
   preloadImage?: string;
+  /** Optional mobile-specific variant of `preloadImage`. When provided,
+   *  it preloads under `media="(max-width: 768px)"` and `preloadImage`
+   *  is gated to `(min-width: 769px)` — so phones don't fetch the
+   *  desktop-sized hero. Saves 100–200 KiB on first paint. */
+  preloadImageMobile?: string;
 }
 
 const {
@@ -78,6 +83,7 @@ const {
   articleMeta,
   videoMeta,
   preloadImage,
+  preloadImageMobile,
 } = Astro.props;
 
 const siteUrl = "https://www.afrishore.co";
@@ -581,12 +587,23 @@ const finalGraph = [
          only be discovered after the browser parses the section
          containing the <video>. Preloading here cuts the discovery
          delay and pulls the poster into the critical path. -->
+    {preloadImageMobile && (
+      <link
+        rel="preload"
+        as="image"
+        href={preloadImageMobile}
+        type={preloadImageMobile.endsWith(".webp") ? "image/webp" : undefined}
+        media="(max-width: 768px)"
+        fetchpriority="high"
+      />
+    )}
     {preloadImage && (
       <link
         rel="preload"
         as="image"
         href={preloadImage}
         type={preloadImage.endsWith(".webp") ? "image/webp" : undefined}
+        media={preloadImageMobile ? "(min-width: 769px)" : undefined}
         fetchpriority="high"
       />
     )}

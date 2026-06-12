@@ -60,6 +60,13 @@ const placeholderBg =
 
 const webp = (p: string) => p.replace(/\.jpe?g$/i, ".webp");
 
+// Mobile-sized hero variant (800w). Generated alongside the full-size webp
+// during image prep and named `<name>-mobile.webp`. Served via <source media>
+// so phones don't fetch the 1200–1600w desktop file. Saves 100–200 KiB per
+// port-page load on mobile per PSI's "Improve image delivery" finding.
+const webpMobile = (p: string) =>
+  p.replace(/\.jpe?g$/i, "-mobile.webp");
+
 // Split a spec value into its tokens. Spaces inside a token become
 // non-breaking ( ) so "360 m" never breaks the number onto one line
 // and the "m" onto the next. A value with several "·"-separated tokens
@@ -146,6 +153,8 @@ const breadcrumb = [
   canonical={pageUrl}
   breadcrumb={breadcrumb}
   pageSchema={[serviceSchema]}
+  preloadImage={port.heroImage ? webp(port.heroImage) : undefined}
+  preloadImageMobile={port.heroImage ? webpMobile(port.heroImage) : undefined}
 >
   <Navbar />
 
@@ -183,6 +192,7 @@ const breadcrumb = [
         >
           {port.heroImage && (
             <picture>
+              <source srcset={webpMobile(port.heroImage)} type="image/webp" media="(max-width: 768px)" />
               <source srcset={webp(port.heroImage)} type="image/webp" />
               <img
                 src={port.heroImage}
