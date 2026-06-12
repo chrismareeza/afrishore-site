@@ -40,6 +40,10 @@ const pageUrl = `${siteUrl}/ports/${port.slug}/`;
 
 // Related case studies – published projects whose `port` string contains
 // one of this port's match tokens (case-insensitive).
+// Latest 4-digit year in the year field ("2020–2021" → 2021, "February 2022" → 2022).
+const projectYear = (p: typeof projects[number]) =>
+  Math.max(0, ...(p.year.match(/\d{4}/g) || []).map(Number));
+
 const related = projects
   .filter(
     (p) =>
@@ -48,6 +52,7 @@ const related = projects
         p.port.toLowerCase().includes(m.toLowerCase())
       )
   )
+  .sort((a, b) => projectYear(b) - projectYear(a)) // newest first → left to right
   .slice(0, 3);
 
 const placeholderBg =
