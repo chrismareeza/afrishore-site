@@ -5,6 +5,24 @@
 # Spec wants the response served as application/trafficadvice+json so
 # Chrome's parser accepts it cleanly without the fallback path.
 
+# Security headers applied to every response. X-Content-Type-Options and
+# Referrer-Policy are already served upstream; the two real gaps were HSTS
+# and X-Frame-Options (flagged by Screaming Frog + PSI Trust & Safety).
+#   - HSTS: force HTTPS for a year incl. subdomains. The site is HTTPS-only
+#     on Cloudflare, so this is safe. (No `preload` — that's a separate
+#     opt-in commitment via hstspreload.org if ever wanted.)
+#   - X-Frame-Options DENY: the site is never legitimately framed, so block
+#     all framing to kill clickjacking vectors.
+#   - Permissions-Policy: disable browser features the site never uses.
+# No Content-Security-Policy: a meaningful one needs nonces/hashes for the
+# inline consent script, JSON-LD, gtag and Cloudflare beacon — high breakage
+# risk for a static marketing site with no auth/user input, and PSI Best
+# Practices is already 100 without it. Deliberately omitted.
+/*
+  Strict-Transport-Security: max-age=31536000; includeSubDomains
+  X-Frame-Options: DENY
+  Permissions-Policy: geolocation=(), microphone=(), camera=()
+
 /.well-known/traffic-advice
   Content-Type: application/trafficadvice+json
 
