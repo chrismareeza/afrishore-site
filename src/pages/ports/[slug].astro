@@ -78,6 +78,7 @@ const quickFacts: { label: string; value: string }[] = [
   port.office
     ? { label: "Local office", value: port.office.addressLocality.split(",")[0].trim() }
     : { label: "Coverage", value: port.country },
+  ...(port.portCode ? [{ label: "Port code", value: port.portCode }] : []),
   { label: "Quality system", value: "ISO 9001" },
   { label: "Operating since", value: "2010" },
 ];
@@ -202,7 +203,7 @@ const breadcrumb = [
           </p>
 
           <!-- Quick-facts strip – scannable proof above the fold. -->
-          <dl class="grid grid-cols-2 sm:grid-cols-4 gap-px bg-line border border-line rounded-sm overflow-hidden">
+          <dl class="grid grid-cols-2 md:grid-cols-5 gap-px bg-line border border-line rounded-sm overflow-hidden">
             {quickFacts.map((f) => (
               <div class="bg-base px-4 py-4">
                 <dt class="text-[11px] uppercase tracking-[0.15em] text-faint mb-1.5">{f.label}</dt>

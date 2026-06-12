@@ -35,6 +35,7 @@ export interface PortPage {
   slug: string;
   portName: string;          // "Walvis Bay"
   country: string;           // "Namibia" | "South Africa"
+  portCode?: string;         // UN/LOCODE, e.g. "ZASDB" – shown in the quick-facts strip
   kind: "office" | "licence";
   matchPort: string[];       // substrings to match Project.port on
   metaTitle: string;
@@ -95,6 +96,7 @@ export const ports: PortPage[] = [
   {
     slug: "walvis-bay",
     portName: "Walvis Bay",
+    portCode: "NAWVB",
     country: "Namibia",
     kind: "office",
     matchPort: ["Walvis Bay"],
@@ -149,6 +151,7 @@ export const ports: PortPage[] = [
   {
     slug: "luderitz",
     portName: "Lüderitz",
+    portCode: "NALUD",
     country: "Namibia",
     kind: "licence",
     matchPort: ["Lüderitz", "Luderitz"],
@@ -199,6 +202,7 @@ export const ports: PortPage[] = [
   {
     slug: "cape-town",
     portName: "Cape Town",
+    portCode: "ZACPT",
     country: "South Africa",
     kind: "office",
     matchPort: ["Cape Town"],
@@ -291,6 +295,7 @@ export const ports: PortPage[] = [
   {
     slug: "saldanha",
     portName: "Saldanha",
+    portCode: "ZASDB",
     country: "South Africa",
     kind: "licence",
     matchPort: ["Saldanha"],
@@ -367,6 +372,7 @@ export const ports: PortPage[] = [
   {
     slug: "mossel-bay",
     portName: "Mossel Bay",
+    portCode: "ZAMZY",
     country: "South Africa",
     kind: "office",
     matchPort: ["Mossel Bay"],
@@ -411,6 +417,7 @@ export const ports: PortPage[] = [
   {
     slug: "durban",
     portName: "Durban",
+    portCode: "ZADUR",
     country: "South Africa",
     kind: "office",
     matchPort: ["Durban"],
