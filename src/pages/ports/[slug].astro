@@ -204,9 +204,15 @@ const breadcrumb = [
           <!-- Quick-facts strip – scannable proof above the fold. -->
           <dl class="grid grid-cols-2 sm:grid-cols-4 gap-px bg-line border border-line rounded-sm overflow-hidden">
             {quickFacts.map((f) => (
-              <div class="bg-base px-4 py-4">
+              <div class="group relative bg-base px-4 py-4 transition-colors duration-300 hover:bg-surface/40">
+                <!-- Hover gradient top bar – same treatment as the service cards -->
+                <span
+                  aria-hidden="true"
+                  class="absolute top-0 left-0 right-0 h-[2px] origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500 ease-out"
+                  style="background: linear-gradient(90deg, #ED7014, #FDE64B);"
+                ></span>
                 <dt class="text-[11px] uppercase tracking-[0.15em] text-faint mb-1.5 leading-[1.2] min-h-[2.4em]">{f.label}</dt>
-                <dd class="text-cream font-medium leading-snug">{f.value}</dd>
+                <dd class="text-cream font-medium leading-snug transition-all duration-300 group-hover:text-yellow group-hover:[text-shadow:0_0_14px_rgba(245,171,47,0.45)]">{f.value}</dd>
               </div>
             ))}
           </dl>

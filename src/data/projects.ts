@@ -272,19 +272,19 @@ For a first-time operator in South African waters, Gazania-1 demonstrated the va
     client: "Odfjell Drilling",
     endCustomer: "Galp Energia",
     year: "2023–2024",
-    port: "Walvis Bay / Lüderitz",
+    port: "Walvis Bay",
     serviceTypes: ["ship-rig-agency", "supply-base", "integrated-logistics"],
     vessel: "Deepsea Hercules",
     assetType: "rig",
     heroImage: "/images/projects/galp-hercules-mopane-1x.jpg",
     summary: "Turnkey onshore logistics for the Deepsea Hercules rig operating on Galp Energia's Mopane-1x exploration well in Namibian waters.",
-    outcome: `Afrishore delivered the integrated shore base and crewing scope for Galp's Deepsea Hercules campaign in Namibia's Orange Basin, running operations across Walvis Bay and Lüderitz. The rig, owned by SFL Corporation and managed by Odfjell Drilling, was supported by an Afrishore scope covering cargo movements, crew rotations and customs lodgements from mobilisation through to demobilisation.
+    outcome: `Afrishore delivered the integrated shore base and crewing scope for Galp's Deepsea Hercules campaign in Namibia's Orange Basin, running operations from its Walvis Bay offshore supply base. The rig, owned by SFL Corporation and managed by Odfjell Drilling, was supported by an Afrishore scope covering cargo movements, crew rotations and customs lodgements from mobilisation through to demobilisation.
 
 The campaign was delivered on schedule and within budget, with zero recordable incidents across the scope.
 
-The shore base operation was built around two requirements. First, continuity of cargo and crew flow between two ports several hundred kilometres apart, sequenced to the rig's operational tempo rather than the working day. Second, customs and regulatory execution capable of holding pace with that tempo. Working in lock-step with Namibian Customs and the relevant authorities, the Afrishore team managed the import, bonding, exemption and rebate processes required to keep the Deepsea Hercules on station for the duration of the campaign, avoiding unnecessary port calls and protecting rig productivity. Time-critical filings were lodged outside standard hours where the schedule required it, so that inbound critical items cleared without delaying operations.
+The shore base operation was built around two requirements. First, continuity of cargo and crew flow sequenced to the rig's operational tempo rather than the working day. Second, customs and regulatory execution capable of holding pace with that tempo. Working in lock-step with Namibian Customs and the relevant authorities, the Afrishore team managed the import, bonding, exemption and rebate processes required to keep the Deepsea Hercules on station for the duration of the campaign, avoiding unnecessary port calls and protecting rig productivity. Time-critical filings were lodged outside standard hours where the schedule required it, so that inbound critical items cleared without delaying operations.
 
-The workforce behind the scope drew on uninterrupted Namibian shore base experience since 2022, working alongside international specialists across both ports.
+The workforce behind the scope drew on uninterrupted Namibian shore base experience since 2022, working alongside international specialists.
 
 For Afrishore, the Deepsea Hercules campaign for Galp is a representative example of the integrated capability Afrishore provides to Orange Basin operators: shore base logistics, materials handling, specialist offshore personnel and the customs and authority management that holds a campaign's schedule together. Subsequent campaigns and rigs were supported on exactly the same basis.`,
     featured: false,
