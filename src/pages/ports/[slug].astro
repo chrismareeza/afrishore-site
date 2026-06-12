@@ -187,7 +187,7 @@ const breadcrumb = [
               <img
                 src={port.heroImage}
                 alt={heroAltText}
-                class="absolute inset-0 w-full h-full object-cover [filter:saturate(0.82)_contrast(1.06)_brightness(0.96)]"
+                class="absolute inset-0 w-full h-full object-cover"
                 style={port.heroPosition ? `object-position: ${port.heroPosition};` : undefined}
                 loading="eager"
                 fetchpriority="high"
@@ -196,10 +196,11 @@ const breadcrumb = [
               />
             </picture>
           )}
-          <!-- Warm amber grade – ties daylight photos into the brand palette -->
+          <!-- Vignette – focuses the eye; frame-aligned (the clean tonal grade
+               is baked into the image file so it travels to og:images too). -->
           <div
-            class="absolute inset-0 pointer-events-none mix-blend-soft-light"
-            style="background: linear-gradient(180deg, rgba(237,112,20,0.28) 0%, rgba(201,154,46,0.18) 55%, rgba(10,10,10,0.35) 100%);"
+            class="absolute inset-0 pointer-events-none"
+            style="background: radial-gradient(ellipse 78% 82% at 50% 44%, transparent 42%, rgba(10,10,10,0.5) 100%);"
             aria-hidden="true"
           ></div>
           <!-- Bottom melt into the page background -->
