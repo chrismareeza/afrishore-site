@@ -285,7 +285,7 @@ export const ports: PortPage[] = [
     heroImage: "/images/ports/cape-town-hero.jpg",
     heroAlt:
       "Aerial view of the Port of Cape Town, South Africa with Table Mountain behind: the repair, project-cargo and offshore-support harbour where Afrishore acts as vessel and rig agent",
-    heroCaption: "Heavy-lift discharge · Port of Cape Town · Table Mountain",
+    heroCaption: "Heavy-lift discharge · Port of Cape Town · Ben Schoeman Dock",
     heroPosition: "center 28%",
     office: {
       businessName: "Afrishore",
