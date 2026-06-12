@@ -213,7 +213,7 @@ export const ports: PortPage[] = [
     kind: "office",
     matchPort: ["Cape Town"],
     metaTitle:
-      "Cape Town Shipping & Logistics Company | Vessel Agent | Afrishore",
+      "Cape Town Shipping & Logistics | Vessel Agent | Afrishore",
     metaDescription:
       "Afrishore is a Cape Town shipping company, freight forwarder and licensed vessel & rig agent – Woodstock office, Port of Cape Town. Customs clearance, freight forwarding, immigration, husbandry, dry docking, project cargo and heavy-lift coordination for rigs, OSVs, tankers and liners.",
     h1: "Vessel & Rig Agent: Port of Cape Town",
@@ -308,7 +308,7 @@ export const ports: PortPage[] = [
     kind: "licence",
     matchPort: ["Saldanha"],
     metaTitle:
-      "Vessel & Rig Agent: Port of Saldanha Bay, South Africa | Afrishore",
+      "Vessel & Rig Agent: Port of Saldanha Bay | Afrishore",
     metaDescription:
       "Afrishore is a licensed vessel and rig agent for the Port of Saldanha Bay, South Africa – the country's deepest natural port. Port clearance, immigration, husbandry, bulk, project cargo and offshore/rig support.",
     h1: "Vessel & Rig Agent: Port of Saldanha Bay",

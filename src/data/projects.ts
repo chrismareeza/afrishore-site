@@ -448,7 +448,7 @@ The campaign sits alongside Afrishore's wider subsea installation track record i
     serviceTypes: ["subsea-services", "integrated-logistics"],
     heroImage: "/images/projects/oceaneering-subsea-grout-bags.jpg",
     summary: "Subsea grout bag installation logistics: 200 subsea grout bags manufactured, certified, secured and exported by Afrishore from Cape Town, South Africa to offshore Angola for Oceaneering – single coordinated consignment for subsea infrastructure stabilisation.",
-    metaTitle: "Subsea Grout Bags – Certified Manufacture & Supply | Afrishore",
+    metaTitle: "Subsea Grout Bags – Certified Supply | Afrishore",
     metaDescription: "Subsea grout bags for pipeline, free-span and subsea-structure stabilisation – manufactured, certified, sling-rigged and exported from Cape Town. 200-unit Oceaneering campaign.",
     tagline: "Subsea grout bag installation · Cape Town, South Africa · 2018",
     outcome: `Oceaneering required 200 subsea grout bags for the stabilisation of subsea infrastructure offshore Angola. Each bag had to be manufactured to subsea specification, filled, certified, secured for sea freight, and exported as a single coordinated consignment out of South Africa.

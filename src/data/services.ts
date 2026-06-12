@@ -39,7 +39,7 @@ export const servicePages: ServicePage[] = [
     serviceType: "ship-rig-agency",
     name: "Vessel & Rig Agency",
     metaTitle:
-      "Vessel & Rig Agency | Ships Agent · Vessel Agent · Namibia, South Africa & Mozambique | Afrishore",
+      "Vessel & Rig Agency: Namibia & South Africa | Afrishore",
     metaDescription:
       "Afrishore is the appointed ships agent and vessel agent for rigs, drillships, OSVs, PSVs, AHTS, tankers and FPSOs across our licensed port network in South Africa, Namibia and Mozambique – full ships agency and vessel agency services covering port clearance, berth scheduling, immigration, husbandry, dry docking and crew rotation at Walvis Bay, Cape Town, Durban, Mossel Bay, Saldanha and Lüderitz.",
     h1: "Vessel & Rig Agency",
@@ -104,7 +104,7 @@ export const servicePages: ServicePage[] = [
     serviceType: "supply-base",
     name: "Offshore Supply Base",
     metaTitle:
-      "Offshore Supply Base Operator | Namibia, South Africa & Mozambique | Afrishore",
+      "Offshore Supply Base: Namibia & South Africa | Afrishore",
     metaDescription:
       "Turnkey offshore supply base operator for drilling, renewable and subsea campaigns across Namibia, South Africa and Mozambique – rigging, cranage, abnormal trucking, warehousing, project cargo, QHSE, waste and materials management. Permanently embedded in the Port of Walvis Bay's Oil & Gas Section.",
     h1: "Offshore Supply Base Operations",
@@ -154,7 +154,7 @@ export const servicePages: ServicePage[] = [
     serviceType: "integrated-logistics",
     name: "Integrated Logistics",
     metaTitle:
-      "Freight Forwarding & Customs Clearance | Marine Logistics, Southern Africa | Afrishore",
+      "Freight Forwarding & Customs Clearance | Afrishore",
     metaDescription:
       "Freight forwarding, customs brokerage, project cargo, bunkering, chandling and technical procurement across South Africa, Namibia and Mozambique – cross-border on sea, air and road for oil & gas, subsea, telecoms and heavy lift.",
     h1: "Integrated Logistics",
@@ -204,7 +204,7 @@ export const servicePages: ServicePage[] = [
     serviceType: "crew-visa",
     name: "Crew & Visa Services",
     metaTitle:
-      "Expat Crew Logistics, Visa & Immigration Support | NAM, SA & MOZ | Afrishore",
+      "Crew Logistics, Visa & Immigration Support | Afrishore",
     metaDescription:
       "Offshore and onshore crew logistics, visa and work-permit processing, immigration optimisation and medical evacuation coordination across South Africa, Namibia and Mozambique – for crews and third-party technicians.",
     h1: "Crew & Visa Services",
