@@ -228,7 +228,13 @@ The disciplines established on that first appointment became the operating templ
     port: "Cape Town",
     serviceTypes: ["supply-base", "integrated-logistics"],
     heroImage: "/images/projects/totalenergies-anchor-testing.jpg",
-    summary: "Anchor and mooring testing operations, supported through onshore logistics and project cargo handling.",
+    tagline: "Rig mooring & anchor proof-testing · Port of Cape Town · 2016",
+    summary: "Comprehensive quayside support for an offshore rig mooring and anchor-testing campaign for TotalEnergies, staged from the Port of Cape Town – anchor handling, mooring-spread marshalling, laydown and AHTS load-out.",
+    outcome: `Afrishore provided comprehensive quayside support for an offshore rig mooring and anchor-testing campaign for TotalEnergies, staged from the Port of Cape Town. The scope covered coordination of the anchor-handling equipment, the staging and marshalling of mooring components, management of the quayside laydown areas, and logistical support for the anchor-handling tug supply (AHTS) vessel and the offshore personnel working the spread.
+
+On the quayside, Afrishore handled the receipt, inspection, storage and load-out of the anchors, mooring wires, chains, shackles, buoys and associated lifting equipment, and coordinated vessel mobilisation, cargo manifests, lifting operations and marine logistics so that the mooring spreads and anchor-testing equipment deployed to schedule.
+
+Through disciplined quayside planning, equipment-readiness verification and interface management between the vessel operators, rig personnel, marine contractors and port authorities, Afrishore supported the offshore anchor proof-testing operation directly. The campaign contributed to the safe and successful installation, testing and commissioning of the rig's mooring system ahead of the start of offshore operations.`,
     featured: false,
     published: true,
   },

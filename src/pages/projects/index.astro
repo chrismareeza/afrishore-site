@@ -84,7 +84,7 @@ const breadcrumb = [
         {allProjects.map((p, idx) => (
           <a
             href={`/projects/${p.slug}/`}
-            class="group block bg-surface border border-line hover:border-gold/40 transition-all duration-400 rounded-sm overflow-hidden"
+            class="group flex flex-col bg-surface border border-line hover:border-gold/40 transition-all duration-400 rounded-sm overflow-hidden"
           >
             <div
               class="aspect-[4/3] relative overflow-hidden"
@@ -111,23 +111,26 @@ const breadcrumb = [
               )}
             </div>
 
-            <div class="p-6 space-y-3">
-              <div class="text-xs uppercase tracking-[0.15em] text-gold font-semibold">
-                {p.client}
-                {p.endCustomer && (
-                  <span class="text-faint normal-case tracking-normal">
-                    {" · for "}
-                    {p.endCustomer}
-                  </span>
-                )}
+            <div class="p-6 flex flex-col flex-1">
+              <div class="space-y-3">
+                <div class="text-xs uppercase tracking-[0.15em] text-gold font-semibold">
+                  {p.client}
+                  {p.endCustomer && (
+                    <span class="text-faint normal-case tracking-normal">
+                      {" · for "}
+                      {p.endCustomer}
+                    </span>
+                  )}
+                </div>
+                <h2 class="text-lg lg:text-xl text-cream group-hover:text-yellow transition-colors leading-tight">
+                  {p.title}
+                </h2>
+                <p class="text-sm text-mute leading-relaxed line-clamp-2">
+                  {p.summary}
+                </p>
               </div>
-              <h2 class="text-lg lg:text-xl text-cream group-hover:text-yellow transition-colors leading-tight">
-                {p.title}
-              </h2>
-              <p class="text-sm text-mute leading-relaxed line-clamp-2">
-                {p.summary}
-              </p>
-              <div class="flex items-center justify-between pt-3 border-t border-line text-xs">
+              <!-- Footer pinned to the card bottom so it aligns across the row -->
+              <div class="flex items-center justify-between pt-4 mt-auto border-t border-line text-xs">
                 <span class="text-faint">{p.port}</span>
                 <span class="text-gold flex items-center gap-1 group-hover:gap-2 transition-all">
                   Read more <span aria-hidden="true">→</span>
