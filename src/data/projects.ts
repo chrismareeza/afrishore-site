@@ -234,7 +234,7 @@ The disciplines established on that first appointment became the operating templ
 
 On the quayside, Afrishore handled the receipt, inspection, storage and load-out of the anchors, mooring wires, chains, shackles, buoys and associated lifting equipment, and coordinated vessel mobilisation, cargo manifests, lifting operations and marine logistics so that the mooring spreads and anchor-testing equipment deployed to schedule.
 
-Through disciplined quayside planning, equipment-readiness verification and interface management between the vessel operators, rig personnel, marine contractors and port authorities, Afrishore supported the offshore anchor proof-testing operation directly. The campaign contributed to the safe and successful installation, testing and commissioning of the rig's mooring system ahead of the start of offshore operations.`,
+Through disciplined quayside planning, equipment-readiness verification and interface management between the vessel operators, marine contractors and port authorities, Afrishore supported the offshore anchor proof-testing operation directly. The campaign contributed to the safe and successful installation, testing and commissioning of the mooring system to assess this methodology for future offshore operations in the harsh-water South African environment.`,
     featured: false,
     published: true,
   },
