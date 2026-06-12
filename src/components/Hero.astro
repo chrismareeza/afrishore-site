@@ -71,7 +71,7 @@
            Mobile collapses to natural-wrap within each block. -->
       <p
         data-anim="hero-subhead"
-        class="opacity-0 translate-y-4 text-base sm:text-lg lg:text-xl max-w-2xl leading-relaxed"
+        class="text-base sm:text-lg lg:text-xl max-w-2xl leading-relaxed"
         style="color: rgba(245,242,235,0.92); text-shadow: 0 1px 6px rgba(0,0,0,0.4);"
       >
         <span class="lg:block">Logistics agency to leading oil &amp; gas operators,</span>
@@ -118,6 +118,20 @@
     0%   { transform: translateY(-100%); }
     50%  { transform: translateY(50%); }
     100% { transform: translateY(200%); }
+  }
+
+  /* The subhead is the homepage's LCP element. On phones it must paint at
+     FCP rather than wait for the GSAP reveal (which gates LCP on JS → ~5 s
+     on Slow 4G), so it has no opacity-0 in markup and shows immediately.
+     Only on desktop do we hide it for the entrance cascade; the GSAP tween
+     then animates it in. On mobile that same tween no-ops (already visible),
+     and the eyebrow / CTAs / scroll-cue still cascade so the photo breathes
+     before the buttons appear. */
+  @media (min-width: 769px) {
+    [data-anim="hero-subhead"] {
+      opacity: 0;
+      transform: translateY(1rem);
+    }
   }
 
   /* Responsive hero background – identical crop, lower-res on phones.
