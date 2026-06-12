@@ -105,7 +105,7 @@ export const ports: PortPage[] = [
     metaTitle:
       "Vessel & Rig Agent: Port of Walvis Bay, Namibia | Afrishore",
     metaDescription:
-      "Afrishore is a licensed vessel and rig agent in the Port of Walvis Bay, Namibia – permanently embedded in the Oil & Gas Section. Port clearance, immigration, husbandry, supply base and offshore logistics for rigs, drillships, OSVs and tankers.",
+      "Licensed vessel and rig agent in the Port of Walvis Bay, Namibia – embedded in the Oil & Gas Section: clearance, husbandry and supply base support.",
     h1: "Vessel & Rig Agent: Port of Walvis Bay",
     geoSub: "Licensed agency embedded in the Port of Walvis Bay's Oil & Gas Section, Namibia",
     intro: [
@@ -162,7 +162,7 @@ export const ports: PortPage[] = [
     metaTitle:
       "Vessel & Rig Agent: Port of Lüderitz, Namibia | Afrishore",
     metaDescription:
-      "Afrishore is a licensed vessel and rig agent for the Port of Lüderitz, Namibia – port clearance, immigration, husbandry and offshore support for the Orange Basin exploration frontier. Run alongside our Walvis Bay base.",
+      "Licensed vessel and rig agent for the Port of Lüderitz, Namibia – clearance, immigration, husbandry and offshore support for the Orange Basin frontier.",
     h1: "Vessel & Rig Agent: Port of Lüderitz",
     geoSub: "Multipurpose port handling oil & gas, general cargo, fishing and ore",
     lead: "Afrishore holds an active port agency licence for the Port of Lüderitz, Namibia's southernmost commercial port and the closest harbour to the offshore Orange Basin.",
@@ -215,7 +215,7 @@ export const ports: PortPage[] = [
     metaTitle:
       "Cape Town Shipping & Logistics | Vessel Agent | Afrishore",
     metaDescription:
-      "Afrishore is a Cape Town shipping company, freight forwarder and licensed vessel & rig agent – Woodstock office, Port of Cape Town. Customs clearance, freight forwarding, immigration, husbandry, dry docking, project cargo and heavy-lift coordination for rigs, OSVs, tankers and liners.",
+      "Cape Town shipping company, freight forwarder and licensed vessel & rig agent at the Port of Cape Town – customs, immigration, husbandry and project cargo.",
     h1: "Vessel & Rig Agent: Port of Cape Town",
     geoSub: "Multipurpose port focussed on repair, cargo, projects and transit stops",
     lead: "Afrishore holds an active port agency licence for the Port of Cape Town, which remains a premier option for transiting vessels, ship-repair, project-cargo and offshore project support.",
@@ -310,7 +310,7 @@ export const ports: PortPage[] = [
     metaTitle:
       "Vessel & Rig Agent: Port of Saldanha Bay | Afrishore",
     metaDescription:
-      "Afrishore is a licensed vessel and rig agent for the Port of Saldanha Bay, South Africa – the country's deepest natural port. Port clearance, immigration, husbandry, bulk, project cargo and offshore/rig support.",
+      "Licensed vessel and rig agent for the Port of Saldanha Bay, South Africa – the country's deepest port: clearance, husbandry, bulk and project cargo.",
     h1: "Vessel & Rig Agent: Port of Saldanha Bay",
     geoSub: "South Africa's largest natural deep-water port – iron ore, oil & gas, projects and fisheries",
     lead: "Afrishore holds an active port agency licence for the Port of Saldanha, South Africa's largest natural deep-water port and the country's primary iron-ore export terminal.",
@@ -389,7 +389,7 @@ export const ports: PortPage[] = [
     metaTitle:
       "Vessel & Rig Agent: Port of Mossel Bay | Afrishore HQ",
     metaDescription:
-      "Afrishore is the vessel and rig agent at the Port of Mossel Bay (HQ, 60 Bland Street), operating since 2010 – agency for ships, oil rigs, drillships and supply vessels, plus the offshore supply base behind the TotalEnergies Brulpadda and Luiperd campaigns on Block 11B/12B.",
+      "Vessel and rig agent at the Port of Mossel Bay – Afrishore's HQ since 2010, and the supply base behind TotalEnergies' Brulpadda and Luiperd campaigns.",
     h1: "Vessel & Rig Agent: Port of Mossel Bay",
     geoSub: "Afrishore's founding base and head office – vessel & rig agency for the Brulpadda & Luiperd gas fields",
     lead: "Afrishore holds an active port agency licence for the Port of Mossel Bay, its founding base and head office, and acts as vessel and rig agent for the ships, oil rigs and supply vessels working South Africa's Block 11B/12B gas fields offshore.",
@@ -436,7 +436,7 @@ export const ports: PortPage[] = [
     metaTitle:
       "Vessel & Rig Agent: Port of Durban, South Africa | Afrishore",
     metaDescription:
-      "Afrishore is a licensed vessel and rig agent in the Port of Durban, South Africa, with an office in Yellowwood Park. Port clearance, immigration, husbandry, dry docking and project cargo for rigs, OSVs, tankers and liners on the east coast.",
+      "Licensed vessel and rig agent in the Port of Durban, South Africa – clearance, immigration, husbandry, dry docking and project cargo on the east coast.",
     h1: "Vessel & Rig Agent: Port of Durban",
     geoSub: "South Africa's largest port – import/export hub for fruit, grain, sugar, fertiliser and chemicals",
     lead: "Afrishore holds an active port agency licence for the Port of Durban, the largest and busiest port in South Africa and the country's principal import and export gateway.",

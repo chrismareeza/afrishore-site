@@ -41,7 +41,7 @@ export const servicePages: ServicePage[] = [
     metaTitle:
       "Vessel & Rig Agency: Namibia & South Africa | Afrishore",
     metaDescription:
-      "Afrishore is the appointed ships agent and vessel agent for rigs, drillships, OSVs, PSVs, AHTS, tankers and FPSOs across our licensed port network in South Africa, Namibia and Mozambique – full ships agency and vessel agency services covering port clearance, berth scheduling, immigration, husbandry, dry docking and crew rotation at Walvis Bay, Cape Town, Durban, Mossel Bay, Saldanha and Lüderitz.",
+      "Appointed ships agent and vessel agent for rigs, drillships, OSVs and tankers across South Africa, Namibia and Mozambique – clearance and husbandry.",
     h1: "Vessel & Rig Agency",
     geoSub: "Ships agent · vessel agent · ships agency · vessel agency across Namibia, South Africa & Mozambique",
     schemaServiceType: "Vessel & Rig Agency",
@@ -106,7 +106,7 @@ export const servicePages: ServicePage[] = [
     metaTitle:
       "Offshore Supply Base: Namibia & South Africa | Afrishore",
     metaDescription:
-      "Turnkey offshore supply base operator for drilling, renewable and subsea campaigns across Namibia, South Africa and Mozambique – rigging, cranage, abnormal trucking, warehousing, project cargo, QHSE, waste and materials management. Permanently embedded in the Port of Walvis Bay's Oil & Gas Section.",
+      "Offshore supply base operator across Namibia, South Africa and Mozambique – rigging, cranage, warehousing and project cargo in the Port of Walvis Bay.",
     h1: "Offshore Supply Base Operations",
     geoSub: "Turnkey base operator: Walvis Bay, Cape Town, Mossel Bay, Pemba & beyond.",
     schemaServiceType: "Offshore Supply Base Operations",
@@ -156,7 +156,7 @@ export const servicePages: ServicePage[] = [
     metaTitle:
       "Freight Forwarding & Customs Clearance | Afrishore",
     metaDescription:
-      "Freight forwarding, customs brokerage, project cargo, bunkering, chandling and technical procurement across South Africa, Namibia and Mozambique – cross-border on sea, air and road for oil & gas, subsea, telecoms and heavy lift.",
+      "Freight forwarding, customs brokerage, project cargo and bunkering across South Africa, Namibia and Mozambique – cross-border by sea, air and road.",
     h1: "Integrated Logistics",
     geoSub: "Freight forwarding, customs & project cargo via sea, air & road.",
     schemaServiceType: "Integrated Logistics",
@@ -206,7 +206,7 @@ export const servicePages: ServicePage[] = [
     metaTitle:
       "Crew Logistics, Visa & Immigration Support | Afrishore",
     metaDescription:
-      "Offshore and onshore crew logistics, visa and work-permit processing, immigration optimisation and medical evacuation coordination across South Africa, Namibia and Mozambique – for crews and third-party technicians.",
+      "Offshore crew logistics, visa and work-permit processing, immigration and medical evacuation across South Africa, Namibia and Mozambique.",
     h1: "Crew & Visa Services",
     geoSub: "Crew rotations, visas, immigration & medivac across three countries",
     schemaServiceType: "Crew & Visa Services",
