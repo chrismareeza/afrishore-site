@@ -160,6 +160,7 @@ A Special Periodic Survey is rarely simple. With a BOP exchange layered in, it r
     port: "Multiple SA coastal landings",
     serviceTypes: ["integrated-logistics", "crew-visa", "ship-rig-agency"],
     heroImage: "/images/projects/facebook-2africa.jpg",
+    heroRatio: "4 / 3",
     summary: "Onshore logistics for the South African landing of the 2Africa subsea cable – one of the largest telecoms infrastructure projects ever built.",
     metaTitle: "2Africa Subsea Cable Landing: South Africa | Afrishore",
     metaDescription: "Onshore logistics for the South African landing of the 2Africa subsea cable – 45,000 km / 180 Tbps across 33 countries. Customs, lifting, crew and cross-border freight by Afrishore.",
