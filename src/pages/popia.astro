@@ -1,0 +1,165 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Navbar from "../components/Navbar.astro";
+import Footer from "../components/Footer.astro";
+
+const siteUrl = "https://www.afrishore.co";
+// Trailing slash matches the URL Cloudflare Pages actually serves.
+const pageUrl = `${siteUrl}/popia/`;
+
+// Reuses the same request-by-email pattern as the footer link, so the
+// manual is provided on request rather than published.
+const manualMailto =
+  "mailto:info@afrishore.co?subject=POPIA%20Manual%20request&body=Please%20send%20me%20a%20copy%20of%20the%20Afrishore%20POPIA%20Manual.%0D%0A%0D%0AName:%0D%0ACompany:";
+
+const metaTitle = "POPIA & Privacy Notice | Afrishore";
+const metaDescription =
+  "How Afrishore protects personal information under South Africa's POPIA – what we process, your data-subject rights, and how to request our POPIA Manual.";
+
+const breadcrumb = [
+  { name: "Home", item: "/" },
+  { name: "POPIA & Privacy", item: "/popia/" },
+];
+---
+
+<BaseLayout
+  title={metaTitle}
+  description={metaDescription}
+  canonical={pageUrl}
+  breadcrumb={breadcrumb}
+>
+  <Navbar />
+
+  <main id="main">
+    <!-- Hero -->
+    <section class="relative pt-32 lg:pt-40 pb-12 px-6 lg:px-12">
+      <div class="max-w-3xl mx-auto">
+        <div class="text-base uppercase tracking-[0.2em] text-gold font-bold mb-6">
+          Privacy &amp; Compliance
+        </div>
+        <h1 class="text-4xl md:text-5xl lg:text-6xl text-cream leading-[1.1] tracking-tight mb-5">
+          POPIA &amp; Privacy
+        </h1>
+        <p class="text-lg lg:text-xl text-gold/90 mb-10 max-w-2xl leading-snug">
+          How Afrishore protects your personal information.
+        </p>
+        <p class="text-xl lg:text-2xl leading-relaxed text-cream/90">
+          Afrishore is committed to processing personal information lawfully,
+          transparently and securely, in line with South Africa's Protection of
+          Personal Information Act (POPIA).
+        </p>
+      </div>
+    </section>
+
+    <!-- Body -->
+    <section class="px-6 lg:px-12 pb-24 lg:pb-32">
+      <div class="max-w-3xl mx-auto space-y-12">
+        <!-- How we handle it -->
+        <div>
+          <h2 class="text-base uppercase tracking-[0.2em] text-gold font-bold mb-5">
+            How we handle personal information
+          </h2>
+          <div class="space-y-5 text-lg leading-relaxed" style="color: rgba(245,242,235,0.88);">
+            <p>
+              Afrishore collects and processes personal information only for
+              clear operational purposes – principally to deliver vessel and rig
+              agency, offshore supply base, integrated logistics and crew &amp;
+              visa services to our clients. In the course of crew, immigration
+              and customs work this can include details such as names, identity
+              and passport information and contact details, processed only where
+              it is necessary to perform the service and to meet legal and
+              port-authority requirements.
+            </p>
+            <p>
+              We share personal information only with the parties needed to
+              deliver a service – such as port, immigration and customs
+              authorities – or where the law requires it. We do not sell personal
+              information. It is kept secure and retained only for as long as it
+              is needed for the purpose it was collected, or as the law requires.
+            </p>
+          </div>
+        </div>
+
+        <!-- Your rights -->
+        <div class="border-t border-line pt-10">
+          <h2 class="text-base uppercase tracking-[0.2em] text-gold font-bold mb-5">
+            Your rights under POPIA
+          </h2>
+          <div class="space-y-5 text-lg leading-relaxed" style="color: rgba(245,242,235,0.88);">
+            <p>
+              You have the right to ask what personal information we hold about
+              you, to have it corrected or deleted, and to object to its
+              processing. You may also lodge a complaint with the
+              <a
+                href="https://inforegulator.org.za/"
+                target="_blank"
+                rel="noopener"
+                class="text-gold hover:text-yellow underline-offset-2 hover:underline transition-colors"
+                >Information Regulator (South Africa)</a
+              >. To exercise any of these rights, contact our Information Officer
+              at
+              <a
+                href="mailto:info@afrishore.co"
+                class="text-gold hover:text-yellow underline-offset-2 hover:underline transition-colors"
+                >info@afrishore.co</a
+              >.
+            </p>
+          </div>
+        </div>
+
+        <!-- This website -->
+        <div class="border-t border-line pt-10">
+          <h2 class="text-base uppercase tracking-[0.2em] text-gold font-bold mb-5">
+            This website
+          </h2>
+          <div class="space-y-5 text-lg leading-relaxed" style="color: rgba(245,242,235,0.88);">
+            <p>
+              Afrishore uses privacy-friendly, consent-based analytics. Cookies
+              that measure site usage run only if you accept them, and you can
+              decline or change your choice at any time through the cookie
+              banner. We do not share visitor data for advertising.
+            </p>
+          </div>
+        </div>
+
+        <!-- POPIA Manual -->
+        <div class="border-t border-line pt-10">
+          <h2 class="text-base uppercase tracking-[0.2em] text-gold font-bold mb-5">
+            Our POPIA Manual
+          </h2>
+          <div class="space-y-5 text-lg leading-relaxed" style="color: rgba(245,242,235,0.88);">
+            <p>
+              Afrishore maintains a formal POPIA Manual that sets out, in full,
+              how we process personal information. Rather than publish it here,
+              we provide it on request – if you need a copy, get in touch and
+              we'll send it through.
+            </p>
+          </div>
+
+          <a
+            href={manualMailto}
+            class="inline-flex items-center justify-center gap-2 mt-7 bg-orange hover:bg-gold text-base px-6 py-3.5 text-sm font-semibold tracking-wide transition-colors duration-200 rounded-sm"
+          >
+            Request our POPIA Manual
+            <span aria-hidden="true">→</span>
+          </a>
+        </div>
+
+        <!-- Closing -->
+        <div class="border-t border-line pt-10">
+          <p class="text-lg leading-relaxed text-mute">
+            Questions about privacy or this notice? Contact Afrishore's
+            Information Officer at
+            <a
+              href="mailto:info@afrishore.co"
+              class="text-gold hover:text-yellow underline-offset-2 hover:underline transition-colors"
+              >info@afrishore.co</a
+            >.
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</BaseLayout>
