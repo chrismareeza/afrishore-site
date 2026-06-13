@@ -482,6 +482,29 @@ const finalGraph = [
     </script>
     <script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-E5TS8D8VNX"></script>
 
+    <!-- Microsoft Clarity (x6ayvh6359) – session replay + heatmaps.
+         Consent-gated exactly like GA: window.__loadClarity() injects the
+         tag, but only ever runs once the visitor has accepted analytics
+         cookies. Here it fires on page view for visitors who already
+         accepted; the consent banner calls it on Accept for first-timers.
+         No-op on decline, so Clarity never loads without consent (POPIA). -->
+    <script is:inline>
+      window.__loadClarity = function () {
+        if (window.__clarityLoaded) return;
+        window.__clarityLoaded = true;
+        (function (c, l, a, r, i, t, y) {
+          c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments); };
+          t = l.createElement(r); t.async = 1; t.src = "https://www.clarity.ms/tag/" + i + "?ref=bwt";
+          y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y);
+        })(window, document, "clarity", "script", "x6ayvh6359");
+      };
+      try {
+        if (localStorage.getItem("afrishore-consent") === "granted") {
+          window.__loadClarity();
+        }
+      } catch (e) {}
+    </script>
+
     <!-- Cloudflare Web Analytics (cookieless, privacy-first).
          is:inline keeps Astro from bundling the third-party beacon. -->
     <script is:inline defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "ac81d6efc4bf47618bcca4e30f845840"}'></script>

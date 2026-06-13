@@ -1,9 +1,10 @@
 ---
 // POPIA / GDPR cookie-consent banner.
-// Gates Google Analytics only (Consent Mode v2 – analytics_storage
-// defaults to 'denied' in BaseLayout; Accept flips it to 'granted'
-// and the choice is stored in localStorage). Cloudflare Web Analytics
-// is cookieless and runs regardless, so basic traffic is never lost.
+// Gates Google Analytics (Consent Mode v2 – analytics_storage defaults to
+// 'denied' in BaseLayout; Accept flips it to 'granted') AND Microsoft
+// Clarity (its loader only fires on grant). The choice is stored in
+// localStorage. Cloudflare Web Analytics is cookieless and runs regardless,
+// so basic traffic is never lost.
 ---
 
 <div
@@ -17,9 +18,10 @@
     class="max-w-7xl mx-auto px-6 lg:px-12 py-4 lg:py-5 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between"
   >
     <p class="text-sm text-mute leading-relaxed max-w-3xl">
-      We use Google Analytics cookies to understand how this site is used.
-      Decline and only privacy-friendly, <span class="text-cream">cookieless</span>
-      traffic measurement runs – your choice is remembered.
+      We use Google Analytics and Microsoft Clarity cookies to understand how
+      this site is used. Decline and only privacy-friendly,
+      <span class="text-cream">cookieless</span> traffic measurement runs – your
+      choice is remembered.
     </p>
     <div class="flex items-center gap-3 flex-shrink-0">
       <button
@@ -89,14 +91,21 @@
       // the next idle frame; setTimeout fallback for browsers that
       // lack it (Safari < 17). Net: click registers as instant
       // (<50 ms INP) and analytics updates a beat later.
-      if (value === "granted" && typeof window.gtag === "function") {
-        var flip = function () {
-          window.gtag("consent", "update", { analytics_storage: "granted" });
+      if (value === "granted") {
+        var grant = function () {
+          if (typeof window.gtag === "function") {
+            window.gtag("consent", "update", { analytics_storage: "granted" });
+          }
+          // Load Microsoft Clarity now that consent is given (loader is
+          // defined in BaseLayout; idempotent if already loaded).
+          if (typeof window.__loadClarity === "function") {
+            window.__loadClarity();
+          }
         };
         if (typeof window.requestIdleCallback === "function") {
-          window.requestIdleCallback(flip, { timeout: 1000 });
+          window.requestIdleCallback(grant, { timeout: 1000 });
         } else {
-          setTimeout(flip, 0);
+          setTimeout(grant, 0);
         }
       }
     }
