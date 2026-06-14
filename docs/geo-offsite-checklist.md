@@ -66,8 +66,7 @@ to the site on every listing.
 
 ## ⛔ Guardrails — do not let the reports tempt these
 
-- **Certifications stay ISO 9001 + POPIA ONLY.** Reports suggest flaunting FONASBA / SAAFF / AEO / B-BBEE — Afrishore does not hold these. Do not claim them (matches the llms.txt guardrail).
+- **Stateable credentials (confirmed 2026-06-14):** ISO 9001, POPIA, **B-BBEE Level 1 (SA)**, and **51% Namibian + 30% PDP (Namibia)**. Do **not** claim FONASBA / SAAFF / AEO (not held).
 - **No original "port statistics" content** unless backed by real figures Chris supplies — no fabricated clearance/turnaround times.
-- **B-BBEE** — omitted everywhere pending Chris confirming a level to state.
 - **Wikipedia** — deprioritised: strict notability + conflict-of-interest rules, low control. Not worth chasing now.
 - **Do not disavow** the ~45 spam PBN backlinks — nofollow, harmless.

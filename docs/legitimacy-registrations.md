@@ -7,8 +7,9 @@ Afrishore's real profile: integrated marine logistics & vessel/rig agency
 2010; ISO 9001; POPIA-compliant; UN Global Compact participant; SAASOA member.
 
 **Guardrail:** only register/claim what Afrishore genuinely qualifies for.
-Do **not** assert FONASBA / SAAFF / AEO / B-BBEE status unless and until it is
-actually held. Joining is fine; claiming an unheld credential is not.
+Afrishore **is** B-BBEE Level 1 (SA) and 51% Namibian-owned + 30% PDP (Namibia)
+— confirmed and current, so these may be stated freely. Do **not** assert
+**FONASBA / SAAFF / AEO** status unless and until actually held.
 
 Status: ✅ done · ⬜ to do · 🔍 verify eligibility/that a public listing exists
 
