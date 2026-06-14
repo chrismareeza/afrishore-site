@@ -470,6 +470,12 @@ const finalGraph = [
          remembered in localStorage. is:inline so Astro doesn't bundle
          the third-party snippet. -->
     <script is:inline>
+      // Production-host guard: only ever activate analytics on afrishore.co.
+      // Prevents local dev, the Astro preview server, Cloudflare *.pages.dev
+      // previews and Electron-wrapped browsers from polluting the production
+      // GA4 + Clarity data (the spurious "https://Electron" sessions).
+      window.__afProd = /(^|\.)afrishore\.co$/i.test(location.hostname);
+
       window.dataLayer = window.dataLayer || [];
       function gtag(){ dataLayer.push(arguments); }
       gtag('consent', 'default', {
@@ -479,15 +485,20 @@ const finalGraph = [
         analytics_storage: 'denied',
         wait_for_update: 500
       });
-      try {
-        if (localStorage.getItem('afrishore-consent') === 'granted') {
-          gtag('consent', 'update', { analytics_storage: 'granted' });
-        }
-      } catch (e) {}
-      gtag('js', new Date());
-      gtag('config', 'G-E5TS8D8VNX');
+      if (window.__afProd) {
+        try {
+          if (localStorage.getItem('afrishore-consent') === 'granted') {
+            gtag('consent', 'update', { analytics_storage: 'granted' });
+          }
+        } catch (e) {}
+        gtag('js', new Date());
+        gtag('config', 'G-E5TS8D8VNX');
+        var __ga = document.createElement('script');
+        __ga.async = true;
+        __ga.src = "https://www.googletagmanager.com/gtag/js?id=G-E5TS8D8VNX";
+        document.head.appendChild(__ga);
+      }
     </script>
-    <script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-E5TS8D8VNX"></script>
 
     <!-- Microsoft Clarity (x6ayvh6359) – session replay + heatmaps.
          Consent-gated exactly like GA: window.__loadClarity() injects the
@@ -497,6 +508,7 @@ const finalGraph = [
          No-op on decline, so Clarity never loads without consent (POPIA). -->
     <script is:inline>
       window.__loadClarity = function () {
+        if (!window.__afProd) return;   // production host only — no preview/Electron pollution
         if (window.__clarityLoaded) return;
         window.__clarityLoaded = true;
         (function (c, l, a, r, i, t, y) {
