@@ -20,7 +20,7 @@ Status: ✅ done · ⬜ to do · 🔍 verify eligibility/that a public listing e
 | # | Body | What | Priority | Notes |
 |---|------|------|----------|-------|
 | ⬜ | **Namport — Ship & Cargo Clearing Agencies** | Official Namibian port-authority agent directory | **Critical** | The #1 lever for "vessel agent Walvis Bay". Competitors (GAC, Inchcape, Manica/OLS) all listed. |
-| 🔍 | **Transnet National Ports Authority (TNPA)** | Registered ship-agents list for SA ports | High | Verify TNPA maintains a public/registrable agent list for Cape Town, Durban, Saldanha. |
+| ⬜ | **Transnet National Ports Authority (TNPA)** | **Vessel Agent Registration** (official SA port-authority registry) | High | Confirmed via FindAll: TNPA runs a Vessel Agent Registration (transnetnationalportsauthority.net → National Port Act → Vessel Agent Application). The SA equivalent of the Namport listing — apply for Cape Town/Durban/Saldanha. |
 | 🔍 | **SAMSA** (SA Maritime Safety Authority) | Recognition / registration as a maritime service provider | Medium | Confirm whether agents register; useful credibility + regulatory standing. |
 | 🔍 | **NAMCOR / Namibian local-content supplier register** | Namibia upstream supplier registration | High (wins work) | Operators check local-content registers. Verify current process. |
 
@@ -37,11 +37,31 @@ Status: ✅ done · ⬜ to do · 🔍 verify eligibility/that a public listing e
 | ⬜ | **subsea.org listing** | Medium | Already drafted copy earlier — submit it; supports the subsea positioning. |
 | 🔍 | **Equasis** | Low | Vessel-safety DB, agent value limited; skip unless a specific need. |
 
+### Added from the FindAll sweep (2026-06-14)
+
+FindAll returned 48 candidates; after filtering ~20 noise rows (mislabelled LinkedIn company pages, junk rows, a contact-scraper), these are the genuine *new* directories worth pursuing:
+
+| # | Site | Priority | Notes |
+|---|------|----------|-------|
+| ⬜ | **MagicPort** (magicport.ai) | **High** | Ship-agent *comparison* platform buyers use to shortlist agents (incl. "Request PDA"). Flagged in the demand research too — claim the profile. |
+| ⬜ | **Africa Ports** (africaports.co.za/directory) | Medium-High | Africa-focused maritime news + directory; strong regional relevance. |
+| ⬜ | **Offshore-Technology — Suppliers** (offshore-technology.com/suppliers) | Medium | High-traffic offshore O&G trade publication's supplier directory. |
+| ⬜ | **Oil & Gas Directory / OilRegistry** (oilandgasdirectory.com · global.oilregistry.com) | Medium | Location-based O&G supplier directories. |
+| ⬜ | **Maritime-Database.com** | Medium | Global maritime directory; free basic listing, ship-agent/offshore categories. |
+| ⬜ | **ShipServiceHub.com** | Medium | Maritime service-providers directory (port agents, chandlers, bunkering, crew). |
+| ⬜ | **MaritimeInformed** (maritimeinformed.com) | Medium | Marine-agents directory + a useful index of maritime trade associations. |
+| ⬜ | **PortVendor.com** | Medium | Port supplier/vendor directory. |
+| ⬜ | **Kompass** (kompass.com) | Medium | High-authority global B2B database; general, but a strong corroboration citation. |
+| 🔍 | **Lloyd's List Directories** (directories.lloydslist.com) | Low-Med | High authority but subscription / vessel-owner focused — verify a free listing exists. |
+| ⬜ | **Lower-priority / niche** | Low | Freightnet, Energy Dais, Shipbrokers' Register (shipreg.org), RecordsMarine, EUROPAGES — quick low-DA listings only if time permits. |
+
+**Filtered out (do not pursue):** IAPH (port authorities only — not eligible), ABS Service Suppliers DB (ABS-approval-gated), NYSERDA Offshore Wind (US-only), Lusha / grokipedia / journals (not listings), and ~15 LinkedIn company pages (competitors, not directories). **WISTA International** is a women-in-shipping *membership* — a personal/leadership angle, not a company listing; park for a future people-based play.
+
 ## 3. Industry associations & professional bodies (paid — strategic, vetted)
 
 | # | Body | Relevance | Eligibility / cost | Priority |
 |---|------|-----------|--------------------|----------|
-| ✅ | **SAASOA** | SA ship operators & agents | Member already | 🔍 confirm you appear on the public members directory page (membership ≠ listing). |
+| ✅ | **SAASOA** | SA ship operators & agents | Member already | 🔍 confirm you appear on the public members directory (membership ≠ listing). **Domain check:** FindAll cited `saasoa.org.za`; our notes used `saasoa.com` — confirm the correct/current SAASOA domain. |
 | ⬜ | **IMCA** (Int'l Marine Contractors Assoc.) | Offshore + **subsea** — directly relevant | Annual fee; contractor/associate criteria | **High** — ties to the subsea pages; strong offshore corroboration. |
 | ⬜ | **BIMCO** | World's largest shipping body; agents eligible | Annual fee | Medium — broad international credibility. |
 | ⬜ | **IADC** (Int'l Assoc. of Drilling Contractors) | Drilling supply chain | Associate/supplier membership | Medium — aligns with rig-agency positioning. |
@@ -58,7 +78,7 @@ Status: ✅ done · ⬜ to do · 🔍 verify eligibility/that a public listing e
 | ⬜ | **SBIDZ** (Saldanha Bay IDZ) | Medium | Oil-&-gas/maritime zone; supplier/partner association. |
 | ⬜ | **NCCI** (Namibia Chamber of Commerce & Industry) | Medium | Namibian business legitimacy + backlink. |
 | ⬜ | **Local chambers** (Mossel Bay, Cape Town, Durban) | Low-Med | Mossel Bay chamber already a referring domain — replicate at the other office cities. |
-| 🔍 | **SAAFF** (SA Assoc. of Freight Forwarders) | Medium | Genuine candidate *because Afrishore does customs/forwarding* — join, then you may state it. Buyers check it. |
+| 🔍 | **SAAFF** (SA Assoc. of Freight Forwarders) | Medium | Genuine candidate *because Afrishore does customs/forwarding* — join, then you may state it. Buyers check it. SAAFF is the SA member of **FIATA** (global freight-forwarding federation), so membership carries FIATA linkage. |
 
 ## 5. Operator & supplier prequalification (wins actual work, not just SEO)
 
