@@ -124,7 +124,7 @@ const baseGraph: object[] = [
     },
     "image": absoluteOgImage,
     "description":
-      "Integrated marine logistics agency operating across South Africa, Namibia, and Mozambique since 2010. Vessel agency, customs, offshore supply base operations, project cargo, crew logistics, bunkering, and procurement.",
+      "Integrated marine logistics agency operating across South Africa, Namibia, and Mozambique since 2010. Vessel agency, customs, offshore supply base operations, project cargo, crew logistics, bunkering, and procurement. B-BBEE Level 1 in South Africa; a 51% Namibian-owned (34% PDP) local company in Namibia.",
     // Disambiguation: Google's AI Overview was conflating Afrishore
     // (this entity – maritime / port agency / Mossel Bay) with
     // Afrishore BPO (a different, unrelated company in Bryanston,
@@ -154,11 +154,18 @@ const baseGraph: object[] = [
     },
     "foundingDate": "2010",
     "slogan": "Local Solutions for Global Clients",
-    "hasCredential": {
-      "@type": "EducationalOccupationalCredential",
-      "credentialCategory": "Quality Management Certification",
-      "name": "ISO 9001 Quality Management System",
-    },
+    "hasCredential": [
+      {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "Quality Management Certification",
+        "name": "ISO 9001 Quality Management System",
+      },
+      {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "B-BBEE (Broad-Based Black Economic Empowerment)",
+        "name": "B-BBEE Level 1 Contributor (South Africa)",
+      },
+    ],
     "memberOf": {
       "@type": "Organization",
       "name": "South African Association of Ship Operators and Agents",
