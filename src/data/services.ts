@@ -48,11 +48,12 @@ export const servicePages: ServicePage[] = [
     // Canonical search-query variants for this service.
     alternateNames: [
       "Ships Agency", "Ships Agent", "Vessel Agent", "Vessel Agency",
+      "Port Agent", "Port Agency", "Rig Agent",
     ],
     intro: [
       "Afrishore acts as appointed local representative for owners, managers and charterers of vessels, rigs and marine assets transiting territorial waters or working at anchorage. Full agency scope: port and customs clearance, berth scheduling and port-authority liaison, immigration and crew changes, husbandry and owners' protective agency, bunkering, dry docking and repairs, procurement, and full mobilisation and demobilisation. We agent rigs, drillships, semi-submersibles, OSVs, PSVs, AHTS, tankers and FPSOs across our licensed port network.",
       "Vessel and rig agency in this region is unforgiving – tight berthing windows, complex immigration for international crews, customs and classification-society deadlines, weather that does not wait. Embedded teams permanently on-call across the Southern African coast mean the master, vessel and rig management and the operator deal with one agent rather than a chain of subcontractors.",
-      "As a licensed hub agent, Afrishore coordinates multi-port and multi-country calls across South Africa, Namibia and Mozambique under a single appointment, handling owners' protective agency and husbandry – supplies, cash to master, repairs and crew matters – as readily as full commercial agency. Off Port Limits (OPL) operations extend that reach to vessels working at anchorage, delivering crew changes, spares and supply without a port call. For owners that means one accountable representative from first notice of arrival to departure clearance, whether the asset is a drillship on a multi-well campaign or a tanker making a single transit stop.",
+      "As a licensed hub agent, Afrishore coordinates multi-port and multi-country calls across South Africa, Namibia and Mozambique under a single appointment – owners' protective agency (OPA), owners' husbandry agency (OHA) and charterers' nominated agency (CNA) handled as readily as full commercial agency. Husbandry covers supplies, cash to master, repairs and crew matters; every appointment opens with a clear pro forma disbursement account (PDA) and closes with a reconciled final DA, so owners and charterers see the cost of the call up front. Off Port Limits (OPL) operations extend that reach to vessels working at anchorage, delivering crew changes, spares and supply without a port call. For owners that means one accountable representative from first notice of arrival to departure clearance, whether the asset is a drillship on a multi-well campaign or a tanker making a single transit stop.",
       "On campaigns including the TotalEnergies Brulpadda discovery and the Deepsea Mira and Deepsea Bollsta drilling programmes, our rig agency ran alongside supply-base, integrated-logistics and crew operations from the same shore base. That integration is what keeps offshore schedules intact.",
     ],
     scope: [
@@ -63,6 +64,7 @@ export const servicePages: ServicePage[] = [
       "Bunkering arrangements",
       "Procurement & technical support network",
       "Husbandry & owner's representation",
+      "Disbursement accounts – PDA & final DA",
       "Medivac & emergency coordination",
       "Off Port Limits (OPL) logistics",
       "Full mobilisation / demobilisation",
