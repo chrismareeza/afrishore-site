@@ -674,27 +674,28 @@ const finalGraph = [
       })();
     </script>
 
-    <!-- Lead-intent tracking: one delegated listener fires a GA4
-         `generate_lead` event on any phone, email, or #contact CTA
-         (nav, hero, footer, service & project pages). No per-component
-         wiring; respects Consent Mode (gtag is consent-gated). -->
+    <!-- Contact-funnel tracking via one delegated listener (respects
+         Consent Mode – gtag is consent-gated):
+           • tel: / mailto: clicks → `generate_lead` – a REAL contact action
+             (the visitor is calling, or composing an enquiry email via the
+             pre-filled mailto). This is the trustworthy key event.
+           • #contact CTA clicks → `contact_intent` – SOFTER: the visitor
+             clicked a "Contact" / "Discuss your operation" button that only
+             scrolls to the contact section, with no contact made yet. NOT a
+             key event; kept for funnel analysis (intent → action). -->
     <script is:inline>
       (function () {
         document.addEventListener("click", function (e) {
           var a = e.target && e.target.closest && e.target.closest("a[href]");
-          if (!a) return;
+          if (!a || typeof window.gtag !== "function") return;
           var href = a.getAttribute("href") || "";
-          var method;
-          if (href.indexOf("tel:") === 0) method = "phone";
-          else if (href.indexOf("mailto:") === 0) method = "email";
-          else if (href.indexOf("#contact") !== -1) method = "cta";
-          else return;
-          if (typeof window.gtag === "function") {
-            window.gtag("event", "generate_lead", {
-              method: method,
-              link_url: href,
-              link_text: (a.textContent || "").trim().slice(0, 80)
-            });
+          var txt = (a.textContent || "").trim().slice(0, 80);
+          if (href.indexOf("tel:") === 0) {
+            window.gtag("event", "generate_lead", { method: "phone", link_url: href, link_text: txt });
+          } else if (href.indexOf("mailto:") === 0) {
+            window.gtag("event", "generate_lead", { method: "email", link_url: href, link_text: txt });
+          } else if (href.indexOf("#contact") !== -1) {
+            window.gtag("event", "contact_intent", { method: "cta", link_url: href, link_text: txt });
           }
         }, true);
       })();
