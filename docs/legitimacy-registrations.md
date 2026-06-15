@@ -31,7 +31,7 @@ Status: ✅ done · ⬜ to do · 🔍 verify eligibility/that a public listing e
 | ✅ | **MarineTraffic** company directory | — | Listed (Cape Town only) → **enrich** with all ports + service lines. |
 | ⬜ | **theshipmarket.com** | High | "#1 Maritime Directory"; lists by country + serviced port. |
 | ⛔ | **Rigzone** company directory | Skip (paid) | Verified 2026-06-15: directory is search-only; getting listed = paid "Featured Companies"/Advertise, no free self-serve listing. **Don't pay** — pivot to editorial instead: pitch news@rigzone.com (see link-building doc). |
-| ⬜ | **ShipServ** (marine eProcurement) | High | Where buyers' procurement teams search suppliers; supplier profile + categories. |
+| ✅/⛔ | **ShipServ** (marine eProcurement) | Free shell only | Registered (TN-212132) + logo + Trade Basic (free). Verified 2026-06-15: **appearing in buyer Search = Premium (PAID)** — the free tier only quotes RFQs + a non-searchable Basic profile. **Don't buy Premium** (supplies-skewed marketplace; low value for agency/logistics). Leave the free Basic shell. |
 | ⬜ | **VesselFinder** company page | Medium | MarineTraffic-equivalent; cheap extra corroboration. |
 | ⬜ | **Maritime-Connector / The Maritime Directory** | Low-Med | General maritime directories; quick listings. |
 | ⬜ | **subsea.org listing** | Medium | Already drafted copy earlier — submit it; supports the subsea positioning. |
@@ -102,7 +102,7 @@ FindAll returned 48 candidates; after filtering ~20 noise rows (mislabelled Link
 ---
 
 ### Suggested sequence
-1. **This week (free, high-trust):** Namport, MarineTraffic enrich, theshipmarket, ShipServ, GBP ×4, Bing Places, Crunchbase/Tracxn — plus confirm SAASOA + ISO public listings exist. *(Rigzone moved to editorial-only — paid directory, not worth it.)*
+1. **This week (free, high-trust):** Namport, MarineTraffic enrich, theshipmarket, GBP ×4, Bing Places, Crunchbase/Tracxn — plus confirm SAASOA + ISO public listings exist. *(Rigzone + ShipServ-Search are paywalled — not worth it; ShipServ left as a free Basic shell.)*
 2. **This month (local + wins-work):** SAOGA, WBCG, SAAFF (if joining), Achilles + operator vendor portals, D-U-N-S.
 3. **This quarter (strategic paid):** IMCA (subsea tie-in), BIMCO, IADC, ICS, FONASBA quality standard.
 
