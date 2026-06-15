@@ -419,15 +419,15 @@ Compressed-timeline rig extractions from South African waters remain achievable 
   },
   {
     slug: "sbm-subsea-concrete-mattress",
-    title: "SBM Offshore: Subsea Mattress & Grout Manufacture",
+    title: "SBM Offshore: Subsea Mattress & Grout Bag Manufacture",
     client: "SBM Offshore",
     year: "2012",
     port: "Mossel Bay",
     serviceTypes: ["subsea-services", "integrated-logistics"],
     heroImage: "/images/projects/sbm-subsea-concrete-mattress.jpg",
-    tagline: "Local subsea mattress & grout manufacture · Mossel Bay, South Africa · 2012",
+    tagline: "Local subsea mattress & grout-bag manufacture · Mossel Bay, South Africa · 2012",
     summary: "Afrishore stood up a complete local casting and grout-batching capability on the Mossel Bay quayside – 1,480 articulated concrete mattresses and 4,000 t of subsea grout manufactured for SBM Offshore's Project Ekwezi.",
-    metaTitle: "Subsea Concrete Mattress & Grout Manufacture | Afrishore",
+    metaTitle: "Subsea Concrete Mattress & Grout Bag Manufacture | Afrishore",
     metaDescription: "Local manufacture of 1,480 articulated concrete mattresses and 4,000 t of subsea grout at Mossel Bay for SBM Offshore's Project Ekwezi (PetroSA), 2012.",
     outcome: `In 2012, for SBM Offshore's subsea construction scope on PetroSA's Project Ekwezi (the F-O gas-field tie-back offshore Mossel Bay), Afrishore did what most of the industry imports for the subsea protection, and thereafter manufactured the mattresses locally. Rather than freight finished product in from established overseas yards, Afrishore stood up a complete casting and grout-batching capability on the Mossel Bay quayside, beside the offshore load-out, and produced 1,480 articulated concrete mattresses and 4,000 tonnes of subsea grout in bulk drop bags to international specification.
 
