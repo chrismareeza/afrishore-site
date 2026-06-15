@@ -419,23 +419,27 @@ Compressed-timeline rig extractions from South African waters remain achievable 
   },
   {
     slug: "sbm-subsea-concrete-mattress",
-    title: "SBM Offshore: Subsea Concrete Mattress Installation",
+    title: "SBM Offshore: Subsea Mattress & Grout Manufacture",
     client: "SBM Offshore",
-    year: "2015",
+    year: "2012",
     port: "Mossel Bay",
     serviceTypes: ["subsea-services", "integrated-logistics"],
     heroImage: "/images/projects/sbm-subsea-concrete-mattress.jpg",
-    tagline: "Concrete mattress installation · Mossel Bay, South Africa · 2015",
-    summary: "Concrete mattress installation for subsea pipeline protection – SBM Offshore's pipeline crossing campaign supported by Afrishore at the Port of Mossel Bay, South Africa.",
-    metaTitle: "Subsea Concrete Mattress Installation | Afrishore",
-    metaDescription: "Concrete mattress installation for subsea pipeline and cable protection – pre-cast articulated blocks on the seabed. SBM Offshore, Port of Mossel Bay.",
-    outcome: `Afrishore supported SBM Offshore on a 2015 concrete mattress installation campaign for subsea pipeline crossing protection, working out of the Port of Mossel Bay on the South African south coast. Concrete mattresses are pre-cast articulated concrete blocks linked by polypropylene rope, lowered onto the seabed to protect submarine pipelines, umbilicals and subsea structures from anchor strikes, fishing gear, seabed scour and dropped objects. In South African waters the technique is the standard method for hardening pipeline crossings and seabed infrastructure against the mechanical risks of the offshore environment.
+    tagline: "Local subsea mattress & grout manufacture · Mossel Bay, South Africa · 2012",
+    summary: "Afrishore stood up a complete local casting and grout-batching capability on the Mossel Bay quayside – 1,480 articulated concrete mattresses and 4,000 t of subsea grout manufactured for SBM Offshore's Project Ekwezi.",
+    metaTitle: "Subsea Concrete Mattress & Grout Manufacture | Afrishore",
+    metaDescription: "Local manufacture of 1,480 articulated concrete mattresses and 4,000 t of subsea grout at Mossel Bay for SBM Offshore's Project Ekwezi (PetroSA), 2012.",
+    outcome: `In 2012, for SBM Offshore's subsea construction scope on PetroSA's Project Ekwezi (the F-O gas-field tie-back offshore Mossel Bay), Afrishore did what most of the industry imports for the subsea protection, and thereafter manufactured the mattresses locally. Rather than freight finished product in from established overseas yards, Afrishore stood up a complete casting and grout-batching capability on the Mossel Bay quayside, beside the offshore load-out, and produced 1,480 articulated concrete mattresses and 4,000 tonnes of subsea grout in bulk drop bags to international specification.
 
-The Mossel Bay scope brought a mix of project cargo, customs and quayside coordination challenges into a single window. Concrete mattress consignments are heavy, dimensionally awkward and time-critical: each mattress weighs in the order of three tonnes, requires specialised lifting and slinging, and has to arrive cleared, surveyed and pre-rigged for the installation window agreed with the contracting vessel. Mossel Bay is not a project port by default, which makes pre-positioning of cranage, laydown and stevedoring decisive – delays at the quay translate directly into vessel standby cost offshore.
+A subsea concrete mattress is a recognised engineering solution for protecting and stabilising pipelines, flowlines, umbilicals and cables on the seabed – an array of high-strength concrete blocks linked by a UV-stabilised polypropylene rope matrix that lets the unit articulate and conform to the seabed while adding the weight to hold subsea lines in place and resist scour. Each of the 1,480 units, nominally 6 m × 3 m, was cast on a steel mould fabricated locally to international (DNV-type) specification, using a proprietary high-strength ready-mix which was locally supplied. After curing, Afrishore's local crews threaded the rope matrix and formed the integral lifting loops by hand before each mattress was struck from the mould, finished and stacked for load-out.
 
-Afrishore handled the integrated-logistics scope on the South African side of the campaign: project cargo handling and abnormal-load coordination for the inbound concrete mattress consignment, customs clearance and temporary importation documentation, port agency at Mossel Bay covering berth scheduling and port-authority liaison, immigration and crew change for the technical team accompanying the spread, and quayside coordination from arrival through to vessel mobilisation alongside SBM Offshore's marine spread. The campaign also drew on the established Mossel Bay supply-base relationships Afrishore had built operating the TotalEnergies Brulpadda and Luiperd campaigns out of the same port.
+Alongside the mattresses, Afrishore supplied subsea grout to the project: 4,000 tonnes batched and mixed locally and packed into subsea grout bags for offshore deployment. Subsea grout fills scour holes, free-spans and voids, beds and supports subsea structures, and provides ballast and stabilisation on the seabed: the complement to the mattresses across the protection scope.
 
-The campaign sits alongside Afrishore's wider subsea installation track record in South Africa and Namibia, which spans concrete mattress installation, subsea pipelaying, grout-bag protection and subsea cable landing operations. Operators contracting subsea protection work into South African waters use Afrishore as the integrated logistics, customs and port-agency point of accountability – the seam between the inbound consignment, the contracting vessel and the SAMSA-regulated South African port system.`,
+Placing 1,480 heavy units accurately over live subsea infrastructure is slow and risky if it depends on divers. Afrishore commissioned and proof-load-tested a bespoke ROV-operable deployment spreader bar in Mossel Bay to mitigate this, and every lift at the yard ran to a documented safe system of work – trained banksman slinging, six-monthly competent-person beam inspection, a test lift before use, and controlled exclusion of personnel during lifting.
+
+Project Ekwezi tied PetroSA's F-O gas field back to the offshore F-A platform and onward to the Mossel Bay GTL refinery, with subsea installation carried through 2012. Pipelay was performed by the Allseas pipelayer Calamity Jane and the Jumbo heavy-lift vessel Fairplayer; the locally manufactured mattresses and bagged grout were deployed offshore by the Harkand construction vessel Da Vinci (now Boka Da Vinci), which draped the mattresses over the flowlines and set the grout bags on the seabed to resist the high-velocity bottom currents and wave-induced flow of the South African south coast.
+
+The programme delivered its full scope of certified subsea product from a standing start, to the same standard as imported equivalents, without the import freight, lead time or handling damage – all while keeping the supply chain in the Southern Cape. Local concrete, local lifting and rigging, a 100% local workforce and a structured skills-transfer programme turned a procurement line into durable subsea-manufacturing skills on the Mossel Bay quayside. For an operator, that is the difference between buying a product and building a capability: Afrishore brought the factory to the quay.`,
     featured: false,
     published: true,
   },
