@@ -31,7 +31,7 @@ Status: ✅ done · ⬜ to do · 🔍 verify eligibility/that a public listing e
 | ✅ | **MarineTraffic** company directory | — | Listed (Cape Town only) → **enrich** with all ports + service lines. |
 | ⬜ | **theshipmarket.com** | High | "#1 Maritime Directory"; lists by country + serviced port. |
 | ⛔ | **Rigzone** company directory | Skip (paid) | Verified 2026-06-15: directory is search-only; getting listed = paid "Featured Companies"/Advertise, no free self-serve listing. **Don't pay** — pivot to editorial instead: pitch news@rigzone.com (see link-building doc). |
-| ✅/⛔ | **ShipServ** (marine eProcurement) | Free shell only | Registered (TN-212132) + logo + Trade Basic (free). Verified 2026-06-15: **appearing in buyer Search = Premium (PAID)** — the free tier only quotes RFQs + a non-searchable Basic profile. **Don't buy Premium** (supplies-skewed marketplace; low value for agency/logistics). Leave the free Basic shell. |
+| ⬜ | **ShipServ** (marine eProcurement) | Do (free) | Registered (TN-212132) + logo. Clarified by ShipServ support 2026-06-15: the **free Basic profile IS searchable** (limited fields, lower ranking) — edit via Settings → Account (manage.shipserv.com) as Admin; ~30 min to appear in Search. **Complete the free Basic profile** (company info, addresses, categories, core ports, logo). **Premium (paid)** only adds enhanced ranking + more ports/categories/brands → **skip** (supplies-skewed marketplace). |
 | ⬜ | **VesselFinder** company page | Medium | MarineTraffic-equivalent; cheap extra corroboration. |
 | ⬜ | **Maritime-Connector / The Maritime Directory** | Low-Med | General maritime directories; quick listings. |
 | ⬜ | **subsea.org listing** | Medium | Already drafted copy earlier — submit it; supports the subsea positioning. |
