@@ -58,6 +58,9 @@ export default defineConfig({
       changefreq: 'weekly',
       priority: 0.8,
       lastmod: new Date(),
+      // Keep the OKF agent bundle (/okf/*.md) out of the search-index sitemap —
+      // it's a machine/agent layer (referenced from llms.txt), not HTML pages.
+      filter: (page) => !page.includes('/okf/'),
     }),
     stripImageMasters(),
   ],
