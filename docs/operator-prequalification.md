@@ -16,7 +16,7 @@ Afrishore into the screening lists *before* the next campaign's ITTs go out.
 
 ## Single highest-leverage action: Achilles Global Energy
 
-> **Status (2026-06-15):** free **basic account registered** under **Afrishore Logistics (Namibia)** — logo, marketing statement (Namibia/Energy-tuned, 51%+30% PDP + ISO 9001), social links done. **Still the gate before spend:** the paid **Energy-network accreditation** is what makes Afrishore *visible to / screened by* buyers. Before paying, (1) ask **Odfjell** if they screen via Achilles for SA/Namibia and want Afrishore on it (a buyer invite is the cheapest route), and (2) get the accreditation + Verify-audit quote.
+> **Status (2026-06-15):** **free registration submitted** under **Afrishore Logistics (Namibia)** — profile (logo, Namibia/Energy-tuned marketing statement, social links) + full supplier questionnaire completed and submitted; portal corrections applied (Erongo region, contact phone, commodity codes). **Still the gate before spend:** the paid **Energy-network accreditation** is what makes Afrishore *visible to / screened by* buyers. Before paying, (1) ask **Odfjell** if they screen via Achilles for SA/Namibia and want Afrishore on it (a buyer invite is the cheapest route), and (2) get the accreditation + Verify-audit quote.
 
 **Odfjell Drilling** — Afrishore's most frequent client — uses **Achilles Global
 Energy** (formerly FPAL) as its screening tool when building Invitation-to-Tender
