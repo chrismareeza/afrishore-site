@@ -25,17 +25,21 @@ const breadcrumb = [
 const groups = [
   {
     heading: "Quality & HSE",
+    stack: true,
     items: [
       {
         name: "ISO 9001",
         label: "Quality Management System",
         body: "Afrishore's operations are certified to ISO 9001, the international quality-management standard – a documented, audited management system applied consistently across every campaign.",
         scope: "Group",
+        logo: "/images/certifications/bureau-veritas.png",
+        logoAlt: "Bureau Veritas – Afrishore's ISO 9001 certification body",
       },
     ],
   },
   {
     heading: "Customs & Trade Compliance",
+    stack: true,
     items: [
       {
         name: "SARS AEO Level 2",
@@ -158,39 +162,41 @@ const groups = [
               </h2>
               <div class={`grid gap-5 ${group.stack ? "" : "md:grid-cols-2"}`}>
                 {group.items.map((item) => (
-                  <div class="group border border-line rounded-sm p-6 flex flex-col transition-colors duration-300 hover:border-gold/40" style="background: rgba(245,242,235,0.02);">
-                    <div class="flex items-start justify-between gap-3 mb-2">
-                      <h3 class="text-xl text-cream tracking-tight leading-snug">
-                        {item.name}
-                      </h3>
-                      <span class="shrink-0 mt-1 border border-gold/30 text-gold/80 text-[11px] uppercase tracking-wider px-2.5 py-1 rounded-full">
-                        {item.scope}
-                      </span>
+                  <div class="group border border-line rounded-sm p-6 flex items-center gap-5 lg:gap-6 transition-colors duration-300 hover:border-gold/40" style="background: rgba(245,242,235,0.02);">
+                    <div class="flex-1 min-w-0">
+                      <div class="flex items-start justify-between gap-3 mb-2">
+                        <h3 class="text-xl text-cream tracking-tight leading-snug">
+                          {item.name}
+                        </h3>
+                        <span class="shrink-0 mt-1 border border-gold/30 text-gold/80 text-[11px] uppercase tracking-wider px-2.5 py-1 rounded-full">
+                          {item.scope}
+                        </span>
+                      </div>
+                      <div class="text-sm text-gold/90 font-semibold mb-3">
+                        {item.label}
+                      </div>
+                      <p class="text-base leading-relaxed" style="color: rgba(245,242,235,0.85);">
+                        {item.body}
+                      </p>
+                      {item.link && (
+                        <a
+                          href={item.link.href}
+                          {...(item.link.external
+                            ? { target: "_blank", rel: "noopener" }
+                            : {})}
+                          class="mt-3 inline-flex items-center gap-1.5 text-sm text-gold hover:text-yellow underline-offset-2 hover:underline transition-colors"
+                        >
+                          {item.link.text}
+                          <span aria-hidden="true">→</span>
+                        </a>
+                      )}
                     </div>
-                    <div class="text-sm text-gold/90 font-semibold mb-3">
-                      {item.label}
-                    </div>
-                    <p class="text-base leading-relaxed mb-4" style="color: rgba(245,242,235,0.85);">
-                      {item.body}
-                    </p>
-                    {item.link && (
-                      <a
-                        href={item.link.href}
-                        {...(item.link.external
-                          ? { target: "_blank", rel: "noopener" }
-                          : {})}
-                        class="mt-auto inline-flex items-center gap-1.5 text-sm text-gold hover:text-yellow underline-offset-2 hover:underline transition-colors"
-                      >
-                        {item.link.text}
-                        <span aria-hidden="true">→</span>
-                      </a>
-                    )}
                     {item.logo && (
-                      <div class="mt-auto pt-5 border-t border-line/60">
+                      <div class="shrink-0 flex items-center justify-center w-28 lg:w-32">
                         <img
                           src={item.logo}
                           alt={item.logoAlt}
-                          class="cert-logo max-h-10 w-auto object-contain"
+                          class="cert-logo max-h-20 lg:max-h-24 w-auto max-w-full object-contain"
                           loading="lazy"
                           decoding="async"
                         />
