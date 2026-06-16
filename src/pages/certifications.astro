@@ -34,6 +34,7 @@ const groups = [
         scope: "Group",
         logo: "/images/certifications/bureau-veritas.png",
         logoAlt: "Bureau Veritas – Afrishore's ISO 9001 certification body",
+        logoLight: true,
       },
     ],
   },
@@ -196,7 +197,7 @@ const groups = [
                         <img
                           src={item.logo}
                           alt={item.logoAlt}
-                          class="cert-logo max-h-20 lg:max-h-24 w-auto max-w-full object-contain"
+                          class={`cert-logo ${item.logoLight ? "is-light" : ""} max-h-20 lg:max-h-24 w-auto max-w-full object-contain`}
                           loading="lazy"
                           decoding="async"
                         />
@@ -253,6 +254,19 @@ const groups = [
   }
 
   .group:hover .cert-logo {
+    filter: none;
+    opacity: 1;
+  }
+
+  /* Logos that already contain white (e.g. the recoloured Bureau Veritas mark)
+     must NOT be inverted – invert would turn their white to black. Instead
+     they sit as a muted greyscale logo at rest and reveal full colour on hover. */
+  .cert-logo.is-light {
+    filter: grayscale(100%) brightness(0.85);
+    opacity: 0.7;
+  }
+
+  .group:hover .cert-logo.is-light {
     filter: none;
     opacity: 1;
   }
