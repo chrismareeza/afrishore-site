@@ -70,7 +70,7 @@ other Achilles-subscribing operator.
 ### South Africa
 - **UPRD Act 23 of 2024:** local-content plans, procurement-progression plans for black-owned suppliers, training-trust fees, and **B-BBEE** as a procurement gatekeeper (PPPFA 80/20 — up to 20 preference points). **Afrishore is B-BBEE Level 1** — maximum procurement recognition (135%), the strongest possible position in SA tenders.
 
-> ✅ **Confirmed credentials (2026-06-14).** Afrishore **is 51% Namibian-owned + 30% PDP in Namibia, and B-BBEE Level 1 in South Africa** — confirmed and current. These are genuine, stateable credentials and strong procurement differentiators: surface them on-site, in listings and in prequalification submissions. Mozambique is the one still to build (Economic Substance via a local entity, consortium or subcontract) if/when formalised. **Still off-limits to claim:** FONASBA / SAAFF / AEO (not held).
+> ✅ **Confirmed credentials (2026-06-14).** Afrishore **is 51% Namibian-owned + 30% PDP in Namibia, and B-BBEE Level 1 in South Africa** — confirmed and current. These are genuine, stateable credentials and strong procurement differentiators: surface them on-site, in listings and in prequalification submissions. Mozambique is the one still to build (Economic Substance via a local entity, consortium or subcontract) if/when formalised. Afrishore also holds **SARS AEO Level 2 (Authorised Economic Operator – Security)** — confirmed 2026-06-16, stateable, and a strong customs-compliance signal in prequalification. **Still off-limits to claim:** FONASBA / SAAFF (not held).
 
 ---
 

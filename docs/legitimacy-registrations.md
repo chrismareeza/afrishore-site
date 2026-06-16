@@ -8,8 +8,10 @@ Afrishore's real profile: integrated marine logistics & vessel/rig agency
 
 **Guardrail:** only register/claim what Afrishore genuinely qualifies for.
 Afrishore **is** B-BBEE Level 1 (SA) and 51% Namibian-owned + 30% PDP (Namibia)
-— confirmed and current, so these may be stated freely. Do **not** assert
-**FONASBA / SAAFF / AEO** status unless and until actually held.
+— confirmed and current, so these may be stated freely. Afrishore also holds
+**SARS AEO Level 2 (Authorised Economic Operator – Security / AEO-S)**, confirmed
+2026-06-16 — stateable. Do **not** assert **FONASBA / SAAFF** status unless and
+until actually held.
 
 Status: ✅ done · ⬜ to do · 🔍 verify eligibility/that a public listing exists
 
@@ -43,7 +45,7 @@ FindAll returned 48 candidates; after filtering ~20 noise rows (mislabelled Link
 
 | # | Site | Priority | Notes |
 |---|------|----------|-------|
-| ⬜ | **MagicPort** (magicport.ai) | **High** | Ship-agent *comparison* platform buyers use to shortlist agents (incl. "Request PDA"). Flagged in the demand research too — claim the profile. |
+| ✅ | **MagicPort** (magicport.ai) | Done (core profile) | Ship-agent *comparison* platform buyers use to shortlist agents (incl. "Request PDA"). Profile set up 2026-06-16: About Company (group narrative, 34% PDP), 5 Services (Vessel & Rig Agency, Offshore Supply Base, Integrated Logistics & Customs, Crew Logistics/Visa, Procurement), branches Walvis Bay (Head Office/Main) + Cape Town. **Still to enrich:** Ports Served, Certifications tab (ISO 9001 · B-BBEE L1 · POPIA · UNGC · SAASOA), Products tab (subsea concrete mattresses + grout bags), News & Projects (Ikhwezi etc.). Add the public MagicPort profile URL to Org `sameAs` once live. NB Head Office set to Walvis Bay (positioning) vs canonical HQ Mossel Bay; add Mossel Bay + Durban branches for full footprint. |
 | ⬜ | **Africa Ports** (africaports.co.za/directory) | Medium-High | Africa-focused maritime news + directory; strong regional relevance. |
 | ⬜ | **Offshore-Technology — Suppliers** (offshore-technology.com/suppliers) | Medium | High-traffic offshore O&G trade publication's supplier directory. |
 | ⬜ | **Oil & Gas Directory / OilRegistry** (oilandgasdirectory.com · global.oilregistry.com) | Medium | Location-based O&G supplier directories. |
@@ -73,7 +75,7 @@ FindAll returned 48 candidates; after filtering ~20 noise rows (mislabelled Link
 
 | # | Body | Priority | Notes |
 |---|------|----------|-------|
-| ⬜ | **SAOGA** (SA Oil & Gas Alliance) | **High** | The SA offshore supply-chain cluster; member directory + sector credibility. |
+| ✅ | **SAOGA** (SA Oil & Gas Alliance) | Member (confirmed 2026-06-16) | The SA offshore supply-chain cluster. **Chris confirmed Afrishore is already a member** — stateable credential, add to schema `memberOf` + certifications page. To-do: confirm Afrishore appears on SAOGA's public member directory (the verify link) + grab the directory URL for `sameAs`. |
 | ⬜ | **WBCG** (Walvis Bay Corridor Group) | High | Regional logistics authority for Walvis Bay; partnership + link. |
 | ⬜ | **SBIDZ** (Saldanha Bay IDZ) | Medium | Oil-&-gas/maritime zone; supplier/partner association. |
 | ⬜ | **NCCI** (Namibia Chamber of Commerce & Industry) | Medium | Namibian business legitimacy + backlink. |

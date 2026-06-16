@@ -165,13 +165,26 @@ const baseGraph: object[] = [
         "credentialCategory": "B-BBEE (Broad-Based Black Economic Empowerment)",
         "name": "B-BBEE Level 1 Contributor (South Africa)",
       },
+      {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "AEO (Authorised Economic Operator)",
+        "name": "SARS AEO Level 2 – Security (South Africa)",
+      },
     ],
-    "memberOf": {
-      "@type": "Organization",
-      "name": "South African Association of Ship Operators and Agents",
-      "alternateName": "SAASOA",
-      "url": "https://saasoa.com/",
-    },
+    "memberOf": [
+      {
+        "@type": "Organization",
+        "name": "South African Association of Ship Operators and Agents",
+        "alternateName": "SAASOA",
+        "url": "https://saasoa.com/",
+      },
+      {
+        "@type": "Organization",
+        "name": "South African Oil and Gas Alliance",
+        "alternateName": "SAOGA",
+        "url": "https://www.saoga.org.za/",
+      },
+    ],
     "areaServed": [
       { "@type": "Country", "name": "South Africa" },
       { "@type": "Country", "name": "Namibia" },
@@ -218,7 +231,8 @@ const baseGraph: object[] = [
     "@type": "WebSite",
     "@id": `${siteUrl}/#website`,
     "url": siteUrl,
-    "name": "Afrishore Maritime Logistics",
+    "name": "Afrishore",
+    "alternateName": "Afrishore Maritime Logistics",
     "description":
       "Integrated marine logistics agency – South Africa, Namibia, Mozambique. ISO 9001 certified since 2010.",
     "publisher": { "@id": `${siteUrl}/#organization` },

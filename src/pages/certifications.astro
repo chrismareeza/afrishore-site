@@ -1,0 +1,219 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Navbar from "../components/Navbar.astro";
+import Footer from "../components/Footer.astro";
+
+const siteUrl = "https://www.afrishore.co";
+// Trailing slash matches the URL Cloudflare Pages actually serves.
+const pageUrl = `${siteUrl}/certifications/`;
+
+// Certificates are provided on request rather than published online – the
+// same request-by-email pattern the POPIA page uses for its manual.
+const certMailto =
+  "mailto:info@afrishore.co?subject=Afrishore%20certificate%20request&body=Please%20send%20me%20a%20copy%20of%20the%20following%20Afrishore%20certificate(s)%3A%0D%0A%0D%0A(e.g.%20ISO%209001%2C%20SARS%20AEO%2C%20B-BBEE)%0D%0A%0D%0AName%3A%0D%0ACompany%3A";
+
+const metaTitle = "Certifications & Accreditations | Afrishore";
+const metaDescription =
+  "Afrishore's independently issued credentials – ISO 9001, SARS AEO Level 2, B-BBEE Level 1, Namibian local-content status, UN Global Compact, POPIA, and SAASOA & SAOGA membership – across South Africa, Namibia and Mozambique.";
+
+const breadcrumb = [
+  { name: "Home", item: "/" },
+  { name: "Certifications", item: "/certifications/" },
+];
+
+// Data-driven so a new credential is a one-line add, not a layout change.
+const groups = [
+  {
+    heading: "Quality & HSE",
+    items: [
+      {
+        name: "ISO 9001",
+        label: "Quality Management System",
+        body: "Afrishore's operations are certified to ISO 9001, the international quality-management standard – a documented, audited management system applied consistently across every campaign.",
+        scope: "Group",
+      },
+    ],
+  },
+  {
+    heading: "Customs & Trade Compliance",
+    items: [
+      {
+        name: "SARS AEO Level 2",
+        label: "Authorised Economic Operator – Security · SARS Customs",
+        body: "A South African Revenue Service trusted-trader accreditation under the World Customs Organisation's SAFE Framework. Level 2 (Security) is the higher of the two tiers – recognising a documented, secure supply chain, which means faster customs clearance and fewer inspections on the cargo Afrishore moves.",
+        scope: "South Africa",
+      },
+    ],
+  },
+  {
+    heading: "Empowerment & Local Content",
+    items: [
+      {
+        name: "B-BBEE Level 1",
+        label: "Broad-Based Black Economic Empowerment",
+        body: "Afrishore is a B-BBEE Level 1 contributor – the highest recognition level – giving clients maximum procurement-recognition points on South African work.",
+        scope: "South Africa",
+      },
+      {
+        name: "51% Namibian-owned · 34% PDP",
+        label: "Namibian local company",
+        body: "Afrishore's Namibian entity is 51% Namibian-owned with 34% Previously Disadvantaged Persons equity, qualifying as a local company under Namibia's upstream petroleum local-content policy – so operators can count an Afrishore appointment toward their local-content commitments.",
+        scope: "Namibia",
+      },
+    ],
+  },
+  {
+    heading: "Governance & Ethics",
+    items: [
+      {
+        name: "UN Global Compact",
+        label: "Corporate sustainability & ethics",
+        body: "Afrishore is a participant in the United Nations Global Compact, committing to its ten principles on human rights, labour, the environment and anti-corruption.",
+        scope: "Group",
+        link: {
+          href: "https://kss.unglobalcompact.org/what-is-gc/participants/193319-Afrishore-Logistics-Pty-Ltd",
+          text: "View UN Global Compact profile",
+          external: true,
+        },
+      },
+      {
+        name: "POPIA",
+        label: "Protection of Personal Information Act",
+        body: "Afrishore processes personal information lawfully and securely under South Africa's POPIA. Our POPIA Manual is available on request.",
+        scope: "South Africa",
+        link: {
+          href: "/popia/",
+          text: "Read our POPIA & privacy notice",
+          external: false,
+        },
+      },
+    ],
+  },
+  {
+    heading: "Industry Membership",
+    items: [
+      {
+        name: "SAASOA",
+        label: "South African Association of Ship Operators & Agents",
+        body: "Afrishore is a member of SAASOA, the national representative body for ship operators and agents in South Africa.",
+        scope: "South Africa",
+      },
+      {
+        name: "SAOGA",
+        label: "South African Oil & Gas Alliance",
+        body: "Afrishore is a member of SAOGA, the umbrella body connecting companies across South Africa's oil & gas value chain.",
+        scope: "South Africa",
+      },
+    ],
+  },
+];
+---
+
+<BaseLayout
+  title={metaTitle}
+  description={metaDescription}
+  canonical={pageUrl}
+  breadcrumb={breadcrumb}
+>
+  <Navbar />
+
+  <main id="main">
+    <!-- Hero -->
+    <section class="relative pt-32 lg:pt-40 pb-12 px-6 lg:px-12">
+      <div class="max-w-3xl mx-auto">
+        <div class="text-base uppercase tracking-[0.2em] text-gold font-bold mb-6">
+          Credentials &amp; Compliance
+        </div>
+        <h1 class="text-4xl md:text-5xl lg:text-6xl text-cream leading-[1.1] tracking-tight mb-5">
+          Certifications &amp; Accreditations
+        </h1>
+        <p class="text-lg lg:text-xl text-gold/90 mb-10 max-w-2xl leading-snug">
+          Independently issued. Audited. Verifiable.
+        </p>
+        <p class="text-xl lg:text-2xl leading-relaxed text-cream/90">
+          Afrishore's accreditations and memberships are the documented basis
+          for the trust operators place in us across South Africa, Namibia and
+          Mozambique – issued and audited by independent bodies, not
+          self-declared. Several apply in a specific jurisdiction; each is
+          tagged accordingly.
+        </p>
+      </div>
+    </section>
+
+    <!-- Credential groups -->
+    <section class="px-6 lg:px-12 pb-12">
+      <div class="max-w-4xl mx-auto space-y-12">
+        {
+          groups.map((group) => (
+            <div class="border-t border-line pt-10">
+              <h2 class="text-base uppercase tracking-[0.2em] text-gold font-bold mb-6">
+                {group.heading}
+              </h2>
+              <div class="grid md:grid-cols-2 gap-5">
+                {group.items.map((item) => (
+                  <div class="border border-line rounded-sm p-6 flex flex-col" style="background: rgba(245,242,235,0.02);">
+                    <div class="flex items-start justify-between gap-3 mb-2">
+                      <h3 class="text-xl text-cream tracking-tight leading-snug">
+                        {item.name}
+                      </h3>
+                      <span class="shrink-0 mt-1 border border-gold/30 text-gold/80 text-[11px] uppercase tracking-wider px-2.5 py-1 rounded-full">
+                        {item.scope}
+                      </span>
+                    </div>
+                    <div class="text-sm text-gold/90 font-semibold mb-3">
+                      {item.label}
+                    </div>
+                    <p class="text-base leading-relaxed mb-4" style="color: rgba(245,242,235,0.85);">
+                      {item.body}
+                    </p>
+                    {item.link && (
+                      <a
+                        href={item.link.href}
+                        {...(item.link.external
+                          ? { target: "_blank", rel: "noopener" }
+                          : {})}
+                        class="mt-auto inline-flex items-center gap-1.5 text-sm text-gold hover:text-yellow underline-offset-2 hover:underline transition-colors"
+                      >
+                        {item.link.text}
+                        <span aria-hidden="true">→</span>
+                      </a>
+                    )}
+                  </div>
+                ))}
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </section>
+
+    <!-- Certificates on request -->
+    <section class="px-6 lg:px-12 pb-24 lg:pb-32">
+      <div class="max-w-4xl mx-auto">
+        <div class="border-t border-line pt-10">
+          <h2 class="text-base uppercase tracking-[0.2em] text-gold font-bold mb-5">
+            Certificates on request
+          </h2>
+          <div class="max-w-3xl space-y-5 text-lg leading-relaxed" style="color: rgba(245,242,235,0.88);">
+            <p>
+              Afrishore holds current copies of each certificate above. Rather
+              than publish certificate numbers and documents online, we provide
+              them on request – tell us which you need for prequalification or
+              tender, and we'll send them through.
+            </p>
+          </div>
+
+          <a
+            href={certMailto}
+            class="inline-flex items-center justify-center gap-2 mt-7 bg-orange hover:bg-gold text-base px-6 py-3.5 text-sm font-semibold tracking-wide transition-colors duration-200 rounded-sm"
+          >
+            Request a certificate
+            <span aria-hidden="true">→</span>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</BaseLayout>
