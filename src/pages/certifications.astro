@@ -42,6 +42,8 @@ const groups = [
         label: "Authorised Economic Operator – Security · SARS Customs",
         body: "A South African Revenue Service trusted-trader accreditation under the World Customs Organisation's SAFE Framework. Level 2 (Security) is the higher of the two tiers – recognising a documented, secure supply chain, which means faster customs clearance and fewer inspections on the cargo Afrishore moves.",
         scope: "South Africa",
+        logo: "/images/certifications/aeo-south-africa.png",
+        logoAlt: "AEO South Africa – SARS Authorised Economic Operator accreditation",
       },
     ],
   },
@@ -91,18 +93,23 @@ const groups = [
   },
   {
     heading: "Industry Membership",
+    stack: true,
     items: [
       {
         name: "SAASOA",
         label: "South African Association of Ship Operators & Agents",
         body: "Afrishore is a member of SAASOA, the national representative body for ship operators and agents in South Africa.",
         scope: "South Africa",
+        logo: "/images/certifications/saasoa.png",
+        logoAlt: "SAASOA – South African Association of Ship Operators & Agents member",
       },
       {
         name: "SAOGA",
         label: "South African Oil & Gas Alliance",
         body: "Afrishore is a member of SAOGA, the umbrella body connecting companies across South Africa's oil & gas value chain.",
         scope: "South Africa",
+        logo: "/images/certifications/saoga.png",
+        logoAlt: "SAOGA – South African Oil & Gas Alliance member",
       },
     ],
   },
@@ -149,9 +156,9 @@ const groups = [
               <h2 class="text-base uppercase tracking-[0.2em] text-gold font-bold mb-6">
                 {group.heading}
               </h2>
-              <div class="grid md:grid-cols-2 gap-5">
+              <div class={`grid gap-5 ${group.stack ? "" : "md:grid-cols-2"}`}>
                 {group.items.map((item) => (
-                  <div class="border border-line rounded-sm p-6 flex flex-col" style="background: rgba(245,242,235,0.02);">
+                  <div class="group border border-line rounded-sm p-6 flex flex-col transition-colors duration-300 hover:border-gold/40" style="background: rgba(245,242,235,0.02);">
                     <div class="flex items-start justify-between gap-3 mb-2">
                       <h3 class="text-xl text-cream tracking-tight leading-snug">
                         {item.name}
@@ -177,6 +184,17 @@ const groups = [
                         {item.link.text}
                         <span aria-hidden="true">→</span>
                       </a>
+                    )}
+                    {item.logo && (
+                      <div class="mt-auto pt-5 border-t border-line/60">
+                        <img
+                          src={item.logo}
+                          alt={item.logoAlt}
+                          class="cert-logo max-h-10 w-auto object-contain"
+                          loading="lazy"
+                          decoding="async"
+                        />
+                      </div>
                     )}
                   </div>
                 ))}
@@ -217,3 +235,25 @@ const groups = [
 
   <Footer />
 </BaseLayout>
+
+<style>
+  /* Mirrors the ClientsWall treatment: greyscale silhouette by default
+     (invert lifts the dark/white logos onto the dark card), full colour
+     when the card is hovered. */
+  .cert-logo {
+    filter: grayscale(100%) invert(1);
+    opacity: 0.65;
+    transition: filter 0.35s ease, opacity 0.35s ease;
+  }
+
+  .group:hover .cert-logo {
+    filter: none;
+    opacity: 1;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .cert-logo {
+      transition: none;
+    }
+  }
+</style>
