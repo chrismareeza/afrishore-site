@@ -1,0 +1,301 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Navbar from "../components/Navbar.astro";
+import Footer from "../components/Footer.astro";
+import { projects } from "../data/projects";
+
+const siteUrl = "https://www.afrishore.co";
+// Trailing slash matches the URL Cloudflare Pages actually serves.
+const pageUrl = `${siteUrl}/subsea/`;
+
+// Proof: the published case studies tagged as subsea work. These already
+// rank for the commercial subsea queries, so this page links DOWN to them
+// rather than competing for the same terms.
+const caseStudies = projects
+  .filter((p) => p.published && p.serviceTypes.includes("subsea-services"))
+  .slice(0, 3);
+
+const placeholderBg =
+  "linear-gradient(135deg, #1a1410 0%, #ED7014 50%, #FDE64B 100%)";
+const webp = (p) => p.replace(/\.jpe?g$/i, ".webp");
+
+const heroImage = "/images/projects/sbm-subsea-concrete-mattress.jpg";
+const heroAlt =
+  "Articulated subsea concrete mattresses cast and stacked on the Mossel Bay quayside by Afrishore for SBM Offshore's Project Ikhwezi, South Africa";
+
+const metaTitle =
+  "Subsea Protection: Concrete Mattresses & Grout Bags | Afrishore";
+const metaDescription =
+  "Local manufacture and supply of subsea concrete mattresses and grout bags for pipeline, flowline, cable and structure protection across Southern Africa – certified to international specification.";
+
+// What we provide
+const scope = [
+  "Subsea concrete mattress manufacture (articulated, rope-matrix)",
+  "Subsea grout bag manufacture, filling & certification",
+  "Bulk subsea grout batching",
+  "Local mould fabrication to international (DNV-type) spec",
+  "ROV-operable deployment spreader bars (proof-load tested)",
+  "Lifting, rigging & quayside load-out",
+  "Sea-freight export & consignment handling",
+  "Documented safe systems of work (QHSE)",
+];
+
+const serviceSchema = {
+  "@type": "Service",
+  "@id": `${pageUrl}#service`,
+  "name": "Subsea Protection: Concrete Mattresses & Grout Bags",
+  "alternateName": [
+    "Subsea concrete mattresses",
+    "Subsea grout bags",
+    "Subsea protection products",
+    "Scour protection",
+  ],
+  "serviceType": "Subsea Protection Manufacture & Supply",
+  "description": metaDescription,
+  "url": pageUrl,
+  "provider": { "@id": `${siteUrl}/#organization` },
+  "isPartOf": { "@id": `${siteUrl}/#website` },
+  "areaServed": [
+    { "@type": "Country", "name": "South Africa" },
+    { "@type": "Country", "name": "Namibia" },
+    { "@type": "Country", "name": "Mozambique" },
+    { "@type": "Country", "name": "Angola" },
+  ],
+  "image": new URL(heroImage, siteUrl).toString(),
+};
+
+const breadcrumb = [
+  { name: "Home", item: "/" },
+  { name: "Subsea", item: "/subsea/" },
+];
+---
+
+<BaseLayout
+  title={metaTitle}
+  description={metaDescription}
+  ogImage={heroImage}
+  ogImageAlt={heroAlt}
+  canonical={pageUrl}
+  breadcrumb={breadcrumb}
+  pageSchema={[serviceSchema]}
+>
+  <Navbar />
+
+  <main id="main">
+    <!-- Hero -->
+    <section class="relative pt-32 lg:pt-40 pb-6 lg:pb-12 px-6 lg:px-12">
+      <div class="max-w-5xl mx-auto">
+        <a
+          href="/#projects"
+          class="inline-flex items-center gap-2 text-sm text-mute hover:text-gold transition-colors mb-10"
+        >
+          <span aria-hidden="true">←</span>
+          Projects
+        </a>
+
+        <div class="text-base uppercase tracking-[0.2em] text-gold font-bold mb-6">
+          Capability
+        </div>
+
+        <h1 class="text-4xl md:text-5xl lg:text-6xl text-cream leading-[1.1] tracking-tight mb-5">
+          Subsea Protection: Mattresses &amp; Grout Bags
+        </h1>
+
+        <p class="text-lg lg:text-xl text-gold/90 mb-10 max-w-3xl leading-snug">
+          Local manufacture and supply of subsea concrete mattresses and grout
+          bags – South Africa &amp; Namibia, deployed across Southern Africa.
+        </p>
+
+        <div
+          class="aspect-[16/9] w-full overflow-hidden rounded-sm border border-line relative"
+          style={`background: ${placeholderBg};`}
+        >
+          <picture>
+            <source srcset={webp(heroImage)} type="image/webp" />
+            <img
+              src={heroImage}
+              alt={heroAlt}
+              class="absolute inset-0 w-full h-full object-cover"
+              loading="eager"
+              fetchpriority="high"
+              width="1920"
+              height="1080"
+            />
+          </picture>
+        </div>
+      </div>
+    </section>
+
+    <!-- Body + side card -->
+    <section class="px-6 lg:px-12 pb-24 lg:pb-32">
+      <div class="max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 pt-4 lg:pt-12">
+        <div class="lg:col-span-8 space-y-10">
+          <div class="space-y-6 text-lg lg:text-xl leading-relaxed" style="color: rgba(245,242,235,0.88);">
+            <p>
+              Afrishore manufactures and supplies subsea protection products –
+              articulated concrete mattresses and grout bags – for the protection
+              and stabilisation of pipelines, flowlines, umbilicals, cables and
+              subsea structures on the seabed. Where most of the industry imports
+              these products, Afrishore has manufactured them locally in Southern
+              Africa to international specification, beside the offshore load-out.
+            </p>
+          </div>
+
+          <div class="space-y-8">
+            <div>
+              <h2 class="text-base uppercase tracking-[0.2em] text-gold font-bold mb-4">
+                Subsea concrete mattresses
+              </h2>
+              <p class="text-base lg:text-lg leading-relaxed" style="color: rgba(245,242,235,0.85);">
+                An articulated mattress is an array of high-strength concrete
+                blocks linked by a UV-stabilised polypropylene rope matrix. It
+                conforms to the seabed while adding the weight to hold subsea
+                lines in place and resist scour – the recognised solution for
+                protecting and stabilising pipelines, flowlines, umbilicals and
+                cables. For SBM Offshore's Project Ikhwezi, Afrishore cast
+                <strong class="text-cream font-semibold">1,480 mattresses</strong>
+                (nominally 6 m × 3 m) on the Mossel Bay quayside to DNV-type
+                specification – locally fabricated moulds, locally supplied
+                high-strength ready-mix and a 100% local workforce.
+              </p>
+            </div>
+
+            <div>
+              <h2 class="text-base uppercase tracking-[0.2em] text-gold font-bold mb-4">
+                Subsea grout bags
+              </h2>
+              <p class="text-base lg:text-lg leading-relaxed" style="color: rgba(245,242,235,0.85);">
+                Flexible polypropylene units charged with high-strength grout and
+                lowered onto the seabed where rigid mattresses cannot follow the
+                topography. They conform to the contours of the seabed and harden
+                into a load-bearing support – filling scour holes, free spans and
+                voids, and bedding and stabilising pipelines, manifolds, jumpers
+                and structures. Afrishore has batched and bagged subsea grout in
+                bulk (<strong class="text-cream font-semibold">4,000 t</strong> for
+                Project Ikhwezi) and manufactured, certified and exported grout
+                bags by the consignment
+                (<strong class="text-cream font-semibold">200 units</strong> to
+                offshore Angola for Oceaneering).
+              </p>
+            </div>
+
+            <div>
+              <h2 class="text-base uppercase tracking-[0.2em] text-gold font-bold mb-4">
+                Manufactured locally, certified to spec
+              </h2>
+              <p class="text-base lg:text-lg leading-relaxed" style="color: rgba(245,242,235,0.85);">
+                Each unit is made to international (DNV-type) specification using
+                locally sourced materials and crews, and every lift runs to a
+                documented safe system of work – trained banksman slinging,
+                competent-person beam inspection and proof-load-tested,
+                ROV-operable deployment spreader bars. The result is certified
+                subsea product to the same standard as imported equivalents –
+                without the import freight, lead time or handling damage, and
+                with the skills retained in the Southern African supply chain.
+              </p>
+            </div>
+          </div>
+
+          <div>
+            <h2 class="text-base uppercase tracking-[0.2em] text-gold font-bold mb-5">
+              What we provide
+            </h2>
+            <ul class="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-3">
+              {scope.map((s) => (
+                <li class="flex items-start gap-2 text-base text-cream/90">
+                  <span class="text-orange mt-1 leading-none" aria-hidden="true">·</span>
+                  <span>{s}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+
+        <aside class="lg:col-span-4">
+          <div class="sticky top-28 bg-surface border border-line p-6 lg:p-7 rounded-sm space-y-5">
+            <h2 class="text-base uppercase tracking-[0.2em] text-gold font-bold">
+              Where we manufacture
+            </h2>
+            <ul class="space-y-2 text-sm text-cream/90">
+              <li class="flex items-center gap-2">
+                <span class="w-1.5 h-1.5 rounded-full bg-gold flex-shrink-0" aria-hidden="true"></span>
+                <a href="/ports/mossel-bay/" class="hover:text-gold transition-colors">Mossel Bay</a>
+              </li>
+              <li class="flex items-center gap-2">
+                <span class="w-1.5 h-1.5 rounded-full bg-gold flex-shrink-0" aria-hidden="true"></span>
+                <a href="/ports/cape-town/" class="hover:text-gold transition-colors">Cape Town</a>
+              </li>
+            </ul>
+            <p class="text-xs text-faint leading-relaxed pt-1">
+              Manufactured in South Africa · deployed across South Africa,
+              Namibia, Mozambique &amp; West Africa
+            </p>
+            <a
+              href="/#contact"
+              class="inline-flex items-center justify-center gap-2 w-full bg-orange hover:bg-gold text-base px-5 py-3 text-sm font-semibold tracking-wide transition-colors duration-200 rounded-sm"
+            >
+              Discuss your subsea scope
+              <span aria-hidden="true">→</span>
+            </a>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    {caseStudies.length > 0 && (
+      <section class="px-6 lg:px-12 py-20 lg:py-24 border-t border-line">
+        <div class="max-w-5xl mx-auto">
+          <h2 class="text-base uppercase tracking-[0.2em] text-gold font-bold mb-8">
+            Subsea work in action
+          </h2>
+
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {caseStudies.map((p) => (
+              <a
+                href={`/projects/${p.slug}/`}
+                class="group block bg-surface border border-line hover:border-gold/40 transition-all duration-300 rounded-sm overflow-hidden"
+              >
+                <div class="aspect-[4/3] relative" style={`background: ${placeholderBg};`}>
+                  {p.heroImage && (
+                    <img
+                      src={p.heroImage}
+                      alt={`${p.title} – ${p.client} subsea project at ${p.port}`}
+                      class="absolute inset-0 w-full h-full object-cover"
+                      loading="lazy"
+                      width="800"
+                      height="600"
+                    />
+                  )}
+                  <div class="absolute top-3 right-3 bg-base/80 backdrop-blur-sm px-2.5 py-1 text-[10px] font-semibold tracking-wider text-cream group-hover:text-gold transition-colors duration-300">
+                    {p.year}
+                  </div>
+                </div>
+                <div class="p-5 space-y-2">
+                  <span class="block text-xs uppercase tracking-[0.15em] text-gold font-semibold">
+                    {p.client}
+                  </span>
+                  <h3 class="text-cream group-hover:text-yellow transition-colors duration-200 leading-tight">
+                    {p.title}
+                  </h3>
+                  <span class="block text-xs text-faint">{p.port}</span>
+                </div>
+              </a>
+            ))}
+          </div>
+
+          <div class="mt-12 text-center">
+            <a
+              href="/projects/"
+              class="inline-flex items-center gap-2 text-gold hover:text-yellow transition-colors text-sm uppercase tracking-[0.15em] font-semibold"
+            >
+              View all projects
+              <span aria-hidden="true">→</span>
+            </a>
+          </div>
+        </div>
+      </section>
+    )}
+  </main>
+
+  <Footer />
+</BaseLayout>
