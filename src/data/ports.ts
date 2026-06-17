@@ -369,7 +369,7 @@ export const ports: PortPage[] = [
         },
       ],
       source: {
-        url: "https://www.transnetnationalportsauthority.net/OurPorts/Pages/default.aspx",
+        url: "https://www.transnet.net/",
         label: "Berth data: Transnet National Ports Authority",
       },
     },
