@@ -35,6 +35,8 @@ const groups = [
         logo: "/images/certifications/bureau-veritas.png",
         logoAlt: "Bureau Veritas – Afrishore's ISO 9001 certification body",
         logoLight: true,
+        logoW: 210,
+        logoH: 260,
       },
     ],
   },
@@ -49,6 +51,8 @@ const groups = [
         scope: "Namibia",
         logo: "/images/certifications/opito.png",
         logoAlt: "OPITO – global energy-industry training and competency accreditation",
+        logoW: 240,
+        logoH: 240,
       },
     ],
   },
@@ -63,6 +67,8 @@ const groups = [
         scope: "South Africa",
         logo: "/images/certifications/aeo-south-africa.png",
         logoAlt: "AEO South Africa – SARS Authorised Economic Operator accreditation",
+        logoW: 243,
+        logoH: 240,
       },
     ],
   },
@@ -121,6 +127,8 @@ const groups = [
         scope: "South Africa",
         logo: "/images/certifications/saasoa.png",
         logoAlt: "SAASOA – South African Association of Ship Operators & Agents member",
+        logoW: 240,
+        logoH: 240,
       },
       {
         name: "SAOGA",
@@ -129,6 +137,8 @@ const groups = [
         scope: "South Africa",
         logo: "/images/certifications/saoga.png",
         logoAlt: "SAOGA – South African Oil & Gas Alliance member",
+        logoW: 540,
+        logoH: 240,
       },
     ],
   },
@@ -212,6 +222,8 @@ const groups = [
                           src={item.logo}
                           alt={item.logoAlt}
                           class={`cert-logo ${item.logoLight ? "is-light" : ""} max-h-20 lg:max-h-24 w-auto max-w-full object-contain`}
+                          width={item.logoW}
+                          height={item.logoH}
                           loading="lazy"
                           decoding="async"
                         />
