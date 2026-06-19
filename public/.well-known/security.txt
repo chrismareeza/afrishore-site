@@ -1,0 +1,9 @@
+# Afrishore vulnerability-disclosure contact (RFC 9116)
+# https://www.rfc-editor.org/rfc/rfc9116
+# If you have found a security issue affecting Afrishore, please email the
+# contact below. We welcome responsible disclosure.
+
+Contact: mailto:chris@afrishore.co
+Expires: 2027-06-19T00:00:00.000Z
+Preferred-Languages: en
+Canonical: https://www.afrishore.co/.well-known/security.txt
