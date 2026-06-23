@@ -21,6 +21,10 @@ export interface Project {
   metaDescription?: string;
   tagline?: string; // Optional gold sub-headline under the H1 (case-study page)
   outcome?: string; // Full case study body, only for featured
+  // Optional "By the numbers" strip on the case-study page — a handful of
+  // VERIFIED hard metrics (cargo tonnage, shipments, lifts, etc.). Only ever
+  // populate from real operational data; never fabricate.
+  stats?: { value: string; label: string }[];
   heroImage?: string; // Path under /public; falls back to gradient placeholder
   // Optional hand-written alt for the hero image; falls back to a
   // string generated from title/vessel/port/year. Used both as the
@@ -143,11 +147,17 @@ The Bollsta returned to operations on schedule, recertified for another operatio
 
 Between campaigns in 2024 to 2025, the rig underwent its Special Periodic Survey at the Port of Walvis Bay. The survey carried one significant additional scope item: a Blowout Preventer exchange. A BOP is a subsea safety assembly weighing in excess of 400 tonnes. Exchanging one requires specialised heavy lift coordination well beyond standard SPS scope.
 
-Afrishore delivered the integrated supply base services for the survey period: customs compliance, warehousing, rigging, crane and trucking coordination, crew rotation, and immigration support, including support for all attending third parties. Alongside this, Afrishore managed the heavy lift logistics for the BOP exchange itself.
+Afrishore delivered the integrated supply base services for the survey period: customs compliance, warehousing, rigging, crane and trucking coordination, crew rotation, and immigration support, including support for all attending third parties. Across the survey window, the inbound and outbound freight scope alone ran to 44 separate consignments – 75 pieces and more than 54 tonnes moved by air, sea and road, each cleared through Namibian customs. Alongside this, Afrishore managed the heavy lift logistics for the BOP exchange itself.
 
 The replacement BOP arrived by international freight, was staged shoreside, and was transported to the rig by supply vessel, with extensive vessel modification and sea-fastening for safe passage. The outgoing unit returned through the same chain in reverse. Each leg involved multiple heavy lift movements, every one requiring a rigorous rigging plan, full customs documentation, and port coordination beyond standard SPS scope.
 
 A Special Periodic Survey is rarely simple. With a BOP exchange layered in, it requires a partner already embedded in the port. Afrishore coordinated the first on-rig assembly of the Cameron 15K TL 6 RAM cavity BOP, including full testing and commissioning.`,
+    stats: [
+      { value: "44", label: "Shipments (air · sea · road)" },
+      { value: "54.7 t", label: "Project cargo moved" },
+      { value: "400+ t", label: "BOP exchanged" },
+      { value: "75", label: "Pieces handled" },
+    ],
     featured: true,
     published: true,
   },
