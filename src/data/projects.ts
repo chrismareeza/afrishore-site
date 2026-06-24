@@ -80,6 +80,7 @@ export const projects: Project[] = [
     assetType: "rig",
     heroImage: "/images/projects/totalenergies-brulpadda-discovery.jpg",
     summary: "Integrated onshore logistics for the Brulpadda discovery campaign – the largest gas-condensate find in South African waters in a decade.",
+    metaDescription: "Integrated onshore logistics and offshore supply base for TotalEnergies' Brulpadda discovery (2018–19) – South Africa's largest gas-condensate find in a decade.",
     outcome: `In February 2019, TotalEnergies announced the Brulpadda gas-condensate discovery, the largest hydrocarbon find in South African waters in over a decade, with estimates around one billion barrels of oil equivalent. Afrishore supported the Brulpadda Discovery Campaign (2018–2019) as the integrated onshore logistics partner, operating the offshore supply base for TotalEnergies as well as supplying turnkey support to the Deepsea Stavanger drilling unit throughout the campaign.
 
 Brulpadda-1AX sits in Block 11B/12B, roughly 175 km off South Africa's southern coast: an ultra-deepwater well drilled in some of the most challenging current and weather conditions in the world (the Agulhas Current is one of the strongest western boundary currents on the planet). Afrishore handled all the onshore supply base operations: temporary importation and customs clearance, warehousing and project cargo handling, rigging and waste management, crew logistics including immigration support for international specialists, vessel agency and port management, and full mobilisation/demobilisation coordination. The above forming the baseline for additional project integrations related to the rig agency of Deepsea Stavanger for Odfjell Drilling, vessel agency for project PSVs from Bourbon and Farstad, mud plant labour and logistics for Halliburton and onshore procurement, logistics and crew movement for Oceaneering. Drilling a frontier well in 1,400 m of water demanded a shore-side operation with zero margin for error.
@@ -99,6 +100,7 @@ The Brulpadda discovery reopened South Africa's upstream story. Afrishore was th
     assetType: "rig",
     heroImage: "/images/projects/totalenergies-luiperd-supply-base.jpg",
     summary: "Twin-port offshore supply base operations across Mossel Bay and Cape Town for TotalEnergies' Luiperd gas-condensate discovery campaign.",
+    metaDescription: "Twin-port offshore supply base across Mossel Bay and Cape Town for TotalEnergies' Luiperd discovery – customs, supply vessels, project cargo and crew rotations.",
     outcome: `In 2020, TotalEnergies returned to Block 11B/12B on the south coast of South Africa to drill the Luiperd-1X exploration well, a follow-on to the Brulpadda discovery. The campaign confirmed a second significant gas-condensate find. Afrishore operated the integrated offshore supply base across both Mossel Bay and Cape Town for the full duration of the campaign.
 
 Running logistical operations from two ports simultaneously is the operational challenge, synchronised customs clearance, port calls, supply vessel mobilisations, project cargo handling, bunkering and crew rotations across two physical locations and three campaign phases (mobilisation, drilling, demobilisation). The campaign was further executed under the operational constraints of the COVID-19 period adding immigration, quarantine and travel coordination layers that didn't exist on previous campaigns. The Deepsea Stavanger drillship was supported from shore throughout, as were the Bourbon and Tidewater PSVs, Solstad AHTSs, Halliburton mud plant operators, Oceaneering ROV operators and Baker Hughes torque technicians.
@@ -118,6 +120,7 @@ Luiperd confirmed Block 11B/12B as one of Africa's most significant new gas play
     assetType: "rig",
     heroImage: "/images/projects/deepsea-bollsta-sps-walvis-bay.jpg",
     summary: "Integrated supply base operations for the 5-yearly recertification of the Deepsea Bollsta semi-submersible drilling unit.",
+    metaDescription: "Integrated supply base for the Deepsea Bollsta's 5-yearly Special Periodic Survey at Walvis Bay – customs, rigging, heavy lift and crew for Odfjell Drilling.",
     outcome: `Mobile offshore drilling units must undergo comprehensive Special Periodic Surveys (SPS) which means a full hull, machinery and safety systems recertification required by classification societies. In 2024, the Deepsea Bollsta completed its SPS at the Port of Walvis Bay with Afrishore acting as the integrated onshore logistics partner throughout the survey period.
 
 For the duration of the SPS, Afrishore handled the full shore-side scope: temporary importation of spare parts and project equipment, customs clearance, warehousing of project cargo, abnormal trucking for oversized components, crane and rigging coordination, waste management and crew rotation logistics including visa and immigration for international specialist teams. The SPS scope brought multiple discipline crews to Walvis Bay simultaneously and every visa, every customs entry and every supply chain link was coordinated from the Port of Walvis Bay's Oil & Gas Section, where Afrishore is permanently embedded. A highlight of the project was being involved in the assembly and shipping out of 15-tonne Stevshark MK5 anchors in collaboration with Delmar Systems.
@@ -193,6 +196,7 @@ Trusted by LD TravOcean across every South African landing of the 45,000 km syst
     assetType: "vessel",
     heroImage: "/images/projects/dock-titan-cape-town-reunion.jpg",
     summary: "Onshore coordination of one of the largest semi-submersible heavy lift operations ever staged through the Port of Cape Town.",
+    metaDescription: "Port and vessel coordination for the Titan floating dock's heavy-lift move from Cape Town to Réunion aboard Boskalis' semi-submersible MV Transshelf.",
     videoEmbed: {
       src: "/videos/dock-titan-cape-town-reunion.mp4",
       // Optimised WebP poster – see Orca entry for rationale.
@@ -225,6 +229,7 @@ A semi-submersible heavy lift is the kind of operation where every element must 
     assetType: "rig",
     heroImage: "/images/projects/totalenergies-brulpadda-2014.jpg",
     summary: "First drilling attempt at Brulpadda on the Eirik Raude rig – a campaign that laid the groundwork for the 2018–19 discovery.",
+    metaDescription: "Afrishore's first offshore supply base appointment: the 2014 Brulpadda campaign on the Eirik Raude rig for TotalEnergies, run from Mossel Bay and Cape Town.",
     outcome: `The Brulpadda campaign marked Afrishore's first appointment as offshore supply base operator, under the direction of TotalEnergies.
 
 The mandate covered operation of the Mossel Bay offshore supply base in support of the initial Brulpadda drilling campaign. TotalEnergies' operational standards, logistical methodologies and supply base disciplines were transferred to Afrishore over the course of the campaign and applied directly in the running of the base.
@@ -300,6 +305,7 @@ For a first-time operator in South African waters, Gazania-1 demonstrated the va
     assetType: "rig",
     heroImage: "/images/projects/galp-hercules-mopane-1x.jpg",
     summary: "Turnkey onshore logistics for the Deepsea Hercules rig operating on Galp Energia's Mopane-1x exploration well in Namibian waters.",
+    metaDescription: "Turnkey shore base and crewing for the Deepsea Hercules on Galp's Mopane-1x well in Namibia's Orange Basin, run from Afrishore's Walvis Bay supply base.",
     outcome: `Afrishore delivered the integrated shore base and crewing scope for Galp's Deepsea Hercules campaign in Namibia's Orange Basin, running operations from its Walvis Bay offshore supply base. The rig, owned by SFL Corporation and managed by Odfjell Drilling, was supported by an Afrishore scope covering cargo movements, crew rotations and customs lodgements from mobilisation through to demobilisation.
 
 The campaign was delivered on schedule and within budget, with zero recordable incidents across the scope.
@@ -353,6 +359,7 @@ The dual-base model proven on Venus-1x carried directly into the Deepsea Mira's 
         "Afrishore's Lüderitz logistics in full flow: turnkey quayside management, vessel deck-plan execution and cargo preparation ahead of departure: one of two shore bases run simultaneously with Walvis Bay.",
     },
     summary: "Continued Deepsea Mira drilling campaign on the Tamboti-1x well, with Afrishore providing full onshore logistics.",
+    metaDescription: "Dual-base shore logistics from Walvis Bay and Lüderitz for the Deepsea Mira's Tamboti-1X well, drilled for TotalEnergies in Namibia's Orange Basin.",
     outcome: `The Tamboti-1X exploration well – drilled by the Deepsea Mira for TotalEnergies in Namibia's Orange Basin – required shore base logistics running simultaneously out of Walvis Bay and Lüderitz, paired with crewing capable of matching the pace and technical complexity of a frontier deepwater operation. Afrishore mobilised the integrated package from day one: shore base operations, materials handling and the deployment of specialist offshore personnel, sequenced to keep the rig supplied and the drilling schedule intact across both ports.
 
 The campaign completed on schedule and within budget, with zero recordable incidents across the full Afrishore scope in both locations. The shore base workforce was predominantly Namibian – personnel developed through Afrishore's local content and skills transfer programmes, carrying uninterrupted Orange Basin operational experience since 2022 – working alongside international specialists.
@@ -379,6 +386,7 @@ Tamboti-1X proved the dual-port logistics and crewing model Afrishore built for 
       portrait: true,
     },
     summary: "Back-to-back two-well campaign on the Deepsea Mira covering Volans-1x and Kharas-1, run from Afrishore's Walvis Bay offshore supply base.",
+    metaDescription: "Back-to-back Volans-1x and Kharas-1 drilling on the Deepsea Mira from Afrishore's Walvis Bay supply base – with a zero-downtime, in-field operator handover.",
     outcome: `When an operator changes but the rig does not, the test is whether a single day of productivity is lost in the handover. On the Deepsea Mira in Namibia's Orange Basin, across back-to-back campaigns for two different operators, none was.
 
 Afrishore delivered the integrated shore base and crewing scope behind two consecutive programmes on the Deepsea Mira, running shore base logistics out of its Walvis Bay offshore supply base. The first was Volans-1x. The second, coming directly off it on the same rig, was Kharas-1. The defining moment sat between them: the transition. It required the exemption and rebate position to move from the outgoing operator to the incoming one. The conventional path would have called the Deepsea Mira and her supporting fleet back to Walvis Bay to complete the handover, costing schedule and rig time. Working in lock-step with Namibian Customs and operator representatives, the Afrishore team supported the exemption and rebate transfer in-field. The rig did not call port. The schedule held. The incoming operator was operational from the first hour of its scope.

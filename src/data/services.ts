@@ -208,7 +208,7 @@ export const servicePages: ServicePage[] = [
     metaTitle:
       "Crew Logistics, Visa & Immigration Support | Afrishore",
     metaDescription:
-      "Offshore crew logistics, visa and work-permit processing, immigration and medical evacuation across South Africa, Namibia and Mozambique.",
+      "Offshore crew logistics, visa and work-permit processing, immigration and medevac for vessels and rigs across South Africa, Namibia and Mozambique since 2010.",
     h1: "Crew & Visa Services",
     geoSub: "Crew rotations, visas, immigration & medivac across three countries",
     schemaServiceType: "Crew & Visa Services",
