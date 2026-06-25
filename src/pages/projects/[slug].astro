@@ -14,6 +14,14 @@ const serviceSlugByType = new Map(
   servicePages.map((s) => [s.serviceType, s.slug])
 );
 
+// Service types whose capability page lives outside /services/ (the subsea
+// hub is a standalone page at /subsea/). Lets the project-page tag deep-link
+// there instead of rendering as dead text — routes buyers from a ranking case
+// study to the "we supply this" hub, and passes link authority up to it.
+const serviceHrefByType: Record<string, string> = {
+  "subsea-services": "/subsea/",
+};
+
 export function getStaticPaths() {
   return projects
     .filter((p) => p.published)
@@ -393,10 +401,11 @@ const breadcrumb = [
         ]}>
           {project.serviceTypes.map((s) => {
             const slug = serviceSlugByType.get(s);
+            const href = slug ? `/services/${slug}/` : serviceHrefByType[s];
             const label = serviceLabels[s] || s;
-            return slug ? (
+            return href ? (
               <a
-                href={`/services/${slug}/`}
+                href={href}
                 class="text-xs uppercase tracking-[0.15em] text-mute hover:text-gold border border-line hover:border-gold/40 px-3 py-1.5 rounded-sm transition-colors"
               >
                 {label}
