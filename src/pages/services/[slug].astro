@@ -41,6 +41,13 @@ const related = projects
 // contextual links (with service-name anchor text) from the others.
 const siblingServices = servicePages.filter((s) => s.slug !== service.slug);
 
+// Progressive disclosure (mirrors PortPage): a punchy `lead` stays visible
+// above the fold, the detailed prose moves into a "More about" accordion so a
+// first-time visitor isn't met with a wall of text. Native <details> keeps the
+// full intro in the DOM, so it still indexes normally for search + AI crawlers.
+const leadText = service.lead ?? service.intro[0];
+const detailParas = service.lead ? service.intro : service.intro.slice(1);
+
 const placeholderBg =
   "linear-gradient(135deg, #1a1410 0%, #ED7014 50%, #FDE64B 100%)";
 
@@ -145,17 +152,12 @@ const breadcrumb = [
     <section class="px-6 lg:px-12 pb-24 lg:pb-32">
       <div class="max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 pt-4 lg:pt-12">
         <div class="lg:col-span-8 space-y-10">
-          <div class="space-y-6">
-            {service.intro.map((p) => (
-              <p class="text-lg lg:text-xl leading-relaxed" style="color: rgba(245,242,235,0.88);">
-                {linkifyPorts(p).map((seg) =>
-                  seg.type === "link"
-                    ? <a href={seg.href} class="text-cream hover:text-gold transition-colors underline decoration-faint/30 underline-offset-4 hover:decoration-gold/60">{seg.text}</a>
-                    : seg.value
-                )}
-              </p>
-            ))}
-          </div>
+          <!-- Lead: a single punchy opener. The full operational detail lives
+               in the "More about" accordion below, so the page no longer opens
+               on a wall of prose. -->
+          <p class="text-xl lg:text-2xl leading-relaxed text-cream/90">
+            {leadText}
+          </p>
 
           {service.secondaryImage && (
             <figure class={service.secondaryImage.portrait ? "space-y-3 max-w-md mx-auto" : "space-y-3"}>
@@ -208,6 +210,34 @@ const breadcrumb = [
                 ))}
               </div>
             </div>
+          )}
+
+          <!-- Depth layer: the full operational detail, collapsed by default.
+               Native <details> keeps the prose in the DOM (so it indexes
+               normally for search + AI crawlers) while sparing the skim-reader. -->
+          {detailParas.length > 0 && (
+            <details class="group border border-line rounded-sm bg-surface/40 transition-colors hover:border-gold/40">
+              <summary class="flex items-center justify-between gap-6 cursor-pointer list-none px-6 py-5">
+                <span class="text-base uppercase tracking-[0.2em] text-gold font-bold">
+                  More about {service.name}
+                </span>
+                <span
+                  class="flex-shrink-0 text-orange text-2xl leading-none transition-transform duration-300 group-open:rotate-45"
+                  aria-hidden="true"
+                >+</span>
+              </summary>
+              <div class="px-6 pb-6 space-y-4 max-w-3xl">
+                {detailParas.map((p) => (
+                  <p class="text-base lg:text-lg leading-relaxed text-mute">
+                    {linkifyPorts(p).map((seg) =>
+                      seg.type === "link"
+                        ? <a href={seg.href} class="text-cream hover:text-gold transition-colors underline decoration-faint/30 underline-offset-4 hover:decoration-gold/60">{seg.text}</a>
+                        : seg.value
+                    )}
+                  </p>
+                ))}
+              </div>
+            </details>
           )}
 
           <div class="border-t border-line pt-8">

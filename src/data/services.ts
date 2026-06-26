@@ -19,6 +19,10 @@ export interface ServicePage {
                                   // search-query disambiguation signal (e.g.
                                   // "Ship Agent", "Vessel Agent" alongside
                                   // the canonical "Vessel & Rig Agency").
+  lead?: string;                  // punchy one-line opener shown above the fold;
+                                  // the full `intro` then moves into a collapsed
+                                  // "More about" accordion so the page doesn't
+                                  // open on a wall of prose. Mirrors PortPage.lead.
   intro: string[];                // body paragraphs (semantic, keyword-rich)
   scope: string[];                // "What we handle" detailed list
   vesselTypes?: string[];         // vessel & rig agency only
@@ -50,6 +54,8 @@ export const servicePages: ServicePage[] = [
       "Ships Agency", "Ships Agent", "Vessel Agent", "Vessel Agency",
       "Port Agent", "Port Agency", "Rig Agent",
     ],
+    lead:
+      "Afrishore is a licensed vessel and rig agent across Namibia, South Africa and Mozambique – one accountable team from first notice of arrival to departure clearance, for anything from a drillship on a multi-well campaign to a tanker making a single transit stop.",
     intro: [
       "Afrishore acts as appointed local representative for owners, managers and charterers of vessels, rigs and marine assets transiting territorial waters or working at anchorage. Full agency scope: port and customs clearance, berth scheduling and port-authority liaison, immigration and crew changes, husbandry and owners' protective agency, bunkering, dry docking and repairs, procurement, and full mobilisation and demobilisation. We agent rigs, drillships, semi-submersibles, OSVs, PSVs, AHTS, tankers and FPSOs across our licensed port network.",
       "Vessel and rig agency in this region is unforgiving – tight berthing windows, complex immigration for international crews, customs and classification-society deadlines, weather that does not wait. Embedded teams permanently on-call across the Southern African coast mean the master, vessel and rig management and the operator deal with one agent rather than a chain of subcontractors.",
@@ -112,6 +118,8 @@ export const servicePages: ServicePage[] = [
     h1: "Offshore Supply Base Operations",
     geoSub: "Turnkey base operator: Walvis Bay, Cape Town, Mossel Bay, Pemba & beyond.",
     schemaServiceType: "Offshore Supply Base Operations",
+    lead:
+      "Afrishore operates turnkey offshore supply bases – rigging, cranage, warehousing and customs – from a permanent base inside the Port of Walvis Bay's Oil & Gas Section, keeping rigs and drillships supplied and on schedule offshore.",
     intro: [
       "Afrishore operates turnkey offshore supply bases for drilling, renewable and subsea campaigns across Namibia, South Africa & Mozambique. Permanently embedded inside the Port of Walvis Bay's Oil & Gas Section and licensed across the Southern African coast, Afrishore provides the full shore-side operations an operator, rig or vessel needs to stay on schedule offshore.",
       "Running a supply base is the operational core: rigging, cranage and abnormal trucking, warehousing and laydown, temporary importation and customs clearance, project cargo handling, QHSE implementation, waste management and materials management with full reporting, all sequenced to the campaign clock. Afrishore has delivered this from inception to the Deepsea Mira and Deepsea Bollsta Special Periodic Surveys and continuous drilling, the TotalEnergies Brulpadda and Luiperd campaigns, Petronas Rovuma Basin campaign and the Eco Atlantic Gazania-1 programme.",
@@ -162,6 +170,8 @@ export const servicePages: ServicePage[] = [
     h1: "Integrated Logistics",
     geoSub: "Freight forwarding, customs & project cargo via sea, air & road.",
     schemaServiceType: "Integrated Logistics",
+    lead:
+      "Afrishore moves project and abnormal cargo by sea, air and road – freight forwarding, in-house customs brokerage and cross-border delivery into Namibia and Mozambique – run as one chain rather than disconnected steps.",
     intro: [
       "Afrishore provides integrated marine and project logistics across South Africa, Namibia and Mozambique: freight forwarding, customs brokerage and port clearance, project and abnormal cargo, bunkering, chandling, technical procurement and provisions supply, moving freight into location and cross-border on sea, air and road.",
       "Offshore and subsea campaigns rarely move in straight lines: equipment arrives by international freight, clears customs under bond or temporary importation, is staged and trucked and returns through the same chain in reverse, every leg time-bound to the operation. Afrishore has run exactly this for the 2Africa subsea cable landing, the Dock Titan heavy-lift to Réunion and continuous drilling-campaign supply across the Southern African coast.",
@@ -212,6 +222,8 @@ export const servicePages: ServicePage[] = [
     h1: "Crew & Visa Services",
     geoSub: "Crew rotations, visas, immigration & medivac across three countries",
     schemaServiceType: "Crew & Visa Services",
+    lead:
+      "Afrishore handles full crew logistics across three immigration regimes – visas, work permits, flights, accommodation and medevac – having processed over 15,000 visas to bring drill crews and specialists in on time and compliant.",
     intro: [
       "Afrishore handles full crew logistics for offshore and onshore personnel and third-party technicians across South Africa, Namibia and Mozambique: visa and work-permit processing, immigration optimisation, flight coordination, accommodation and transport, crew-change coordination and medical evacuation.",
       "Drilling and subsea campaigns bring multiple discipline crews and international specialists into the region simultaneously, each with their own visa, immigration and travel requirements against a dynamic project schedule. Afrishore coordinated exactly this through dry docking schedules, marine projects and exploration campaigns: every visa, every entry, every rotation handled so personnel arrive on time and compliant.",
