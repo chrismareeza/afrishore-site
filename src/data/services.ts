@@ -43,7 +43,7 @@ export const servicePages: ServicePage[] = [
     metaDescription:
       "Appointed ships agent and vessel agent for rigs, drillships, OSVs and tankers across South Africa, Namibia and Mozambique – clearance and husbandry.",
     h1: "Vessel & Rig Agency",
-    geoSub: "Ships agent · vessel agent · ships agency · vessel agency across Namibia, South Africa & Mozambique",
+    geoSub: "Licensed vessel & rig agent – clearance, husbandry & crew across Namibia, South Africa & Mozambique",
     schemaServiceType: "Vessel & Rig Agency",
     // Canonical search-query variants for this service.
     alternateNames: [
