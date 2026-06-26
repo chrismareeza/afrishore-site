@@ -184,6 +184,7 @@ export const servicePages: ServicePage[] = [
       "International freight – sea, air & road",
       "Project & abnormal cargo",
       "Spooling",
+      "Bollard pull testing",
       "Bunkering & chandling",
       "Technical procurement & provisions supply",
       "Materials management",
