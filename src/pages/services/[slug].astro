@@ -192,8 +192,8 @@ const breadcrumb = [
                Native <details> keeps the prose in the DOM (so it indexes
                normally for search + AI crawlers) while sparing the skim-reader. -->
           {detailParas.length > 0 && (
-            <details class="group border border-line rounded-sm bg-surface/40 transition-colors hover:border-gold/40">
-              <summary class="flex items-center justify-between gap-6 cursor-pointer list-none px-6 py-5">
+            <details class="shimmer-once group border border-line rounded-sm bg-surface/40 transition-colors hover:border-gold/40">
+              <summary class="relative overflow-hidden flex items-center justify-between gap-6 cursor-pointer list-none px-6 py-5">
                 <span class="text-base uppercase tracking-[0.2em] text-gold font-bold">
                   More about our {service.name}
                 </span>
@@ -348,3 +348,59 @@ const breadcrumb = [
 
   <Footer />
 </BaseLayout>
+
+<style>
+  /* One-shot "shimmer": a soft gold light-sweep that crosses the More-about
+     accordion the first time it scrolls into view, then leaves the box exactly
+     as it was. Brand gradient (orange → yellow → orange), low opacity. */
+  .shimmer-once > summary::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: linear-gradient(
+      105deg,
+      transparent 30%,
+      rgba(245, 171, 47, 0.16) 45%,
+      rgba(253, 230, 75, 0.3) 50%,
+      rgba(245, 171, 47, 0.16) 55%,
+      transparent 70%
+    );
+    transform: translateX(-120%);
+  }
+  .shimmer-once.shimmered > summary::after {
+    animation: amr-shimmer 1.15s ease-out forwards;
+  }
+  @keyframes amr-shimmer {
+    from {
+      transform: translateX(-120%);
+    }
+    to {
+      transform: translateX(120%);
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .shimmer-once.shimmered > summary::after {
+      animation: none;
+    }
+  }
+</style>
+
+<script>
+  // Fire the shimmer once, the first time each accordion enters the viewport.
+  const shimmerBoxes = document.querySelectorAll(".shimmer-once");
+  if (shimmerBoxes.length) {
+    const io = new IntersectionObserver(
+      (entries, obs) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("shimmered");
+            obs.unobserve(entry.target);
+          }
+        }
+      },
+      { threshold: 0.5 },
+    );
+    shimmerBoxes.forEach((box) => io.observe(box));
+  }
+</script>
