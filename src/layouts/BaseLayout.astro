@@ -750,5 +750,62 @@ const finalGraph = [
         }, true);
       })();
     </script>
+
+    <!-- One-shot "shimmer": a soft gold light-sweep crosses any element tagged
+         `.shimmer-once` the first time it scrolls into view, then leaves it
+         exactly as it was. Global so every accordion (services, ports, future)
+         gets it by adding the class. Respects prefers-reduced-motion. -->
+    <style is:global>
+      .shimmer-once > summary {
+        position: relative;
+        overflow: hidden;
+      }
+      .shimmer-once > summary::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        background: linear-gradient(
+          105deg,
+          transparent 30%,
+          rgba(245, 171, 47, 0.16) 45%,
+          rgba(253, 230, 75, 0.3) 50%,
+          rgba(245, 171, 47, 0.16) 55%,
+          transparent 70%
+        );
+        transform: translateX(-120%);
+      }
+      .shimmer-once.shimmered > summary::after {
+        animation: amr-shimmer 1.15s ease-out forwards;
+      }
+      @keyframes amr-shimmer {
+        from {
+          transform: translateX(-120%);
+        }
+        to {
+          transform: translateX(120%);
+        }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .shimmer-once.shimmered > summary::after {
+          animation: none;
+        }
+      }
+    </style>
+    <script is:inline>
+      (function () {
+        var boxes = document.querySelectorAll(".shimmer-once");
+        if (!boxes.length || !("IntersectionObserver" in window)) return;
+        var io = new IntersectionObserver(function (entries, obs) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("shimmered");
+              obs.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.5 });
+        boxes.forEach(function (b) { io.observe(b); });
+      })();
+    </script>
   </body>
 </html>
