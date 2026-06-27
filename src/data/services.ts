@@ -252,6 +252,6 @@ export const servicePages: ServicePage[] = [
     ],
     heroImage: "/images/services/crew-visa-services-hero.jpg",
     heroAlt:
-      "South African and German passports – Afrishore crew visa, work-permit and immigration processing across South Africa, Namibia and Mozambique",
+      "Crew visa, work-permit and immigration processing by Afrishore across South Africa, Namibia and Mozambique – a South African and a German passport",
   },
 ];
