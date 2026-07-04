@@ -5,6 +5,7 @@ User-agent: *
 Allow: /
 Disallow: /admin
 Disallow: /api/
+Disallow: /_api/
 
 # AI/LLM crawlers – explicitly allowed for AI search visibility
 # (ChatGPT, Perplexity, Claude, Google AI Overviews, etc.)
