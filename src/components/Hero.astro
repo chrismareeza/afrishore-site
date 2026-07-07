@@ -134,9 +134,13 @@
     transform: translateY(1rem);
   }
 
-  /* Responsive hero background – identical crop, lower-res on phones.
-     Desktop: 1920w; ≤768px viewport: 1280w (~half the bytes, LCP win).
-     image-set() prefers WebP with a JPEG fallback. */
+  /* Responsive hero background. Desktop uses the wide 1920w landscape.
+     Phones get a DEDICATED PORTRAIT CROP (hero-cape-town-mobile): the
+     landscape frame, cover-fitted into a tall phone viewport, pushed the
+     rig low and clipped it off-centre — so a phone visitor saw only the
+     city + mountain, never the drilling rig. The portrait crop recomposes
+     the same scene as a vertical stack (Table Mountain above, rig centred
+     below) so both read on a 375px screen. image-set() prefers WebP. */
   .hero-bg-img {
     background-image: url('/images/hero-cape-town.jpg');
     background-image: image-set(
@@ -146,10 +150,11 @@
   }
   @media (max-width: 768px) {
     .hero-bg-img {
-      background-image: url('/images/hero-cape-town-1280.jpg');
+      background-position: center center;
+      background-image: url('/images/hero-cape-town-mobile.jpg');
       background-image: image-set(
-        url('/images/hero-cape-town-1280.webp') type('image/webp'),
-        url('/images/hero-cape-town-1280.jpg') type('image/jpeg')
+        url('/images/hero-cape-town-mobile.webp') type('image/webp'),
+        url('/images/hero-cape-town-mobile.jpg') type('image/jpeg')
       );
     }
   }
