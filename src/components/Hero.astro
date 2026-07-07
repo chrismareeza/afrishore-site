@@ -71,7 +71,7 @@
       <p
         data-anim="hero-subhead"
         class="sm:text-lg lg:text-xl max-w-2xl leading-relaxed"
-        style="color: rgba(245,242,235,0.92); text-shadow: 0 1px 2px rgba(0,0,0,0.9), 0 2px 14px rgba(0,0,0,0.65);"
+        style="color: rgba(245,242,235,0.92); text-shadow: 0 1px 6px rgba(0,0,0,0.4);"
       >
         <span class="lg:block">Logistics agency to leading oil &amp; gas operators,</span>
         <span class="lg:block">drilling contractors and rig and vessel owners.</span>
@@ -135,13 +135,21 @@
     );
   }
   @media (max-width: 768px) {
+    /* Same readable fade as desktop, but the SOLID black is pushed down to
+       start just below the pontoon base (~90% down the portrait crop) so
+       the rig isn't swallowed. Above that it still darkens enough to keep
+       the headline / subhead / CTAs legible; the opaque bottom bleeds into
+       the dark section that follows. */
     .hero-fade {
       background: linear-gradient(
         to top,
-        rgba(10, 10, 10, 0.95) 0%,
-        rgba(10, 10, 10, 0.72) 6%,
-        rgba(10, 10, 10, 0.32) 11%,
-        rgba(10, 10, 10, 0) 16%
+        rgba(10, 10, 10, 0.98) 0%,
+        rgba(10, 10, 10, 0.9) 8%,
+        rgba(10, 10, 10, 0.58) 16%,
+        rgba(10, 10, 10, 0.5) 42%,
+        rgba(10, 10, 10, 0.32) 58%,
+        rgba(10, 10, 10, 0.1) 72%,
+        rgba(10, 10, 10, 0) 86%
       );
     }
   }
