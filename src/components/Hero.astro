@@ -23,11 +23,10 @@
   ></div>
 
   <!-- Text-legibility gradient – CONSTANT. Keeps the headline / subhead
-       / CTAs readable over the photo; never animated. -->
-  <div
-    class="absolute inset-0 pointer-events-none"
-    style="background: linear-gradient(to top, rgba(10,10,10,0.97) 0%, rgba(10,10,10,0.88) 30%, rgba(10,10,10,0.6) 55%, rgba(10,10,10,0.25) 75%, rgba(10,10,10,0) 90%);"
-  ></div>
+       / CTAs readable over the photo; never animated. Desktop keeps the
+       tall fade; mobile uses a shorter one (see <style>) that starts only
+       at the base of the rig's pontoons so the whole rig stays visible. -->
+  <div class="hero-fade absolute inset-0 pointer-events-none"></div>
 
   <!-- Ambient scene tint (radial vignette). Starts at full strength,
        then lifts ~50% after the headline ("sunrise") – see hero script. -->
@@ -72,7 +71,7 @@
       <p
         data-anim="hero-subhead"
         class="sm:text-lg lg:text-xl max-w-2xl leading-relaxed"
-        style="color: rgba(245,242,235,0.92); text-shadow: 0 1px 6px rgba(0,0,0,0.4);"
+        style="color: rgba(245,242,235,0.92); text-shadow: 0 1px 2px rgba(0,0,0,0.9), 0 2px 14px rgba(0,0,0,0.65);"
       >
         <span class="lg:block">Logistics agency to leading oil &amp; gas operators,</span>
         <span class="lg:block">drilling contractors and rig and vessel owners.</span>
@@ -118,6 +117,33 @@
     0%   { transform: translateY(-100%); }
     50%  { transform: translateY(50%); }
     100% { transform: translateY(200%); }
+  }
+
+  /* Text-legibility fade. Desktop: a tall bottom fade for the bottom-left
+     copy over the landscape photo. Mobile: the portrait crop stands the rig
+     up the full frame, so a tall fade would bury it — instead the fade
+     starts only at the base of the pontoons (~88% down) and the rig stays
+     visible; the H1/subhead lean on their own text-shadows above it. */
+  .hero-fade {
+    background: linear-gradient(
+      to top,
+      rgba(10, 10, 10, 0.97) 0%,
+      rgba(10, 10, 10, 0.88) 30%,
+      rgba(10, 10, 10, 0.6) 55%,
+      rgba(10, 10, 10, 0.25) 75%,
+      rgba(10, 10, 10, 0) 90%
+    );
+  }
+  @media (max-width: 768px) {
+    .hero-fade {
+      background: linear-gradient(
+        to top,
+        rgba(10, 10, 10, 0.95) 0%,
+        rgba(10, 10, 10, 0.72) 6%,
+        rgba(10, 10, 10, 0.32) 11%,
+        rgba(10, 10, 10, 0) 16%
+      );
+    }
   }
 
   /* Entrance state for the subhead. Deliberately 0.01 rather than 0: the
