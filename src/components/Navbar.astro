@@ -22,7 +22,7 @@
     </a>
 
     <!-- Nav links (desktop) -->
-    <nav class="hidden lg:flex items-center gap-10">
+    <nav aria-label="Main" class="hidden lg:flex items-center gap-10">
       <a
         href="/#services"
         class="text-sm uppercase tracking-[0.15em] font-semibold text-cream hover:text-yellow transition-colors"
@@ -84,7 +84,7 @@
     class="lg:hidden hidden border-t border-line"
     style="background: rgba(10,10,10,0.96); backdrop-filter: blur(12px);"
   >
-    <nav class="px-6 py-4 flex flex-col">
+    <nav aria-label="Mobile" class="px-6 py-4 flex flex-col">
       <a href="/#services" class="block py-4 text-base uppercase tracking-[0.15em] font-semibold text-cream border-b border-line/60 hover:text-yellow transition-colors" data-nav-link>Services</a>
       <a href="/#projects" class="block py-4 text-base uppercase tracking-[0.15em] font-semibold text-cream border-b border-line/60 hover:text-yellow transition-colors" data-nav-link>Projects</a>
       <a href="/#about" class="block py-4 text-base uppercase tracking-[0.15em] font-semibold text-cream border-b border-line/60 hover:text-yellow transition-colors" data-nav-link>About</a>
@@ -166,7 +166,27 @@
 
     // Close on Esc
     document.addEventListener("keydown", (e) => {
-      if (e.key === "Escape" && !drawer.classList.contains("hidden")) setOpen(false);
+      if (e.key === "Escape" && !drawer.classList.contains("hidden")) {
+        setOpen(false);
+        // Return focus to the toggle so keyboard users aren't left
+        // focused inside a hidden drawer.
+        toggle.focus();
+      }
+    });
+
+    // Keep Tab cycling inside the open drawer (toggle + drawer links)
+    document.addEventListener("keydown", (e) => {
+      if (e.key !== "Tab" || drawer.classList.contains("hidden")) return;
+      const items = [toggle, ...drawer.querySelectorAll<HTMLElement>("a[href]")];
+      const first = items[0];
+      const last = items[items.length - 1];
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault();
+        last.focus();
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault();
+        first.focus();
+      }
     });
 
     // Close drawer if viewport grows past lg

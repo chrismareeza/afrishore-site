@@ -181,7 +181,7 @@ const centralEmail = "info@afrishore.co";
             data-anim="cont-office"
             class="group/office opacity-0 translate-y-3 p-6 lg:p-7 bg-surface/40 border border-line hover:border-gold/40 rounded-sm transition-colors duration-300 flex flex-col"
           >
-            <h4 class="text-xl text-cream group-hover/office:text-gold transition-colors duration-300 leading-none mb-3">{office.city}</h4>
+            <h3 class="text-xl text-cream group-hover/office:text-gold transition-colors duration-300 leading-none mb-3">{office.city}</h3>
             <p class="text-sm text-mute leading-relaxed flex-1">
               {office.street}<br />
               {office.region}<br />
@@ -189,9 +189,10 @@ const centralEmail = "info@afrishore.co";
             </p>
             <a
               href={`tel:${office.phoneRaw}`}
-              class="inline-flex items-center gap-1 mt-5 text-sm text-gold hover:text-yellow transition-colors group/phone"
+              class="inline-flex items-center gap-1 py-1.5 -my-1.5 mt-5 text-sm text-gold hover:text-yellow transition-colors group/phone"
             >
               <svg
+                aria-hidden="true"
                 class="w-3.5 h-3.5"
                 viewBox="0 0 24 24"
                 fill="none"

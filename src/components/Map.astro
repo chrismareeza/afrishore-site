@@ -77,8 +77,8 @@ const ports: Pin[] = [
       <svg
         viewBox="0 0 1000 700"
         xmlns="http://www.w3.org/2000/svg"
-        role="img"
-        aria-label="Afrishore operational footprint across South Africa, Namibia and Mozambique"
+        role="group"
+        aria-label="Afrishore operational footprint across South Africa, Namibia and Mozambique – map with links to port pages"
         class="w-full h-full"
       >
         <defs>
@@ -223,6 +223,10 @@ const ports: Pin[] = [
           );
           return slug ? (
             <a href={`/ports/${slug}/`} aria-label={`Port of ${o.name} – vessel and rig agency`} class="cursor-pointer">
+              {/* Invisible hit-area: pins render 8-10px tall on a 375px viewport,
+                  far under the 24px touch-target floor. r=32 user units ≈ 24px
+                  diameter at mobile scale, larger on desktop. */}
+              <circle cx={o.x} cy={o.y} r="44" fill="#000" fill-opacity="0" pointer-events="all" />
               {pinGroup}
             </a>
           ) : pinGroup;
@@ -245,6 +249,7 @@ const ports: Pin[] = [
           );
           return slug ? (
             <a href={`/ports/${slug}/`} aria-label={`Port of ${p.name} – vessel and rig agency`} class="cursor-pointer">
+              <circle cx={p.x} cy={p.y} r="44" fill="#000" fill-opacity="0" pointer-events="all" />
               {pinGroup}
             </a>
           ) : pinGroup;

@@ -30,7 +30,11 @@ const stats: Stat[] = [
               data-display={stat.display ?? ""}
               data-suffix={stat.suffix ?? ""}
             >
-              0
+              {/* Server-render the REAL value: no-JS users, reduced-motion
+                  users and AI/text scrapers must see the facts, not "0"
+                  (plain-HTML-facts rule). The counter script zeroes this
+                  only at the moment the count-up actually starts. */}
+              {(stat.display ?? String(stat.value)) + (stat.suffix ?? "")}
             </span>
             <span
               class="absolute left-0 right-0 -bottom-2 h-[3px] rounded-full origin-left scale-x-0 transition-transform duration-1000 ease-out"
@@ -62,7 +66,11 @@ const stats: Stat[] = [
     return Math.round(n).toString() + suffix;
   };
 
+  // Reduced-motion users keep the server-rendered final values — no count-up.
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
   document.querySelectorAll<HTMLElement>("[data-counter]").forEach((el) => {
+    if (reduceMotion) return;
     const target = parseInt(el.dataset.target || "0", 10);
     const display = el.dataset.display || "";
     const suffix = el.dataset.suffix || "";
@@ -98,6 +106,11 @@ const stats: Stat[] = [
 
   // Animate underline reveal under each stat
   document.querySelectorAll<HTMLElement>("[data-underline]").forEach((el) => {
+    if (reduceMotion) {
+      // Present the final state immediately (house rule for JS animation)
+      el.style.transform = "scaleX(1)";
+      return;
+    }
     ScrollTrigger.create({
       trigger: el,
       start: "top 85%",
