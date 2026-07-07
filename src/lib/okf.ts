@@ -51,7 +51,7 @@ export function getConcepts(): OkfConcept[] {
     body: [
       "# Afrishore",
       "> Integrated marine logistics agency operating across South Africa, Namibia and Mozambique since 2010 — vessel & rig agency, offshore supply base, integrated logistics and crew & visa services for offshore energy operators, drilling contractors and charterers.",
-      "Permanently embedded inside the Port of Walvis Bay's Oil & Gas Section. ISO 9001 certified · B-BBEE Level 1 (South Africa) · 51% Namibian-owned with 30% PDP equity (Namibia) · POPIA compliant · United Nations Global Compact participant · SAASOA member.",
+      "Permanently embedded inside the Port of Walvis Bay's Oil & Gas Section. ISO 9001 certified · B-BBEE Level 1 (South Africa) · 51% Namibian-owned with 34% PDP equity (Namibia) · POPIA compliant · United Nations Global Compact participant · SAASOA member.",
       "## Services",
       servicePages.map((s) => `- [${s.name}](service-${s.slug}.md)`).join("\n"),
       "## Ports & coverage",

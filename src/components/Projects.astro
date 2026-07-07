@@ -2,7 +2,7 @@
 // Section 4 · Featured Projects
 // 6 featured case studies in a responsive grid
 // Each card uses gradient placeholder until heroImage is set
-import { featuredProjects } from "../data/projects";
+import { featuredProjects, allProjects } from "../data/projects";
 
 // Gradient placeholders cycle through these for visual variety
 const placeholders = [
@@ -118,7 +118,7 @@ const placeholders = [
         href="/projects/"
         class="inline-flex items-center gap-2 border border-cream/30 hover:border-cream/60 hover:bg-cream/5 text-cream px-7 py-4 text-sm font-semibold tracking-wide transition-all duration-200 rounded-sm uppercase"
       >
-        View all 18 projects
+        View all {allProjects.length} projects
         <span aria-hidden="true">→</span>
       </a>
     </div>

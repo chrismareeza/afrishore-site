@@ -204,7 +204,7 @@ const breadcrumb = [
               </summary>
               <div class="px-6 pb-6 space-y-4 max-w-3xl">
                 {detailParas.map((p) => (
-                  <p class="text-base lg:text-lg leading-relaxed text-mute">
+                  <p class="lg:text-lg leading-relaxed text-mute">
                     {linkifyPorts(p).map((seg) =>
                       seg.type === "link"
                         ? <a href={seg.href} class="text-cream hover:text-gold transition-colors underline decoration-faint/30 underline-offset-4 hover:decoration-gold/60">{seg.text}</a>
