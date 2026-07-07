@@ -149,13 +149,16 @@
     );
   }
   @media (max-width: 768px) {
+    /* Plain baseline JPEG on purpose — NOT image-set/WebP. image-set() has
+       no decode-time fallback, so if iOS Safari fails to paint the WebP
+       (a decode quirk, or throttled compositing under Low Power Mode) the
+       background falls through to the black background-color and the hero
+       renders empty. A single baseline JPEG is the most universally painted
+       background image; the WebP saved only ~30 KB on this detailed crop,
+       not worth the rendering risk on the LCP element. */
     .hero-bg-img {
       background-position: center center;
       background-image: url('/images/hero-cape-town-mobile.jpg');
-      background-image: image-set(
-        url('/images/hero-cape-town-mobile.webp') type('image/webp'),
-        url('/images/hero-cape-town-mobile.jpg') type('image/jpeg')
-      );
     }
   }
 </style>
