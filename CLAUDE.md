@@ -179,6 +179,33 @@ This file is the contract. When in doubt, the rules here beat your instincts.
   visual h2s. Headings are Barlow by default — no `font-bold` needed.
 - **`text-base` is the near-black COLOUR token here, not a font size** (compiled:
   `.text-base{color:var(--color-base)}`). It's what makes button text dark on orange.
+  Corollary (2026-07-07 audit): never write `text-base` intending 1rem — there is NO
+  1rem utility in this theme; body size is inherited. Eight such latent black-text
+  traps were removed (Hero subhead, FAQ questions, accordion prose et al.).
+- Design-system rules the 2026-07-07 audit added, each cited to the page that
+  triggered it:
+  - **Type ladder for small labels**: `text-xs` = standard label; `text-[11px]` =
+    dense data labels (spec `<dt>`s, stat-strip labels); `text-[0.65rem]` (10.4px) =
+    BuiltLocal card eyebrows, the legibility floor — nothing below it (BuiltLocal
+    jurisdiction chips sat at 9.6px).
+  - **Kicker/eyebrow**: `text-xs lg:text-sm tracking-[0.25em] text-gold`, Title Case,
+    unique per page — two homepage sections both eyebrowed "How we operate"
+    (Process/BuiltLocal) until BuiltLocal became "Our Standards".
+  - **CTA labels**: sentence case sitewide ("Contact us", "Read case study", "See our
+    process"); the hero pair was the only Title Case deviation. One label per
+    artefact: the project card is "Read case study →" everywhere (index said
+    "Read more").
+  - **Interactive text links** (footer lists, aside tel/mailto/maps, back links,
+    view-all): pad hit areas with `py-1 -my-1` (lists) or `py-2 -my-2` (isolated) —
+    24px minimum target without moving layout (footer links were 20px, map pins
+    5–18px → invisible r=44 SVG hit circles).
+  - **Counters/facts in components must server-render their real values** — JS may
+    zero them only when the animation actually starts (Stats strip shipped literal
+    "0"s to no-JS users and AI scrapers).
+  - **Documented spacing deviations** (all deliberate, don't "fix": About
+    `py-20 lg:py-40` full-bleed photo section; Process `py-16` mobile; related-
+    projects band `py-20 lg:py-24 border-t` on all four detail templates; ClientsWall
+    h2 one step smaller; 404 h1 one step larger).
 - GSAP: any element with a `data-anim` attribute starts `opacity-0` and NEEDS a
   matching tween in the component script (unique per-component prefix), or it renders
   invisible forever. Every JS animation needs a `prefers-reduced-motion` branch that
