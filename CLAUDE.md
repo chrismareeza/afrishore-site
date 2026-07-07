@@ -104,10 +104,9 @@ This file is the contract. When in doubt, the rules here beat your instincts.
 - `docs/company-brain-source-truth.md` is the fact authority. Tier 1 = stateable;
   Tier 2 = only after human verification; Tier 3 = internal; Tier 4 = blocked.
   Not in T1/verified-T2 → do not publish. Conflict rule: newest confirmed record
-  wins. **Known staleness**: the brain's T4 "no AEO" line and its T1 list predate the
-  2026-06-16 confirmations of SARS AEO L2, SAOGA and OPITO (see
-  `docs/legitimacy-registrations.md`, `docs/operator-prequalification.md`,
-  `public/llms.txt` "Stateable certifications") — the newer confirmed records win.
+  wins (brought current 2026-07-07: AEO/SAOGA/OPITO are now in T1). When the brain
+  and a newer confirmed record ever disagree again, the newer record wins — and the
+  brain gets a correction-log row in the same change.
 - Stateable credentials, **jurisdiction-scoped**: ISO 9001, POPIA, UN Global Compact,
   SAASOA, SAOGA (group); **B-BBEE Level 1 and SARS AEO Level 2 – Security: South
   Africa only**; **51% Namibian-owned + 34% PDP: Namibian entity only** (34% is

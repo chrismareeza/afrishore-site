@@ -22,11 +22,10 @@ to build. Chris submits everything; you produce paste-ready blocks.
      Afrishore group, operating since 2010"), 51% Namibian-owned + **34% PDP**
      (30% is only the legal floor), OPITO = Walvis Bay rigging/lifting team only.
    - Group-wide always-safe: ISO 9001, POPIA, UN Global Compact, SAASOA, SAOGA.
-   - **Never**: FONASBA, SAAFF, or anything not in BaseLayout
-     `hasCredential`/`memberOf`, the llms.txt "Stateable certifications" line
-     (which includes SARS AEO and OPITO), or company-brain Tier 1. (Note: the
-     company-brain T4 "no AEO" line is stale — AEO was confirmed 2026-06-16 per
-     `docs/operator-prequalification.md`; the newer confirmed record wins.)
+   - **Never**: FONASBA, SAAFF, or anything not in company-brain Tier 1
+     (docs/company-brain-source-truth.md — current as of 2026-07-07, includes
+     AEO/SAOGA/OPITO), BaseLayout `hasCredential`/`memberOf`, or the llms.txt
+     "Stateable certifications" line.
 4. **Category vocabulary of the directory** — Afrishore is a port/vessel AGENT
    ("Shipping company/service", "Port Agents"), never "Port operating company"
    (that's a terminal operator — a known miscategorisation to avoid/fix).
