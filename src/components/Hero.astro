@@ -339,6 +339,9 @@
   // absolute; +~300ms breath = 3250 → pulled 1s earlier = 2250.
   (function () {
     const SUNRISE_DELAY = 2250;
+    // No sunrise on mobile (phones ≤768px). The hero stays at its loaded
+    // state — no delayed brighten, no vignette lift. Desktop keeps it.
+    if (window.matchMedia("(max-width: 768px)").matches) return;
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
       // Motion-sensitive users: present the brightened end-state from
       // the start – no delayed jump, no animation.
