@@ -212,6 +212,11 @@ const baseGraph: object[] = [
       "Orange Basin offshore logistics",
     ],
     "sameAs": [
+      // Wikidata Q140030055 is the ONLY structured, machine-read Knowledge Graph
+      // input we control, and it already carries `different from (P1889)` →
+      // Q140030323 (Afrishore BPO). Binding the site to that entity is the
+      // strongest available signal that we are not the BPO. Keep this first.
+      "https://www.wikidata.org/wiki/Q140030055",
       "https://www.linkedin.com/company/afrishore-shipping",
       "https://www.instagram.com/afrishore_logistics/",
       "https://www.facebook.com/people/afrishore_logistics/100063863929988/",
@@ -219,6 +224,11 @@ const baseGraph: object[] = [
       "https://www.sayellow.com/view/south-africa/afrishore-in-saldanha",
       "https://www.saoga.org.za/web/org/7503",
     ],
+    "identifier": {
+      "@type": "PropertyValue",
+      "propertyID": "wikidata",
+      "value": "Q140030055",
+    },
     "contactPoint": [{
       "@type": "ContactPoint",
       "telephone": "+27-44-691-3218",
