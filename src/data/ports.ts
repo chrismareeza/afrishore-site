@@ -308,7 +308,7 @@ export const ports: PortPage[] = [
     kind: "licence",
     matchPort: ["Saldanha"],
     metaTitle:
-      "Vessel & Rig Agent: Port of Saldanha Bay | Afrishore",
+      "Saldanha Bay Vessel & Rig Agent | Afrishore",
     metaDescription:
       "Licensed vessel and rig agent for the Port of Saldanha Bay, South Africa – the country's deepest port: clearance, husbandry, bulk and project cargo.",
     h1: "Vessel & Rig Agent: Port of Saldanha Bay",
