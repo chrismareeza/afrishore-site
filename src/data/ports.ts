@@ -103,7 +103,7 @@ export const ports: PortPage[] = [
     kind: "office",
     matchPort: ["Walvis Bay"],
     metaTitle:
-      "Vessel & Rig Agent: Port of Walvis Bay, Namibia | Afrishore",
+      "Walvis Bay Vessel & Rig Agent, Namibia | Afrishore",
     metaDescription:
       "Licensed vessel and rig agent in the Port of Walvis Bay, Namibia – embedded in the Oil & Gas Section: clearance, husbandry and supply base support.",
     h1: "Vessel & Rig Agent: Port of Walvis Bay",
@@ -160,7 +160,7 @@ export const ports: PortPage[] = [
     kind: "licence",
     matchPort: ["Lüderitz", "Luderitz"],
     metaTitle:
-      "Vessel & Rig Agent: Port of Lüderitz, Namibia | Afrishore",
+      "Lüderitz Vessel & Rig Agent, Namibia | Afrishore",
     metaDescription:
       "Licensed vessel and rig agent for the Port of Lüderitz, Namibia – clearance, immigration, husbandry and offshore support for the Orange Basin frontier.",
     h1: "Vessel & Rig Agent: Port of Lüderitz",
@@ -387,7 +387,7 @@ export const ports: PortPage[] = [
     kind: "office",
     matchPort: ["Mossel Bay"],
     metaTitle:
-      "Vessel & Rig Agent: Port of Mossel Bay | Afrishore HQ",
+      "Mossel Bay Vessel & Rig Agent | Afrishore HQ",
     metaDescription:
       "Vessel and rig agent at the Port of Mossel Bay – Afrishore's HQ since 2010, and the supply base behind TotalEnergies' Brulpadda and Luiperd campaigns.",
     h1: "Vessel & Rig Agent: Port of Mossel Bay",
@@ -434,7 +434,7 @@ export const ports: PortPage[] = [
     kind: "office",
     matchPort: ["Durban"],
     metaTitle:
-      "Vessel & Rig Agent: Port of Durban, South Africa | Afrishore",
+      "Durban Vessel & Rig Agent, South Africa | Afrishore",
     metaDescription:
       "Licensed vessel and rig agent in the Port of Durban, South Africa – clearance, immigration, husbandry, dry docking and project cargo on the east coast.",
     h1: "Vessel & Rig Agent: Port of Durban",
