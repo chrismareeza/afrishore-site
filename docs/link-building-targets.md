@@ -16,7 +16,7 @@ Claude drafting article/press copy where useful).
 | Target | URL | Mechanism | Effort |
 |--------|-----|-----------|--------|
 | **Link Ship Chandlers — "Definitive SA Shipping Agent List"** | shipchandlers.co.za/south-african-shipping-agents/ | Email request to be added | 1 email; ranks for "South African shipping agents" |
-| **Ruzave — Walvis Bay ship-agents** | ruzave.com/namibia/walvis-bay-sea-port-namibia/maritime/ship-agents-brokers | Free listing | 5–10 min |
+| ✅ **Ruzave — Walvis Bay ship-agents** (LIVE 13 Jul 2026, as "Afrishore Logistics") | ruzave.com/namibia/walvis-bay-seaport | Free listing | Done. NB: Ruzave is a JS SPA — company cards are client-rendered, so the listing is NOT server-rendered (invisible to non-JS crawlers / scraped AI-tier). Human-discoverability + weak topical mention only; NOT a sameAs candidate. |
 | **Namibia Oil & Gas business directory** | namibiaoilandgas.com/business-directory/ | Listing (Oilfield Services / Upstream) | Low; sits at the centre of the Namibia E&P boom |
 | **MarineLink directory — South Africa** | directory.marinelink.com/companies/country-south_africa | Listing request via Contact | Low |
 | **MarineTraffic** | (already on legitimacy list) | Enrich existing profile | — |
