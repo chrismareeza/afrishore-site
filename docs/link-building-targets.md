@@ -15,7 +15,7 @@ Claude drafting article/press copy where useful).
 
 | Target | URL | Mechanism | Effort |
 |--------|-----|-----------|--------|
-| **Link Ship Chandlers — "Definitive SA Shipping Agent List"** | shipchandlers.co.za/south-african-shipping-agents/ | Email request to be added | 1 email; ranks for "South African shipping agents" |
+| ✅ **Link Ship Chandlers — "SA Shipping Agent List"** (LIVE 13 Jul 2026, as "Afrishore") | shipchandlers.co.za/south-african-shipping-agents/ | Email request to be added | Done. SSR/crawlable (machine-readable by all crawlers + scraped AI-tier — good entity corroboration). Website link is rel=nofollow (no equity; topical + referral only). LIST page, not a profile → NOT a sameAs. Verify pending: contact listed as "Charles Taute / charles@afrishore.co / 079 695 9816" (Durban #, SA format — correct). |
 | ✅ **Ruzave — Walvis Bay ship-agents** (LIVE 13 Jul 2026, as "Afrishore Logistics") | ruzave.com/afrishore-logistics (profile) · listed on ruzave.com/namibia/walvis-bay-seaport | Free listing | Done. Dedicated profile with reciprocal afrishore.co backlink + matching Walvis Bay NAP → ADDED to Organization sameAs. NB: Ruzave is a JS SPA (content client-rendered), so this corroborates for JS-rendering engines (Google) but not the non-rendering scraped tier — a Google-leaning signal. Fix pending: profile phone shows "817673069" (missing +264). |
 | **Namibia Oil & Gas business directory** | namibiaoilandgas.com/business-directory/ | Listing (Oilfield Services / Upstream) | Low; sits at the centre of the Namibia E&P boom |
 | **MarineLink directory — South Africa** | directory.marinelink.com/companies/country-south_africa | Listing request via Contact | Low |
