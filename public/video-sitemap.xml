@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
   <url>
-    <loc>https://www.afrishore.co/projects/petrosa-orca-remobilisation</loc>
+    <loc>https://www.afrishore.co/projects/petrosa-orca-remobilisation/</loc>
     <video:video>
       <video:thumbnail_loc>https://www.afrishore.co/images/projects/petrosa-orca-remobilisation.jpg</video:thumbnail_loc>
       <video:title>Logistica: Orca Single-Voyage Tow to Alang</video:title>
@@ -26,7 +26,7 @@
     </video:video>
   </url>
   <url>
-    <loc>https://www.afrishore.co/projects/dock-titan-cape-town-reunion</loc>
+    <loc>https://www.afrishore.co/projects/dock-titan-cape-town-reunion/</loc>
     <video:video>
       <video:thumbnail_loc>https://www.afrishore.co/images/projects/dock-titan-cape-town-reunion.jpg</video:thumbnail_loc>
       <video:title>Dock Titan: Heavy Lift to Réunion</video:title>
