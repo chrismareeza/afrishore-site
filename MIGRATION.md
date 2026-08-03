@@ -576,15 +576,64 @@ Because TTLs were lowered (1.8) and the only changed records are web:
 Installed in `src/layouts/BaseLayout.astro` (every page), both as
 `is:inline` so Astro does not bundle the third-party snippets:
 
-- **Google Analytics 4** — property **afrishore.co**, Measurement ID
-  **`G-E28C5EH0TG`** (standard `gtag.js`).
+- **Google Analytics 4** – property **309169245**, which holds two web
+  streams:
+  - **"Afrishore CO"** – `G-E28C5EH0TG`, stream 12330832673, URL
+    `https://www.afrishore.co`. The correct territory-neutral stream.
+  - **"Afrishore - GA4"** – `G-E5TS8D8VNX`, stream 3377671410, URL
+    `http://www.afrishore.co.za`. Legacy from the .co.za era.
+
+  The tag is installed in `BaseLayout.astro:542` with Consent Mode v2 and a
+  production-host guard (`window.__afProd`), so only `afrishore.co` ever
+  collects. It fires **`G-E28C5EH0TG`** as of 31 Jul 2026; it previously
+  fired the legacy `G-E5TS8D8VNX`, which was territory drift left over from
+  the .co.za → .co move.
 - **Cloudflare Web Analytics** — beacon token
   **`ac81d6efc4bf47618bcca4e30f845840`** (cookieless / privacy-first,
   no consent banner required).
-- The second GA4 property **`G-E5TS8D8VNX` (afrishore.co.za) is
-  deliberately NOT installed** — .co.za is a 301 redirect (no page
-  renders, so it cannot collect). That property is **dormant/retired**;
-  afrishore.co's GA4 captures all landed traffic.
+- `afrishore.co.za` 301s to `www.afrishore.co`, so it renders no page of its
+  own and collects nothing separately. Confirmed live 31 Jul 2026.
+
+> **Correction, 31 Jul 2026.** This section previously stated that
+> `G-E5TS8D8VNX` was "deliberately NOT installed / dormant". That is wrong:
+> it is the ID the live site actually fires. What the old text got *right*
+> was the intent – `G-E28C5EH0TG` is the afrishore.co stream and is the one
+> the site should be sending to. The real defect is not a documentation
+> transposition but **territory drift**: the .co.za-era measurement ID
+> survived the rebrand in `BaseLayout.astro:542`. Verified against the GA4
+> stream list, the live pages and the repo.
+
+> **Open defect, 31 Jul 2026 – confirmed in the Google tag UI.** The single
+> Google tag `G-E5TS8D8VNX` is configured with **two destinations**:
+> "Afrishore - GA4" (stream 3377671410) and "Afrishore CO" (12330832673).
+> Both sit in property 309169245 and both receive every hit. Google flags it
+> on the tag's Configuration screen: *"Your tag is sending data to multiple
+> destinations."*
+>
+> Started **mid-October 2025**. "Afrishore - GA4" collects from at least
+> Jun 2025; "Afrishore CO" has nothing before Oct 2025 (164 sessions that
+> month against 502), then runs in near-lockstep from Nov 2025 on.
+>
+> Impact: event, page-view and conversion counts are inflated ~2x **from
+> Oct 2025 onward** (`contact_intent` 44 → 22, `generate_lead` 8 → 4 in the
+> 24-30 Jul window). Corroborating proof: `first_visit` recorded 72 against
+> 45 total users, impossible on a single stream. Sessions, engaged sessions
+> and engagement rate are session-scoped and unaffected. **Any event or
+> conversion comparison spanning Oct 2025 shows a phantom doubling that is
+> the second destination, not growth.**
+>
+> Mechanism: the Google tag's **Destinations**, not connected site tags –
+> "Manage connected site tags" reads 0 on both streams.
+>
+> Fix, in this order: (1) point `BaseLayout.astro:542` at `G-E28C5EH0TG` and
+> ship it – **DONE 31 Jul 2026**, (2) confirm "Afrishore CO" is still
+> receiving, (3) drop the surplus destination so each tag feeds one stream –
+> **still open, needs the GA4 UI**. Keeping **"Afrishore CO"**
+> as the survivor is deliberate: it is the territory-neutral stream and it
+> redacts email, which the legacy stream does not. Both streams live in
+> property 309169245, so the longer .co.za history stays queryable either
+> way. Removing a destination is not the same as deleting a data stream or
+> property – never do the latter, it destroys collected history.
 
 CSP (`public/_headers`) widened accordingly:
 - `script-src` += `https://www.googletagmanager.com https://static.cloudflareinsights.com`
