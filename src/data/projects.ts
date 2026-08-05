@@ -126,7 +126,7 @@ Luiperd confirmed Block 11B/12B as one of Africa's most significant new gas play
 For the duration of the SPS, Afrishore handled the full shore-side scope: temporary importation of spare parts and project equipment, customs clearance, warehousing of project cargo, abnormal trucking for oversized components, crane and rigging coordination, waste management and crew rotation logistics including visa and immigration for international specialist teams. The SPS scope brought multiple discipline crews to Walvis Bay simultaneously and every visa, every customs entry and every supply chain link was coordinated from the Port of Walvis Bay's Oil & Gas Section, where Afrishore is permanently embedded. A highlight of the project was being involved in the assembly and shipping out of 15-tonne Stevshark MK5 anchors in collaboration with Delmar Systems.
 
 The Bollsta returned to operations on schedule, recertified for another operational cycle.`,
-    featured: true,
+    featured: false,
     published: true,
   },
   {
@@ -247,7 +247,7 @@ Bulk chemical procurement, cargo-tank certification, bunkering, project cargo an
         "Bulk MEG transfer alongside in the Port of Durban: road tanker to certified cargo tanks through a quayside pump and manifold – the loading leg of a mobilisation Afrishore held as a single project file, from procurement through to sailing.",
       portrait: true,
     },
-    featured: false,
+    featured: true,
     published: true,
   },
   {
