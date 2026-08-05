@@ -243,7 +243,7 @@ MEG carries stringent purity and contamination tolerances, and neither vessel wa
 
 Four further work-streams ran inside the same berth window: bunkering for the Mozambique transit, third-party project cargo loading and lashing, full crew changes including immigration and accommodation and technical procurement with on-board technical support for sailing readiness. Each was sequenced against a single port call with no capacity to absorb a missed slot.
 
-Both Tidewater vessels sailed Durban on schedule and arrived offshore Pemba in time to support the downstream MEG requirement, with no delay to the campaign.
+Both Tidewater vessels sailed Durban on schedule and arrived offshore Pemba in time to support the upstream MEG requirement, with no delay to the campaign.
 
 Bulk chemical procurement, cargo-tank certification, bunkering, project cargo and crew rotation would ordinarily sit with five separate providers on five separate schedules. Held as a single project file across the tightest window in the South African operating year, the mobilisation became a repeatable framework for bulk chemical supply into the East African offshore market.`,
     secondaryImage: {
