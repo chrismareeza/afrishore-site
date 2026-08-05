@@ -225,7 +225,7 @@ A semi-submersible heavy lift is the kind of operation where every element must 
   // ──────────────────────────────────────────────
   {
     slug: "tidewater-meg-durban-pemba",
-    title: "Tidewater: MEG Mobilisation, Durban to Pemba",
+    title: "MEG Mobilisation, Durban – Pemba",
     client: "Tidewater",
     year: "2025–2026",
     port: "Durban · Pemba, Mozambique",
