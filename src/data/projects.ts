@@ -219,6 +219,38 @@ A semi-submersible heavy lift is the kind of operation where every element must 
   // Light entries (CMS records, not featured)
   // ──────────────────────────────────────────────
   {
+    slug: "tidewater-meg-durban-pemba",
+    title: "Tidewater: MEG Mobilisation, Durban to Pemba",
+    client: "Tidewater",
+    year: "2025–2026",
+    port: "Durban · Pemba, Mozambique",
+    serviceTypes: ["integrated-logistics", "ship-rig-agency", "crew-visa"],
+    vessel: "Two Tidewater platform supply vessels",
+    assetType: "vessel",
+    heroImage: "/images/projects/tidewater-meg-durban-pemba.jpg",
+    heroAlt: "Bulk Mono-ethylene Glycol loading alongside in the Port of Durban for a Tidewater platform supply vessel – Afrishore integrated mobilisation to an offshore campaign at Pemba, Mozambique.",
+    summary: "Two Tidewater platform supply vessels mobilised through the Port of Durban as a single project file – MEG procurement, cargo-tank certification, bunkering and crew – for an offshore campaign at Pemba, Mozambique.",
+    metaDescription: "Full Port of Durban mobilisation for a Tidewater campaign offshore Pemba, Mozambique – bulk MEG procurement, cargo-tank certification, bunkering and crew.",
+    outcome: `In late 2025, Afrishore was engaged by Tidewater to mobilise a bulk consignment of Mono-ethylene Glycol (MEG) through the Port of Durban for delivery to an operational campaign offshore Pemba, Mozambique. The scope ran the full mobilisation across both Tidewater vessels: procurement of the cargo, preparation and certification of the vessels, port operations and crew. It fell across the South African festive operational window – compressed working hours, reduced refinery and supply availability and constrained port and customs slots.
+
+MEG carries stringent purity and contamination tolerances, and neither vessel was certified to carry it. Afrishore coordinated supply across multiple national suppliers to consolidate a single bulk volume sufficient for both deepwater scopes, and cleared the customs formalities ahead of loading to optimise the export process. In parallel, Afrishore ran the full cargo-tank cleaning and re-certification programme dockside in Durban, supervised the independent laboratory sign-off and managed the chain-of-custody documentation that certified both vessels MEG-ready prior to loading.
+
+Four further work-streams ran inside the same berth window: bunkering for the Mozambique transit, third-party project cargo loading and lashing, full crew changes including immigration and accommodation and technical procurement with on-board technical support for sailing readiness. Each was sequenced against a single port call with no capacity to absorb a missed slot.
+
+Both Tidewater vessels sailed Durban on schedule and arrived offshore Pemba in time to support the downstream MEG requirement, with no delay to the campaign.
+
+Bulk chemical procurement, cargo-tank certification, bunkering, project cargo and crew rotation would ordinarily sit with five separate providers on five separate schedules. Held as a single project file across the tightest window in the South African operating year, the mobilisation became a repeatable framework for bulk chemical supply into the East African offshore market.`,
+    secondaryImage: {
+      src: "/images/projects/tidewater-meg-durban-loading.jpg",
+      alt: "Bulk Mono-ethylene Glycol transferred from a road tanker to a platform supply vessel alongside in the Port of Durban, through a quayside pump and manifold – Afrishore integrated mobilisation for a Tidewater campaign offshore Pemba, Mozambique.",
+      caption:
+        "Bulk MEG transfer alongside in the Port of Durban: road tanker to certified cargo tanks through a quayside pump and manifold – the loading leg of a mobilisation Afrishore held as a single project file, from procurement through to sailing.",
+      portrait: true,
+    },
+    featured: false,
+    published: true,
+  },
+  {
     slug: "totalenergies-brulpadda-2014",
     title: "TotalEnergies: Brulpadda Drilling Campaign",
     client: "TotalEnergies",
