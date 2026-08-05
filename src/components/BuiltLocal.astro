@@ -31,15 +31,16 @@ const linePath =
   ` Q ${arcCtrlX.toFixed(1)},${arcCtrlY.toFixed(1)}` +
   ` ${sx(lastPt.year).toFixed(1)},${sy(lastPt.pct).toFixed(1)}`;
 
-// ── Pillar 5 · carbon widget data (from GHG_Emissions_DMI_June_2026) ───
+// ── Pillar 5 · carbon widget data (from GHG_Emissions_DMI_July_2026) ───
 // Category totals sum to carbonTotalT so the breakdown reconciles to the
-// headline figure. June added a generator line (absent in May).
-const carbonTotalT = 6.426;
+// headline figure. July: generators idle (dropped); a tower-light line added.
+// Total well up on June (6.426 t) – heavy crane hours, the 300T alone 52 hrs.
+const carbonTotalT = 20.763;
 const carbonBars = [
-  { label: "Cranes", t: 1.474 },
-  { label: "Forklifts", t: 4.631 },
-  { label: "Trucks", t: 0.241 },
-  { label: "Generators", t: 0.080 },
+  { label: "Cranes", t: 10.334 },
+  { label: "Forklifts", t: 4.776 },
+  { label: "Trucks", t: 5.548 },
+  { label: "Lighting", t: 0.105 },
 ].map((b) => ({ ...b, pct: (b.t / carbonTotalT) * 100 }));
 
 // ── Pillar 3 · HSE live LTI-free-day counter ──────────────────────────
@@ -283,7 +284,7 @@ const isPending = (s: string) => s.includes("{");
                   <p class="text-[0.65rem] uppercase tracking-[0.18em] text-gold font-semibold">
                     Afrishore Logistics · GHG Report
                   </p>
-                  <p class="text-xs text-faint mt-0.5">June 2026 · WVB Offshore Supply Base</p>
+                  <p class="text-xs text-faint mt-0.5">July 2026 · WVB Offshore Supply Base</p>
                 </div>
 
                 <div>
@@ -293,7 +294,7 @@ const isPending = (s: string) => s.includes("{");
                   <p class="text-xs text-mute mt-1.5">CO₂e for the month</p>
                 </div>
 
-                <p class="text-sm text-cream/80">210 hrs · 6,427 kg CO₂</p>
+                <p class="text-sm text-cream/80">382 hrs · 20,762 kg CO₂</p>
 
                 <div class="space-y-2">
                   <p class="text-[0.65rem] uppercase tracking-[0.18em] text-faint">Where it came from</p>
