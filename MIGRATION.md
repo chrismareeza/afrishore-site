@@ -585,8 +585,8 @@ Installed in `src/layouts/BaseLayout.astro` (every page), both as
 
   The tag is installed in `BaseLayout.astro:542` with Consent Mode v2 and a
   production-host guard (`window.__afProd`), so only `afrishore.co` ever
-  collects. It fires **`G-E28C5EH0TG`** as of 31 Jul 2026; it previously
-  fired the legacy `G-E5TS8D8VNX`, which was territory drift left over from
+  collects. It fires **`G-E28C5EH0TG`** as of 3 Aug 2026 (commit 20d2b96);
+  it previously fired the legacy `G-E5TS8D8VNX`, which was territory drift left over from
   the .co.za → .co move.
 - **Cloudflare Web Analytics** — beacon token
   **`ac81d6efc4bf47618bcca4e30f845840`** (cookieless / privacy-first,
@@ -626,7 +626,7 @@ Installed in `src/layouts/BaseLayout.astro` (every page), both as
 > "Manage connected site tags" reads 0 on both streams.
 >
 > Fix, in this order: (1) point `BaseLayout.astro:542` at `G-E28C5EH0TG` and
-> ship it – **DONE 31 Jul 2026**, (2) confirm "Afrishore CO" is still
+> ship it – **DONE 3 Aug 2026, commit 20d2b96**, (2) confirm "Afrishore CO" is still
 > receiving, (3) drop the surplus destination so each tag feeds one stream –
 > **still open, needs the GA4 UI**. Keeping **"Afrishore CO"**
 > as the survivor is deliberate: it is the territory-neutral stream and it

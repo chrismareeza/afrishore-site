@@ -25,6 +25,11 @@ export interface Project {
   // VERIFIED hard metrics (cargo tonnage, shipments, lifts, etc.). Only ever
   // populate from real operational data; never fabricate.
   stats?: { value: string; label: string }[];
+  // Distinctive subject-matter terms the auto-generated keywords/about miss
+  // (those only pull client/vessel/ports/services). e.g. "Mono-ethylene Glycol
+  // (MEG)", "concrete mattress". Fed into the Article schema's keywords + about
+  // (as Thing nodes) so structured data reflects what the case study is about.
+  subjects?: string[];
   heroImage?: string; // Path under /public; falls back to gradient placeholder
   // Optional hand-written alt for the hero image; falls back to a
   // string generated from title/vessel/port/year. Used both as the
@@ -231,6 +236,7 @@ A semi-submersible heavy lift is the kind of operation where every element must 
     heroAlt: "Bulk Mono-ethylene Glycol loading alongside in the Port of Durban for a Tidewater platform supply vessel – Afrishore integrated mobilisation to an offshore campaign at Pemba, Mozambique.",
     summary: "Two Tidewater platform supply vessels mobilised through the Port of Durban as a single project file – MEG procurement, cargo-tank certification, bunkering and crew – for an offshore campaign at Pemba, Mozambique.",
     metaDescription: "Full Port of Durban mobilisation for a Tidewater campaign offshore Pemba, Mozambique – bulk MEG procurement, cargo-tank certification, bunkering and crew.",
+    subjects: ["Mono-ethylene Glycol (MEG)", "Monoethylene glycol", "MEG", "bulk chemical mobilisation"],
     outcome: `In late 2025, Afrishore was engaged by Tidewater to mobilise a bulk consignment of Mono-ethylene Glycol (MEG) through the Port of Durban for delivery to an operational campaign offshore Pemba, Mozambique. The scope ran the full mobilisation across both Tidewater vessels: procurement of the cargo, preparation and certification of the vessels, port operations and crew. It fell across the South African festive operational window – compressed working hours, reduced refinery and supply availability and constrained port and customs slots.
 
 MEG carries stringent purity and contamination tolerances, and neither vessel was certified to carry it. Afrishore coordinated supply across multiple national suppliers to consolidate a single bulk volume sufficient for both deepwater scopes, and cleared the customs formalities ahead of loading to optimise the export process. In parallel, Afrishore ran the full cargo-tank cleaning and re-certification programme dockside in Durban, supervised the independent laboratory sign-off and managed the chain-of-custody documentation that certified both vessels MEG-ready prior to loading.

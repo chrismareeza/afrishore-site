@@ -208,6 +208,8 @@ const articleSchema = {
       "name": project.vessel,
       "additionalType": "https://en.wikipedia.org/wiki/Watercraft",
     }] : []),
+    // Distinctive subject matter (e.g. MEG) the field-derived about misses.
+    ...(project.subjects ?? []).map((s) => ({ "@type": "Thing", "name": s })),
   ],
   "keywords": [
     project.client,
@@ -215,6 +217,7 @@ const articleSchema = {
     ...(project.vessel ? [project.vessel] : []),
     project.port,
     ...project.serviceTypes.map((s) => serviceLabels[s] || s),
+    ...(project.subjects ?? []),
     "marine logistics", "offshore", "Afrishore",
   ].join(", "),
   "isPartOf": { "@id": `${siteUrl}/#website` },

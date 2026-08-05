@@ -11,7 +11,7 @@ not a live audit — share each profile's current screenshot for a gap check.
 - **Distinct description per location** — never copy-paste the same text across profiles (Google ignores/penalises duplicates; unique local text also ranks better).
 - **Website field → the matching port landing page** (deep, relevant, already ranks) — not just the homepage.
 - **Primary category: Shipping Company** across all (brand consistency); vary secondaries per office.
-- **Jurisdiction-correct credentials:** SA offices → ISO 9001 + **B-BBEE Level 1**; Walvis Bay (Namibia) → ISO 9001 + **51% Namibian / 30% PDP** (NOT B-BBEE).
+- **Jurisdiction-correct credentials:** SA offices → ISO 9001 + **B-BBEE Level 1**; Walvis Bay (Namibia) → ISO 9001 + **51% Namibian / 34% PDP** (NOT B-BBEE).
 
 ## Per-location setup
 
@@ -31,7 +31,7 @@ not a live audit — share each profile's current screenshot for a gap check.
 > Afrishore's Cape Town office — vessel & rig agency, husbandry, Off Port Limits (OPL) logistics, customs and project cargo at the Port of Cape Town and Saldanha Bay. Supported the 2Africa subsea cable landing and offshore drilling campaigns. Part of Afrishore's integrated marine logistics group across South Africa, Namibia and Mozambique since 2010. ISO 9001 · B-BBEE Level 1.
 
 **Walvis Bay (Namibia):**
-> Afrishore's Namibian base, permanently embedded inside the Port of Walvis Bay's Oil & Gas Section. Offshore supply base, vessel & rig agency, crew & visa and project logistics for the Orange Basin — serving Walvis Bay and Lüderitz. A 51% Namibian-owned local company (30% PDP). Supported the Deepsea Mira, Deepsea Bollsta and Deepsea Hercules drilling campaigns. ISO 9001 certified.
+> Afrishore's Namibian base, permanently embedded inside the Port of Walvis Bay's Oil & Gas Section. Offshore supply base, vessel & rig agency, crew & visa and project logistics for the Orange Basin — serving Walvis Bay and Lüderitz. A 51% Namibian-owned local company (34% PDP). Supported the Deepsea Mira, Deepsea Bollsta and Deepsea Hercules drilling campaigns. ISO 9001 certified.
 
 **Durban:**
 > Afrishore's Durban office — vessel agency, husbandry, customs, freight forwarding and project cargo at the Port of Durban and Richards Bay. Part of Afrishore's integrated marine logistics group across South Africa, Namibia and Mozambique since 2010. ISO 9001 · B-BBEE Level 1.

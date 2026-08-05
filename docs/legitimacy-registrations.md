@@ -7,7 +7,7 @@ Afrishore's real profile: integrated marine logistics & vessel/rig agency
 2010; ISO 9001; POPIA-compliant; UN Global Compact participant; SAASOA member.
 
 **Guardrail:** only register/claim what Afrishore genuinely qualifies for.
-Afrishore **is** B-BBEE Level 1 (SA) and 51% Namibian-owned + 30% PDP (Namibia)
+Afrishore **is** B-BBEE Level 1 (SA) and 51% Namibian-owned + 34% PDP (Namibia)
 — confirmed and current, so these may be stated freely. Afrishore also holds
 **SARS AEO Level 2 (Authorised Economic Operator – Security / AEO-S)**, confirmed
 2026-06-16 — stateable. Do **not** assert **FONASBA / SAAFF** status unless and
@@ -97,7 +97,7 @@ FindAll returned 48 candidates; after filtering ~20 noise rows (mislabelled Link
 | ✅ | **UN Global Compact** participant profile | Done | Keep profile complete (DR 89 backlink). |
 | ✅ | **LinkedIn** company page | Done | Optimise: services, ports, keyword-rich description. |
 | ◐ | **Google Business Profile** | Optimise existing | A GBP already exists (**4.8★ / 28 reviews** — strong, ahead of competitors). Job = claim/verify ownership, set NAP to **60 Bland Street, Mossel Bay, 6500** (canonical; website already matches), categories (Shipping company / Logistics service + Freight forwarding), services, ≥10 photos, respond to reviews, periodic Posts. Add **Walvis Bay** as a 2nd location (oil-&-gas hub). Cape Town / Durban **only if genuinely staffed offices** (Google suspends unstaffed/virtual/PO-box locations). |
-| ✅ | **Crunchbase / Tracxn** | Crunchbase done (both entities) | **Afrishore** (RSA) + **Afrishore Logistics** (Namibia; founded 2022; 51%+30% PDP, NOT B-BBEE) profiles submitted 2026-06-15 (free contributor route). Tracxn: claim the auto-generated profile if/when needed. |
+| ✅ | **Crunchbase / Tracxn** | Crunchbase done (both entities) | **Afrishore** (RSA) + **Afrishore Logistics** (Namibia; founded 2022; 51%+34% PDP, NOT B-BBEE) profiles submitted 2026-06-15 (free contributor route). Tracxn: claim the auto-generated profile if/when needed. |
 | ⬜ | **Bing Places** | To do | Feeds Bing index → ChatGPT/Copilot/Perplexity. |
 | 🔍 | **ISO 9001 cert — public register** | Verify | Ensure your certification body lists Afrishore on its online certificate register (a crawlable third-party proof of the ISO claim). |
 
