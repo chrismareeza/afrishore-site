@@ -68,6 +68,9 @@ export interface Project {
     width?: number;         // intrinsic pixel width (default 1280)
     height?: number;        // intrinsic pixel height (default 720)
   };
+  // Optional external write-up corroborating the work (e.g. a LinkedIn
+  // post). Rendered as a quiet reference link, not a CTA.
+  source?: { url: string; label: string };
 }
 
 export const projects: Project[] = [
@@ -252,6 +255,10 @@ Bulk chemical procurement, cargo-tank certification, bunkering, project cargo an
       caption:
         "Bulk MEG transfer alongside in the Port of Durban: road tanker to certified cargo tanks through a quayside pump and manifold – the loading leg of a mobilisation Afrishore held as a single project file, from procurement through to sailing.",
       portrait: true,
+    },
+    source: {
+      url: "https://www.linkedin.com/feed/update/urn:li:activity:7490665989311774720/",
+      label: "See the MEG mobilisation on LinkedIn",
     },
     featured: true,
     published: true,

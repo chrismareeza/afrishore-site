@@ -537,6 +537,20 @@ const breadcrumb = [
               </figcaption>
             </figure>
           )}
+
+          {project.source && (
+            <p class="mt-5 text-sm">
+              <a
+                href={project.source.url}
+                target="_blank"
+                rel="noopener"
+                class="inline-flex items-center gap-1 text-gold hover:text-yellow transition-colors"
+              >
+                {project.source.label}
+                <span aria-hidden="true">↗</span>
+              </a>
+            </p>
+          )}
         </div>
 
         <!-- Side card: project facts + CTA -->
