@@ -227,6 +227,36 @@ A semi-submersible heavy lift is the kind of operation where every element must 
   // Light entries (CMS records, not featured)
   // ──────────────────────────────────────────────
   {
+    slug: "aoka-mizu-fpso-walvis-bay",
+    title: "Aoka Mizu: FPSO Transit Call & Bunkering at Walvis Bay",
+    client: "Bluewater Energy Services",
+    year: "2026",
+    port: "Walvis Bay",
+    serviceTypes: ["ship-rig-agency", "integrated-logistics", "crew-visa"],
+    vessel: "Aoka Mizu",
+    assetType: "vessel",
+    heroImage: "/images/projects/aoka-mizu-fpso-walvis-bay.jpg",
+    heroAlt: "The Bluewater FPSO Aoka Mizu at anchor off Walvis Bay, Namibia, in fog with a workboat standing by – a transit bunkering and crew-change call handled by Afrishore.",
+    summary: "Afrishore acted as agent for the FPSO Aoka Mizu's transit call at Walvis Bay for Bluewater Energy Services – bunkering, a crew change, stores and local procurement and a ballast water exemption with the Namibian authorities, sequenced so the vessel turned around and sailed on schedule.",
+    metaDescription: "Afrishore ran the FPSO Aoka Mizu's Walvis Bay transit call for Bluewater – bunkering, crew change, stores and a ballast water exemption for entry to Namibia.",
+    subjects: ["FPSO bunkering", "FPSO transit call", "Walvis Bay bunkering", "FPSO husbandry", "ballast water exemption", "offshore anchorage attendance", "FPSO port agency"],
+    outcome: `The FPSO Aoka Mizu called Walvis Bay in Q3 2026 for a bunkering and crew-change stop while on a transit voyage, and Afrishore was appointed by Bluewater Energy Services as agent for the call. FPSO calls when on passage are usually time sensitive and this was no different: the window was short, and several workstreams had to run at once – the bunkering, the crew change, stores and local procurement as well as the especially niche environmental approvals – each on its own clock.
+
+The environmental approval was the most involved part. A vessel of this type calling Namibia must be cleared under the International Convention for the Control and Management of Ships' Ballast Water and Sediments, and Afrishore worked directly with the Directorate of Maritime Affairs at the Namibian Ministry of Works and Transport to align a ballast water exemption for the call. The ballast water management documentation was compiled and submitted to the Directorate, MRCC Walvis Bay clearance protocols were observed and a loadmaster was arranged for Namport's requirements. The Directorate confirmed the Aoka Mizu approved for entry into Namibian ports ahead of arrival.
+
+With entry cleared, the call itself was held as a single integrated operation rather than a set of separate services. The bunkering was sequenced alongside the crew change and the stores and local procurement so that no part of the call was left waiting on another. Attendance was at the Walvis Bay anchorage, workboat alongside, through the fog that settles on this coast and can stall a poorly-planned call.
+
+The Aoka Mizu arrived, took on what she needed and departed on schedule, with a quick turnaround. Walvis Bay remains an effective option for FPSO units in transit when the port call is run as one operation from a single point of accountability: bunkers, crew, stores and regulatory clearance closed out inside the same short window, and the vessel back on passage without delay.`,
+    secondaryImage: {
+      src: "/images/projects/aoka-mizu-fpso-walvis-bay-anchorage.jpg",
+      alt: "The FPSO Aoka Mizu broadside at the Walvis Bay anchorage with a workboat alongside – bunkers, stores and a crew change delivered during the vessel's transit call, Namibia.",
+      caption: "The Aoka Mizu at anchor off Walvis Bay, a workboat alongside: bunkers, crew change, stores and local procurement sequenced into one transit call so no element waited on another.",
+      portrait: false,
+    },
+    featured: false,
+    published: true,
+  },
+  {
     slug: "tidewater-meg-durban-pemba",
     title: "MEG Mobilisation, Durban – Pemba",
     client: "Tidewater",
