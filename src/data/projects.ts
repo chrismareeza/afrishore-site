@@ -250,8 +250,12 @@ The Aoka Mizu arrived, took on what she needed and departed on schedule, with a 
     secondaryImage: {
       src: "/images/projects/aoka-mizu-fpso-walvis-bay-anchorage.jpg",
       alt: "The FPSO Aoka Mizu broadside at the Walvis Bay anchorage with a workboat alongside – bunkers, stores and a crew change delivered during the vessel's transit call, Namibia.",
-      caption: "The Aoka Mizu at anchor off Walvis Bay, a workboat alongside: bunkers, crew change, stores and local procurement sequenced into one transit call so no element waited on another.",
+      caption: "The Aoka Mizu at anchor off Walvis Bay, workboat alongside: bunkers, crew change, stores and local procurement sequenced into one transit call so no element waited on another.",
       portrait: false,
+    },
+    source: {
+      url: "https://www.linkedin.com/feed/update/urn:li:activity:7492949013973872641/",
+      label: "See the transit call on LinkedIn",
     },
     featured: false,
     published: true,
