@@ -105,13 +105,14 @@ export const ports: PortPage[] = [
     metaTitle:
       "Walvis Bay Vessel & Rig Agent, Namibia | Afrishore",
     metaDescription:
-      "Licensed vessel and rig agent in the Port of Walvis Bay, Namibia – embedded in the Oil & Gas Section: clearance, husbandry and supply base support.",
+      "Licensed vessel and rig agent in the Port of Walvis Bay, Namibia – clearance, husbandry, supply base and FPSO transit bunkering, from the Oil & Gas Section.",
     h1: "Vessel & Rig Agent: Port of Walvis Bay",
     geoSub: "Licensed agency embedded in the Port of Walvis Bay's Oil & Gas Section, Namibia",
     intro: [
       "Afrishore holds its own port agency licence at Walvis Bay and is permanently embedded inside the Port of Walvis Bay's Oil & Gas Section, the only deep-water commercial port in Namibia and the primary shore base for the country's offshore exploration boom. From here Afrishore acts as full vessel and rig agent for rigs, drillships, semi-submersibles, OSVs, PSVs, AHTS, tankers and FPSOs.",
       "Walvis Bay agency is unforgiving: frontier drilling campaigns, international crews, customs and classification deadlines and a port working at capacity. Afrishore's on-the-ground team handles port clearance and port-authority liaison, immigration and crew changes, husbandry, dry docking and repairs coordination, bunkering, procurement and the full offshore supply base: one accountable agent and centralised communication for all owners, vessel managers and crews. Afrishore's Walvis Bay rigging and lifting crew is OPITO-accredited – the global energy-industry benchmark for safety and competency training – so every lift on the base is handled to an internationally recognised standard.",
       "Afrishore ran the Deepsea Bollsta and Deepsea Mira Special Periodic Surveys from this base and uninterrupted drilling support for Northern Ocean & Odfjell Drilling's ongoing campaigns. That integration of agency, supply base, logistics and crew from a single point of accountability is what keeps Walvis Bay campaigns on schedule.",
+      "Walvis Bay's position on the West African seaboard also makes it a natural bunkering and clearance stop for FPSOs and other units in transit. Afrishore runs a transit call of this kind as a single integrated operation – bunkers, crew changes, stores and the environmental clearances the vessel needs, including a ballast water exemption aligned with the Namibian Directorate of Maritime Affairs – so a unit on passage takes on what it needs and sails on schedule. The Aoka Mizu FPSO transit call is a recent example.",
     ],
     scope: [
       "Port clearance & customs formalities",
