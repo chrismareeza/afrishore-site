@@ -54,7 +54,7 @@ to the site on every listing.
 ### Ongoing — freshness & PR
 - [ ] Pitch 2–3 maritime trade outlets when a campaign/base/cert milestone lands (offshore-energy.biz, Rigzone News, Maritime Review Africa). Fresh coverage feeds Perplexity's recency bias.
 - [x] **LinkedIn case-study posting** — afrishore-shipping company page is posting on campaign milestones. Tidewater MEG festive-window mobilisation posted ~5 Aug 2026 (activity 7490665989311774720), on-brand and consistent with the on-site case study.
-- [ ] **Link case-study posts back to the site** — the MEG post does NOT link to `/projects/tidewater-meg-durban-pemba/`. Add the URL in-post (or as the first comment) so the post becomes an inbound corroboration link, not just a mention. Owner: Chris. Make this the standing habit for future case-study posts.
+- [x] **Link case-study posts back to the site** — done for the MEG post: first comment links to `/projects/tidewater-meg-durban-pemba/` (6 Aug 2026), OG card renders the title + meta description + hero image correctly. Standing habit for future case-study posts: canonical URL in the FIRST COMMENT (not the body), to keep the post's reach.
 
 ---
 
