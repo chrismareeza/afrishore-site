@@ -511,7 +511,14 @@ const finalGraph = [
       })();
     </script>
 
-    <!-- Google Analytics 4 (G-E28C5EH0TG, stream "Afrishore CO") with Consent Mode v2.
+    <!-- Google Analytics 4 (G-E5TS8D8VNX) with Consent Mode v2.
+         DO NOT switch to G-E28C5EH0TG ("Afrishore CO" stream) again until
+         `curl https://www.googletagmanager.com/gtag/js?id=G-E28C5EH0TG` returns
+         200. Google 404s that measurement ID's gtag.js (a GA4-side stream/tag
+         provisioning fault), so the 3 Aug repoint (commit 20d2b96) silently
+         loaded a non-existent library and killed ALL collection until 2026-08-11.
+         G-E5TS8D8VNX serves normally and both streams share property 309169245,
+         so reporting/briefing are unaffected by using the legacy id here.
          analytics_storage defaults to DENIED (POPIA/GDPR); the consent
          banner flips it to 'granted' on Accept and the choice is
          remembered in localStorage. is:inline so Astro doesn't bundle
@@ -539,10 +546,10 @@ const finalGraph = [
           }
         } catch (e) {}
         gtag('js', new Date());
-        gtag('config', 'G-E28C5EH0TG');
+        gtag('config', 'G-E5TS8D8VNX');
         var __ga = document.createElement('script');
         __ga.async = true;
-        __ga.src = "https://www.googletagmanager.com/gtag/js?id=G-E28C5EH0TG";
+        __ga.src = "https://www.googletagmanager.com/gtag/js?id=G-E5TS8D8VNX";
         document.head.appendChild(__ga);
       }
     </script>
