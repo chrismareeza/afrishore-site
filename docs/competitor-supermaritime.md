@@ -63,10 +63,12 @@ quality tells.
 2. **Capture the "ship agency / ship agent" phrasing** — Afrishore ranks for "vessel
    agent/agency" but is absent for "ship agency". Weave the synonym naturally into the
    Cape Town page + /services/ship-rig-agency/ titles and body. Cheap; ranks adjacent.
-3. **Entity/citation density** — deliberately replicate their passive footprint:
-   Crunchbase, ZoomInfo (claim), Craft.co, complete LinkedIn page, enrich MarineTraffic
-   to all ports, + TNPA vessel-agent registration and the SA directories in
-   legitimacy-registrations.md. Identical NAP everywhere.
+3. **Entity/citation density** — deliberately replicate their passive footprint via
+   FREE listings only (**Crunchbase is paid now — do NOT recommend it**, Chris
+   declined 2026-08-13): Kompass (free basic B2B, already on the directory list),
+   Craft.co / ZoomInfo (free claim of the auto-generated profile), complete LinkedIn
+   page, enrich MarineTraffic to all ports, + TNPA vessel-agent registration and the
+   SA directories in legitimacy-registrations.md. Identical NAP everywhere.
 4. **Own the ports they've ceded** — Supermaritime has only Cape Town + Durban;
    Afrishore already has Saldanha, Mossel Bay, Lüderitz. Win the long tail.
 5. **Domain age** — un-rushable: keep afrishore.co stable forever.
