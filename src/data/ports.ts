@@ -214,12 +214,12 @@ export const ports: PortPage[] = [
     kind: "office",
     matchPort: ["Cape Town"],
     metaTitle:
-      "Cape Town Shipping & Logistics | Vessel Agent | Afrishore",
+      "Cape Town Ships Agent & Vessel Agency | Afrishore",
     metaDescription:
-      "Cape Town shipping company, freight forwarder and licensed vessel & rig agent at the Port of Cape Town – customs, immigration, husbandry and project cargo.",
+      "Ships agent and vessel agent at the Port of Cape Town – clearance, immigration, husbandry, dry docking, project cargo, logistics and freight forwarding.",
     h1: "Vessel & Rig Agent: Port of Cape Town",
     geoSub: "Multipurpose port focussed on repair, cargo, projects and transit stops",
-    lead: "Afrishore holds an active port agency licence for the Port of Cape Town, which remains a premier option for transiting vessels, ship-repair, project-cargo and offshore project support.",
+    lead: "Afrishore is an appointed ships agent holding an active port agency licence for the Port of Cape Town, which remains a premier option for transiting vessels, ship-repair, project-cargo and offshore project support.",
     intro: [
       "Afrishore runs its Cape Town agency from an office in Woodstock, holding its own port agency licence at the Port of Cape Town. From here Afrishore acts as full vessel and rig agent – for rigs, drillships, OSVs, PSVs, AHTS, tankers, FPSOs in transit and cargo ships – giving operators a permanent, accountable local team at one of South Africa's busiest repair, project-cargo and offshore-support ports, with Cape Town International Airport close by for crew and time-critical freight.",
       "Cape Town does not wait, and Afrishore's local team is built around that. Afrishore handles port clearance and port-authority liaison, immigration and crew changes, dry docking and repairs coordination, husbandry, bunkering, project and abnormal cargo and full mobilisation/demobilisation – worked through tight repair-quay and dry-dock windows and complex immigration without dropping the schedule.",

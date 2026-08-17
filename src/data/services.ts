@@ -43,7 +43,7 @@ export const servicePages: ServicePage[] = [
     serviceType: "ship-rig-agency",
     name: "Vessel & Rig Agency",
     metaTitle:
-      "Vessel & Rig Agency: Namibia & South Africa | Afrishore",
+      "Ships, Vessel & Rig Agency: South Africa | Afrishore",
     metaDescription:
       "Appointed ships agent and vessel agent for rigs, drillships, OSVs and tankers across South Africa, Namibia and Mozambique – clearance and husbandry.",
     h1: "Vessel & Rig Agency",
