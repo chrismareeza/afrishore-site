@@ -31,16 +31,14 @@ const linePath =
   ` Q ${arcCtrlX.toFixed(1)},${arcCtrlY.toFixed(1)}` +
   ` ${sx(lastPt.year).toFixed(1)},${sy(lastPt.pct).toFixed(1)}`;
 
-// ── Pillar 5 · carbon widget data (from GHG_Emissions_DMI_July_2026) ───
+// ── Pillar 5 · carbon widget data (from GHG_Emissions_DMI_August_2026) ─
 // Category totals sum to carbonTotalT so the breakdown reconciles to the
-// headline figure. July: generators idle (dropped); a tower-light line added.
-// Total well up on June (6.426 t) – heavy crane hours, the 300T alone 52 hrs.
-const carbonTotalT = 20.763;
+// headline figure. August: only cranes and forklifts ran (trucks, tower
+// light and generators idle); total down on July (20.763 t) – fewer hours.
+const carbonTotalT = 12.665;
 const carbonBars = [
-  { label: "Cranes", t: 10.334 },
-  { label: "Forklifts", t: 4.776 },
-  { label: "Trucks", t: 5.548 },
-  { label: "Lighting", t: 0.105 },
+  { label: "Cranes", t: 8.335 },
+  { label: "Forklifts", t: 4.330 },
 ].map((b) => ({ ...b, pct: (b.t / carbonTotalT) * 100 }));
 
 // ── Pillar 3 · HSE live LTI-free-day counter ──────────────────────────
@@ -284,7 +282,7 @@ const isPending = (s: string) => s.includes("{");
                   <p class="text-[0.65rem] uppercase tracking-[0.18em] text-gold font-semibold">
                     Afrishore Logistics · GHG Report
                   </p>
-                  <p class="text-xs text-faint mt-0.5">July 2026 · WVB Offshore Supply Base</p>
+                  <p class="text-xs text-faint mt-0.5">August 2026 · WVB Offshore Supply Base</p>
                 </div>
 
                 <div>
@@ -294,7 +292,7 @@ const isPending = (s: string) => s.includes("{");
                   <p class="text-xs text-mute mt-1.5">CO₂e for the month</p>
                 </div>
 
-                <p class="text-sm text-cream/80">382 hrs · 20,762 kg CO₂</p>
+                <p class="text-sm text-cream/80">269 hrs · 12,664 kg CO₂</p>
 
                 <div class="space-y-2">
                   <p class="text-[0.65rem] uppercase tracking-[0.18em] text-faint">Where it came from</p>
