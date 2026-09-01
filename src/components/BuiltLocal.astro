@@ -32,13 +32,18 @@ const linePath =
   ` ${sx(lastPt.year).toFixed(1)},${sy(lastPt.pct).toFixed(1)}`;
 
 // ── Pillar 5 · carbon widget data (from GHG_Emissions_DMI_August_2026) ─
-// Category totals sum to carbonTotalT so the breakdown reconciles to the
-// headline figure. August: only cranes and forklifts ran (trucks, tower
-// light and generators idle); total down on July (20.763 t) – fewer hours.
+// FIXED category set — ALWAYS list every category, even at zero (Chris,
+// 2026-09-01: never drop a category just because it idled this month).
+// Each month set the tonnes from the GHG report; idle equipment = 0.
+// The non-zero tonnes still sum to carbonTotalT (reconciliation rule).
+// August: only cranes and forklifts ran; total down on July (20.763 t).
 const carbonTotalT = 12.665;
 const carbonBars = [
   { label: "Cranes", t: 8.335 },
   { label: "Forklifts", t: 4.330 },
+  { label: "Trucks", t: 0 },
+  { label: "Generators", t: 0 },
+  { label: "Lighting", t: 0 },
 ].map((b) => ({ ...b, pct: (b.t / carbonTotalT) * 100 }));
 
 // ── Pillar 3 · HSE live LTI-free-day counter ──────────────────────────
