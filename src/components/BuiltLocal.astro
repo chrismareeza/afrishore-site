@@ -43,6 +43,7 @@ const carbonBars = [
   { label: "Forklifts", t: 4.330 },
   { label: "Trucks", t: 0 },
   { label: "Generators", t: 0 },
+  { label: "Compressors", t: 0 },
   { label: "Lighting", t: 0 },
 ].map((b) => ({ ...b, pct: (b.t / carbonTotalT) * 100 }));
 
@@ -303,7 +304,7 @@ const isPending = (s: string) => s.includes("{");
                   <p class="text-[0.65rem] uppercase tracking-[0.18em] text-faint">Where it came from</p>
                   {carbonBars.map((b) => (
                     <div class="flex items-center gap-3 text-xs">
-                      <span class="w-16 shrink-0 text-mute">{b.label}</span>
+                      <span class="w-20 shrink-0 text-mute">{b.label}</span>
                       <span class="flex-1 h-2 bg-line rounded-full overflow-hidden">
                         <span
                           class="block h-full rounded-full"
