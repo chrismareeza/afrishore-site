@@ -36,12 +36,13 @@ const linePath =
 // 2026-09-01: never drop a category just because it idled this month).
 // Each month set the tonnes from the GHG report; idle equipment = 0.
 // The non-zero tonnes still sum to carbonTotalT (reconciliation rule).
-// August: only cranes and forklifts ran; total down on July (20.763 t).
-const carbonTotalT = 12.665;
+// August: cranes, forklifts and trucks ran. Truck CO2 was corrupted to 0 in the
+// report; corrected to 5.89 t (Chris 2026-09-01), so total/hrs/kg were re-derived.
+const carbonTotalT = 18.555;
 const carbonBars = [
   { label: "Cranes", t: 8.335 },
   { label: "Forklifts", t: 4.330 },
-  { label: "Trucks", t: 0 },
+  { label: "Trucks", t: 5.89 },
   { label: "Generators", t: 0 },
   { label: "Compressors", t: 0 },
   { label: "Lighting", t: 0 },
@@ -298,7 +299,7 @@ const isPending = (s: string) => s.includes("{");
                   <p class="text-xs text-mute mt-1.5">CO₂e for the month</p>
                 </div>
 
-                <p class="text-sm text-cream/80">269 hrs · 12,664 kg CO₂</p>
+                <p class="text-sm text-cream/80">342 hrs · 18,554 kg CO₂</p>
 
                 <div class="space-y-2">
                   <p class="text-[0.65rem] uppercase tracking-[0.18em] text-faint">Where it came from</p>
