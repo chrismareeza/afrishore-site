@@ -103,13 +103,13 @@ export const ports: PortPage[] = [
     kind: "office",
     matchPort: ["Walvis Bay"],
     metaTitle:
-      "Walvis Bay Vessel & Rig Agent, Namibia | Afrishore",
+      "Walvis Bay Offshore Logistics & Vessel Agent | Afrishore",
     metaDescription:
-      "Licensed vessel and rig agent in the Port of Walvis Bay, Namibia – clearance, husbandry, supply base and FPSO transit bunkering, from the Oil & Gas Section.",
+      "Licensed offshore logistics and vessel & rig agent in the Port of Walvis Bay, Namibia – clearance, husbandry, supply base, bunkering and FPSO transit calls.",
     h1: "Vessel & Rig Agent: Port of Walvis Bay",
     geoSub: "Licensed agency embedded in the Port of Walvis Bay's Oil & Gas Section, Namibia",
     intro: [
-      "Afrishore holds its own port agency licence at Walvis Bay and is permanently embedded inside the Port of Walvis Bay's Oil & Gas Section, the only deep-water commercial port in Namibia and the primary shore base for the country's offshore exploration boom. From here Afrishore acts as full vessel and rig agent for rigs, drillships, semi-submersibles, OSVs, PSVs, AHTS, tankers and FPSOs.",
+      "Afrishore holds its own port agency licence at Walvis Bay and is permanently embedded inside the Port of Walvis Bay's Oil & Gas Section, the only deep-water commercial port in Namibia and the primary shore base for the country's offshore exploration boom. Afrishore Logistics is a 51% Namibian-owned company with 34% previously-disadvantaged ownership, so operators at Walvis Bay deal with a locally-owned, licensed agent on the ground. From here Afrishore acts as full vessel and rig agent for rigs, drillships, semi-submersibles, OSVs, PSVs, AHTS, tankers and FPSOs.",
       "Walvis Bay agency is unforgiving: frontier drilling campaigns, international crews, customs and classification deadlines and a port working at capacity. Afrishore's on-the-ground team handles port clearance and port-authority liaison, immigration and crew changes, husbandry, dry docking and repairs coordination, bunkering, procurement and the full offshore supply base: one accountable agent and centralised communication for all owners, vessel managers and crews. Afrishore's Walvis Bay rigging and lifting crew is OPITO-accredited – the global energy-industry benchmark for safety and competency training – so every lift on the base is handled to an internationally recognised standard.",
       "Afrishore ran the Deepsea Bollsta and Deepsea Mira Special Periodic Surveys from this base and uninterrupted drilling support for Northern Ocean & Odfjell Drilling's ongoing campaigns. That integration of agency, supply base, logistics and crew from a single point of accountability is what keeps Walvis Bay campaigns on schedule.",
       "Walvis Bay's position on the West African seaboard also makes it a natural bunkering and clearance stop for FPSOs and other units in transit. Afrishore runs a transit call of this kind as a single integrated operation – bunkers, crew changes, stores and the environmental clearances the vessel needs, including a ballast water exemption aligned with the Namibian Directorate of Maritime Affairs – so a unit on passage takes on what it needs and sails on schedule. The Aoka Mizu FPSO transit call is a recent example.",
@@ -161,16 +161,16 @@ export const ports: PortPage[] = [
     kind: "licence",
     matchPort: ["Lüderitz", "Luderitz"],
     metaTitle:
-      "Lüderitz Vessel & Rig Agent, Namibia | Afrishore",
+      "Lüderitz Offshore Logistics & Vessel Agent | Afrishore",
     metaDescription:
-      "Licensed vessel and rig agent for the Port of Lüderitz, Namibia – clearance, immigration, husbandry and offshore support for the Orange Basin frontier.",
+      "Licensed offshore logistics and vessel & rig agent for the Port of Lüderitz, Namibia – clearance, immigration, husbandry and Orange Basin offshore support.",
     h1: "Vessel & Rig Agent: Port of Lüderitz",
     geoSub: "Multipurpose port handling oil & gas, general cargo, fishing and ore",
     lead: "Afrishore holds an active port agency licence for the Port of Lüderitz, Namibia's southernmost commercial port and the closest harbour to the offshore Orange Basin.",
     intro: [
       "From Lüderitz, Afrishore acts as full vessel and rig agent for the rigs, drillships, OSVs, PSVs and survey vessels working the Orange Basin, alongside the general-cargo, fishing and ore traffic the port itself handles. The port works two commercial berths to a maximum draft of 8.75 m, with a maximum quayside lift of 28 mt, and Afrishore plans every call and cargo operation around those parameters so vessels berth, work and sail without surprises.",
       "Lüderitz sits on an exposed stretch of the southern Namibian coast and is subject to the prevailing winds, so vessel movements there are occasionally weather-restricted. Afrishore's local team schedules berthing and cargo work around the available weather windows and keeps owners, masters and operators informed throughout – turning a well-known regional factor into a managed part of the plan rather than a disruption.",
-      "Coordinated with Afrishore's Walvis Bay base and the wider licensed network, Lüderitz coverage gives operators one accountable agent across the whole Namibian coast: port clearance and port-authority liaison, immigration and crew rotation, husbandry and provisions, bunkering coordination and offshore logistics, all from a single point of accountability.",
+      "Coordinated with Afrishore's Walvis Bay base and the wider licensed network, Lüderitz coverage gives operators one accountable agent across the whole Namibian coast: port clearance and port-authority liaison, immigration and crew rotation, husbandry and provisions, bunkering coordination and offshore logistics, all from a single point of accountability. Afrishore Logistics is 51% Namibian-owned with 34% previously-disadvantaged ownership, giving operators a locally-owned, licensed agent across the Namibian coast.",
     ],
     scope: [
       "Port clearance & customs formalities",
