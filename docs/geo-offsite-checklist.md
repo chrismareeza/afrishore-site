@@ -36,7 +36,7 @@ Priority order. Tick as completed; keep NAP (Name, Address, Phone) **identical**
 to the site on every listing.
 
 ### Tier 1 — corroboration foundation (do first)
-- [ ] **Namport "Ship & Cargo Clearing Agencies" directory** — apply for listing. Single biggest lever for "vessel agent Walvis Bay"; competitors (GAC, Inchcape, Manica/OLS) are all on it. → namport.com.na
+- [x] **Namport "Ship & Cargo Clearing Agencies" directory** — LISTED (confirmed 2026-10-12 via Chris screenshot) as "Afrishore Logistics – Vessel & Maritime Projects Agency". Single biggest lever for "vessel agent Walvis Bay"; competitors (GAC, Inchcape, Manica/OLS) on it, TLC Namibia NOT. Now referenced in Walvis Bay port copy (list page, so not a sameAs). → namport.com.na/services/ship-and-cargo-clearing-agencies/526/
 - [ ] **SAASOA public members directory** — confirm Afrishore actually appears on the crawlable members list (membership ≠ a listing). → saasoa.com
 - [ ] **Enrich MarineTraffic profile** — currently Cape Town only; add ALL serviced ports + full service lines + contact details.
 - [ ] **Google Business Profile ×4 offices** — Walvis Bay, Mossel Bay, Cape Town, Durban. Categories, services, photos, posts. (Highest *local* lever; still untouched.)

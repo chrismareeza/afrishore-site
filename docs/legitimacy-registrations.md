@@ -21,7 +21,7 @@ Status: ✅ done · ⬜ to do · 🔍 verify eligibility/that a public listing e
 
 | # | Body | What | Priority | Notes |
 |---|------|------|----------|-------|
-| ⬜ | **Namport — Ship & Cargo Clearing Agencies** | Official Namibian port-authority agent directory | **Critical** | The #1 lever for "vessel agent Walvis Bay". Competitors (GAC, Inchcape, Manica/OLS) all listed. |
+| ✅ | **Namport — Ship & Cargo Clearing Agencies** | Official Namibian port-authority agent directory | **Critical** | **LISTED** (confirmed 2026-10-12, Chris screenshot) as "Afrishore Logistics – Vessel & Maritime Projects Agency", Oil & Gas Section Walvis Bay, info@afrishore.co, www.afrishore.co. TLC Namibia NOT listed. Referenced in Walvis Bay port copy; list page so NOT a sameAs. URL: namport.com.na/services/ship-and-cargo-clearing-agencies/526/ |
 | ⬜ | **Transnet National Ports Authority (TNPA)** | **Vessel Agent Registration** (official SA port-authority registry) | High | Confirmed via FindAll: TNPA runs a Vessel Agent Registration (transnetnationalportsauthority.net → National Port Act → Vessel Agent Application). The SA equivalent of the Namport listing — apply for Cape Town/Durban/Saldanha. |
 | 🔍 | **SAMSA** (SA Maritime Safety Authority) | Recognition / registration as a maritime service provider | Medium | Confirm whether agents register; useful credibility + regulatory standing. |
 | 🔍 | **NAMCOR / Namibian local-content supplier register** | Namibia upstream supplier registration | High (wins work) | Operators check local-content registers. Verify current process. |
