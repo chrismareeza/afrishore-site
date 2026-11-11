@@ -120,6 +120,17 @@ const vesselSlug = (s: string) =>
   s.toLowerCase().normalize("NFKD").replace(/[^\w]+/g, "-").replace(/^-|-$/g, "");
 const vesselId = project.vessel ? `${siteUrl}/#vessel-${vesselSlug(project.vessel)}` : null;
 
+// Multi-party case studies carry several principals ("A / B / C") or several
+// assets ("X · Y · Z") in one field. Split them so each becomes its own
+// entity node instead of a single Thing with a concatenated name, which
+// Google would read as one organisation/asset that does not exist. Fields
+// with a single value contain no separator and pass through untouched.
+const splitNames = (v?: string) =>
+  (v ?? "").split(/\s+[/·]\s+/).map((x) => x.trim()).filter(Boolean);
+const clientNames = splitNames(project.client);
+const vesselNames = splitNames(project.vessel);
+const vesselIds = vesselNames.map((v) => `${siteUrl}/#vessel-${vesselSlug(v)}`);
+
 // Port → Place. When the port matches one of the four LocalBusiness
 // offices declared in BaseLayout, reference the LocalBusiness @id;
 // otherwise emit a plain Place.
@@ -194,7 +205,7 @@ const articleSchema = {
   "articleSection": "Case Study",
   "contentLocation": contentLocation,
   "about": [
-    { "@type": "Organization", "name": project.client },
+    ...clientNames.map((c) => ({ "@type": "Organization", "name": c })),
     ...(project.endCustomer ? [{ "@type": "Organization", "name": project.endCustomer }] : []),
     // Use Thing (not Vehicle) for the vessel/rig – Vehicle is a subtype of
     // Product in schema.org, which triggers the Rich Results Test to demand
@@ -202,19 +213,19 @@ const articleSchema = {
     // marine asset. additionalType keeps the maritime semantic. The
     // stable @id is sitewide, so every case study that mentions the same
     // vessel ties back to the same entity node.
-    ...(project.vessel ? [{
+    ...vesselNames.map((v, i) => ({
       "@type": "Thing",
-      "@id": vesselId,
-      "name": project.vessel,
+      "@id": vesselIds[i],
+      "name": v,
       "additionalType": "https://en.wikipedia.org/wiki/Watercraft",
-    }] : []),
+    })),
     // Distinctive subject matter (e.g. MEG) the field-derived about misses.
     ...(project.subjects ?? []).map((s) => ({ "@type": "Thing", "name": s })),
   ],
   "keywords": [
-    project.client,
+    ...clientNames,
     ...(project.endCustomer ? [project.endCustomer] : []),
-    ...(project.vessel ? [project.vessel] : []),
+    ...vesselNames,
     project.port,
     ...project.serviceTypes.map((s) => serviceLabels[s] || s),
     ...(project.subjects ?? []),
@@ -235,8 +246,12 @@ const serviceSchema = {
   "provider": { "@id": `${siteUrl}/#organization` },
   "serviceType": serviceLabels[primaryServiceTypeKey] || primaryServiceTypeKey,
   ...(primaryServiceCategoryId ? { "category": { "@id": primaryServiceCategoryId } } : {}),
-  ...(project.vessel ? { "about": { "@id": vesselId } } : {}),
-  "recipient": { "@type": "Organization", "name": project.client },
+  ...(vesselIds.length
+    ? { "about": vesselIds.length === 1 ? { "@id": vesselIds[0] } : vesselIds.map((id) => ({ "@id": id })) }
+    : {}),
+  "recipient": clientNames.length === 1
+    ? { "@type": "Organization", "name": clientNames[0] }
+    : clientNames.map((c) => ({ "@type": "Organization", "name": c })),
   ...(project.endCustomer ? { "audience": { "@type": "Organization", "name": project.endCustomer } } : {}),
   "areaServed": contentLocation,
   "temporalCoverage": temporalCoverage,

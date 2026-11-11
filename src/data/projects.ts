@@ -227,6 +227,63 @@ A semi-submersible heavy lift is the kind of operation where every element must 
   // Light entries (CMS records, not featured)
   // ──────────────────────────────────────────────
   {
+    slug: "simultaneous-dry-docking-cape-town",
+    title: "Simultaneous Dry Docking, Port of Cape Town",
+    client: "Solstad / United Offshore Support / Port of Réunion",
+    year: "2025",
+    port: "Cape Town",
+    serviceTypes: ["ship-rig-agency", "crew-visa", "integrated-logistics"],
+    vessel: "Normand Energy · GH Discovery · Titan Dock",
+    metaTitle: "Dry Docking at the Port of Cape Town – Three Simultaneous Dockings",
+    summary:
+      "Three principals, three scopes of work and three docking windows worked through one Cape Town repair quay at the same time, with the immigration of every third-party technician and surveyor sequenced around them.",
+    metaDescription:
+      "Afrishore coordinated three simultaneous dry dockings at the Port of Cape Town in 2025 – Solstad's Normand Energy, United Offshore Support's GH Discovery and the Port of Réunion's Titan floating dock – including visas, work permits and immigration for every third-party technician and inspection team.",
+    tagline: "Three owners, one repair quay, every technician on the quay when their scope opened",
+    subjects: [
+      "Dry docking",
+      "Ship repair",
+      "Sturrock Dry Dock",
+      "Robinson Dry Dock",
+      "Syncrolift shiplift",
+      "Floating dock",
+      "Third-party technician immigration",
+      "Work permits",
+      "Classification-society survey",
+      "Technical spares importation",
+      "Customs compliance",
+      "Docking blocks",
+      "Naval architect block design",
+    ],
+    stats: [
+      { value: "3", label: "Assets docked simultaneously" },
+      { value: "250+ t", label: "Technical spares imported (sea · air)" },
+    ],
+    heroImage: "/images/ports/ship-repair-cape-town.jpg",
+    heroAlt:
+      "The Titan floating dock and offshore support vessels alongside the ship-repair quay at the Port of Cape Town at sunrise – three simultaneous dry dockings coordinated by Afrishore",
+    outcome: `In 2025 the ship-repair quay at the Port of Cape Town carried three of Afrishore's principals at the same time: Solstad's Normand Energy, United Offshore Support's GH Discovery and the Titan floating dock, owned by the Port of Réunion and in Cape Town for a sequence of yard stays before her heavy-lift transfer to the Indian Ocean.
+
+Three owners, three scopes of work and three separate docking windows, all running through one repair quay. Afrishore acted as agent for all three, holding the port-authority, ship-repair yard, classification-society survey and crew interfaces together around each window rather than letting them compete for the same berth, the same surveyor and the same tide.
+
+The heaviest coordination load was immigration. Three concurrent scopes meant three separate bodies of third-party technicians arriving against three different schedules, alongside the classification-society surveyors and inspection teams attending each docking. Specialist repair crews are not interchangeable and they are not local. Each arrival carried its own visa and work-permit requirement, its own lead time and its own narrow window in which the work had to be done. Afrishore processed the visa and work-permit applications, handled the immigration clearances and sequenced flights, accommodation and ground transport so that every technician and surveyor stood on the quay when their scope opened, and not a week either side of it.
+
+That is usually where a repair programme is lost. A dock booking can be held and a survey can be re-attended, but a specialist who cannot enter the country stops a scope dead, and on a shared quay one stalled scope moves the other two. Running the immigration in-house, against the docking schedule rather than behind it, is what kept the three programmes independent of each other.
+
+The dock booking itself was worked daily with the Transnet National Ports Authority. A graving-dock slot is not a reservation that holds itself. It moves with the tide, with the vessel ahead of it and with the port's own programme, and across three overlapping windows it had to be managed every day rather than confirmed once. Each entry and departure carried its own set of arrangements: docking blocks rented and laid to the naval architect's block design, divers ensuring the vessel's alignment held as the dock emptied, tugs booked for the move in and out, crane and forklift hire standing by for the yard work, and port approvals raised for every movement. Cape Town has the facilities for it, two graving docks, the 360 m Sturrock and the 161.2 m Robinson, plus a syncrolift shiplift, between them taking anything from an OSV to a drillship or semi-submersible.
+
+Against those windows ran the spares. More than 250 tonnes of technical spares and equipment were imported across the three scopes by sea and by air, with the mode chosen scope by scope against what the docking programme could absorb: sea freight where the window allowed it, airfreight where it did not. Each consignment was cleared and then mobilised into the dock to match the phase its scope had reached, so material arrived against the work rather than standing in a yard accruing storage while the vessel waited. Customs compliance was maintained throughout, across all three scopes.
+
+Every asset cleared the dock on schedule. The Titan dock went on to be uplifted from Cape Town to the Port of Réunion aboard the semi-submersible heavy-lift vessel MV Transshelf, a separate operation Afrishore also coordinated.`,
+    source: {
+      url: "https://www.linkedin.com/feed/update/urn:li:activity:7355516686390726656/",
+      label: "See the simultaneous docking on LinkedIn",
+    },
+    featured: false,
+    published: true,
+  },
+
+  {
     slug: "aoka-mizu-fpso-walvis-bay",
     title: "Aoka Mizu: FPSO Transit Call & Bunkering at Walvis Bay",
     client: "Bluewater Energy Services",
