@@ -273,7 +273,7 @@ export const ports: PortPage[] = [
         },
       ],
       source: {
-        url: "https://www.linkedin.com/feed/update/urn:li:activity:7355516686390726656/",
+        url: "https://www.linkedin.com/posts/afrishore-marinelogistics-drydocking-ugcPost-7355498121625255936-qB1i/",
         label: "See the simultaneous docking on LinkedIn",
       },
     },

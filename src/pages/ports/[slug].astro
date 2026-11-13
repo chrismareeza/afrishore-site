@@ -4,6 +4,7 @@ import Navbar from "../../components/Navbar.astro";
 import Footer from "../../components/Footer.astro";
 import { ports, portContact, type PortPage } from "../../data/ports";
 import { projects } from "../../data/projects";
+import { linkifyProjects } from "../../lib/portLinks";
 
 export function getStaticPaths() {
   return ports.map((p) => ({
@@ -402,7 +403,11 @@ const breadcrumb = [
               <div class="px-6 pb-6 space-y-4 max-w-3xl">
                 {detailParas.map((p) => (
                   <p class="lg:text-lg leading-relaxed text-mute">
-                    {p}
+                    {linkifyProjects(p).map((seg) =>
+                      seg.type === "link"
+                        ? <a href={seg.href} class="text-cream hover:text-gold transition-colors underline decoration-faint/30 underline-offset-4 hover:decoration-gold/60">{seg.text}</a>
+                        : seg.value
+                    )}
                   </p>
                 ))}
               </div>

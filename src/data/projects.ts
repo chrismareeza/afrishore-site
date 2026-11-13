@@ -276,7 +276,7 @@ Against those windows ran the spares. More than 250 tonnes of technical spares a
 
 Every asset cleared the dock on schedule. The Titan dock went on to be uplifted from Cape Town to the Port of Réunion aboard the semi-submersible heavy-lift vessel MV Transshelf, a separate operation Afrishore also coordinated.`,
     source: {
-      url: "https://www.linkedin.com/feed/update/urn:li:activity:7355516686390726656/",
+      url: "https://www.linkedin.com/posts/afrishore-marinelogistics-drydocking-ugcPost-7355498121625255936-qB1i/",
       label: "See the simultaneous docking on LinkedIn",
     },
     featured: false,

@@ -99,6 +99,22 @@ const SERVICE_MATCHERS: Matcher[] = [
   { re: /\bvisa processing\b/gi, href: "/services/crew-visa-services/" },
 ];
 
+// Case-study matchers – let narrative prose on port and service pages
+// point at the project that substantiates the claim being made. Port
+// matchers are deliberately NOT included in linkifyProjects: a port page
+// must not self-link to the port it is already on.
+const PROJECT_MATCHERS: Matcher[] = [
+  {
+    re: /\bsimultaneous docking\b/gi,
+    href: "/projects/simultaneous-dry-docking-cape-town/",
+  },
+];
+
+// Project-only linkifier, for port-page body prose.
+export function linkifyProjects(text: string): LinkifySegment[] {
+  return linkifyGeneric(text, PROJECT_MATCHERS);
+}
+
 // Port-only linkifier – kept on its existing signature so project and
 // service body prose keeps its current behaviour.
 export function linkifyPorts(text: string): LinkifySegment[] {
